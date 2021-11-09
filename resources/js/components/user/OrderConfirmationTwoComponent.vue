@@ -127,7 +127,21 @@
                             </v-col>
                         </v-row>
                     </v-col>
-                    <v-col cols="12" sm="12" md="4">
+                    <v-col cols="12" sm="12" md="6">
+                         <v-row v-if="ifCoupon == true">
+                             <v-col cols="12" sm="12" md="12">
+                                 <p>
+                                    {{user.name}}様に、クーポンが発行されています。
+                                 </p>
+                                 <v-btn
+                                    color="primary"
+                                    outlined
+                                    @click="$store.commit('coupon/setDialogCoupon', true)"
+                                 >
+                                     クーポンを確認する
+                                 </v-btn>
+                             </v-col>
+                         </v-row>
                          <v-row class="mb-4">
                             <v-col cols="12" sm="12" md="12">
                                 <v-form
@@ -137,7 +151,7 @@
                                 >
                                     <v-text-field
                                         v-model="coupon_code"
-                                        label="クーポンコード" 
+                                        label="クーポンコード入力欄" 
                                         outlined
                                         :error="allError.coupon || allError.coupon_code ? true : false"
                                         :error-messages="allError.coupon || allError.coupon_code"
@@ -302,6 +316,13 @@
 
            </v-col>
         </v-row>
+        <coupondialog-component
+            v-bind:dialogCoupon="dialogCoupon"
+            v-bind:user="user"
+            v-bind:couponDeadline="couponDeadline"
+            v-bind:couponName="couponName"
+            v-bind:couponInfo="couponInfo"
+        ></coupondialog-component>
     </div>
 </template>
 
@@ -331,6 +352,7 @@ export default {
     },
     created(){
         // this.$store.commit('selectAddress');
+        this.$store.dispatch('coupon/checkIfCoupon')
 
     },
     computed: {
@@ -343,6 +365,11 @@ export default {
         ]),
         ...mapState('coupon', [
             'coupon',
+            'ifCoupon',
+            'dialogCoupon',
+            'couponDeadline',
+            'couponName', 
+            'couponInfo',
             'allError',
             'couponDisabled'
         ]),
@@ -404,7 +431,7 @@ export default {
             this.$store.commit('coupon/setCouponDisabled', false);
             this.$store.dispatch('coupon/clearAllErrors');
             this.$store.dispatch('coupon/clearCoupon');
-        }
+        },
     },
 }
 </script>

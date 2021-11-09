@@ -145,7 +145,7 @@
                                 dark
                                 color="primary"
                                 v-if='user !== null'
-                                @click="$router.push({name: 'order'})"
+                                @click="toOrder"
                                 class="hidden-sm-and-down"
                             >
                             購入する
@@ -251,10 +251,10 @@ export default {
         }
     },
     mounted(){
-        this.$store.dispatch('coupon/checkIfCoupon')
+        
     },
     created(){
-        
+        this.$store.dispatch('coupon/checkIfCoupon')
     },
     computed: {
         ...mapState([
@@ -306,6 +306,13 @@ export default {
                 cartItem: value
             })
 
+        },
+        toOrder(){
+            this.$router.push({name: 'order'})
+
+            this.$store.dispatch('coupon/clearCoupon');
+            this.$store.commit('coupon/setCouponDisabled', false);
+            this.$store.dispatch('coupon/clearAllErrors');
         },
         goToProductsList(){
             this.$router.push({name: 'products-list'})

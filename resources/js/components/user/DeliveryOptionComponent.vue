@@ -145,7 +145,7 @@
                             v-model="deliveryNote"
                             label="備考欄"
                             outlined
-                            rows="5"
+                            rows="3"
                             :error="allerror.message? true : false"
                             :error-messages="allerror.message"
                         ></v-textarea>

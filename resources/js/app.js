@@ -10,12 +10,14 @@ window.Vue = require('vue');
 import router from "./router";
 import Vuetify from 'vuetify';
 import store from './store/';
+import VueClipboard from 'vue-clipboard2';
 import AppComponent from "./components/AppComponent";
 
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 
 Vue.use(Vuetify);
+Vue.use(VueClipboard);
 
 /**
  * The following block of code may be used to automatically register your
@@ -69,6 +71,7 @@ Vue.component('deleteuserdialog-component', require('./components/user/edit/Dele
 Vue.component('coupondisplay-component', require('./components/CouponDisplayComponent.vue').default);
 Vue.component('unsubscribedialog-component', require('./components/user/edit/UnsubscribeDialogComponent.vue').default);
 Vue.component('subscribedialog-component', require('./components/user/edit/SubscribeDialogComponent.vue').default);
+Vue.component('coupondialog-component', require('./components/user/CouponDialogComponent.vue').default);
 
 //guest
 Vue.component('guestcheckaddress-component', require('./components/guest/GuestCheckAddressComponent.vue').default);

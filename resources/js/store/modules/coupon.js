@@ -14,7 +14,10 @@ export const coupon = {
         },
         coupons: [],
         ifCoupon: false,
+        dialogCoupon: false,
         couponDeadline: '',
+        couponName: '',
+        couponInfo: '',
         memberCoupons: [],
         adminCoupon: {
             name: '',
@@ -59,8 +62,17 @@ export const coupon = {
         setIfCoupon(state, payload){
             state.ifCoupon = payload
         },
+        setDialogCoupon(state, payload){
+            state.dialogCoupon = payload
+        },
         setCouponDeadline(state, payload){
             state.couponDeadline = payload
+        },
+        setCouponInfo(state, payload){
+            state.couponInfo = payload
+        },
+        setCouponName(state, payload){
+            state.couponName = payload
         },
         emptyCoupon(state){
             state.coupon.id = ''
@@ -283,14 +295,20 @@ export const coupon = {
 
             let check ='';
             let deadline ='';
+            let couponName = '';
+            let couponInfo = '';
     
             await axios
                 .get("/check-coupon")
                 .then(res => {
                     check = res.data.check;
                     deadline = res.data.deadline;
+                    couponName = res.data.couponName;
+                    couponInfo = res.data.couponInfo;
                     commit('setIfCoupon', check);
                     commit('setCouponDeadline', deadline);
+                    commit('setCouponName', couponName);
+                    commit('setCouponInfo', couponInfo)
                     // commit('setDeliveryAddress', payload);
             });
         },

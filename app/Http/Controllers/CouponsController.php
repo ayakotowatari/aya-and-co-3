@@ -32,7 +32,7 @@ class CouponsController extends Controller
 
         if($amount < 1000){
 
-            return response() ->json(['errors' => ['coupon' => 'このクーポンは1,000円以上のお買い上げでご利用いただけます。']], 400);
+            return response() ->json(['errors' => ['coupon' => 'このクーポンは商品のお買い上げ金額が合計1,000円以上でご利用いただけます。']], 400);
 
         }else{
 
@@ -152,15 +152,73 @@ class CouponsController extends Controller
     }
 
     //会員が、2回目購入用のcouponにeligibleかどうかを確認する
+    // public function checkIfCoupon()
+    // {
+    //     $user = Auth::user();
+
+    //     if(!$user){
+    //         return response() -> json(['check'=> false, 'deadline'=>'']);
+    //     }else{
+
+    //         $coupon_code = 'welcomehome';
+
+    //         $coupon = Coupon::where('name', $coupon_code)->first();
+
+    //         // $one_order = Order::where('orders.user_id', '=', $user->id)->count();
+
+    //         $first_order = Order::where('orders.user_id', '=', $user->id)->oldest()->first();
+
+    //         if(!empty($first_order)){
+
+    //             $order_date = new Carbon($first_order->created_at);
+
+    //             if($user->id <= 28){
+    //                 $deadline = $order_date->addMonths(5);
+    //             }else{
+    //                 $deadline = $order_date->addMonths(2);
+    //             }
+
+    //             $redeemed = $coupon-> users() -> where('user_id', $user->id) ->first();
+
+    //             if(!$redeemed){
+                    
+    //                 $now = new Carbon();
+
+    //                 if($now->gt($deadline)){
+
+    //                     return response() -> json(['check'=> false, 'deadline'=>$deadline]);
+
+    //                 }else{
+
+    //                     $carbon_deadline = new Carbon($deadline);
+    //                     $ja_deadline = $carbon_deadline->format('Y年n月j日');
+
+    //                     return response() -> json(['check'=> true, 'deadline'=>$ja_deadline]);
+
+    //                 }
+    //             }else{
+
+    //                 return response() -> json(['check'=> false, 'deadline'=>$deadline]);
+    //             }
+    //         }else{
+    //             return response() -> json(['check'=> false, 'deadline'=>'']);
+    //         }
+
+    //     }
+        
+    // }
+
     public function checkIfCoupon()
     {
         $user = Auth::user();
 
+        $now = new Carbon();
+
         if(!$user){
-            return response() -> json(['check'=> false, 'deadline'=>'']);
+            return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
         }else{
 
-            $coupon_code = 'welcomeback';
+            $coupon_code = 'welcomehome';
 
             $coupon = Coupon::where('name', $coupon_code)->first();
 
@@ -168,6 +226,7 @@ class CouponsController extends Controller
 
             $first_order = Order::where('orders.user_id', '=', $user->id)->oldest()->first();
 
+            //オーダーが過去に一度あったら
             if(!empty($first_order)){
 
                 $order_date = new Carbon($first_order->created_at);
@@ -180,28 +239,98 @@ class CouponsController extends Controller
 
                 $redeemed = $coupon-> users() -> where('user_id', $user->id) ->first();
 
+                //まだwelcomebackクーポンを使っていなかったら
                 if(!$redeemed){
-                    
-                    $now = new Carbon();
 
+                    //期限が切れていたら
                     if($now->gt($deadline)){
 
-                        return response() -> json(['check'=> false, 'deadline'=>$deadline]);
+                        // return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=> '']);
+                        //他のクーポンがないか確認
+                        $otherCoupon = Coupon::where('status_id', 1)
+                                            ->whereDate('deadline', '>=', Carbon::now()->toDateString())
+                                            ->where('target', 1)
+                                            ->first(); 
 
+                        //もし他のクーポンがあったら
+                        if(!empty($otherCoupon)){
+
+                            $redeemed_other =$otherCoupon->users()->first();
+
+                            //もし他のクーポンを使っていたら
+                            if(!empty($redeemed_other)){
+                                return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo' => '']);
+                            //もし他のクーポンを使っていなかったら
+                            }else{
+                                $otherDeadline = new Carbon($otherCoupon->deadline);
+                                $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
+
+                                return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);
+    
+                                // //クーポンが固定価格の割引だったら
+                                // if(!empty($otherCoupon->value)){
+    
+                                //     return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);
+    
+                                // //クーポンがパーセントの割引だったら
+                                // }else{
+                                    
+                                //     return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);
+    
+                                // }            
+                            }
+
+                        //他のクーポンがなかったら
+                        }else{
+                            return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo' => '']);
+                        }
+                    
+                    //welcomebackクーポンの期限が切れていなかったら
                     }else{
 
                         $carbon_deadline = new Carbon($deadline);
                         $ja_deadline = $carbon_deadline->format('Y年n月j日');
+                        $coupon_info = $coupon->coupon_info;
 
-                        return response() -> json(['check'=> true, 'deadline'=>$ja_deadline]);
+                        return response() -> json(['check'=> true, 'deadline'=>$ja_deadline, 'couponName' => $coupon_code, 'couponInfo'=>$coupon_info]);
 
                     }
+
+                //もしwelcomebackクーポンを使っていたら
                 }else{
 
-                    return response() -> json(['check'=> false, 'deadline'=>$deadline]);
+                    $otherCoupon = Coupon::where('status_id', 1)
+                                        ->whereDate('deadline', '>=', Carbon::now()->toDateString())
+                                        ->where('target', 1)
+                                        ->first();    
+
+                    //他のクーポンがあったら           
+                    if(!empty($otherCoupon)){
+
+                        $redeemed_other =$otherCoupon->users()->first();
+
+                        //もし他のクーポンを使っていたら
+                        if(!empty($redeemed_other)){
+                            return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
+                        //もし他のクーポンを使っていなかったら
+                        }else{
+                            $otherDeadline = new Carbon($otherCoupon->deadline);
+                            $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
+                            $otherCoupon_info = $otherCoupon->coupon_info;
+                           
+                            return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon_info]);
+   
+                        }
+                    //他のクーポンがなかったら
+                    }else{
+                        return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
+                    }
+                    
                 }
+
+            //オーダーが過去に一度もなかったら
             }else{
-                return response() -> json(['check'=> false, 'deadline'=>'']);
+                return response() -> json(['check'=> false, 'deadline'=>'', 'couponName' => '', 'couponInfo' => '']);
             }
 
         }

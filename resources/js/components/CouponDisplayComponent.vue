@@ -11,22 +11,22 @@
                 クーポンをご利用いただけます。
             </v-card-title>
             <v-card-text class="jp-font-400">
+                クーポンコード: <strong>{{couponName}}</strong>
+            </v-card-text>
+            <v-card-text class="jp-font-400">
                 {{user.name}}様、いつもaya & co.をご利用いただき、誠にありがとうございます。
             </v-card-text>
             <v-card-text class="jp-font-400">
-                感謝の気持ちを込めまして、本サイトでの2回目以降のお買い物で、1,000円以上の商品のお買い上げでお使いいただけるクーポンを発行いたしました。
+                感謝の気持ちを込めまして、本サイトでのお買い物の際に、商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>でお使いいただけるクーポンを発行いたしました。
             </v-card-text>
             <v-card-text class="jp-font-400">
-                ご注文時に、下記のクーポン番号をご入力いただくと、商品のお買い上げ金額の10％引きとなります。ぜひご利用ください。
+                ご注文時に、クーポンコードをご入力いただくと、<strong>{{couponInfo}}</strong>となります。ぜひご利用ください。
             </v-card-text>
             <v-card-text class="jp-font-400">
-                このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。
+                このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。 クーポンは1回限りでご利用いただけます。
             </v-card-text>
              <v-card-text class="jp-font-400">
-                クーポン番号: <strong>welcomeback</strong>
-            </v-card-text>
-             <v-card-text class="jp-font-400 small-description">
-                クーポンは1回限りでご利用いただけます。
+                ご注文内容の確認画面で、再度、クーポンご利用のご案内が表示されます。
             </v-card-text>
         </v-card>
     </div>
@@ -54,12 +54,18 @@ export default {
         ]),
         ...mapState('coupon',[
             'ifCoupon',
-            'couponDeadline'
+            'couponDeadline', 
+            'couponName',
+            'couponInfo'
         ]),
     },
     methods: {
+        formatPrice(value){
+          let price = value;
 
-        
+          return price.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
+        },
+
     }
 
 
