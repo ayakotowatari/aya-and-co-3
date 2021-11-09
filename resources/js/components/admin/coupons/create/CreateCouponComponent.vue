@@ -73,6 +73,18 @@
                                 v-model="deadline"
                                 color = "primary"
                             ></v-date-picker>
+                            <v-select
+                                v-model="target"
+                                label="ターゲット"
+                                :items="targets"
+                                item-text='name'
+                                item-value='number'
+                                outlined
+                                required
+                                :rules="targetRules"
+                                :error="otherError.target ? true : false"
+                                :error-messages="otherError.target"
+                            ></v-select>
                             <v-btn 
                                 block 
                                 dark 
@@ -114,6 +126,11 @@ export default {
             percentOff: '',
             minimum: '',
             deadline: '',
+            target: '',
+            targetRules: [
+                (v) => !!v || 'ターゲットを0（個別）か1（全員）で入力してください。',
+            ],
+            targets: [{name:'個別', number:0},{name:'全員', number:1}]
     
         }
     },
@@ -145,6 +162,7 @@ export default {
                     percentOff: this.percentOff,
                     minimum: this.minimum,
                     deadline: this.deadline,
+                    target: this.target,
                     status_id: 16,
                 })
             }

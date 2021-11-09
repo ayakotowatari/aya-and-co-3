@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'user_type_id' => ['required', 'integer'],
             'name' => ['required', 'string', 'max:255'],
             'kana' => ['required', 'string', 'max:255'],
-            'zipcode' => ['required', 'integer'],
+            'zipcode' => ['required', 'digits:7'],
             'prefecture' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'address_1' => ['required', 'string', 'max:255'],

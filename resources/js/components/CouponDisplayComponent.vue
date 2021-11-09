@@ -8,25 +8,23 @@
                 >
                     mdi-ticket
                 </v-icon>  
-                クーポンをご利用いただけます。
+                クーポンが発行されました。
             </v-card-title>
             <v-card-text class="jp-font-400">
-                クーポンコード: <strong>{{couponName}}</strong>
+                クーポンコード: <strong class="fontsize18">{{couponName}}</strong><br>
+                有効期限： {{couponDeadline}}
             </v-card-text>
             <v-card-text class="jp-font-400">
-                {{user.name}}様、いつもaya & co.をご利用いただき、誠にありがとうございます。
+                 {{user.name}}様への感謝の気持ちを込めまして、本サイトでのお買い物の際にお使いいただけるクーポンを発行いたしました。
             </v-card-text>
             <v-card-text class="jp-font-400">
-                感謝の気持ちを込めまして、本サイトでのお買い物の際に、商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>でお使いいただけるクーポンを発行いたしました。
+                商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{couponInfo}}</strong>となります。ぜひ期限までにご利用ください。
             </v-card-text>
-            <v-card-text class="jp-font-400">
-                ご注文時に、クーポンコードをご入力いただくと、<strong>{{couponInfo}}</strong>となります。ぜひご利用ください。
-            </v-card-text>
-            <v-card-text class="jp-font-400">
-                このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。 クーポンは1回限りでご利用いただけます。
-            </v-card-text>
+            <!-- <v-card-text class="jp-font-400">
+                クーポンの有効期限: <strong>{{couponDeadline}}</strong>
+            </v-card-text> -->
              <v-card-text class="jp-font-400">
-                ご注文内容の確認画面で、再度、クーポンご利用のご案内が表示されます。
+                クーポンのご利用方法については、ご注文内容の確認画面で詳しくご案内します。
             </v-card-text>
         </v-card>
     </div>

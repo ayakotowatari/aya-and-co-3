@@ -155,7 +155,7 @@
                                 dark
                                 color="primary"
                                 v-if='user !== null'
-                                @click="$router.push({name: 'order'})"
+                                @click="toOrder"
                                 class="hidden-md-and-up"
                             >
                             購入する

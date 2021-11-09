@@ -69,6 +69,7 @@
  Vue.component('editminimum-component', require('./components/admin/coupons/edit/EditMinimumComponent.vue').default);
  Vue.component('editstatus-component', require('./components/admin/coupons/edit/EditStatusComponent.vue').default);
  Vue.component('editdeadline-component', require('./components/admin/coupons/edit/EditDeadlineComponent.vue').default);
+ Vue.component('edittarget-component', require('./components/admin/coupons/edit/EditTargetComponent.vue').default);
  
  /**
   * Next, we will create a fresh Vue application instance and attach it to

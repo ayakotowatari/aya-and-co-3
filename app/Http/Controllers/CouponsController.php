@@ -131,6 +131,7 @@ class CouponsController extends Controller
         $request->validate([
             'name' => 'required',
             'type' => 'required',
+            'target' => 'required'
         ]);
 
         $coupon = new Coupon();
@@ -141,6 +142,7 @@ class CouponsController extends Controller
         $coupon->percent_off = request('percentOff');
         $coupon->minimum = request('minimum');
         $coupon->deadline = request('deadline');
+        $coupon->target = request('target');
         $coupon->status_id = request('status_id');
 
         $coupon->save();
@@ -218,7 +220,7 @@ class CouponsController extends Controller
             return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
         }else{
 
-            $coupon_code = 'welcomehome';
+            $coupon_code = 'welcomeback';
 
             $coupon = Coupon::where('name', $coupon_code)->first();
 
@@ -304,6 +306,8 @@ class CouponsController extends Controller
                                         ->where('target', 1)
                                         ->first();    
 
+                    // DD($otherCoupon);
+
                     //他のクーポンがあったら           
                     if(!empty($otherCoupon)){
 
@@ -350,6 +354,7 @@ class CouponsController extends Controller
                         'percent_off',
                         'minimum',
                         'deadline',
+                        'target',
                         'status'
                     )
                     ->get();
@@ -371,6 +376,7 @@ class CouponsController extends Controller
                             'percent_off',
                             'minimum',
                             'deadline',
+                            'target',
                             'status'
                         )
                         ->first();
@@ -502,6 +508,30 @@ class CouponsController extends Controller
         $updated_deadline = $coupon->deadline;
 
         return response() -> json(['deadline'=>$updated_deadline]);
+
+     }
+
+     public function editTarget (Request $request)
+     {
+        $request->validate([
+            'id' => 'required',
+            'target' => 'required',
+        ]);
+
+        $coupon_id = request('id');
+        $target = request('target');
+
+        $coupon = Coupon::find($coupon_id);
+
+        $coupon->target = $target;
+        $coupon->update();
+
+        $updated_target = $coupon->target;
+        $target_name = $coupon->target_name;
+
+        // DD($target_name);
+
+        return response() -> json(['target'=>$updated_target, 'target_name'=>$target_name]);
 
      }
 

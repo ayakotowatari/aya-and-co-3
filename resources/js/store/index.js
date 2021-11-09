@@ -1395,7 +1395,7 @@ export default new Vuex.Store({
         .then(res => {
             user = res.data.user;
             commit('updateUser', user);
-            // commit('setDialogEditAddress', false);
+            commit('setDialogEditAddress', false);
             // commit('setLoading', false);
             // router.push({path: '/check-address'});
         })

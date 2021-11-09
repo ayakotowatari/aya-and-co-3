@@ -119,6 +119,7 @@ Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){
     Route::post('/admin/edit-couponpercentoff', 'CouponsController@editPercentOff')->name('admin.coupon.edit.percentoff');
     Route::post('/admin/edit-couponminimum', 'CouponsController@editMinimum')->name('admin.coupon.edit.minimum');
     Route::post('/admin/edit-coupondeadline', 'CouponsController@editDeadline')->name('admin.coupon.edit.deadline');
+    Route::post('/admin/edit-coupontarget', 'CouponsController@editTarget')->name('admin.coupon.edit.target');
     Route::post('/admin/edit-couponstatus', 'CouponsController@editStatus')->name('admin.coupon.edit.status');
     Route::get('/admin/fetch-couponstatuses', 'CouponsController@fetchStatuses')->name('admin.coupon.statuses');
     Route::post('/admin/create-emailnews', 'NewsController@createNews')->name('admin.create.news');

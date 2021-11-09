@@ -220,7 +220,7 @@ export default {
         }
     },
     mounted(){
-        this.$store.dispatch('coupon/fetchCoupons');
+        // this.$store.dispatch('coupon/fetchCoupons');
     },
     created(){
      
@@ -236,9 +236,9 @@ export default {
             'dialogSubscribe',
             'dialogDeleteUser',
         ]),
-        ...mapState('coupon', [
-            'coupons'
-        ])
+        // ...mapState('coupon', [
+        //     'coupons'
+        // ])
     
     },
     methods: {

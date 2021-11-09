@@ -24,25 +24,26 @@
                         <div class="dialog-title grey--text text--darken-4">クーポンの詳細</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
-                        クーポンコード: <strong class="fontsize18">{{couponName}}</strong>
+                        クーポンコード: <strong class="fontsize18">{{couponName}}</strong><br>
+                        有効期限: {{couponDeadline}}
                     </v-card-text>
                     <v-card-text class="jp-font-400">
-                        {{user.name}}様へ、感謝の気持ちを込めまして、商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>でお使いいただけるクーポンを発行いたしました。
+                        {{user.name}}様への感謝の気持ちを込めまして、クーポンを発行いたしました。
                     </v-card-text>
                     <v-card-text class="jp-font-400">
-                        <strong>{{couponInfo}}</strong>となるクーポンです。ぜひご利用ください。
+                        商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{couponInfo}}</strong>となるクーポンです。ぜひ期限までにご利用ください。
                     </v-card-text>
-                    <v-card-text class="jp-font-400">
-                        お客様のただいまの商品お買い上げ合計金額は{{cartTotal}}です。
+                    <v-card-text class="jp-font-400" v-if="checkTotal == false">
+                        ただいまの商品お買い上げ合計金額は、{{cartTotal}}です。
                     </v-card-text>
-                    <v-card-text class="jp-font-400">
-                        このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。クーポンは<strong>1回限り</strong>でご利用いただけます。
-                    </v-card-text>
+                    <!-- <v-card-text class="jp-font-400">
+                        このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。クーポンは1回限りでご利用いただけます。
+                    </v-card-text> -->
                     <v-card-title>
                         <div class="dialog-title grey--text text--darken-4">クーポンの使い方</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
-                        「コードをコピーする」をクリックしたあと、コードの入力欄に貼り付け（スマホでは入力欄をタップ、パソコンでは右クリックで貼り付け）、「クーポンを適用する」を押します。
+                        下の「コードをコピーする」をクリックしたあと、コードの入力欄に貼り付け（スマホでは入力欄をタップ、パソコンでは右クリックで貼り付け）、「クーポンを適用する」を押します。
                     </v-card-text>
                     <v-card-text class="jp-font-400">
                          もしくは
@@ -97,6 +98,13 @@ export default {
 
             //console.log(cartAmount);
             return cartAmount.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
+        },
+        checkTotal(){
+            if(this.cartTotal > 1000){
+                return true
+            }else{
+                return false
+            }
         }
     },
     methods: {
