@@ -24,14 +24,14 @@
                         <div class="dialog-title grey--text text--darken-4">クーポンの詳細</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
-                        クーポンコード: <strong class="fontsize18">{{couponName}}</strong><br>
-                        有効期限: {{couponDeadline}}
+                        クーポンコード: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
+                        有効期限: {{ifCoupon.deadline}}
                     </v-card-text>
                     <v-card-text class="jp-font-400">
                         {{user.name}}様への感謝の気持ちを込めまして、クーポンを発行いたしました。
                     </v-card-text>
                     <v-card-text class="jp-font-400">
-                        商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{couponInfo}}</strong>となるクーポンです。ぜひ期限までにご利用ください。
+                        商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{ifCoupon.info}}</strong>となるクーポンです。ぜひ期限までにご利用ください。
                     </v-card-text>
                     <v-card-text class="jp-font-400" v-if="checkTotal == false">
                         ただいまの商品お買い上げ合計金額は、{{cartTotal}}です。
@@ -73,9 +73,10 @@ export default {
     props: {
         dialogCoupon: Boolean,
         user: Object,
-        couponDeadline: String,
-        couponName: String,
-        couponInfo: String
+        ifCoupon: Object,
+        // couponDeadline: String,
+        // couponName: String,
+        // couponInfo: String
     },
     data: function(){
         return {
@@ -112,7 +113,7 @@ export default {
             const container = document.querySelector('.v-dialog');
             //ストライプを２度目にうまく読み込まないため変更
             // window.location.href='/member/summary';
-            this.$copyText(this.couponName, container).then(() => {
+            this.$copyText(this.ifCoupon.name, container).then(() => {
                  this.$store.commit('coupon/setDialogCoupon', false);
             })
             // this.$store.commit('setDisabled', false);

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="user !== null && ifCoupon !== false">
+    <div v-if="user !== null && ifCoupon.ifCoupon !== false">
          <v-card>
             <v-card-title class="jp-font-400-20">
                  <v-icon
@@ -11,14 +11,14 @@
                 クーポンが発行されました。
             </v-card-title>
             <v-card-text class="jp-font-400">
-                クーポンコード: <strong class="fontsize18">{{couponName}}</strong><br>
-                有効期限： {{couponDeadline}}
+                クーポンコード: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
+                有効期限： {{ifCoupon.deadline}}
             </v-card-text>
             <v-card-text class="jp-font-400">
                  {{user.name}}様への感謝の気持ちを込めまして、本サイトでのお買い物の際にお使いいただけるクーポンを発行いたしました。
             </v-card-text>
             <v-card-text class="jp-font-400">
-                商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{couponInfo}}</strong>となります。ぜひ期限までにご利用ください。
+                商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{ifCoupon.info}}</strong>となります。ぜひ期限までにご利用ください。
             </v-card-text>
             <!-- <v-card-text class="jp-font-400">
                 クーポンの有効期限: <strong>{{couponDeadline}}</strong>
@@ -52,9 +52,9 @@ export default {
         ]),
         ...mapState('coupon',[
             'ifCoupon',
-            'couponDeadline', 
-            'couponName',
-            'couponInfo'
+            // 'couponDeadline', 
+            // 'couponName',
+            // 'couponInfo'
         ]),
     },
     methods: {

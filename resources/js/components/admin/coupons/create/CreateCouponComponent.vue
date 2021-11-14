@@ -66,6 +66,8 @@
                                 v-model="minimum"
                                 label="最小累計金額"
                                 outlined
+                                required
+                                :rules="minimumRules"
                                 :error="otherError.percent_off ? true : false"
                                 :error-messages="otherError.percent_off"
                             ></v-text-field>
@@ -125,10 +127,13 @@ export default {
             value: '',
             percentOff: '',
             minimum: '',
+            minimumRules: [
+                (v) => !!v || '最小累計金額を入力してください。',
+            ],
             deadline: '',
             target: '',
             targetRules: [
-                (v) => !!v || 'ターゲットを0（個別）か1（全員）で入力してください。',
+                (v) => !!v || 'ターゲットを入力してください。',
             ],
             targets: [{name:'個別', number:0},{name:'全員', number:1}]
     

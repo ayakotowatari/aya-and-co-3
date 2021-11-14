@@ -15,9 +15,15 @@ export const coupon = {
         coupons: [],
         ifCoupon: false,
         dialogCoupon: false,
-        couponDeadline: '',
-        couponName: '',
-        couponInfo: '',
+        ifCoupon:{
+            ifCoupon: false,
+            name: '',
+            deadline: '',
+            info: '',
+        },
+        // couponDeadline: '',
+        // couponName: '',
+        // couponInfo: '',
         memberCoupons: [],
         adminCoupon: {
             id: '',
@@ -63,21 +69,27 @@ export const coupon = {
         setCoupons(state, payload){
             state.coupons = payload
         },
+        // setIfCoupon(state, payload){
+        //     state.ifCoupon = payload
+        // },
         setIfCoupon(state, payload){
-            state.ifCoupon = payload
+            state.ifCoupon.ifCoupon = payload.check
+            state.ifCoupon.deadline = payload.deadline
+            state.ifCoupon.name = payload.name
+            state.ifCoupon.info = payload.info
         },
         setDialogCoupon(state, payload){
             state.dialogCoupon = payload
         },
-        setCouponDeadline(state, payload){
-            state.couponDeadline = payload
-        },
-        setCouponInfo(state, payload){
-            state.couponInfo = payload
-        },
-        setCouponName(state, payload){
-            state.couponName = payload
-        },
+        // setCouponDeadline(state, payload){
+        //     state.couponDeadline = payload
+        // },
+        // setCouponInfo(state, payload){
+        //     state.couponInfo = payload
+        // },
+        // setCouponName(state, payload){
+        //     state.couponName = payload
+        // },
         emptyCoupon(state){
             state.coupon.id = ''
             state.coupon.name = ''
@@ -328,10 +340,10 @@ export const coupon = {
                     deadline = res.data.deadline;
                     couponName = res.data.couponName;
                     couponInfo = res.data.couponInfo;
-                    commit('setIfCoupon', check);
-                    commit('setCouponDeadline', deadline);
-                    commit('setCouponName', couponName);
-                    commit('setCouponInfo', couponInfo)
+                    commit('setIfCoupon', {check:check, deadline:deadline, name:couponName, info:couponInfo});
+                    // commit('setCouponDeadline', deadline);
+                    // commit('setCouponName', couponName);
+                    // commit('setCouponInfo', couponInfo)
                     // commit('setDeliveryAddress', payload);
             });
         },

@@ -128,7 +128,7 @@
                         </v-row>
                     </v-col>
                     <v-col cols="12" sm="12" md="6">
-                         <v-row v-if="ifCoupon == true">
+                         <v-row v-if="ifCoupon.ifCoupon == true">
                              <v-col cols="12" sm="12" md="12">
                                  <p>
                                     {{user.name}}様に、クーポンが発行されています。
@@ -319,9 +319,7 @@
         <coupondialog-component
             v-bind:dialogCoupon="dialogCoupon"
             v-bind:user="user"
-            v-bind:couponDeadline="couponDeadline"
-            v-bind:couponName="couponName"
-            v-bind:couponInfo="couponInfo"
+            v-bind:ifCoupon="ifCoupon"
         ></coupondialog-component>
     </div>
 </template>
@@ -367,9 +365,9 @@ export default {
             'coupon',
             'ifCoupon',
             'dialogCoupon',
-            'couponDeadline',
-            'couponName', 
-            'couponInfo',
+            // 'couponDeadline',
+            // 'couponName', 
+            // 'couponInfo',
             'allError',
             'couponDisabled'
         ]),

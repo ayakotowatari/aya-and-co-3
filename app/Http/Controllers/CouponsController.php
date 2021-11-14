@@ -131,6 +131,7 @@ class CouponsController extends Controller
         $request->validate([
             'name' => 'required',
             'type' => 'required',
+            'minimum' => 'required',
             'target' => 'required'
         ]);
 
@@ -214,6 +215,13 @@ class CouponsController extends Controller
     {
         $user = Auth::user();
 
+        $user_id = $user->id;
+        $subtotal = Order::where('orders.user_id', $user_id)->sum('item_total');
+        $discounts = Order::where('orders.user_id', $user_id)->sum('discount');
+        $user_total = $subtotal - $discounts;
+
+        // DD($user_total);
+
         $now = new Carbon();
 
         if(!$user){
@@ -247,11 +255,11 @@ class CouponsController extends Controller
                     //期限が切れていたら
                     if($now->gt($deadline)){
 
-                        // return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=> '']);
-                        //他のクーポンがないか確認
+                        //他のクーポンがないか確認。ongoingで、期限が過ぎておらず、ターゲットが全員で、最低累計金額に達しているか。
                         $otherCoupon = Coupon::where('status_id', 1)
                                             ->whereDate('deadline', '>=', Carbon::now()->toDateString())
                                             ->where('target', 1)
+                                            ->where('minimum', '<=', $user_total)
                                             ->first(); 
 
                         //もし他のクーポンがあったら
@@ -267,19 +275,7 @@ class CouponsController extends Controller
                                 $otherDeadline = new Carbon($otherCoupon->deadline);
                                 $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
 
-                                return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);
-    
-                                // //クーポンが固定価格の割引だったら
-                                // if(!empty($otherCoupon->value)){
-    
-                                //     return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);
-    
-                                // //クーポンがパーセントの割引だったら
-                                // }else{
-                                    
-                                //     return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);
-    
-                                // }            
+                                return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);   
                             }
 
                         //他のクーポンがなかったら
@@ -304,6 +300,7 @@ class CouponsController extends Controller
                     $otherCoupon = Coupon::where('status_id', 1)
                                         ->whereDate('deadline', '>=', Carbon::now()->toDateString())
                                         ->where('target', 1)
+                                        ->where('minimum', '<=', $user_total)
                                         ->first();    
 
                     // DD($otherCoupon);
