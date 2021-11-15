@@ -6,6 +6,7 @@ import router from "../router"
 
 import { admin } from './modules/admin';
 import { coupon } from './modules/coupon';
+import { giftcard } from './modules/giftcard';
  
 Vue.use(Vuex)
  
@@ -1584,14 +1585,18 @@ export default new Vuex.Store({
 
         let order = {};
         let products = [];
+        let giftcards = [];
+        let allerror = {};
 
         await axios
             .get('/member/fetch-order/' + payload.id)
             .then(response => {
                 order = response.data.order;
                 products = response.data.products;
+                giftcards = response.data.giftcards;
                 commit('setOrder', order);
                 commit('setOrderedProducts', products);
+                commit('giftcard/setOrderedCards', giftcards)
             })
             .catch(error => {
                 allerror = error.response.data.errors,
@@ -1882,7 +1887,8 @@ export default new Vuex.Store({
   },
   modules: {
     admin,
-    coupon
+    coupon,
+    giftcard
   }
 
 })

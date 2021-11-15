@@ -249,16 +249,8 @@
                             <v-list-item>
                                 <v-list-item-content>
                                     <v-list-item-subtitle class="jp-font-400">
-                                        カードメッセージのご利用
+                                        選べるメッセージカードのご利用
                                     </v-list-item-subtitle>
-                                    <!-- <div>
-                                        <v-list-item-title class="jp-font-400">
-                                            メッセージ：{{deliveryCardMessage}}
-                                        </v-list-item-title>
-                                        <v-list-item-title class="jp-font-400">
-                                            差出人名の表記：{{deliveryCardName}}
-                                        </v-list-item-title>
-                                    </div> -->
                                     <div v-if="deliveryCardUse === '利用しない'">
                                         利用なし
                                     </div>
@@ -269,6 +261,22 @@
                                         <v-list-item-title class="jp-font-400">
                                             差出人名の表記：{{deliveryCardName}}
                                         </v-list-item-title>
+                                    </div>
+                                </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item v-if="deliveryAddress.courier_type == 'ヤマト運輸 宅急便コンパクト'">
+                                <v-list-item-content>
+                                    <v-list-item-subtitle class="jp-font-400">
+                                        年末年始ギフトラッピングセットのご利用
+                                    </v-list-item-subtitle>
+                                    <div v-if="giftcard.length <= 0">
+                                        利用なし
+                                    </div>
+                                    <div v-if="giftcard.length >= 1">
+                                        <v-list-item-title v-for="item in giftcard" :key="item.number">
+                                            {{item.name}}: {{item.amount}}セット
+                                        </v-list-item-title>
+
                                     </div>
                                 </v-list-item-content>
                             </v-list-item>
@@ -374,6 +382,10 @@ export default {
         ...mapGetters('coupon', [
             'discount'
         ]),
+        ...mapState('giftcard', [
+            'giftcard',
+        ]),
+        
         cartTotal(){
             let cartAmount = this.$store.state.cart.reduce((acc,item) => acc + (item.price * item.quantity), 0);
 

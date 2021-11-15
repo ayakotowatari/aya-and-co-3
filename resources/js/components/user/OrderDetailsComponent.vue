@@ -274,6 +274,22 @@
                                         </div>
                                     </v-list-item-content>
                                 </v-list-item>
+                                <v-list-item>
+                                    <v-list-item-content>
+                                        <v-list-item-subtitle class="jp-font-400">
+                                            年末年始ギフトラッピングセットのご利用
+                                        </v-list-item-subtitle>
+                                        <div v-if="orderedCards.length <= 0">
+                                        利用なし
+                                        </div>
+                                        <div v-if="orderedCards.length >= 1">
+                                            <v-list-item-title v-for="item in orderedCards" :key="item.id">
+                                                {{item.card_name}}: {{item.quantity}}セット
+                                            </v-list-item-title>
+
+                                        </div>
+                                    </v-list-item-content>
+                                </v-list-item>
                                  <v-list-item>
                                     <div v-if="this.order.message !== null">
                                         <v-list-item-content>
@@ -353,6 +369,9 @@ export default {
             'actualShipmentDate',
             'deliveredDate',
         ]),
+        ...mapState('giftcard', [
+            'orderedCards'
+        ])
     },
     methods: {
         formatPrice(value){

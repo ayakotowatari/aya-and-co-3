@@ -286,6 +286,10 @@ export default {
         ...mapState('coupon', [
             'coupon'
         ]),
+        ...mapState('giftcard', [
+            'giftcard',
+            'allerror'
+        ]),
         ...mapGetters('coupon', [
             'discount'
         ]),
@@ -430,6 +434,7 @@ export default {
                 this.$store.dispatch('coupon/storeCouponData', this.coupon);
                 this.$store.commit('coupon/setCouponDisabled', false);
                 this.$store.dispatch('coupon/clearAllErrors');
+                this.$store.dispatch('giftcard/storeCardDetails', {giftcard:this.giftcard, order:this.order});
                 this.$store.dispatch('showDialogThankYou');
                 this.$store.dispatch('sendOrderNotify', this.order);
                 this.$store.dispatch('clearCart');

@@ -9,6 +9,7 @@ use App\Models\Shipment;
 use App\Models\Status;
 use App\Models\Postage;
 use App\Models\Courier;
+use App\Models\Giftcard;
 use Illuminate\Http\Request;
 use Auth;
 use PDF;
@@ -558,7 +559,16 @@ class OrdersController extends Controller
                         ->get();
        
         // DD($orders);
-        return response() -> json(['order' => $order, 'products' => $products]);  
+
+        $giftcards = Giftcard::where('order_id', $order_id)->get();
+
+        if(!empty($giftcards)){
+            return response() -> json(['order' => $order, 'products' => $products, 'giftcards' =>$giftcards]);  
+        }else{
+            return response() -> json(['order' => $order, 'products' => $products, 'giftcards' => '']);  
+        }
+
+      
 
     }
 

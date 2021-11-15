@@ -155,6 +155,7 @@ Route::group(['middleware' => ['auth', 'can:normal-user']], function(){
     Route::post('/member/store-coupon', 'CouponsController@storeCouponData')->name('member.store.coupon');
     Route::post('/member/unsubscribe', 'UsersController@unsubscribe')->name('member.unsubscribe');
     Route::post('/member/subscribe', 'UsersController@subscribe')->name('member.subscribe');
+    Route::post('/member/giftcard', 'GiftcardsController@store')->name('member.store.giftcard');
 });
 
 Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){
