@@ -148,7 +148,14 @@ class OrdersController extends Controller
                         ->get();
        
         // DD($orders);
-        return response() -> json(['order' => $order, 'products' => $products]);  
+
+        $giftcards = Giftcard::where('order_id', $order_id)->get();
+
+        if(!empty($giftcards)){
+            return response() -> json(['order' => $order, 'products' => $products, 'giftcards' =>$giftcards]);  
+        }else{
+            return response() -> json(['order' => $order, 'products' => $products, 'giftcards' => '']);  
+        }
 
     }
 

@@ -257,7 +257,7 @@
                                 <v-list-item>
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
-                                            カードメッセージ
+                                            メッセージカード
                                         </v-list-item-subtitle>
                                         <div v-if="order.delivery_carduse === '利用しない'">
                                             <v-list-item-title class="jp-font-400">
