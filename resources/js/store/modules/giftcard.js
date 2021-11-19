@@ -11,6 +11,7 @@ export const giftcard = {
             {name:"Happy New Year", number:2, amount:''},
             {name: "Season's Greetings", number:3, amount:''}
         ],
+        dialogOrderCard: false,
         allerror: [],
         
     },
@@ -40,7 +41,6 @@ export const giftcard = {
                 card.amount = newQuantity;
                 state.giftcard.push(card);
             }
-    
 
         },
         clearGiftCard(state,payload){
@@ -70,6 +70,9 @@ export const giftcard = {
         setOrderedCards(state, payload){
             state.orderedCards = payload
         },
+        setDialogOrderCard(state, payload){
+            state.dialogOrderCard = payload
+        },
         setAllErrors(state, payload){
             state.allerror = payload
         },
@@ -88,7 +91,7 @@ export const giftcard = {
 
             // console.log('payload', payload);
 
-            if(payload.giftcard.length > 0){
+            if(payload.giftcard.length > 0 && payload.courier !== "ヤマト運輸 宅急便"){
 
                 await axios
                 .post('/member/giftcard', {
@@ -107,6 +110,9 @@ export const giftcard = {
                     console.log('error', allerror)
                 })
 
+            }else{
+                commit('clearCardDetails', [])
+                commit('clearItemAmount')
             }
             
         },

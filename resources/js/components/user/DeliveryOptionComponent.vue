@@ -61,10 +61,8 @@
                             <div class="jp-font grey--text text--darken-2">配送方法をお選びいただくと、オプションが示されます。</div>
                         </div>
                         <div v-if="this.courier !== null">
-                            <!-- <div v-if="this.courier === 3" class="mb24">
-                                <div class="jp-font grey--text text--darken-2">お選びいただいた配送方法は、葉書サイズの「選べるメッセージカード」ご利用の対象外です。</div>
-                            </div> -->
                             <div v-if="this.courier === 3">
+                                <div class="jp-font grey--text text--darken-2 mb24">お選びいただいた配送方法は、葉書サイズの「選べるメッセージカード」ご利用の対象外です。</div>
                                 <seasoncard-component></seasoncard-component>
                             </div>
                             <div v-if="this.courier !== 3">

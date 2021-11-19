@@ -276,7 +276,6 @@
                                         <v-list-item-title v-for="item in giftcard" :key="item.number">
                                             {{item.name}}: {{item.amount}}セット
                                         </v-list-item-title>
-
                                     </div>
                                 </v-list-item-content>
                             </v-list-item>

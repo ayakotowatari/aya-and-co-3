@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-row justify="center">
+        <v-row justify="center" v-if="ifCoupon !== null">
             <v-dialog 
                 v-model="dialogCoupon" 
                 persistent 

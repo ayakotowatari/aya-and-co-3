@@ -73,6 +73,7 @@ Vue.component('unsubscribedialog-component', require('./components/user/edit/Uns
 Vue.component('subscribedialog-component', require('./components/user/edit/SubscribeDialogComponent.vue').default);
 Vue.component('coupondialog-component', require('./components/user/CouponDialogComponent.vue').default);
 Vue.component('seasoncard-component', require('./components/user/SeasonCardComponent.vue').default);
+Vue.component('ordercarddialog-component', require('./components/user/OrderCardDialogComponent.vue').default);
 
 //guest
 Vue.component('guestcheckaddress-component', require('./components/guest/GuestCheckAddressComponent.vue').default);
