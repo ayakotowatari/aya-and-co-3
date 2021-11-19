@@ -25,16 +25,17 @@
                     </v-card-title>
                     <v-card-text class="jp-font-400">
                         クーポンコード: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
-                        有効期限: {{ifCoupon.deadline}}
+                        有効期限: <strong>{{formattedDate(ifCoupon.deadline)}}</strong><br>
+                        内容： <strong>{{ifCoupon.coupon_info}}</strong>
                     </v-card-text>
-                    <v-card-text class="jp-font-400">
+                    <!-- <v-card-text class="jp-font-400">
                         {{user.name}}様への感謝の気持ちを込めまして、クーポンを発行いたしました。
-                    </v-card-text>
+                    </v-card-text> -->
                     <v-card-text class="jp-font-400">
-                        商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>で、<strong>{{ifCoupon.info}}</strong>となるクーポンです。ぜひ期限までにご利用ください。
+                        商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>でお使いいただけます。ぜひ期限までにご利用ください。
                     </v-card-text>
                     <v-card-text class="jp-font-400" v-if="checkTotal == false">
-                        ただいまの商品お買い上げ合計金額は、{{cartTotal}}です。
+                        ただいたカートに入っている商品の合計金額は、{{cartTotal}}です。
                     </v-card-text>
                     <!-- <v-card-text class="jp-font-400">
                         このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。クーポンは1回限りでご利用いただけます。
@@ -68,6 +69,8 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+
+import moment from 'moment';
 
 export default {
     props: {
@@ -129,6 +132,9 @@ export default {
 
           return price.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
         },
+        formattedDate(value){
+            return moment(value).format('YYYY年M月D日')
+        }
         
     }
 

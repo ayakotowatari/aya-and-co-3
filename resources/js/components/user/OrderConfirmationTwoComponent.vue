@@ -128,7 +128,7 @@
                         </v-row>
                     </v-col>
                     <v-col cols="12" sm="12" md="6">
-                         <v-row v-if="ifCoupon.ifCoupon == true">
+                         <v-row v-if="ifCoupon !== null">
                              <v-col cols="12" sm="12" md="12">
                                  <p>
                                     {{user.name}}様に、クーポンが発行されています。

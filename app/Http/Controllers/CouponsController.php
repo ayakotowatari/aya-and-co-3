@@ -215,22 +215,31 @@ class CouponsController extends Controller
     {
         $user = Auth::user();
 
-        $user_id = $user->id;
-        $subtotal = Order::where('orders.user_id', $user_id)->sum('item_total');
-        $discounts = Order::where('orders.user_id', $user_id)->sum('discount');
-        $user_total = $subtotal - $discounts;
-
         // DD($user_total);
 
         $now = new Carbon();
 
         if(!$user){
-            return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
+
+            return response() -> json(['ifCoupon' => null]);
+       
         }else{
+
+            $user_id = $user->id;
+            $subtotal = Order::where('orders.user_id', $user_id)->sum('item_total');
+            $discounts = Order::where('orders.user_id', $user_id)->sum('discount');
+            $user_total = $subtotal - $discounts;
 
             $coupon_code = 'welcomeback';
 
             $coupon = Coupon::where('name', $coupon_code)->first();
+
+            //他のクーポンがないか確認。ongoingで、期限が過ぎておらず、ターゲットが全員で、最低累計金額に達しているか。
+            $otherCoupon = Coupon::where('status_id', 1)
+                ->whereDate('deadline', '>=', Carbon::now()->toDateString())
+                ->where('target', 1)
+                ->where('minimum', '<=', $user_total)
+                ->first(); 
 
             // $one_order = Order::where('orders.user_id', '=', $user->id)->count();
 
@@ -255,13 +264,6 @@ class CouponsController extends Controller
                     //期限が切れていたら
                     if($now->gt($deadline)){
 
-                        //他のクーポンがないか確認。ongoingで、期限が過ぎておらず、ターゲットが全員で、最低累計金額に達しているか。
-                        $otherCoupon = Coupon::where('status_id', 1)
-                                            ->whereDate('deadline', '>=', Carbon::now()->toDateString())
-                                            ->where('target', 1)
-                                            ->where('minimum', '<=', $user_total)
-                                            ->first(); 
-
                         //もし他のクーポンがあったら
                         if(!empty($otherCoupon)){
 
@@ -269,39 +271,45 @@ class CouponsController extends Controller
 
                             //もし他のクーポンを使っていたら
                             if(!empty($redeemed_other)){
-                                return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo' => '']);
+                                // return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo' => '']);
+                                return response() -> json(['ifCoupon' => null]);
+
                             //もし他のクーポンを使っていなかったら
                             }else{
-                                $otherDeadline = new Carbon($otherCoupon->deadline);
-                                $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
+                                // $otherDeadline = new Carbon($otherCoupon->deadline);
+                                // $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
 
-                                return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon->coupon_info]);   
+                                return response() -> json(['ifCoupon' => $otherCoupon]);   
                             }
 
                         //他のクーポンがなかったら
                         }else{
-                            return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo' => '']);
+                            return response() -> json(['ifCoupon' => null]);
                         }
                     
                     //welcomebackクーポンの期限が切れていなかったら
                     }else{
 
-                        $carbon_deadline = new Carbon($deadline);
-                        $ja_deadline = $carbon_deadline->format('Y年n月j日');
-                        $coupon_info = $coupon->coupon_info;
+                        // $carbon_deadline = new Carbon($deadline);
+                        // $ja_deadline = $carbon_deadline->format('Y年n月j日');
+                        // $coupon_info = $coupon->coupon_info;
 
-                        return response() -> json(['check'=> true, 'deadline'=>$ja_deadline, 'couponName' => $coupon_code, 'couponInfo'=>$coupon_info]);
+                        // $new_collection = $coupon->merge($otherCoupon);
+
+                        $coupon->deadline = $deadline;
+
+                        return response() -> json(['ifCoupon' => $coupon]);
 
                     }
 
                 //もしwelcomebackクーポンを使っていたら
                 }else{
 
-                    $otherCoupon = Coupon::where('status_id', 1)
-                                        ->whereDate('deadline', '>=', Carbon::now()->toDateString())
-                                        ->where('target', 1)
-                                        ->where('minimum', '<=', $user_total)
-                                        ->first();    
+                    // $otherCoupon = Coupon::where('status_id', 1)
+                    //                     ->whereDate('deadline', '>=', Carbon::now()->toDateString())
+                    //                     ->where('target', 1)
+                    //                     ->where('minimum', '<=', $user_total)
+                    //                     ->first();    
 
                     // DD($otherCoupon);
 
@@ -312,26 +320,28 @@ class CouponsController extends Controller
 
                         //もし他のクーポンを使っていたら
                         if(!empty($redeemed_other)){
-                            return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
+                            return response() -> json(['ifCoupon' => null]);
                         //もし他のクーポンを使っていなかったら
                         }else{
-                            $otherDeadline = new Carbon($otherCoupon->deadline);
-                            $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
-                            $otherCoupon_info = $otherCoupon->coupon_info;
+                            // $otherDeadline = new Carbon($otherCoupon->deadline);
+                            // $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
+                            // $otherCoupon_info = $otherCoupon->coupon_info;
+
+                            return response() -> json(['ifCoupon' => $otherCoupon]);   
                            
-                            return response() -> json(['check'=> true, 'deadline'=>$ja_otherDeadline, 'couponName' => $otherCoupon->name, 'couponInfo' => $otherCoupon_info]);
+                            // return response() -> json(['ifCoupon' => $otherCoupon]);
    
                         }
                     //他のクーポンがなかったら
                     }else{
-                        return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo'=>'']);
+                        return response() -> json(['ifCoupon' => null]);
                     }
                     
                 }
 
             //オーダーが過去に一度もなかったら
             }else{
-                return response() -> json(['check'=> false, 'deadline'=>'', 'couponName' => '', 'couponInfo' => '']);
+                return response() -> json(['ifCoupon' => null]);
             }
 
         }

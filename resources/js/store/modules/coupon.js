@@ -15,12 +15,13 @@ export const coupon = {
         coupons: [],
         ifCoupon: false,
         dialogCoupon: false,
-        ifCoupon:{
-            ifCoupon: false,
-            name: '',
-            deadline: '',
-            info: '',
-        },
+        // ifCoupon:{
+        //     ifCoupon: false,
+        //     name: '',
+        //     deadline: '',
+        //     info: '',
+        // },
+        ifCoupon: {},
         // couponDeadline: '',
         // couponName: '',
         // couponInfo: '',
@@ -73,10 +74,11 @@ export const coupon = {
         //     state.ifCoupon = payload
         // },
         setIfCoupon(state, payload){
-            state.ifCoupon.ifCoupon = payload.check
-            state.ifCoupon.deadline = payload.deadline
-            state.ifCoupon.name = payload.name
-            state.ifCoupon.info = payload.info
+            // state.ifCoupon.ifCoupon = payload.check
+            // state.ifCoupon.deadline = payload.deadline
+            // state.ifCoupon.name = payload.name
+            // state.ifCoupon.info = payload.info
+            state.ifCoupon = payload;
         },
         setDialogCoupon(state, payload){
             state.dialogCoupon = payload
@@ -328,19 +330,22 @@ export const coupon = {
 
         async checkIfCoupon({commit}){
 
-            let check ='';
-            let deadline ='';
-            let couponName = '';
-            let couponInfo = '';
+            // let check ='';
+            // let deadline ='';
+            // let couponName = '';
+            // let couponInfo = '';
+            let ifCoupon = [];
     
             await axios
                 .get("/check-coupon")
                 .then(res => {
-                    check = res.data.check;
-                    deadline = res.data.deadline;
-                    couponName = res.data.couponName;
-                    couponInfo = res.data.couponInfo;
-                    commit('setIfCoupon', {check:check, deadline:deadline, name:couponName, info:couponInfo});
+                    ifCoupon = res.data.ifCoupon
+                    // check = res.data.check;
+                    // deadline = res.data.deadline;
+                    // couponName = res.data.couponName;
+                    // couponInfo = res.data.couponInfo;
+                    // commit('setIfCoupon', {check:check, deadline:deadline, name:couponName, info:couponInfo});
+                    commit('setIfCoupon', ifCoupon)
                     // commit('setCouponDeadline', deadline);
                     // commit('setCouponName', couponName);
                     // commit('setCouponInfo', couponInfo)

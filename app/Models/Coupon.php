@@ -11,13 +11,13 @@ class Coupon extends Model
 
     protected $appends = [
         'coupon_info',
-        'target_name'
+        'target_name',
     ];
 
     public function getCouponInfoAttribute()
     {
         if($this->type == 'fixed'){
-            return $this->value.'円引き';
+            return '商品のお買い上げ金額から'.$this->value.'円引き';
         }else if($this->type == 'percent'){
             return '商品のお買い上げ金額の'.$this->percent_off.'%引き';
         }else{
