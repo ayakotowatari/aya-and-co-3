@@ -91,7 +91,7 @@
             <v-row justify="center">
                 <v-col cols="12" sm="12" md="6">
                     <div class="totalprice grey--text text--darken-2">
-                        お支払いには、Stripeの決済プラットフォームを使用しています。本サイトにはお客様のクレジットカード番号は保存されませんので、安心してご利用ください。
+                        お支払いには、Stripe社の決済プラットフォームを使用しています。本サイトにはお客様のクレジットカード番号は保存されませんので、安心してご利用ください。
                     </div>
                 </v-col>
             </v-row>
