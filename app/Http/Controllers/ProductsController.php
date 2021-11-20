@@ -210,6 +210,7 @@ class ProductsController extends Controller
         $product->size = request('size');
         $product->slug= request('slug');
         $product->price = request('price');
+        $product->set = request('set');
         $product->category_id = request('category_id');
         $product->inventory = request('inventory');
         $product->status_id = request('status_id');

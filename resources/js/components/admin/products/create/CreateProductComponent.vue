@@ -52,7 +52,7 @@
                                 :error-messages="allerror.price"
                             ></v-text-field>
                              <v-select
-                                v-model="ifSet"
+                                v-model="if_set"
                                 label = "セット"
                                 :items="set"
                                 item-text="name"
@@ -145,6 +145,7 @@ export default {
                     size: this.size,
                     slug: this.slug,
                     price: this.price,
+                    set: this.if_set,
                     category_id: this.category,
                     inventory: this.inventory,
                     status_id: 16,

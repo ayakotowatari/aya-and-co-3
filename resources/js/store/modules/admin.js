@@ -960,6 +960,7 @@ export const admin = {
                     size: payload.size,
                     slug: payload.slug,
                     price: payload.price,
+                    set: payload.set,
                     category_id: payload.category_id,
                     inventory: payload.inventory,
                     status_id: payload.status_id,
