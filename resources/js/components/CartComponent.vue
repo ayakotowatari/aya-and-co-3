@@ -279,7 +279,7 @@ export default {
             'removeProduct',
             'openDialogUpdateCartQuantity', 
             'openDialogRemoveCartItem',
-            'fetchInventory'
+            'fetchInventoryToUpdate'
         ]),
         formatPrice(value){
           let amount = value;
@@ -287,11 +287,16 @@ export default {
           return amount.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
         },
         updateCartQuantity(value){
+
+            console.log('value', value);
             // this.$store.commit('openDialogUpdateCartQuantity', id)
             this.openDialogUpdateCartQuantity({
                 cartItem: value
             })
-            this.fetchInventory({
+            // this.fetchInventory({
+            //     product_id: value.id
+            // })
+            this.fetchInventoryToUpdate({
                 product_id: value.id
             })
         },

@@ -13,7 +13,7 @@
                     lazy-validation
                 >
                     <div class="mb-8">
-                        <div v-if="totalQuantityInCart >= 4">
+                        <div v-if="totalQuantityInCart >= 5">
                             <div class="jp-font grey--text text--darken-3 mb24">Step 1: ご希望の配送方法をお選びください。</div>
                             <!-- <div class="jp-font grey--text text--darken-2 mb24">ご用途に応じた配送方法の選び方については、<router-link to="/postage">こちら</router-link>でご案内しております。</div> -->
 
@@ -279,11 +279,15 @@ export default {
            
             let setInCart = this.cart.filter(cart => cart.set === 1);
             let setInCartQuantity = setInCart.reduce((acc,item) => acc + item.quantity, 0);
+            let setTotalQuantity = setInCartQuantity * 2;
 
-            let itemInCartQuantity = this.cart.reduce((acc,item) => acc + item.quantity, 0);
+            // console.log('setTotal', setTotalQuantity);
 
-            let totalInCartQuantity = setInCartQuantity + itemInCartQuantity;
-            console.log('result', totalInCartQuantity);
+            let itemInCart = this.cart.filter(cart => cart.set === null);
+            let itemInCartQuantity = itemInCart.reduce((acc,item) => acc + item.quantity, 0);
+
+            let totalInCartQuantity = setTotalQuantity + itemInCartQuantity;
+            // console.log('result', totalInCartQuantity);
 
             return totalInCartQuantity;
 

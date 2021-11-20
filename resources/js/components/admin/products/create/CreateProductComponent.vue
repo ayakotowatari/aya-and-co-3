@@ -52,6 +52,14 @@
                                 :error-messages="allerror.price"
                             ></v-text-field>
                              <v-select
+                                v-model="ifSet"
+                                label = "セット"
+                                :items="set"
+                                item-text="name"
+                                item-value="number"
+                            >
+                            </v-select>
+                             <v-select
                                 v-model="category"
                                 label = "カテゴリー"
                                 :items="categories"
@@ -103,6 +111,10 @@ export default {
             slug: '',
             price: '',
             category: '',
+            set:[
+                {name: 'セット', number: 1},
+                {name: '個別', number: 0}
+            ],
             inventory: '',
     
         }
