@@ -26,11 +26,30 @@
         </v-row>
 
         <div class="item-content policy-title mb-4">
-            簡単ギフトラッピングセット
+            簡単ギフトラッピングキット
         </div>
-        <p class="description" mb-8>
-            年末年始の期間中、1瓶ずつを簡単でおしゃれにシンプル包装できる「簡単ギフトラッピングセット」を無料で同封いたします。ご家族やご友人へのちょっとした贈り物にぜひご利用ください。
+        <p class="description mb-8">
+            宅急便コンパクトでまとめてご購入いただき、ご家族やご友人にプレゼントをされるお客様も多くいらっしゃいます。
         </p>
+        <p class="description mb-8">
+            ご希望のお客様には、年末年始の期間中、1瓶ずつを簡単でおしゃれにシンプル包装できる「簡単ギフトラッピングキット」を無料で同封いたします。贈り物にぜひご利用ください。
+        </p>
+         <p class="description mb-8">
+            セットは、ご注文時にお申し込みいただけます。なお、会員登録をいただいたお客様限定のサービスとなります。
+        </p>
+        <v-btn
+            color="primary"
+            outlined
+            class="mb-8"
+            @click="$router.push({name: 'wrapping-kit'})"
+        >
+            簡単ギフトラッピングキットとは？
+        </v-btn>
+        <v-row class="mb-8">
+            <v-col cols="12" sm="12" md="12" class="line-color">
+                <v-divider></v-divider>
+            </v-col>
+        </v-row>
     
         <div class="item-content policy-title mb-4">
             1梱包（宅急便コンパクト）でお送りできる商品数

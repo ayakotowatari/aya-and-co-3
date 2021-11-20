@@ -25,6 +25,7 @@ import About from "./components/AboutComponent";
 import Privacy from "./components/PrivacyComponent";
 import MessageService from "./components/MessageServiceComponent";
 import ProductsList from "./components/ProductsListComponent";
+import WrappingKit from "./components/WrappingKitComponent";
 
 //user
 // import OrderConfirmation from "./components/user/OrderConfirmationComponent";
@@ -121,6 +122,12 @@ const routes = [
         path: "/products-list",
         name: "products-list",
         component: ProductsList
+    },
+
+    {
+        path: "/wrapping-kit",
+        name: "wrapping-kit",
+        component: WrappingKit
     },
 
     {

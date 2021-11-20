@@ -26,7 +26,7 @@
                                 <v-col cols="12" sm="12" md="12">
                                     <v-row justify="center">
                                         <v-col cols="12" sm="12" md="12">
-                                            <div class="jp-font-400-18 grey--text text--darken-4 mt48 mb48">ラッピングセットを申し込む</div>
+                                            <div class="jp-font-400-18 grey--text text--darken-4 mt48 mb48">ラッピングキットを申し込む</div>
                                         </v-col>
                                     </v-row>
                                      <p>

@@ -401,7 +401,7 @@
                                  <v-list-item>
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
-                                            年末年始ギフトラッピングセット
+                                            簡単ギフトラッピングキット
                                         </v-list-item-subtitle>
                                         <div v-if="orderedCards.length <= 0">
                                         利用なし

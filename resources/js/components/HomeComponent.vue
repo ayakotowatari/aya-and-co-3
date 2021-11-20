@@ -76,7 +76,7 @@
               </div>
           </v-col>
           <v-col cols="12" sm="12" md="8">
-              <p class="description">
+              <p class="description mb-8">
                   aya & co. では、季節の旬の果物を仕入れて、small batch（少量生産）にて商品を製造します。ほとんどはシーズンの短期間のみの販売となりますので、気に入られた商品は、ぜひお早めにお求めください。
               </p>
           </v-col>

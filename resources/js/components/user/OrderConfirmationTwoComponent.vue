@@ -267,7 +267,7 @@
                             <v-list-item v-if="deliveryAddress.courier_type == 'ヤマト運輸 宅急便コンパクト'">
                                 <v-list-item-content>
                                     <v-list-item-subtitle class="jp-font-400">
-                                        年末年始ギフトラッピングセットのご利用
+                                        簡単ギフトラッピングキットのご利用
                                     </v-list-item-subtitle>
                                     <div v-if="giftcard.length <= 0">
                                         利用なし
