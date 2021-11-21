@@ -254,12 +254,12 @@
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item v-if="order.delivery_courier == 'ヤマト運輸 宅急便'">
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
                                             メッセージカード
                                         </v-list-item-subtitle>
-                                        <div v-if="order.delivery_carduse === '利用しない'">
+                                        <div v-if="order.delivery_carduse === '利用しない' || order.delivery_carduse === null">
                                             <v-list-item-title class="jp-font-400">
                                                 利用なし
                                             </v-list-item-title>
@@ -274,7 +274,7 @@
                                         </div>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item v-if="order.delivery_courier == 'ヤマト運輸 宅急便コンパクト'">
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
                                             簡単ギフトラッピングキットのご利用
@@ -347,6 +347,31 @@ export default {
             id: Number(this.$route.params.id),
             
         }
+    },
+    beforeRouteEnter: (to, from, next) => {
+       axios.post('/member/check-order', {
+           id: to.params.id
+       })
+       .then((response) => {
+           console.log('response', response)
+           if (response.data.length === 0){
+               next({path: 'not-found'})
+           }else{
+               next();
+           }
+       })
+    },
+    beforeRouteUpdate: (to, from, next) => {
+       axios.post('/member/check-order', {
+           id: to.params.id
+       })
+       .then((response) => {
+           if (response.data.length === 0){
+               next({path: 'not-found'})
+           }else{
+               next();
+           }
+       })
     },
     mounted(){
         this.$store.dispatch('fetchOrder', {

@@ -111,6 +111,7 @@ export default {
             slug: '',
             price: '',
             category: '',
+            if_set:'',
             set:[
                 {name: 'セット', number: 1},
                 {name: '個別', number: 0}

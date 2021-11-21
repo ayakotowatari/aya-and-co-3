@@ -143,6 +143,7 @@ Route::group(['middleware' => ['auth', 'can:normal-user']], function(){
     Route::get('/member/fetch-otherpostage/{id}', 'UsersController@otherPostage')->name('other.postage');
     Route::post('/purchase', 'UsersController@purchase')->name('purchase');
     Route::post('/member/order-confirmation', 'UsersController@orderConfirm')->name('order.confirm');
+    Route::post('/member/check-order', 'OrdersController@checkOrder')->name('check.order');
     Route::get('/member/fetch-order/{id}', 'OrdersController@fetchOrder')->name('order.details');
     Route::get('/member/fetch-shipment/{id}', 'OrdersController@fetchShipment')->name('order.shipment');
     Route::post('/member/update-name', 'UsersController@updateName')->name('member.update.name');

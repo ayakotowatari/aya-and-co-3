@@ -498,11 +498,29 @@ class OrdersController extends Controller
         return response() -> json(['note' => $note]);
     }
 
+    public function checkOrder(Request $request)
+    {
+        $user_id = Auth::user()->id;
 
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        $order_id = request('id');
+
+        $order = Order::where('id', $order_id)
+                    ->where('user_id', $user_id)
+                    ->first();
+
+        return $order;
+
+    }
 
     //会員のために各注文詳細を取得
     public function fetchOrder($id)
     {
+        $user_id = Auth::user()->id;
+
         $order_id = $id;
         
         // DD($order_id);
@@ -512,6 +530,7 @@ class OrdersController extends Controller
                     // ->join('statuses', 'statuses.id', '=', 'orders.status_id')
                     // ->join('shipments', 'shipments.order_id', '=', 'orders.id')
                     ->where('orders.id', $order_id)
+                    ->where('orders.user_id', $user_id)
                     ->select(
                         'orders.id',
                         'orders.created_at',
@@ -574,8 +593,6 @@ class OrdersController extends Controller
         }else{
             return response() -> json(['order' => $order, 'products' => $products, 'giftcards' => '']);  
         }
-
-      
 
     }
 

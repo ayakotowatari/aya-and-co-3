@@ -26,6 +26,7 @@ import Privacy from "./components/PrivacyComponent";
 import MessageService from "./components/MessageServiceComponent";
 import ProductsList from "./components/ProductsListComponent";
 import WrappingKit from "./components/WrappingKitComponent";
+import NotFoundPage from "./components/NotFoundPageComponent";
 
 //user
 // import OrderConfirmation from "./components/user/OrderConfirmationComponent";
@@ -272,6 +273,12 @@ const routes = [
         name: "unsubscribe",
         component: UnsubscribeEmails
     },
+    {
+        // ここで上のルーティングに該当しなかったものを全てNotFoundPage送り
+            path: '*',
+            name: 'not-found',
+            component: NotFoundPage,
+        },
     
 ];
 
