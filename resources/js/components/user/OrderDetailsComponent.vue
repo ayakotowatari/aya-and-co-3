@@ -229,7 +229,7 @@
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item v-if="order.delivery_courier !== null">
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
                                             配送オプション
