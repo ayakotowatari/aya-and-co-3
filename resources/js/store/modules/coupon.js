@@ -227,7 +227,7 @@ export const coupon = {
                     amount: payload.amount
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     
                     coupon = response.data.coupon;
 
@@ -251,7 +251,7 @@ export const coupon = {
                     coupon: payload,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     
                     commit('emptyCoupon');
                    
@@ -285,7 +285,7 @@ export const coupon = {
                     status_id: payload.status_id
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     coupons = response.data.coupons;
 
                     commit('setCoupons', coupons);
@@ -357,6 +357,7 @@ export const coupon = {
 
             let allerror = {};
             let coupon = '';
+            let update_name = '';
     
             await axios
                 .post('/admin/edit-couponname', {
@@ -364,15 +365,15 @@ export const coupon = {
                     name: payload.name,
                 })
                 .then(response => {
-                    console.log(response);
-                    name = response.data.name
-                    commit('updateCouponName', name);
+                    //console.log(response);
+                    update_name = response.data.name
+                    commit('updateCouponName', update_name);
                     commit('setIsEditingName', false);
                 })
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -381,7 +382,7 @@ export const coupon = {
             let allerror = {};
             let type = '';
 
-            console.log('payload', payload);
+            //console.log('payload', payload);
     
             await axios
                 .post('/admin/edit-coupontype', {
@@ -389,7 +390,7 @@ export const coupon = {
                     type: payload.type,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     type = response.data.type
                     commit('updateCouponType', type);
                     commit('setIsEditingType', false);   
@@ -397,7 +398,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -412,7 +413,7 @@ export const coupon = {
                     value: payload.value,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     value = response.data.value
                     commit('updateCouponValue', value);
                     commit('setIsEditingValue', false); 
@@ -421,7 +422,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -436,7 +437,7 @@ export const coupon = {
                     percentOff: payload.percentOff,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     percentOff = response.data.percentOff
                     commit('updateCouponPercentOff', percentOff);
                     commit('setIsEditingPercentOff', false);  
@@ -444,7 +445,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -459,7 +460,7 @@ export const coupon = {
                     minimum: payload.minimum,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     minimum = response.data.minimum
                     commit('updateCouponMinimum', minimum);
                     commit('setIsEditingMinimum', false);  
@@ -467,7 +468,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -482,7 +483,7 @@ export const coupon = {
                     deadline: payload.deadline,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     deadline = response.data.deadline
                     commit('updateCouponDeadline', deadline);
                     commit('setIsEditingDeadline', false);  
@@ -490,7 +491,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -515,7 +516,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 
@@ -530,7 +531,7 @@ export const coupon = {
                     status_id: payload.status_id,
                 })
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     status = response.data.status
                     commit('updateCouponStatus', status);
                     commit('setIsEditingStatus', false);  
@@ -538,7 +539,7 @@ export const coupon = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setOtherErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
         },
 

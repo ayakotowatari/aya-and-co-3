@@ -146,7 +146,7 @@ export default {
                     size: this.size,
                     slug: this.slug,
                     price: this.price,
-                    set: this.if_set,
+                    if_set: this.if_set,
                     category_id: this.category,
                     inventory: this.inventory,
                     status_id: 16,

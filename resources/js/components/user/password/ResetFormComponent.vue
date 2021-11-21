@@ -139,12 +139,12 @@ export default {
         ]),
        reset(){
 
-           console.log(this.token)
+        //    console.log(this.token)
 
            this.$store.commit('setLoading', true);
 
            if(this.$refs.form.validate()){
-               console.log('request');
+            //    console.log('request');
 
                this.resetPassword({
                    token: this.token,

@@ -111,7 +111,7 @@ export const admin = {
         },
         setShipmentOrders(state, payload){
             state.shipmentOrders = payload
-            console.log('orders')
+            // console.log('orders')
         },
         setOrderedProducts(state, payload){
             state.orderedProducts = payload
@@ -336,7 +336,7 @@ export const admin = {
                     users = res.data.users;
                     commit('setUsers', users);
                     // commit('setDeliveryAddress', payload);
-                    console.log(users)
+                    // console.log(users)
                 })
 
         },
@@ -960,7 +960,7 @@ export const admin = {
                     size: payload.size,
                     slug: payload.slug,
                     price: payload.price,
-                    set: payload.set,
+                    if_set: payload.if_set,
                     category_id: payload.category_id,
                     inventory: payload.inventory,
                     status_id: payload.status_id,
@@ -1167,7 +1167,7 @@ export const admin = {
                     commit('setLoading', false);
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                     allerror = error.response.data.errors;
                     commit('setallErrors', allerror)
                 })

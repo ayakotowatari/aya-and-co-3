@@ -544,8 +544,8 @@ export default new Vuex.Store({
         let quantity = state.inventory
         let product_id = payload
 
-        console.log('product_id', product_id)
-        console.log('inventory', quantity)
+        // console.log('product_id', product_id)
+        // console.log('inventory', quantity)
 
         if(product_id == 11){
             state.selectableNumbers = [1]
@@ -706,7 +706,7 @@ export default new Vuex.Store({
         state.postageYamatoBigs = payload
     },
     setPostageCompact(state, payload){
-        console.log(payload);
+        // console.log(payload);
         state.postageCompacts = payload
     },
     setCouriers(state, payload){

@@ -107,7 +107,7 @@ export const giftcard = {
                 .catch(error => {
                     allerror = error.response.data.errors
                     commit('setAllErrors', allerror)
-                    console.log('error', allerror)
+                    //console.log('error', allerror)
                 })
 
             }else{

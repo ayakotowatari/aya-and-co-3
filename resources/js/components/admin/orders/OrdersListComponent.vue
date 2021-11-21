@@ -134,7 +134,7 @@ export default {
             else return 'info'
         },
         expand(id){
-            console.log(id); 
+            // console.log(id); 
             this.$router.push({name: 'each-order', params: {id: id}})
         },
         // expand(id){

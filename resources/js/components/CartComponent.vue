@@ -288,8 +288,8 @@ export default {
         },
         updateCartQuantity(value){
 
-            console.log('value', value);
-            // this.$store.commit('openDialogUpdateCartQuantity', id)
+            //console.log('value', value);
+            //this.$store.commit('openDialogUpdateCartQuantity', id)
             this.openDialogUpdateCartQuantity({
                 cartItem: value
             })

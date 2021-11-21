@@ -118,13 +118,13 @@ export default {
         ]),
         totalQuantityInCart(){
            
-            let setInCart = this.cart.filter(cart => cart.set === 1);
+            let setInCart = this.cart.filter(cart => cart.if_set === 1);
             let setInCartQuantity = setInCart.reduce((acc,item) => acc + item.quantity, 0);
 
             let itemInCartQuantity = this.cart.reduce((acc,item) => acc + item.quantity, 0);
 
             let totalInCartQuantity = setInCartQuantity + itemInCartQuantity;
-            console.log('result', totalInCartQuantity);
+            // console.log('result', totalInCartQuantity);
 
             return totalInCartQuantity;
         },

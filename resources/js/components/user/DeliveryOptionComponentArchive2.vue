@@ -287,12 +287,12 @@ export default {
         ]),
         setInCart(){
             
-            return this.cart.filter(cart => cart.set === 1);
+            return this.cart.filter(cart => cart.if_set === 1);
             
         },
         setQuantity(){
 
-            let setInCart = this.cart.filter(cart => cart.set === 1);
+            let setInCart = this.cart.filter(cart => cart.if_set === 1);
             let cartQuantity = setInCart.reduce((acc,item) => acc + item.quantity, 0);
             console.log('result', cartQuantity);
             return cartQuantity;

@@ -483,7 +483,7 @@ export default {
         add(){
             // console.log('item', value);
             let cartItem = this.itemGroup;
-            console.log('item', cartItem)
+            // console.log('item', cartItem)
             let cartQuantity = this.selectedQuantity
             this.$store.commit('addToCart', {cartItem, cartQuantity})
             this.$store.commit('setProductQuantity', 1);
