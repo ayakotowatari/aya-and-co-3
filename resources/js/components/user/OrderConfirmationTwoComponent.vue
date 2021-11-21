@@ -127,7 +127,21 @@
                             </v-col>
                         </v-row>
                     </v-col>
-                    <v-col cols="12" sm="12" md="4">
+                    <v-col cols="12" sm="12" md="6">
+                         <v-row v-if="ifCoupon !== null">
+                             <v-col cols="12" sm="12" md="12">
+                                 <p>
+                                    {{user.name}}様に、クーポンが発行されています。
+                                 </p>
+                                 <v-btn
+                                    color="primary"
+                                    outlined
+                                    @click="$store.commit('coupon/setDialogCoupon', true)"
+                                 >
+                                     クーポンを確認する
+                                 </v-btn>
+                             </v-col>
+                         </v-row>
                          <v-row class="mb-4">
                             <v-col cols="12" sm="12" md="12">
                                 <v-form
@@ -137,7 +151,7 @@
                                 >
                                     <v-text-field
                                         v-model="coupon_code"
-                                        label="クーポンコード" 
+                                        label="クーポンコード入力欄" 
                                         outlined
                                         :error="allError.coupon || allError.coupon_code ? true : false"
                                         :error-messages="allError.coupon || allError.coupon_code"
@@ -235,16 +249,8 @@
                             <v-list-item>
                                 <v-list-item-content>
                                     <v-list-item-subtitle class="jp-font-400">
-                                        カードメッセージのご利用
+                                        選べるメッセージカードのご利用
                                     </v-list-item-subtitle>
-                                    <!-- <div>
-                                        <v-list-item-title class="jp-font-400">
-                                            メッセージ：{{deliveryCardMessage}}
-                                        </v-list-item-title>
-                                        <v-list-item-title class="jp-font-400">
-                                            差出人名の表記：{{deliveryCardName}}
-                                        </v-list-item-title>
-                                    </div> -->
                                     <div v-if="deliveryCardUse === '利用しない'">
                                         利用なし
                                     </div>
@@ -254,6 +260,21 @@
                                         </v-list-item-title>
                                         <v-list-item-title class="jp-font-400">
                                             差出人名の表記：{{deliveryCardName}}
+                                        </v-list-item-title>
+                                    </div>
+                                </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item v-if="deliveryAddress.courier_type == 'ヤマト運輸 宅急便コンパクト'">
+                                <v-list-item-content>
+                                    <v-list-item-subtitle class="jp-font-400">
+                                        簡単ギフトラッピングキットのご利用
+                                    </v-list-item-subtitle>
+                                    <div v-if="giftcard.length <= 0">
+                                        利用なし
+                                    </div>
+                                    <div v-if="giftcard.length >= 1">
+                                        <v-list-item-title v-for="item in giftcard" :key="item.number">
+                                            {{item.name}}: {{item.amount}}セット
                                         </v-list-item-title>
                                     </div>
                                 </v-list-item-content>
@@ -302,6 +323,11 @@
 
            </v-col>
         </v-row>
+        <coupondialog-component
+            v-bind:dialogCoupon="dialogCoupon"
+            v-bind:user="user"
+            v-bind:ifCoupon="ifCoupon"
+        ></coupondialog-component>
     </div>
 </template>
 
@@ -331,6 +357,7 @@ export default {
     },
     created(){
         // this.$store.commit('selectAddress');
+        this.$store.dispatch('coupon/checkIfCoupon')
 
     },
     computed: {
@@ -343,12 +370,21 @@ export default {
         ]),
         ...mapState('coupon', [
             'coupon',
+            'ifCoupon',
+            'dialogCoupon',
+            // 'couponDeadline',
+            // 'couponName', 
+            // 'couponInfo',
             'allError',
             'couponDisabled'
         ]),
         ...mapGetters('coupon', [
             'discount'
         ]),
+        ...mapState('giftcard', [
+            'giftcard',
+        ]),
+        
         cartTotal(){
             let cartAmount = this.$store.state.cart.reduce((acc,item) => acc + (item.price * item.quantity), 0);
 
@@ -404,7 +440,7 @@ export default {
             this.$store.commit('coupon/setCouponDisabled', false);
             this.$store.dispatch('coupon/clearAllErrors');
             this.$store.dispatch('coupon/clearCoupon');
-        }
+        },
     },
 }
 </script>

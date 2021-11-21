@@ -180,6 +180,32 @@
 
                          <v-divider class="mb-6"></v-divider>
 
+                          <div class="mb-6">
+                            <div class="item-content policy-title mb-3">
+                                ターゲット
+                            </div>
+                            <div class="item-title grey--text text--darken-3 mb-3">
+                                {{ adminCoupon.target_name }}
+                            </div>
+                            <div>
+                                <v-btn
+                                    color="primary"
+                                    outlined
+                                    v-if="!isEditing.target"
+                                    @click="$store.commit('coupon/setIsEditingTarget', true)"
+                                >
+                                    編集
+                                </v-btn>
+                            </div>
+                            <div v-if="isEditing.target">
+                                <edittarget-component
+                                    v-bind:adminCoupon='adminCoupon'
+                                ></edittarget-component>
+                            </div>
+                        </div>
+
+                         <v-divider class="mb-6"></v-divider>
+
                         <div class="mb-6">
                             <div class="item-content policy-title mb-3">
                                 ステータス

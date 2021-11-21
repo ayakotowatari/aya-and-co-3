@@ -91,7 +91,7 @@
             <v-row justify="center">
                 <v-col cols="12" sm="12" md="6">
                     <div class="totalprice grey--text text--darken-2">
-                        お支払いには、Stripeの決済プラットフォームを使用しています。本サイトにはお客様のクレジットカード番号は保存されませんので、安心してご利用ください。
+                        お支払いには、Stripe社の決済プラットフォームを使用しています。本サイトにはお客様のクレジットカード番号は保存されませんので、安心してご利用ください。
                     </div>
                 </v-col>
             </v-row>
@@ -286,6 +286,10 @@ export default {
         ...mapState('coupon', [
             'coupon'
         ]),
+        ...mapState('giftcard', [
+            'giftcard',
+            'allerror'
+        ]),
         ...mapGetters('coupon', [
             'discount'
         ]),
@@ -430,6 +434,7 @@ export default {
                 this.$store.dispatch('coupon/storeCouponData', this.coupon);
                 this.$store.commit('coupon/setCouponDisabled', false);
                 this.$store.dispatch('coupon/clearAllErrors');
+                this.$store.dispatch('giftcard/storeCardDetails', {giftcard:this.giftcard, order:this.order, courier:this.deliveryAddress.courier_type});
                 this.$store.dispatch('showDialogThankYou');
                 this.$store.dispatch('sendOrderNotify', this.order);
                 this.$store.dispatch('clearCart');

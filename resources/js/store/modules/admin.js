@@ -7,7 +7,40 @@ export const admin = {
        user: {},
        users: [],
        orders: [],
-       order: {},
+       order: {
+
+            box_quantity:"",
+            created_at:"",
+            delivery_address_1:"",
+            delivery_building:"",
+            delivery_cardmessage:"",
+            delivery_cardname:"",
+            delivery_carduse:"",
+            delivery_city:"",
+            delivery_courier:"",
+            delivery_name:"",
+            delivery_phone:"",
+            delivery_prefecture:"",
+            delivery_time:"",
+            delivery_zipcode:"",
+            id:"",
+            item_total:"",
+            message:"",
+            postage:"",
+            status:"",
+            discount:"",
+            total:"",
+            user_address_1:"",
+            user_building:"",
+            user_city:"",
+            user_email:"",
+            user_id:"",
+            user_name:"",
+            user_phone:"",
+            user_prefecture:"",
+            user_zipcode:"",
+
+       },
        shipment: {},
        plannedShipmentDate: null,
        actualShipmentDate: null,
@@ -328,14 +361,17 @@ export const admin = {
 
             let order = {};
             let products = [];
+            let giftcards = [];
 
             await axios
                 .get('/fetch-order/' + payload.id)
                 .then(response => {
                     order = response.data.order;
                     products = response.data.products;
+                    giftcards = response.data.giftcards;
                     commit('setOrder', order);
                     commit('setOrderedProducts', products);
+                    commit('giftcard/setOrderedCards', giftcards, {root: true});
                 })
                 .catch(error => {
                     allerror = error.response.data.errors,
@@ -924,6 +960,7 @@ export const admin = {
                     size: payload.size,
                     slug: payload.slug,
                     price: payload.price,
+                    set: payload.set,
                     category_id: payload.category_id,
                     inventory: payload.inventory,
                     status_id: payload.status_id,

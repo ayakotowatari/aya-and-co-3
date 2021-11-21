@@ -401,6 +401,22 @@
                                  <v-list-item>
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
+                                            簡単ギフトラッピングキット
+                                        </v-list-item-subtitle>
+                                        <div v-if="orderedCards.length <= 0">
+                                        利用なし
+                                        </div>
+                                        <div v-if="orderedCards.length >= 1">
+                                            <v-list-item-title v-for="item in orderedCards" :key="item.id">
+                                                {{item.card_name}}: {{item.quantity}}セット
+                                            </v-list-item-title>
+
+                                        </div>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                 <v-list-item>
+                                    <v-list-item-content>
+                                        <v-list-item-subtitle class="jp-font-400">
                                             備考欄
                                         </v-list-item-subtitle>
                                         <div v-if="order.message == null">
@@ -463,6 +479,7 @@ export default {
         }
     },
     mounted(){
+        
         this.$store.dispatch('admin/fetchOrder', {
             id: this.id
         });
@@ -472,6 +489,7 @@ export default {
         
     },
     created(){
+        
      
     },
     computed: {
@@ -493,6 +511,9 @@ export default {
             'deliveredDate',
             'orderStatus',
             'allerror',
+        ]),
+        ...mapState('giftcard', [
+            'orderedCards'
         ]),
         cartTotal(){
             let amount = this.orderedProducts.reduce((acc,item) => acc + (item.price * item.quantity), 0);

@@ -13,7 +13,7 @@
                     lazy-validation
                 >
                     <div class="mb-8">
-                        <div v-if="totalQuantityInCart >= 4">
+                        <div v-if="totalQuantityInCart >= 5">
                             <div class="jp-font grey--text text--darken-3 mb24">Step 1: ご希望の配送方法をお選びください。</div>
                             <!-- <div class="jp-font grey--text text--darken-2 mb24">ご用途に応じた配送方法の選び方については、<router-link to="/postage">こちら</router-link>でご案内しております。</div> -->
 
@@ -62,7 +62,8 @@
                         </div>
                         <div v-if="this.courier !== null">
                             <div v-if="this.courier === 3">
-                                <div class="jp-font grey--text text--darken-2">お選びいただいた配送方法は、「選べるメッセージカード」ご利用の対象外です。</div>
+                                <div class="jp-font grey--text text--darken-2 mb24">お選びいただいた配送方法は、葉書サイズの「選べるメッセージカード」ご利用の対象外です。</div>
+                                <seasoncard-component></seasoncard-component>
                             </div>
                             <div v-if="this.courier !== 3">
                                 <div class="jp-font grey--text text--darken-2 mb24">選べるメッセージカードサービス（無料）をご利用になられますか？</div>
@@ -140,12 +141,37 @@
                     ></v-select>
                     <div>
                         <v-divider class="mt-4 mb-8"></v-divider>
-                         <h4 class="jp-font grey--text text--darken-3 mb24">Step 4: 備考欄</h4>
+                        <h4 class="jp-font grey--text text--darken-3 mb24">Step 4: 備考欄</h4>
+                        <!-- <div v-if="this.courier == 3" class="jp-font grey--text text--darken-2 mb24">
+                            <p>
+                                年末年始のご家族やご友人への贈り物としてご購入されますか？
+                            </p>
+                            <p>
+                                シンプルでおしゃれなギフトラッピングをご自身でできる、「小さなカード・ラベルシール・袋」のセットを無料で同封いたします。
+                            </p>
+                            <p>
+                                カードは、以下の3種類をご用意しております。<br>
+                            </p>
+                            <p>
+                                クリスマス（"Happy Christmas"）<br>
+                                新年のご挨拶 ("Happy New Year"）<br>
+                                併用 (”Season's Greetings”）
+                            </p>
+                            <p>
+                                ご希望の方は、カードの種類と数を備考欄にご記入ください。
+                            </p>
+                            <p>
+                                例：<br>
+                                クリスマス 2セット<br>
+                                新年 1セット<br>
+                                併用 1セット
+                            </p>
+                        </div> -->
                         <v-textarea
                             v-model="deliveryNote"
                             label="備考欄"
                             outlined
-                            rows="5"
+                            rows="3"
                             :error="allerror.message? true : false"
                             :error-messages="allerror.message"
                         ></v-textarea>
@@ -212,7 +238,7 @@ export default {
             // items: ["希望なし", "午前中", "12:00-14:00頃", "14:00-16:00頃", "16:00-18:00頃", "18:00-20:00頃", "19:00-21:00頃", "20:00-21:00頃"],
             items: ["希望なし", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"],
             useCard: ['利用する', '利用しない'],
-            cards: ["Thank You", "Happy Birthday", "Take Care", "Get Well Soon", "With Love", 'Sending You a Hug'],
+            cards: ["Thank You", "Happy Christmas", "Happy New Year", "Season's Greetings", "Happy Birthday", "Take Care", "Get Well Soon", "With Love", 'Sending You a Hug'],
             deliveryCardUse: '',
             deliveryCardUseRules: [
                 v => !!v || 'メッセージカードのご利用の有無を選択してください。',
@@ -253,11 +279,15 @@ export default {
            
             let setInCart = this.cart.filter(cart => cart.set === 1);
             let setInCartQuantity = setInCart.reduce((acc,item) => acc + item.quantity, 0);
+            let setTotalQuantity = setInCartQuantity * 2;
 
-            let itemInCartQuantity = this.cart.reduce((acc,item) => acc + item.quantity, 0);
+            // console.log('setTotal', setTotalQuantity);
 
-            let totalInCartQuantity = setInCartQuantity + itemInCartQuantity;
-            console.log('result', totalInCartQuantity);
+            let itemInCart = this.cart.filter(cart => cart.set === null);
+            let itemInCartQuantity = itemInCart.reduce((acc,item) => acc + item.quantity, 0);
+
+            let totalInCartQuantity = setTotalQuantity + itemInCartQuantity;
+            // console.log('result', totalInCartQuantity);
 
             return totalInCartQuantity;
 

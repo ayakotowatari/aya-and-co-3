@@ -119,6 +119,7 @@ Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){
     Route::post('/admin/edit-couponpercentoff', 'CouponsController@editPercentOff')->name('admin.coupon.edit.percentoff');
     Route::post('/admin/edit-couponminimum', 'CouponsController@editMinimum')->name('admin.coupon.edit.minimum');
     Route::post('/admin/edit-coupondeadline', 'CouponsController@editDeadline')->name('admin.coupon.edit.deadline');
+    Route::post('/admin/edit-coupontarget', 'CouponsController@editTarget')->name('admin.coupon.edit.target');
     Route::post('/admin/edit-couponstatus', 'CouponsController@editStatus')->name('admin.coupon.edit.status');
     Route::get('/admin/fetch-couponstatuses', 'CouponsController@fetchStatuses')->name('admin.coupon.statuses');
     Route::post('/admin/create-emailnews', 'NewsController@createNews')->name('admin.create.news');
@@ -142,6 +143,7 @@ Route::group(['middleware' => ['auth', 'can:normal-user']], function(){
     Route::get('/member/fetch-otherpostage/{id}', 'UsersController@otherPostage')->name('other.postage');
     Route::post('/purchase', 'UsersController@purchase')->name('purchase');
     Route::post('/member/order-confirmation', 'UsersController@orderConfirm')->name('order.confirm');
+    Route::post('/member/check-order', 'OrdersController@checkOrder')->name('check.order');
     Route::get('/member/fetch-order/{id}', 'OrdersController@fetchOrder')->name('order.details');
     Route::get('/member/fetch-shipment/{id}', 'OrdersController@fetchShipment')->name('order.shipment');
     Route::post('/member/update-name', 'UsersController@updateName')->name('member.update.name');
@@ -154,6 +156,7 @@ Route::group(['middleware' => ['auth', 'can:normal-user']], function(){
     Route::post('/member/store-coupon', 'CouponsController@storeCouponData')->name('member.store.coupon');
     Route::post('/member/unsubscribe', 'UsersController@unsubscribe')->name('member.unsubscribe');
     Route::post('/member/subscribe', 'UsersController@subscribe')->name('member.subscribe');
+    Route::post('/member/giftcard', 'GiftcardsController@store')->name('member.store.giftcard');
 });
 
 Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){

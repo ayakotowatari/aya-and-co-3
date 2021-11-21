@@ -14,15 +14,28 @@ export const coupon = {
         },
         coupons: [],
         ifCoupon: false,
-        couponDeadline: '',
+        dialogCoupon: false,
+        // ifCoupon:{
+        //     ifCoupon: false,
+        //     name: '',
+        //     deadline: '',
+        //     info: '',
+        // },
+        ifCoupon: {},
+        // couponDeadline: '',
+        // couponName: '',
+        // couponInfo: '',
         memberCoupons: [],
         adminCoupon: {
+            id: '',
             name: '',
             type: '',
             value: '',
             percentOff: '',
             minimum: '',
             deadline: '',
+            target:'',
+            target_name: '',
             status: ''
         },
         couponDisabled: false,
@@ -33,6 +46,7 @@ export const coupon = {
             percentOff: false,
             minimum: false,
             deadline: false,
+            target: false,
             status: false
         },
         statuses: [],
@@ -56,12 +70,28 @@ export const coupon = {
         setCoupons(state, payload){
             state.coupons = payload
         },
+        // setIfCoupon(state, payload){
+        //     state.ifCoupon = payload
+        // },
         setIfCoupon(state, payload){
-            state.ifCoupon = payload
+            // state.ifCoupon.ifCoupon = payload.check
+            // state.ifCoupon.deadline = payload.deadline
+            // state.ifCoupon.name = payload.name
+            // state.ifCoupon.info = payload.info
+            state.ifCoupon = payload;
         },
-        setCouponDeadline(state, payload){
-            state.couponDeadline = payload
+        setDialogCoupon(state, payload){
+            state.dialogCoupon = payload
         },
+        // setCouponDeadline(state, payload){
+        //     state.couponDeadline = payload
+        // },
+        // setCouponInfo(state, payload){
+        //     state.couponInfo = payload
+        // },
+        // setCouponName(state, payload){
+        //     state.couponName = payload
+        // },
         emptyCoupon(state){
             state.coupon.id = ''
             state.coupon.name = ''
@@ -77,7 +107,17 @@ export const coupon = {
             state.memberCoupons = payload
         },
         setAdminCoupon(state, payload){
-            state.adminCoupon = payload
+            state.adminCoupon.id = payload.id
+            state.adminCoupon.name = payload.name
+            state.adminCoupon.type = payload.type
+            state.adminCoupon.value = payload.value
+            state.adminCoupon.percentOff = payload.percent_off
+            state.adminCoupon.minimum = payload.minimum
+            state.adminCoupon.deadline = payload.deadline
+            state.adminCoupon.target = payload.target
+            state.adminCoupon.target_name = payload.target_name
+            state.adminCoupon.status = payload.status
+    
         },
         setIsEditingName(state, payload){
             state.isEditing.name = payload
@@ -96,6 +136,9 @@ export const coupon = {
         },
         setIsEditingDeadline(state, payload){
             state.isEditing.deadline = payload
+        },
+        setIsEditingTarget(state, payload){
+            state.isEditing.target = payload
         },
         setIsEditingStatus(state, payload){
             state.isEditing.status = payload
@@ -116,8 +159,13 @@ export const coupon = {
             state.adminCoupon.minimum = payload
         },
         updateCouponDeadline(state, payload){
-            console.log('payload', payload)
+            // console.log('payload', payload)
             state.adminCoupon.deadline = payload
+        },
+        updateCouponTarget(state, payload){
+            // console.log('payload', payload)
+            state.adminCoupon.target = payload.target
+            state.adminCoupon.target_name = payload.target_name
         },
         updateCouponStatus(state, payload){
             state.adminCoupon.status = payload
@@ -233,6 +281,7 @@ export const coupon = {
                     percentOff: payload.percentOff,
                     minimum: payload.minimum,
                     deadline: payload.deadline,
+                    target: payload.target,
                     status_id: payload.status_id
                 })
                 .then(response => {
@@ -281,16 +330,25 @@ export const coupon = {
 
         async checkIfCoupon({commit}){
 
-            let check ='';
-            let deadline ='';
+            // let check ='';
+            // let deadline ='';
+            // let couponName = '';
+            // let couponInfo = '';
+            let ifCoupon = [];
     
             await axios
                 .get("/check-coupon")
                 .then(res => {
-                    check = res.data.check;
-                    deadline = res.data.deadline;
-                    commit('setIfCoupon', check);
-                    commit('setCouponDeadline', deadline);
+                    ifCoupon = res.data.ifCoupon
+                    // check = res.data.check;
+                    // deadline = res.data.deadline;
+                    // couponName = res.data.couponName;
+                    // couponInfo = res.data.couponInfo;
+                    // commit('setIfCoupon', {check:check, deadline:deadline, name:couponName, info:couponInfo});
+                    commit('setIfCoupon', ifCoupon)
+                    // commit('setCouponDeadline', deadline);
+                    // commit('setCouponName', couponName);
+                    // commit('setCouponInfo', couponInfo)
                     // commit('setDeliveryAddress', payload);
             });
         },
@@ -428,6 +486,31 @@ export const coupon = {
                     deadline = response.data.deadline
                     commit('updateCouponDeadline', deadline);
                     commit('setIsEditingDeadline', false);  
+                })
+                .catch(error => {
+                    allerror = error.response.data.errors
+                    commit('setOtherErrors', allerror)
+                    console.log('error', allerror)
+                })
+        },
+
+        async updateTarget({commit}, payload){
+
+            let allerror = {};
+            let target = '';
+            let target_name = '';
+    
+            await axios
+                .post('/admin/edit-coupontarget', {
+                    id: payload.id,
+                    target: payload.target,
+                })
+                .then(response => {
+                    // console.log(response);
+                    target = response.data.target
+                    target_name = response.data.target_name
+                    commit('updateCouponTarget', {target, target_name});
+                    commit('setIsEditingTarget', false);  
                 })
                 .catch(error => {
                     allerror = error.response.data.errors

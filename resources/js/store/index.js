@@ -6,6 +6,7 @@ import router from "../router"
 
 import { admin } from './modules/admin';
 import { coupon } from './modules/coupon';
+import { giftcard } from './modules/giftcard';
  
 Vue.use(Vuex)
  
@@ -269,8 +270,8 @@ export default new Vuex.Store({
         let postage = postage_data.postage
 
         if(id == 3){
-            if(totalQuantity > 4){
-                let boxQuantity = Math.ceil(totalQuantity/4)
+            if(totalQuantity > 6){
+                let boxQuantity = Math.ceil(totalQuantity/6)
                 // console.log('boxQuantity', boxQuantity);
                 let finalPostage = postage * boxQuantity
                 
@@ -517,7 +518,7 @@ export default new Vuex.Store({
         let quantity = payload
         let product_id = state.product[0].id
 
-        console.log('product_id', product_id)
+        // console.log('product_id', product_id)
 
         if(product_id == 11){
 
@@ -532,11 +533,35 @@ export default new Vuex.Store({
             }else if(quantity <=3){
                 state.selectableNumbers = [1]
             }else{
-                state.selectableNumbers = [1, 2, 3, 4, 5]
+                state.selectableNumbers = [1, 2, 3, 4, 5, 6]
             }
 
         }
 
+    },
+    setSelectableNumbersToUpdate(state, payload){
+
+        let quantity = state.inventory
+        let product_id = payload
+
+        console.log('product_id', product_id)
+        console.log('inventory', quantity)
+
+        if(product_id == 11){
+            state.selectableNumbers = [1]
+        }else{
+
+            if(quantity <= 5 && quantity >= 4){
+                state.selectableNumbers = [1, 2]
+            
+            // }else if(quantity <= 1){
+    
+            }else if(quantity <=3){
+                state.selectableNumbers = [1]
+            }else{
+                state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+            }
+        }
     },
     // disableSelectAmount(state, payload){
     //     state.disableSelectAmount = payload
@@ -1112,7 +1137,23 @@ export default new Vuex.Store({
             commit('setInventory', inventory)
             commit('setSelectableNumbers', inventory)
             // console.log(payload);
-    });
+        });
+
+    },
+    async fetchInventoryToUpdate({commit}, payload){
+
+        let product_id = payload.product_id;
+        // console.log('product_id', product_id)
+        let inventory = "";
+
+        await axios
+        .get("/fetch-inventory/" + product_id)
+        .then(res => {
+            inventory = res.data.inventory;
+            commit('setInventory', inventory)
+            commit('setSelectableNumbersToUpdate', product_id)
+            // console.log(payload);
+        });
 
     },
     clearCart({commit}) {
@@ -1395,7 +1436,7 @@ export default new Vuex.Store({
         .then(res => {
             user = res.data.user;
             commit('updateUser', user);
-            // commit('setDialogEditAddress', false);
+            commit('setDialogEditAddress', false);
             // commit('setLoading', false);
             // router.push({path: '/check-address'});
         })
@@ -1584,14 +1625,18 @@ export default new Vuex.Store({
 
         let order = {};
         let products = [];
+        let giftcards = [];
+        let allerror = {};
 
         await axios
             .get('/member/fetch-order/' + payload.id)
             .then(response => {
                 order = response.data.order;
                 products = response.data.products;
+                giftcards = response.data.giftcards;
                 commit('setOrder', order);
                 commit('setOrderedProducts', products);
+                commit('giftcard/setOrderedCards', giftcards)
             })
             .catch(error => {
                 allerror = error.response.data.errors,
@@ -1882,7 +1927,8 @@ export default new Vuex.Store({
   },
   modules: {
     admin,
-    coupon
+    coupon,
+    giftcard
   }
 
 })

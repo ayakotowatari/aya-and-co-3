@@ -68,7 +68,7 @@ class UsersController extends Controller
         $request->validate([
             // 'name' => 'required',
             // 'kana' => 'required',
-            'zipcode' => ['required', 'integer'],
+            'zipcode' => ['required', 'digits:7'],
             'prefecture' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'address_1' => ['required', 'string', 'max:255'],

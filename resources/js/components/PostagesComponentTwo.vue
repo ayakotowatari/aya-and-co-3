@@ -33,6 +33,13 @@
                     <p class="description">
                         配送方法によって、パッケージ（包装）と送料が異なりますので、ご用途にあった方法をお選びください。<br>
                     </p>
+                    <!-- <v-btn
+                        color="primary"
+                        outlined
+                        @click="$router.push({name: 'wrapping-kit'})"
+                    >
+                        簡単ギフトラッピングキットを無料進呈中
+                    </v-btn> -->
                 </div>
                 <v-tabs v-model="tab" class="mb-12">
                     <v-tab

@@ -30,72 +30,89 @@ class CouponsController extends Controller
 
         $amount = request('amount');
 
-        if($amount < 1000){
+        $coupon = Coupon::where('name', $coupon_code)
+                        ->first();
 
-            return response() ->json(['errors' => ['coupon' => 'このクーポンは1,000円以上のお買い上げでご利用いただけます。']], 400);
+        if(empty($coupon)){
+
+            return response() ->json(['errors' => ['coupon' => 'このクーポンは有効期限切れか、現在、提供されていません。']], 400);
 
         }else{
 
-            if($coupon_code == 'welcomeback'){
+            $first_order = Order::where('orders.user_id', '=', $user_id)->oldest()->first();
 
-                $first_order = Order::where('orders.user_id', '=', $user_id)->oldest()->first();
-    
-                if(!empty($first_order)){
-    
-                    $order_date = new Carbon($first_order->created_at);
-    
-                    if($user_id <= 28){
-                        $deadline = $order_date->addMonths(4);
-                    }else{
-                        $deadline = $order_date->addMonths(2);
-                    }
-    
-                    if($deadline >= Carbon::now()->toDateString()){
-    
-                        $coupon = Coupon::where('name', $coupon_code)
-                            ->first();
-                        
-                        // DD($coupon);
-    
-                    }else{
-    
-                        return response() ->json(['errors' => ['coupon' => 'このクーポンは有効期限切れか、現在、提供されていません。']], 400);
-                    }
-    
-                }else{
-                    return response() ->json(['errors' => ['coupon' => 'このクーポンは有効期限切れか、現在、提供されていません。']], 400);
-                }
-    
+            if(empty($first_order)){
+
+                return response() ->json(['errors' => ['coupon' => 'このクーポンは、2回目以降のお買い物で使用できます。']], 400);
+
             }else{
-    
-                $coupon = Coupon::where('name', $coupon_code)
-                            ->whereDate('deadline', '>=', Carbon::now()->toDateString())
-                            ->first();
-    
-                // DD($coupon);
-            }
-    
-            // DD($coupon);
-    
-            if(empty($coupon)){
-                return response() ->json(['errors' => ['coupon' => 'このクーポンは有効期限切れか、現在、提供されていません。']], 400);
-                // return response() ->json(['errors' => 'このクーポンは現在提供されていません。'], 400);
-            }else{
-    
+
                 $redeemed = $coupon-> users() -> where('user_id', $user_id) ->first();
-    
-                // DD($redeemed);
-    
-                if(!$redeemed){
-        
-                    return response() -> json(['coupon'=>$coupon]);
-                    
-                }else{
-        
+
+                if(!empty($redeemed)){
+
                     return response() ->json(['errors' => ['coupon' => 'このクーポンは使用済みです。']], 400);
+
+                }else{
+
+                    if($coupon_code == 'welcomeback'){
+
+                        $order_date = new Carbon($first_order->created_at);
+    
+                        if($user_id <= 28){
+                            $deadline = $order_date->addMonths(4);
+                        }else{
+                            $deadline = $order_date->addMonths(2);
+                        }
+    
+                         //もし有効期限がまだなら
+                        if($deadline >= Carbon::now()->toDateString()){
+    
+                            //お買い上げ金額が1000円未満なら
+                            if($amount < 1000){
+    
+                                return response() ->json(['errors' => ['coupon' => 'このクーポンは商品のお買い上げ金額が合計1,000円以上でご利用いただけます。']], 400);
+    
+                            //1000円以上なら
+                            }else{
+    
+                                return response() -> json(['coupon'=>$coupon]);
+
+                            }
+                            // DD($coupon);
+                        //有効期限が過ぎていたら
+                        }else{
+    
+                            return response() ->json(['errors' => ['coupon' => 'このクーポンは有効期限切れか、現在、提供されていません。']], 400);
+                        }
+    
+                    }else{
+
+                        if($coupon->deadline >= Carbon::now()->toDateString()){
+
+                            if($amount < 1000){
+
+                                return response() ->json(['errors' => ['coupon' => 'このクーポンは商品のお買い上げ金額が合計1,000円以上でご利用いただけます。']], 400);
+
+                            }else{
+
+                                return response() -> json(['coupon'=>$coupon]);
+
+                            }
+
+                        }else{
+
+                            return response() ->json(['errors' => ['coupon' => 'このクーポンは有効期限切れか、現在、提供されていません。']], 400);
+
+                        }
+                    }
+    
                 }
+
             }
+
         }
+
     }
 
     public function storeCouponData(Request $request)
@@ -131,6 +148,8 @@ class CouponsController extends Controller
         $request->validate([
             'name' => 'required',
             'type' => 'required',
+            'minimum' => 'required',
+            'target' => 'required'
         ]);
 
         $coupon = new Coupon();
@@ -141,6 +160,7 @@ class CouponsController extends Controller
         $coupon->percent_off = request('percentOff');
         $coupon->minimum = request('minimum');
         $coupon->deadline = request('deadline');
+        $coupon->target = request('target');
         $coupon->status_id = request('status_id');
 
         $coupon->save();
@@ -151,23 +171,45 @@ class CouponsController extends Controller
 
     }
 
-    //会員が、2回目購入用のcouponにeligibleかどうかを確認する
     public function checkIfCoupon()
     {
         $user = Auth::user();
 
+        // DD($user_total);
+
+        $now = new Carbon();
+
         if(!$user){
-            return response() -> json(['check'=> false, 'deadline'=>'']);
+
+            return response() -> json(['ifCoupon' => null]);
+       
         }else{
+
+            $user_id = $user->id;
+            $subtotal = Order::where('orders.user_id', $user_id)->sum('item_total');
+            $discounts = Order::where('orders.user_id', $user_id)->sum('discount');
+            $user_total = $subtotal - $discounts;
 
             $coupon_code = 'welcomeback';
 
             $coupon = Coupon::where('name', $coupon_code)->first();
 
+            //他のクーポンがないか確認。ongoingで、期限が過ぎておらず、ターゲットが全員で、最低累計金額に達しているか。
+            $otherCoupon = Coupon::where('status_id', 1)
+                ->whereDate('deadline', '>=', Carbon::now()->toDateString())
+                ->where('target', 1)
+                ->where('minimum', '<=', $user_total)
+                ->first(); 
+
             // $one_order = Order::where('orders.user_id', '=', $user->id)->count();
+
+            // DD($otherCoupon);
 
             $first_order = Order::where('orders.user_id', '=', $user->id)->oldest()->first();
 
+            // DD($first_order);
+
+            //オーダーが過去に一度あったら
             if(!empty($first_order)){
 
                 $order_date = new Carbon($first_order->created_at);
@@ -180,28 +222,73 @@ class CouponsController extends Controller
 
                 $redeemed = $coupon-> users() -> where('user_id', $user->id) ->first();
 
+                //まだwelcomebackクーポンを使っていなかったら
                 if(!$redeemed){
-                    
-                    $now = new Carbon();
 
+                    //期限が切れていたら
                     if($now->gt($deadline)){
 
-                        return response() -> json(['check'=> false, 'deadline'=>$deadline]);
+                        //もし他のクーポンがあったら
+                        if(!empty($otherCoupon)){
 
+                            $redeemed_other =$otherCoupon->users()->where('user_id', $user_id)->first();
+
+                            //もし他のクーポンを使っていたら
+                            if(!empty($redeemed_other)){
+                                // return response() -> json(['check'=> false, 'deadline'=>'', 'couponName'=>'', 'couponInfo' => '']);
+                                return response() -> json(['ifCoupon' => null]);
+
+                            //もし他のクーポンを使っていなかったら
+                            }else{
+                                // $otherDeadline = new Carbon($otherCoupon->deadline);
+                                // $ja_otherDeadline = $otherDeadline->format('Y年n月j日');
+
+                                return response() -> json(['ifCoupon' => $otherCoupon]);   
+                            }
+
+                        //他のクーポンがなかったら
+                        }else{
+                            return response() -> json(['ifCoupon' => null]);
+                        }
+                    
+                    //welcomebackクーポンの期限が切れていなかったら
                     }else{
 
-                        $carbon_deadline = new Carbon($deadline);
-                        $ja_deadline = $carbon_deadline->format('Y年n月j日');
+                        $coupon->deadline = $deadline;
 
-                        return response() -> json(['check'=> true, 'deadline'=>$ja_deadline]);
+                        return response() -> json(['ifCoupon' => $coupon]);
 
                     }
+
+                //もしwelcomebackクーポンを使っていたら
                 }else{
 
-                    return response() -> json(['check'=> false, 'deadline'=>$deadline]);
+                    //他のクーポンがあったら           
+                    if(!empty($otherCoupon)){
+
+                        $redeemed_other = $otherCoupon->users()->where('user_id', $user_id)->first();
+
+                        // DD($redeemed_other);
+
+                        //もし他のクーポンを使っていたら
+                        if(!empty($redeemed_other)){
+                            return response() -> json(['ifCoupon' => null]);
+                        //もし他のクーポンを使っていなかったら
+                        }else{
+
+                            return response() -> json(['ifCoupon' => $otherCoupon]);   
+   
+                        }
+                    //他のクーポンがなかったら
+                    }else{
+                        return response() -> json(['ifCoupon' => null]);
+                    }
+                    
                 }
+
+            //オーダーが過去に一度もなかったら
             }else{
-                return response() -> json(['check'=> false, 'deadline'=>'']);
+                return response() -> json(['ifCoupon' => null]);
             }
 
         }
@@ -221,6 +308,7 @@ class CouponsController extends Controller
                         'percent_off',
                         'minimum',
                         'deadline',
+                        'target',
                         'status'
                     )
                     ->get();
@@ -242,6 +330,7 @@ class CouponsController extends Controller
                             'percent_off',
                             'minimum',
                             'deadline',
+                            'target',
                             'status'
                         )
                         ->first();
@@ -373,6 +462,30 @@ class CouponsController extends Controller
         $updated_deadline = $coupon->deadline;
 
         return response() -> json(['deadline'=>$updated_deadline]);
+
+     }
+
+     public function editTarget (Request $request)
+     {
+        $request->validate([
+            'id' => 'required',
+            'target' => 'required',
+        ]);
+
+        $coupon_id = request('id');
+        $target = request('target');
+
+        $coupon = Coupon::find($coupon_id);
+
+        $coupon->target = $target;
+        $coupon->update();
+
+        $updated_target = $coupon->target;
+        $target_name = $coupon->target_name;
+
+        // DD($target_name);
+
+        return response() -> json(['target'=>$updated_target, 'target_name'=>$target_name]);
 
      }
 

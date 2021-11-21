@@ -1,5 +1,5 @@
 <template>
-    <div v-if="user !== null && ifCoupon !== false">
+    <div v-if="user !== null && ifCoupon !== null">
          <v-card>
             <v-card-title class="jp-font-400-20">
                  <v-icon
@@ -8,25 +8,24 @@
                 >
                     mdi-ticket
                 </v-icon>  
-                クーポンをご利用いただけます。
+                クーポンが発行されました。
             </v-card-title>
             <v-card-text class="jp-font-400">
-                {{user.name}}様、いつもaya & co.をご利用いただき、誠にありがとうございます。
+                 {{user.name}}様への感謝の気持ちを込めまして、本サイトでのお買い物の際にお使いいただけるクーポンを発行いたしました。
             </v-card-text>
             <v-card-text class="jp-font-400">
-                感謝の気持ちを込めまして、本サイトでの2回目以降のお買い物で、1,000円以上の商品のお買い上げでお使いいただけるクーポンを発行いたしました。
+                クーポンコード: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
+                有効期限： <strong>{{formattedDate(ifCoupon.deadline)}}</strong><br>
+                内容： <strong>{{ifCoupon.coupon_info}}</strong> 
             </v-card-text>
             <v-card-text class="jp-font-400">
-                ご注文時に、下記のクーポン番号をご入力いただくと、商品のお買い上げ金額の10％引きとなります。ぜひご利用ください。
+                商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>でお使いいただけます。ぜひ期限までにご利用ください。
             </v-card-text>
-            <v-card-text class="jp-font-400">
-                このクーポンの有効期限は、<strong>{{couponDeadline}}</strong>です。
-            </v-card-text>
+            <!-- <v-card-text class="jp-font-400">
+                クーポンの有効期限: <strong>{{couponDeadline}}</strong>
+            </v-card-text> -->
              <v-card-text class="jp-font-400">
-                クーポン番号: <strong>welcomeback</strong>
-            </v-card-text>
-             <v-card-text class="jp-font-400 small-description">
-                クーポンは1回限りでご利用いただけます。
+                クーポンのご利用方法については、ご注文内容の確認画面で詳しくご案内します。
             </v-card-text>
         </v-card>
     </div>
@@ -34,6 +33,8 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+
+import moment from 'moment';
 
 export default {
     data: function(){
@@ -54,12 +55,21 @@ export default {
         ]),
         ...mapState('coupon',[
             'ifCoupon',
-            'couponDeadline'
+            // 'couponDeadline', 
+            // 'couponName',
+            // 'couponInfo'
         ]),
     },
     methods: {
+        formatPrice(value){
+          let price = value;
 
-        
+          return price.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
+        },
+        formattedDate(value){
+            return moment(value).format('YYYY年M月D日')
+        }
+
     }
 
 
