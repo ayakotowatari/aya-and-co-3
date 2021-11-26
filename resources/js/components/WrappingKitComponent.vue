@@ -31,11 +31,22 @@
           </v-col>
           <v-col cols="12" sm="12" md="8">
               <div class="mb-8">
+                  <!-- <p class="description">
+                    キットの使い方をご紹介する動画を近日公開予定です。
+                  </p> -->
+                  <youtube-component
+                      v-bind:youtube='youtube'
+                  ></youtube-component>
+              </div>
+              <div class="mb-8">
                 <p class="description">
                     マーマレードをご購入いただき、ご家族やご友人へプレゼントをされるお客様がいらっしゃることから、生まれたサービスです。
                 </p>
                 <p class="description">
                     会員登録いただいたお客様が、配送方法として<strong>宅急便コンパクト</strong>を選択された場合、ご希望に応じて、一瓶ずつを簡単でおしゃれにラッピングできるキットを<strong>無料で</strong>同封いたします。
+                </p>
+                <p class="description">
+                    配送時に緩衝材として使用している高知県産の木毛を有効に再利用していただくラッピングです。
                 </p>
                 <p class="description">
                     ご注文時にお申し込みいただけますので、ぜひご利用ください。
@@ -46,7 +57,7 @@
                         キットの内容
                   </div>
                   <p class="description">
-                    ① １瓶が入る大きさの透明の袋<br>
+                    ① １〜２瓶が入る大きさの透明の袋<br>
                     ② 季節のメッセージがデザインされた小さなカード（裏面にはお店のご案内が印字されています）<br>
                     ③ ラベルシール<br>
                     ④ 高知県産木毛（配送の際に使用している緩衝材を再利用していただきます。）
@@ -60,11 +71,6 @@
                     ・Happy Christmas<br>
                     ・Happy New Year<br>
                     ・Season's Greetings<br>
-                  </p>
-              </div>
-              <div class="mb-8">
-                  <p class="description">
-                    キットの使い方をご紹介する動画を近日公開予定です。
                   </p>
               </div>
           </v-col>
@@ -81,7 +87,8 @@ export default {
                 { name: 'sample1', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/vintage_sample.JPG'},
                 { name: 'sample2', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/key_bagel.JPG'},
                 { name: 'sample3', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/kirigamine.png'},
-            ]
+            ],
+            youtube: 'ZQMbx7iHbfw'
         }            
     },
     mounted(){

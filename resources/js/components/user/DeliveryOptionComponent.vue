@@ -283,10 +283,21 @@ export default {
 
             // console.log('setTotal', setTotalQuantity);
 
-            let itemInCart = this.cart.filter(cart => cart.if_set === null);
-            let itemInCartQuantity = itemInCart.reduce((acc,item) => acc + item.quantity, 0);
+            let itemInCart = this.cart.filter(cart => cart.if_set === 0);
+            // console.log('itemInCart', itemInCart)
+            let itemInCart100 = itemInCart.filter(cart => cart.size === "100g")
+            let itemInCart100Quantity = (itemInCart100.reduce((acc,item) => acc + item.quantity, 0))*1.2;
+            let itemInCart150 = itemInCart.filter(cart => cart.size === "150g")
+            // console.log('cart150', itemInCart150);
+            let itemInCart150Quantity = (itemInCart150.reduce((acc,item) => acc + item.quantity, 0))*1.5;
+            let itemInCart250 = itemInCart.filter(cart => cart.size === "250g")
+            let itemInCart250Quantity = (itemInCart250.reduce((acc,item) => acc + item.quantity, 0))*2.5;
+            // let itemInCartQuantity = itemInCart.reduce((acc,item) => acc + item.quantity, 0);
+            // console.log('100', itemInCart100Quantity)
+            // console.log('150', itemInCart150Quantity)
+            // console.log('250', itemInCart250Quantity)
 
-            let totalInCartQuantity = setTotalQuantity + itemInCartQuantity;
+            let totalInCartQuantity = setTotalQuantity + itemInCart100Quantity + itemInCart150Quantity + itemInCart250Quantity;
             // console.log('result', totalInCartQuantity);
 
             return totalInCartQuantity;

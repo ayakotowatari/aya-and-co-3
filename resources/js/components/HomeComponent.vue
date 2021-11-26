@@ -55,6 +55,7 @@
                     <v-timeline
                       align-top
                       dense
+                      class="mb-8"
                     >
                         <v-timeline-item small class="description">商品リストから、お好きなマーマレードを選んでカートに入れてご注文ください。</v-timeline-item>
                         <v-timeline-item small class="description">お買い物のまえに、「<router-link to="/postage">配送方法と送料について</router-link>」をお読みいただくと、ご注文の手続きをスムーズに進めていただけます。</v-timeline-item>
@@ -63,8 +64,17 @@
                     </v-timeline>
                 </v-col>
             </v-row>
+            <campaignbanner-component></campaignbanner-component>
         </v-col>
       </v-row>
+
+      <div class="divider-image">
+         <v-img
+             max-width=90
+             class="mx-auto"
+             src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/basket.svg"
+          ></v-img>
+      </div>
       
       <v-row class="mb-8">
           <v-col cols="12" sm="12" md="4">

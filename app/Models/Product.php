@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -11,7 +12,7 @@ class Product extends Model
 
     protected $appends = [
         
-        'absolute_path'
+        'absolute_path',
     ];
 
     public function orders(){
@@ -46,4 +47,17 @@ class Product extends Model
         // return env('AWS_URL').'/'.$this->image;
         return config('s3.aws_url').'/'.$this->image;
     }
+
+    // public function getSizeAttribute()
+    // {
+        
+    //     if(Str::contains($this->slug, '100')){
+    //         return 100;
+    //     }elseif(Str::contains($this->slug, '150')){
+    //         return 150;
+    //     }else{
+    //         return 250;
+    //     }
+
+    // }
 }
