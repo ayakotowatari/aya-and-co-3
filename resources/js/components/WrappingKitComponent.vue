@@ -31,6 +31,14 @@
           </v-col>
           <v-col cols="12" sm="12" md="8">
               <div class="mb-8">
+                  <!-- <p class="description">
+                    キットの使い方をご紹介する動画を近日公開予定です。
+                  </p> -->
+                  <youtube-component
+                      v-bind:youtube='youtube'
+                  ></youtube-component>
+              </div>
+              <div class="mb-10">
                 <p class="description">
                     マーマレードをご購入いただき、ご家族やご友人へプレゼントをされるお客様がいらっしゃることから、生まれたサービスです。
                 </p>
@@ -38,34 +46,39 @@
                     会員登録いただいたお客様が、配送方法として<strong>宅急便コンパクト</strong>を選択された場合、ご希望に応じて、一瓶ずつを簡単でおしゃれにラッピングできるキットを<strong>無料で</strong>同封いたします。
                 </p>
                 <p class="description">
+                    配送時に緩衝材として使用している高知県産の木毛を有効に再利用していただくラッピングです。
+                </p>
+                <p class="description">
                     ご注文時にお申し込みいただけますので、ぜひご利用ください。
                 </p>
               </div>
-              <div class="mb-8">
+              <div class="mb-10">
                   <div class="item-content policy-title mb-4">
                         キットの内容
                   </div>
                   <p class="description">
-                    ① １瓶が入る大きさの透明の袋<br>
+                    ① １〜２瓶が入る大きさの透明の袋<br>
                     ② 季節のメッセージがデザインされた小さなカード（裏面にはお店のご案内が印字されています）<br>
                     ③ ラベルシール<br>
                     ④ 高知県産木毛（配送の際に使用している緩衝材を再利用していただきます。）
                   </p>
               </div>
                <div class="mb-8">
-                  <div class="item-content policy-title mb-4">
+                    <div class="item-content policy-title mb-4">
                         カードの種類
-                  </div>
-                  <p class="description">
-                    ・Happy Christmas<br>
-                    ・Happy New Year<br>
-                    ・Season's Greetings<br>
-                  </p>
-              </div>
-              <div class="mb-8">
-                  <p class="description">
-                    キットの使い方をご紹介する動画を近日公開予定です。
-                  </p>
+                    </div>
+                    <p class="description">
+                        3種類からお選びいただけます。ご注文時に、種類と枚数をお申し込みください。
+                    </p>
+              
+                    <v-row>
+                        <v-col cols="12" sm="12" md="4" v-for="image in images" :key="image.name">
+                            <p class="description">{{image.name}}</p>
+                            <v-img
+                                :src="image.link"
+                            ></v-img>
+                        </v-col>
+                    </v-row>
               </div>
           </v-col>
       </v-row>
@@ -78,10 +91,11 @@ export default {
     data: function(){
         return {
             images:[
-                { name: 'sample1', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/vintage_sample.JPG'},
-                { name: 'sample2', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/key_bagel.JPG'},
-                { name: 'sample3', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/kirigamine.png'},
-            ]
+                { name: 'Happy Christmas', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/xmas.png'},
+                { name: 'Happy New Year', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/newyear.png'},
+                { name: "Season's Greetings（併用）", link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/snowman.png'},
+            ],
+            youtube: 'ZQMbx7iHbfw'
         }            
     },
     mounted(){

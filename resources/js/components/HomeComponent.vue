@@ -37,7 +37,7 @@
       <p class="description mb-12">
         毎日の大切な時間にそっとよりそう、黒い小瓶たちです。
       </p> 
-      <v-row class="mb-12">
+      <v-row>
         <v-col cols="12" sm="12" md="4">
             <div class="subheading">
               How to Shop
@@ -55,6 +55,7 @@
                     <v-timeline
                       align-top
                       dense
+                      class="mb-8"
                     >
                         <v-timeline-item small class="description">商品リストから、お好きなマーマレードを選んでカートに入れてご注文ください。</v-timeline-item>
                         <v-timeline-item small class="description">お買い物のまえに、「<router-link to="/postage">配送方法と送料について</router-link>」をお読みいただくと、ご注文の手続きをスムーズに進めていただけます。</v-timeline-item>
@@ -63,8 +64,19 @@
                     </v-timeline>
                 </v-col>
             </v-row>
+            <div class="mb80">
+              <campaignbanner-component></campaignbanner-component>
+            </div>
         </v-col>
       </v-row>
+
+      <!-- <div class="divider-image">
+         <v-img
+             max-width=60
+             class="mx-auto"
+             src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/basket.svg"
+          ></v-img>
+      </div> -->
       
       <v-row class="mb-8">
           <v-col cols="12" sm="12" md="4">
@@ -196,6 +208,10 @@ export default {
 </script>
 
 <style>
+.mb80{
+    margin-bottom: 80px;
+}
+
 .v-list-item .v-list-item__subtitle, .v-list-item .v-list-item__title{
     line-height: 1.4 !important
 }
