@@ -24,35 +24,6 @@
                 <v-divider></v-divider>
             </v-col>
         </v-row>
-
-        <div class="item-content policy-title mb-4">
-            簡単ギフトラッピングキット
-        </div>
-        <p class="description mb-8">
-            宅急便コンパクトでまとめてご購入いただき、ご家族やご友人にプレゼントをされるお客様も多くいらっしゃいます。
-        </p>
-        <p class="description mb-8">
-            ご希望のお客様には、年末年始の期間中、1瓶ずつを簡単でおしゃれにシンプル包装できる「簡単ギフトラッピングキット」を無料で同封いたします。贈り物にぜひご利用ください。
-        </p>
-         <p class="description mb-8">
-            セットは、ご注文時にお申し込みいただけます。なお、会員登録をいただいたお客様限定のサービスとなります。
-        </p>
-        <div class="mb-8">
-            <campaignbanner-component></campaignbanner-component>
-        </div>
-        <!-- <v-btn
-            color="primary"
-            outlined
-            class="mb-8"
-            @click="$router.push({name: 'wrapping-kit'})"
-        >
-            簡単ギフトラッピングキットとは？
-        </v-btn> -->
-        <v-row class="mb-8">
-            <v-col cols="12" sm="12" md="12" class="line-color">
-                <v-divider></v-divider>
-            </v-col>
-        </v-row>
     
         <div class="item-content policy-title mb-4">
             1梱包（宅急便コンパクト）でお送りできる商品数
@@ -66,6 +37,38 @@
         <p class="description">
             また、150gや250g瓶との組み合わせは、ご注文時に、梱包数が自動計算され、送料に反映されます。「ご注文内容の確認」に表示されますので、どうぞお確かめください。
         </p>
+
+         <v-row class="mb-8">
+            <v-col cols="12" sm="12" md="12" class="line-color">
+                <v-divider></v-divider>
+            </v-col>
+        </v-row>
+
+         <div class="item-content policy-title mb-4">
+            簡単ギフトラッピングキット
+        </div>
+        <p class="description mb-8">
+            宅急便コンパクトでまとめてご購入いただき、ご家族やご友人にプレゼントをされるお客様も多くいらっしゃいます。
+        </p>
+        <p class="description mb-8">
+            会員登録をいただいたお客様で、ご希望の場合には、年末年始の期間中、1瓶ずつを簡単でおしゃれにシンプル包装できる「簡単ギフトラッピングキット」を無料で同封いたします。贈り物にぜひご利用ください。
+        </p>
+        <div class="mb-8">
+            <campaignbanner-component></campaignbanner-component>
+        </div>
+        <!-- <v-btn
+            color="primary"
+            outlined
+            class="mb-8"
+            @click="$router.push({name: 'wrapping-kit'})"
+        >
+            簡単ギフトラッピングキットとは？
+        </v-btn> -->
+        <!-- <v-row class="mb-8">
+            <v-col cols="12" sm="12" md="12" class="line-color">
+                <v-divider></v-divider>
+            </v-col>
+        </v-row> -->
     </div>
 </template>
 

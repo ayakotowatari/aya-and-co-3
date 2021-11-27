@@ -73,7 +73,7 @@
               
                     <v-row>
                         <v-col cols="12" sm="12" md="4" v-for="image in images" :key="image.name">
-                            <p class="description">{{image.name}}</p>
+                            <p class="description fontsize14">{{image.name}}</p>
                             <v-img
                                 :src="image.link"
                             ></v-img>
@@ -91,9 +91,9 @@ export default {
     data: function(){
         return {
             images:[
-                { name: 'Happy Christmas', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/xmas.png'},
-                { name: 'Happy New Year', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/newyear.png'},
-                { name: "Season's Greetings（併用）", link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/snowman.png'},
+                { name: 'クリスマス', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/xmas.png'},
+                { name: '新年', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/newyear.png'},
+                { name: "併用", link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/snowman.png'},
             ],
             youtube: 'ZQMbx7iHbfw'
         }            
@@ -121,30 +121,8 @@ export default {
 .mb60 {
   margin-bottom: 60px;
 }
-.card-image{
-    border: 0.5px solid #727272;
-}
-.font-14{
+.fontsize14{
     font-size: 14px;
-}
-
-.line-color .theme--light.v-divider{
-    border-color: #FE6862;
-    border-style: dotted;
-    /* background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
-    background-position: bottom;
-    background-size: 3px 1px;
-    background-repeat: repeat-x; */
-
-}
-
-.balloon-image{
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
-
-.line-height{
-    line-height: 1.8;
 }
 
 @media(max-width:780px){
