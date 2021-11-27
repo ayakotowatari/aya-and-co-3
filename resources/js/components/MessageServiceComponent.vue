@@ -61,11 +61,23 @@
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
                         <p class="mb-4">現在、メッセージは、以下のなかからお選びいただけます。</p>
-                        <v-row>
+                        <v-row class="mb-4">
                             <v-col cols="12" sm="12" md="1" class="hidden-sm-and-down">
 
                             </v-col>
                             <v-col cols="12" sm="12" md="11">
+                                <p class="mb-4">
+                                    Happy Christmas
+                                </p>
+                                <p class="mb-4">
+                                    Happy New Year
+                                </p>
+                                <p class="mb-4">
+                                    Happy Christmas
+                                </p>
+                                <p class="mb-4">
+                                    Season's Greetings（年末年始の季節のご挨拶）
+                                </p>
                                 <div class="mb-2">
                                     Thank You（ありがとう）
                                 </div>
@@ -81,9 +93,6 @@
                                 <div class="mb-2">
                                     With Love（愛を込めて）<span class="font-14">*ご家族やご親友に親愛の情を示す時にも使われます。</span>
                                 </div>
-                                <p class="mb-4">
-                                Sending You a Hug（ハグをおくります）<span class="font-14">*少し落ち込んでいるご友人やご家族をなぐさめたり、元気づけるメッセージです。</span>
-                                </p>
                             </v-col>
                         </v-row>
                         <p>
