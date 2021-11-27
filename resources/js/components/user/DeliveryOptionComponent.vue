@@ -142,31 +142,6 @@
                     <div>
                         <v-divider class="mt-4 mb-8"></v-divider>
                         <h4 class="jp-font grey--text text--darken-3 mb24">Step 4: 備考欄</h4>
-                        <!-- <div v-if="this.courier == 3" class="jp-font grey--text text--darken-2 mb24">
-                            <p>
-                                年末年始のご家族やご友人への贈り物としてご購入されますか？
-                            </p>
-                            <p>
-                                シンプルでおしゃれなギフトラッピングをご自身でできる、「小さなカード・ラベルシール・袋」のセットを無料で同封いたします。
-                            </p>
-                            <p>
-                                カードは、以下の3種類をご用意しております。<br>
-                            </p>
-                            <p>
-                                クリスマス（"Happy Christmas"）<br>
-                                新年のご挨拶 ("Happy New Year"）<br>
-                                併用 (”Season's Greetings”）
-                            </p>
-                            <p>
-                                ご希望の方は、カードの種類と数を備考欄にご記入ください。
-                            </p>
-                            <p>
-                                例：<br>
-                                クリスマス 2セット<br>
-                                新年 1セット<br>
-                                併用 1セット
-                            </p>
-                        </div> -->
                         <v-textarea
                             v-model="deliveryNote"
                             label="備考欄"
@@ -176,30 +151,6 @@
                             :error-messages="allerror.message"
                         ></v-textarea>
                     </div>
-                    <!-- <div v-if="deliveryAddress.home_address == true && this.courier !== 3">
-                        <v-divider class="mt-4 mb-8"></v-divider>
-                         <h4 class="jp-font grey--text text--darken-3 mb24">Step 4: 備考欄</h4>
-                        <v-textarea
-                            v-model="deliveryNote"
-                            label="備考欄"
-                            outlined
-                            rows="8"
-                            :error="allerror.note ? true : false"
-                            :error-messages="allerror.note"
-                        ></v-textarea>
-                    </div> -->
-                     <!-- <div v-if="deliveryAddress.home_address == false && this.courier !== 3">
-                        <v-divider class="mt-4 mb-8"></v-divider>
-                         <h4 class="jp-font grey--text text--darken-3 mb24">Step 4: 備考欄</h4>
-                        <v-textarea
-                            v-model="deliveryNote"
-                            label="備考欄"
-                            outlined
-                            rows="3"
-                            :error="allerror.note ? true : false"
-                            :error-messages="allerror.note"
-                        ></v-textarea>
-                    </div> -->
                     <v-btn
                         color="primary"
                         block

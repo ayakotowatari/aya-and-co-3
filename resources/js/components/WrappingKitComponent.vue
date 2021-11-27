@@ -38,7 +38,7 @@
                       v-bind:youtube='youtube'
                   ></youtube-component>
               </div>
-              <div class="mb-8">
+              <div class="mb-10">
                 <p class="description">
                     マーマレードをご購入いただき、ご家族やご友人へプレゼントをされるお客様がいらっしゃることから、生まれたサービスです。
                 </p>
@@ -52,7 +52,7 @@
                     ご注文時にお申し込みいただけますので、ぜひご利用ください。
                 </p>
               </div>
-              <div class="mb-8">
+              <div class="mb-10">
                   <div class="item-content policy-title mb-4">
                         キットの内容
                   </div>
@@ -64,14 +64,21 @@
                   </p>
               </div>
                <div class="mb-8">
-                  <div class="item-content policy-title mb-4">
+                    <div class="item-content policy-title mb-4">
                         カードの種類
-                  </div>
-                  <p class="description">
-                    ・Happy Christmas<br>
-                    ・Happy New Year<br>
-                    ・Season's Greetings<br>
-                  </p>
+                    </div>
+                    <p class="description">
+                        3種類からお選びいただけます。ご注文時に、種類と枚数をお申し込みください。
+                    </p>
+              
+                    <v-row>
+                        <v-col cols="12" sm="12" md="4" v-for="image in images" :key="image.name">
+                            <p class="description">{{image.name}}</p>
+                            <v-img
+                                :src="image.link"
+                            ></v-img>
+                        </v-col>
+                    </v-row>
               </div>
           </v-col>
       </v-row>
@@ -84,9 +91,9 @@ export default {
     data: function(){
         return {
             images:[
-                { name: 'sample1', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/vintage_sample.JPG'},
-                { name: 'sample2', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/key_bagel.JPG'},
-                { name: 'sample3', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/kirigamine.png'},
+                { name: 'Happy Christmas', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/xmas.png'},
+                { name: 'Happy New Year', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/newyear.png'},
+                { name: "Season's Greetings（併用）", link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/snowman.png'},
             ],
             youtube: 'ZQMbx7iHbfw'
         }            

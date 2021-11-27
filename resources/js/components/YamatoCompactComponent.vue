@@ -37,14 +37,17 @@
          <p class="description mb-8">
             セットは、ご注文時にお申し込みいただけます。なお、会員登録をいただいたお客様限定のサービスとなります。
         </p>
-        <v-btn
+        <div class="mb-8">
+            <campaignbanner-component></campaignbanner-component>
+        </div>
+        <!-- <v-btn
             color="primary"
             outlined
             class="mb-8"
             @click="$router.push({name: 'wrapping-kit'})"
         >
             簡単ギフトラッピングキットとは？
-        </v-btn>
+        </v-btn> -->
         <v-row class="mb-8">
             <v-col cols="12" sm="12" md="12" class="line-color">
                 <v-divider></v-divider>
@@ -55,10 +58,13 @@
             1梱包（宅急便コンパクト）でお送りできる商品数
         </div>
         <p class="description">
-            セット商品、単品あわせて、全部で6瓶までとなります。
+            100g瓶の場合、セット商品、単品あわせて、全部で6瓶までとなります。
         </p>
         <p class="description">
             7瓶以上の商品をご注文いただくことも可能です。その際には、複数の梱包となり、梱包数分の送料がかかります。
+        </p>
+        <p class="description">
+            また、150gや250g瓶との組み合わせは、ご注文時に、梱包数が自動計算され、送料に反映されます。「ご注文内容の確認」に表示されますので、どうぞお確かめください。
         </p>
     </div>
 </template>

@@ -37,7 +37,7 @@
       <p class="description mb-12">
         毎日の大切な時間にそっとよりそう、黒い小瓶たちです。
       </p> 
-      <v-row class="mb-12">
+      <v-row>
         <v-col cols="12" sm="12" md="4">
             <div class="subheading">
               How to Shop
@@ -64,17 +64,19 @@
                     </v-timeline>
                 </v-col>
             </v-row>
-            <campaignbanner-component></campaignbanner-component>
+            <div class="mb80">
+              <campaignbanner-component></campaignbanner-component>
+            </div>
         </v-col>
       </v-row>
 
-      <div class="divider-image">
+      <!-- <div class="divider-image">
          <v-img
-             max-width=90
+             max-width=60
              class="mx-auto"
              src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/basket.svg"
           ></v-img>
-      </div>
+      </div> -->
       
       <v-row class="mb-8">
           <v-col cols="12" sm="12" md="4">
@@ -206,6 +208,10 @@ export default {
 </script>
 
 <style>
+.mb80{
+    margin-bottom: 80px;
+}
+
 .v-list-item .v-list-item__subtitle, .v-list-item .v-list-item__title{
     line-height: 1.4 !important
 }

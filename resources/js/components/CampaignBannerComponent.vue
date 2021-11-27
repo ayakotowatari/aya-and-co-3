@@ -3,6 +3,7 @@
         class="mx-quto"
         max-width = 344
         @click.prevent="$router.push({name: 'wrapping-kit'})"
+        outlined
     >
         <v-img
             src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/wrappingkit.png"
@@ -10,11 +11,11 @@
         ></v-img>
 
         <v-card-title class="jp-font-400 grey--text text--darken-3">
-            期間限定ラッピングキット
+            簡単ギフトラッピングキット
         </v-card-title>
 
         <v-card-subtitle class="jp-font-400">
-            ご家族やご友人に。ご自身で簡単でオシャレなギフトラッピングができるキットを無料進呈中
+            ご家族やご友人にへのプレゼントに。ご自身で簡単でオシャレなギフトラッピングができるキットを無料進呈中
         </v-card-subtitle>
 
         <v-card-actions>
