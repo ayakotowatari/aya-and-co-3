@@ -43,18 +43,18 @@
                     マーマレードをご購入いただき、ご家族やご友人へプレゼントをされるお客様がいらっしゃることから、生まれたサービスです。
                 </p>
                 <p class="description">
-                    会員登録いただいたお客様が、配送方法として<strong>宅急便コンパクト</strong>を選択された場合、ご希望に応じて、一瓶ずつを簡単でおしゃれにラッピングできるキットを<strong>無料で</strong>同封いたします。
+                    会員登録いただいたお客様が、<router-link to="/postage">配送方法</router-link>として<strong>宅急便コンパクト</strong>を選択された場合、ご希望に応じて、一瓶ずつを簡単でおしゃれにラッピングできるキットを<strong>無料</strong>で同封いたします。
                 </p>
                 <p class="description">
                     配送時に緩衝材として使用している高知県産の木毛を有効に再利用していただくラッピングです。
                 </p>
                 <p class="description">
-                    ご注文時にお申し込みいただけますので、ぜひご利用ください。
+                    「宅急便コンパクト」は二つある<router-link to="/postage">配送オプション</router-link>の一つで、ご自宅用となります。一梱包で、100g瓶を6瓶までお送りできます。ラッピングキットはご注文時にお申し込みいただけますので、ぜひご利用ください。
                 </p>
               </div>
               <div class="mb-10">
                   <div class="item-content policy-title mb-4">
-                        キットの内容
+                    キットの内容
                   </div>
                   <p class="description">
                     ① １〜２瓶が入る大きさの透明の袋<br>
@@ -92,8 +92,8 @@ export default {
         return {
             images:[
                 { name: 'クリスマス', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/xmas.png'},
-                { name: '新年', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/newyear.png'},
-                { name: "併用", link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/snowman.png'},
+                { name: 'お年賀', link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/newyear.png'},
+                { name: "併用（季節のご挨拶）", link: 'https://aya-and-co.s3.ap-northeast-1.amazonaws.com/snowman.png'},
             ],
             youtube: 'ZQMbx7iHbfw'
         }            
