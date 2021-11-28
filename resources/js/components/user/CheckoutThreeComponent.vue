@@ -128,7 +128,7 @@
                         </v-row>
                         <v-row justify="center">
                             <v-col cols="12" sm="12" md="12">
-                                <label for="card-cvc" class="card-info-title">3桁のセキュリティコード</label>
+                                <label for="card-cvc" class="card-info-title">3桁または4桁のセキュリティコード</label>
                                 <div class="card-info" id="card-cvc"></div>
                                 <v-divider></v-divider>
                                 <div id="card-error" class="error-message" v-if="cardCvcError">{{ cardCvcError }}</div>
