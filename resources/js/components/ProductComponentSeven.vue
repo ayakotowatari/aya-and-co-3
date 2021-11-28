@@ -121,7 +121,7 @@
                                               <div class="product-price mb-6">
                                               {{formatPrice(item.price)}} <span class="jp-font-300 tax">（税込・送料別）</span>
                                               </div>
-                                              <div v-if="item.inventory <= 5" class="stock jp-font-400 grey--text text--darken-2">
+                                              <div v-if="item.inventory <= 10" class="stock jp-font-400 grey--text text--darken-2">
                                                 残り{{item.inventory}}個
                                               </div>
                                           </v-list-item-content>
