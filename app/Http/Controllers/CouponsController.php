@@ -31,6 +31,7 @@ class CouponsController extends Controller
         $amount = request('amount');
 
         $coupon = Coupon::where('name', $coupon_code)
+                        ->where('status_id', 1)
                         ->first();
 
         if(empty($coupon)){
@@ -90,13 +91,21 @@ class CouponsController extends Controller
 
                         if($coupon->deadline >= Carbon::now()->toDateString()){
 
-                            if($amount < 1000){
+                            if($coupon->target == "0"){
 
-                                return response() ->json(['errors' => ['coupon' => 'このクーポンは商品のお買い上げ金額が合計1,000円以上でご利用いただけます。']], 400);
+                                return response() -> json(['coupon'=>$coupon]);
 
                             }else{
 
-                                return response() -> json(['coupon'=>$coupon]);
+                                if($amount < 1000){
+
+                                    return response() ->json(['errors' => ['coupon' => 'このクーポンは商品のお買い上げ金額が合計1,000円以上でご利用いただけます。']], 400);
+    
+                                }else{
+    
+                                    return response() -> json(['coupon'=>$coupon]);
+    
+                                }
 
                             }
 
