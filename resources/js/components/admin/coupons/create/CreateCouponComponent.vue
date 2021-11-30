@@ -135,7 +135,7 @@ export default {
             targetRules: [
                 (v) => !!v || 'ターゲットを入力してください。',
             ],
-            targets: [{name:'個別', number:0},{name:'全員', number:1}]
+            targets: [{name:'個別', number: "0"},{name:'全員', number: "1"}]
     
         }
     },

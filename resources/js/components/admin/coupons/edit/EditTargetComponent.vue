@@ -46,7 +46,7 @@ export default {
         return {
             valid: true,
             target: '',
-            targets: [{name:'個別', number:0},{name:'全員', number:1}]
+            targets: [{name:'個別', number:"0"},{name:'全員', number:"1"}]
         }
     },
     mounted(){
