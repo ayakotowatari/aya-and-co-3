@@ -43,6 +43,14 @@
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
+                        資格
+                    </div>
+                    <div class="item-title grey--text text--darken-3">
+                        食品衛生責任者
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="item-content policy-title">
                         商品の価格
                     </div>
                     <div class="item-title grey--text text--darken-3">
