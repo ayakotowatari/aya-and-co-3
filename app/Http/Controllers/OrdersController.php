@@ -128,6 +128,7 @@ class OrdersController extends Controller
                         'orders.total',
                         'orders.message',
                         'statuses.status',
+                        'orders.note'
                         // 'shipments.scheduled_date',
                         // 'shipments.actual_date'
                     )
