@@ -40,6 +40,7 @@ class OrdersController extends Controller
                         // 'guests.phone as guest_phone',
                         'statuses.status',
                     )
+                    ->orderBy('id', 'desc')
                     ->get();
         // DD($orders);
         return response() -> json(['orders' => $orders]);  
@@ -59,6 +60,7 @@ class OrdersController extends Controller
                         'guests.phone as guest_phone',
                         'statuses.status',
                     )
+                    ->orderBy('id', 'desc')
                     ->get();
         // DD($orders);
         return response() -> json(['orders' => $orders]);  
