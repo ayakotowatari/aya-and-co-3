@@ -12,6 +12,14 @@
                 </div>
             </v-col>
         </v-row>
+        <v-btn 
+            color="primary"
+            outlined
+            @click="csvExport(csvData)"
+            class="mb-6"
+        >
+            ダウンロード
+        </v-btn>
       <v-row>
             <v-col cols="12" sm="4" offset-sm="8">
             <v-text-field
@@ -119,6 +127,11 @@ export default {
             'orders',
             'users',
         ]),
+        csvData(){
+            return this.orders.map(item => ({
+                ...item
+            }))
+        }
     
     },
     methods: {
@@ -141,6 +154,22 @@ export default {
         //     console.log(id); 
         //     this.$router.push({name: 'admin-orders', params: {id: id}})
         // },
+        csvExport(arrData){
+            let csvContent = 
+            "data:text/csv;charset=utf-8,";
+            csvContent += [
+                Object.keys(arrData[0]).join(";"),
+                ...arrData.map(item => Object.values(item).join(";"))
+            ]
+            .join("\n")
+            .replace(/(^\[)|(\]$)/gm, "");
+
+             const data = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", data);
+                link.setAttribute("download", "export.csv");
+                link.click();
+        }
       
 
         
