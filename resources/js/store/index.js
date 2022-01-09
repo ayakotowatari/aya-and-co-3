@@ -7,6 +7,7 @@ import router from "../router"
 import { admin } from './modules/admin';
 import { coupon } from './modules/coupon';
 import { giftcard } from './modules/giftcard';
+import { language } from './modules/language';
  
 Vue.use(Vuex)
  
@@ -1928,7 +1929,8 @@ export default new Vuex.Store({
   modules: {
     admin,
     coupon,
-    giftcard
+    giftcard,
+    language
   }
 
 })

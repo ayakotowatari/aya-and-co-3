@@ -1,19 +1,17 @@
 <template>
   <nav>
     <v-app-bar
-      flat app color="white"
+      flat app extended color="white"
     >
         <v-app-bar-nav-icon
+            class="mr-6"
             @click.stop="drawer = !drawer"
         ></v-app-bar-nav-icon>
-        
-        
-        <v-spacer></v-spacer>
-        
+
         <router-link
             to="/"
         >
-            <v-toolbar-title>
+            <v-app-bar-title>
                 <v-img
                     max-width=120
                     height=auto
@@ -28,9 +26,14 @@
                     src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/logo.png"
                 >
                 </v-img>
-            </v-toolbar-title>
+            </v-app-bar-title>
         </router-link>
         <v-spacer></v-spacer>
+        <v-switch
+            class="pt-5 mr-6"
+            v-model="language"
+            label="EN"
+        ></v-switch>
         <v-badge
             color="error"
             :content="cartQuantity"
@@ -181,6 +184,7 @@ import { mapState } from 'vuex'
         user: Object
     },
     data: () => ({
+        language: false,
         drawer: false,
         group1: null,
         group2: null,
@@ -229,6 +233,20 @@ import { mapState } from 'vuex'
         group(){
             this.drawer = false
         },
+        language(newValue){
+            let lang = newValue
+
+            if(lang == true){
+                this.$store.dispatch('language/setLang', {
+                    lang: "en"
+                });
+            }else{
+                this.$store.dispatch('language/setLang', {
+                    lang: "ja"
+                });
+            }
+            console.log(newValue)
+        }
     },
     mounted() {
         // this.$store.dispatch('student/fetchStudentUser');

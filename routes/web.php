@@ -15,7 +15,14 @@
 //     return view('welcome');
 // });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'setlocale'], function(){
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/lang', 'HomeController@switchLang')->name('lang');
+//テスト
+Route::get('/lang/check', 'HomeController@check');
+
 
 //adminログイン
 Route::get('/admin/login', 'HomeController@adminLogin')->name('admin.login.form');
@@ -26,6 +33,9 @@ Route::post('/admin/logout', 'Admin\Auth\LoginController@logout')->name('admin.l
 Route::post('/login', 'Auth\LoginController@login')->name('member.login');
 Route::post('/register', 'Auth\RegisterController@register')->name('member.register');
 Route::post('/logout', 'LoginController@logout')->name('member.logout');
+
+
+
 
 //ユーザーパスワードリセット
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -174,6 +184,10 @@ Route::group(['middleware' => ['auth', 'can:normal-user']], function(){
 Route::get('/{any}',function(){
     return view ('main');
 })->where('any','.*');
+
+
+});
+
 
 
 
