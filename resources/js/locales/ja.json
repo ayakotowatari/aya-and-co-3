@@ -1,23 +1,41 @@
 {
-    "message": "ようこそ !!",
+  "nav": {
+    "home": "ホーム",
+    "cart": "お買い物かご",
+    "sustainability": "環境にやさしい包装について",
+    "products": "商品リスト",
+    "delivery": "配送方法と送料について", 
+    "card": "選べるメッセージカードサービス",
+    "member": "会員専用",
+    "logout": "ログアウト",
+    "login": "ログイン", 
+    "register": "会員登録",
+    "contact": "お問い合わせ",
+    "policy": "特定商取引法に基づく表記",
+    "privacy": "プライバシーポリシー",
+    "about": "ABOUT"
+  },
 
-    "nav": {
-        "home": "ホーム",
-        "cart": "お買い物かご",
-        "sustainability": "環境にやさしい包装について",
-        "products": "商品リスト",
-        "delivery": "配送方法と送料について", 
-        "card": "選べるメッセージカードサービス",
-        "member": "会員専用",
-        "logout": "ログアウト",
-        "login": "ログイン", 
-        "register": "会員登録",
-        "contact": "お問い合わせ",
-        "policy": "特定商取引法に基づく表記",
-        "privacy": "プライバシーポリシー",
-        "about": "ABOUT"
-    },
+  
+  "top": {
+      "key_message": "<p class='key-message'>心地よい時間をつくる<br class='sm'>一瓶のマーマレード。<br>目を覚ます。<br>ほっとする。<br>自分をねぎらう。<br>大切な人を想う。<br>静けさを噛みしめる。<br>一歩をふみだす。</p>",
+      "description": "<p>日本各地の農家さんによって大切に栽培された有機・無農薬果物・減農薬果物や、ワックス・防腐剤等を用いずに育てられた柑橘類を用いて、イギリスに長くつたわる伝統的な製法を再現し、一つ一つ、心をこめて丁寧につくるマーマレードです。</p><p class='mb-12'>毎日の大切な時間にそっとよりそう、黒い小瓶たちです。</p>"
+      
+  },
 
+  "how_to_shop": {
+    "lead": "aya & co. は、リアルな店舗をもたず、このウェブサイト上の店でのみ、商品を販売しております。aya & co. でのショッピングをどうぞお楽しみください。",
+    "line1": "商品リストから、お好きなマーマレードを選んでカートに入れてご注文ください。",
+    "line2a": "お買い物のまえに、「",
+    "line2b": "配送方法と送料について",
+    "line2c": "」をお読みいただくと、ご注文の手続きをスムーズに進めていただけます。",
+    "line3a": "会員登録をいただいたお客様には、人気の「", 
+    "line3b": "選べるメッセージカードサービス",
+    "line3c": "」(無料)をご利用いただけます。ご注文の際にはぜひご活用ください。",
+    "line4": "Little Black Jars をご指定の宛先までお届けいたします。"
+},
+   
+    
     "about": {
       "title": "About",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta incidunt ea ut commodi quidem temporibus illo quia. Et itaque deleniti veniam tempore facere ipsum animi totam culpa minima vel voluptatem adipisci natus blanditiis similique sunt expedita, ex dicta doloremque repellat vitae temporibus. Quisquam quia, accusantium blanditiis architecto facilis saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad unde laborum ut suscipit iure aliquam sapiente doloribus exercitationem nam sint."

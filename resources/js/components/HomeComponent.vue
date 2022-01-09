@@ -7,18 +7,8 @@
       </div>
       <v-row>
           <v-col>
-              <div>
-                  <p class="key-message">
-                    {{ $t('message')}}
-                    心地よい時間をつくる<br class="sm">一瓶のマーマレード。<br>
-                    目を覚ます。<br>
-                    ほっとする。<br>
-                    自分をねぎらう。<br>
-                    大切な人を想う。<br>
-                    静けさを噛みしめる。<br>
-                    一歩をふみだす。
-                  </p>
-              </div>
+              <h1 v-if="$i18n.locale == 'en'" class="en-lead mb-6">{{ $t('top.lead')}}</h1>
+              <div :class="keyMessageClasses" v-html="$t('top.key_message')"></div>
           </v-col>
       </v-row>
       <div class="divider-image">
@@ -31,13 +21,7 @@
       <div class="heading">
         Little Black Jars
       </div>
-      <p class="description">
-        日本各地の農家さんによって大切に栽培された有機・無農薬果物・減農薬果物や、ワックス・防腐剤等を用いずに育てられた柑橘類を用いて、
-        イギリスに長くつたわる伝統的な製法を再現し、一つ一つ、心をこめて丁寧につくるマーマレードです。
-      </p>   
-      <p class="description mb-12">
-        毎日の大切な時間にそっとよりそう、黒い小瓶たちです。
-      </p> 
+      <div :class="descriptionClasses" v-html="$t('top.description')"></div>
       <v-row>
         <v-col cols="12" sm="12" md="4">
             <div class="subheading">
@@ -48,8 +32,8 @@
             </div>
         </v-col>
         <v-col cols="12" sm="12" md="8">
-            <p class="description">
-              aya & co. は、リアルな店舗をもたず、このウェブサイト上の店でのみ、商品を販売しております。aya & co. でのショッピングをどうぞお楽しみください。
+            <p :class="descriptionClasses">
+              {{ $t('how_to_shop.lead')}}
             </p>
             <v-row>
                 <v-col cols="12" sm="12" md="8">
@@ -58,10 +42,10 @@
                       dense
                       class="mb-8"
                     >
-                        <v-timeline-item small class="description">商品リストから、お好きなマーマレードを選んでカートに入れてご注文ください。</v-timeline-item>
-                        <v-timeline-item small class="description">お買い物のまえに、「<router-link to="/postage">配送方法と送料について</router-link>」をお読みいただくと、ご注文の手続きをスムーズに進めていただけます。</v-timeline-item>
-                        <v-timeline-item small class="description">会員登録をいただいたお客様には、人気の「<router-link to="/message-service">選べるメッセージカードサービス</router-link>」(無料)をご利用いただけます。ご注文の際にはぜひご活用ください。</v-timeline-item>
-                        <v-timeline-item small class="description">Little Black Jars をご指定の宛先までお届けいたします。</v-timeline-item>
+                        <v-timeline-item small :class="descriptionClasses">{{ $t('how_to_shop.line1')}}</v-timeline-item>
+                        <v-timeline-item small :class="descriptionClasses">{{ $t('how_to_shop.line2a')}}<router-link to='/postage'>{{ $t('how_to_shop.line2b') }}</router-link>{{ $t('how_to_shop.line2c')}}</v-timeline-item>
+                        <v-timeline-item small :class="descriptionClasses">{{ $t('how_to_shop.line3a')}}<router-link to='/message-service'>{{ $t('how_to_shop.line3b') }}</router-link>{{ $t('how_to_shop.line3c')}}</v-timeline-item>
+                        <v-timeline-item small :class="descriptionClasses">{{ $t('how_to_shop.line4')}}</v-timeline-item>
                     </v-timeline>
                 </v-col>
             </v-row>
@@ -155,9 +139,17 @@ export default {
 
     },
     computed: {
-     ...mapState([
+        ...mapState([
           'categories',
         ]),
+        keyMessageClasses(){
+          if(this.$i18n.locale == 'en') return 'en-key-message'
+          return 'key-message'
+        },
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        }
     },
     methods: {
         ...mapActions([
@@ -222,10 +214,24 @@ export default {
   margin-bottom: 48px;
 }
 
+.en-lead{
+  font-family: ltc-kennerley, serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .key-message{
   line-height: 2.0;
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  margin-bottom: 48px;
+}
+
+.en-key-message{
+  font-family: quasimoda, sans-serif;
+  font-weight: 300;
   font-style: normal;
   font-size: 18px;
   margin-bottom: 48px;
@@ -253,6 +259,13 @@ export default {
   letter-spacing: 0.03em;
   color: rgba(0, 0, 0, 0.6)
   /* color: #424242 */
+}
+
+.en-description{
+  font-family: quasimoda, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
 }
 
 .subheading{
