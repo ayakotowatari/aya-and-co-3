@@ -4,7 +4,6 @@ export const language = {
     namespaced: true,
 
     state: {
-        
         allerror: [],
         
     },

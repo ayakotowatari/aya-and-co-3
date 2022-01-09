@@ -9,6 +9,7 @@
           <v-col>
               <div>
                   <p class="key-message">
+                    {{ $t('message')}}
                     心地よい時間をつくる<br class="sm">一瓶のマーマレード。<br>
                     目を覚ます。<br>
                     ほっとする。<br>

@@ -1,8 +1,23 @@
 {
     "message": "ようこそ !!",
+
     "nav": {
-      "features": "Features"
+        "home": "ホーム",
+        "cart": "お買い物かご",
+        "sustainability": "環境にやさしい包装について",
+        "products": "商品リスト",
+        "delivery": "配送方法と送料について", 
+        "card": "選べるメッセージカードサービス",
+        "member": "会員専用",
+        "logout": "ログアウト",
+        "login": "ログイン", 
+        "register": "会員登録",
+        "contact": "お問い合わせ",
+        "policy": "特定商取引法に基づく表記",
+        "privacy": "プライバシーポリシー",
+        "about": "ABOUT"
     },
+
     "about": {
       "title": "About",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta incidunt ea ut commodi quidem temporibus illo quia. Et itaque deleniti veniam tempore facere ipsum animi totam culpa minima vel voluptatem adipisci natus blanditiis similique sunt expedita, ex dicta doloremque repellat vitae temporibus. Quisquam quia, accusantium blanditiis architecto facilis saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad unde laborum ut suscipit iure aliquam sapiente doloribus exercitationem nam sint."
