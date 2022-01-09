@@ -12,6 +12,7 @@ import Vuetify from 'vuetify';
 import store from './store/';
 import VueClipboard from 'vue-clipboard2';
 import AppComponent from "./components/AppComponent";
+import i18n from './i18n';
 
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
@@ -94,6 +95,8 @@ Vue.component('register-component', require('./components/RegisterComponent.vue'
 //icons
 import BasketIcon from "./components/icons/BasketIconComponent"
 
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -126,6 +129,7 @@ const app = new Vue({
     ),
     router,
     store,
+    i18n,
     components: {
         "app-component": AppComponent,
     },
