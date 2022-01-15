@@ -21,7 +21,7 @@
       <div class="heading">
         Little Black Jars
       </div>
-      <div :class="descriptionClasses" v-html="$t('top.description')"></div>
+      <div v-html="$t('top.description')"></div>
       <v-row>
         <v-col cols="12" sm="12" md="4">
             <div class="subheading">
@@ -73,9 +73,7 @@
               </div>
           </v-col>
           <v-col cols="12" sm="12" md="8">
-              <p class="description mb-8">
-                  aya & co. では、季節の旬の果物を仕入れて、small batch（少量生産）にて商品を製造します。ほとんどはシーズンの短期間のみの販売となりますので、気に入られた商品は、ぜひお早めにお求めください。
-              </p>
+              <div :class="descriptionClasses" v-html="$t('products_list.lead')"></div>
           </v-col>
       </v-row>
       
@@ -83,13 +81,15 @@
       <v-tabs v-model="tab" class="mb-12">
           <v-tab
               href="#tab-1"
+              :class="tabClasses"
           >
-              全ての商品
+              {{ $t('products_list.heading_all')}}
           </v-tab>
           <v-tab
               href="#tab-2"
+              :class="tabClasses"
           >
-              いま販売中の商品
+              {{ $t('products_list.heading_current')}}
           </v-tab>
           <!-- <v-tab router :to="{name: 'search-events'}">Search</v-tab> -->
       </v-tabs>
@@ -149,6 +149,9 @@ export default {
         descriptionClasses(){
           if(this.$i18n.locale == 'en') return 'en-description'
           return 'description'
+        },
+        tabClasses(){
+          if(this.$i18n.locale == 'en') return 'en-tab'
         }
     },
     methods: {
@@ -227,12 +230,10 @@ export default {
   font-style: normal;
   font-size: 18px;
   margin-bottom: 48px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .en-key-message{
-  font-family: quasimoda, sans-serif;
-  font-weight: 300;
-  font-style: normal;
   font-size: 18px;
   margin-bottom: 48px;
 }
@@ -248,24 +249,15 @@ export default {
   font-style: normal;
   font-size: 40px;
   margin-bottom: 24px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .description{
-  line-height: 1.5;
-  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
   letter-spacing: 0.03em;
-  color: rgba(0, 0, 0, 0.6)
   /* color: #424242 */
-}
-
-.en-description{
-  font-family: quasimoda, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 16px;
 }
 
 .subheading{
@@ -273,24 +265,20 @@ export default {
   font-weight: 400;
   font-style: normal;
   font-size: 24px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .subheading-jp{
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  font-style: normal;
   font-size: 12px;
-  letter-spacing: 0.03em;
   margin-bottom: 24px;
+  color: rgba(0, 0, 0, 0.87)
+}
+
+.en-tab{
+  font-family: roboto, sans-serif;
 }
 
 .product-name{
-  /* font-family: ltc-kennerley, serif;
-  font-weight: 700;
-  font-style: normal; */
-  /* font-family: ltc-kennerley, serif;
-  font-weight: 400;
-  font-style: normal; */
   font-family: copperplate, serif;
   font-weight: 700;
   font-style: normal;

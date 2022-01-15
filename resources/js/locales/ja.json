@@ -33,11 +33,35 @@
     "line3b": "選べるメッセージカードサービス",
     "line3c": "」(無料)をご利用いただけます。ご注文の際にはぜひご活用ください。",
     "line4": "Little Black Jars をご指定の宛先までお届けいたします。"
-},
+  },
    
+  "products_list": {
+    "lead": "<p class='mb-8'>aya & co. では、季節の旬の果物を仕入れて、small batch（少量生産）にて商品を製造します。ほとんどはシーズンの短期間のみの販売となりますので、気に入られた商品は、ぜひお早めにお求めください。</p>",
+    "heading_all": "全ての商品",
+    "heading_current": "いま販売中の商品"
+  },
+
+  "cart": {
+    "message": "お買い物かごに何も入っていません。",
+    "check-postage1": "購入手続きのまえに「",
+    "check-postage2": "配送方法と送料について",
+    "check-postage3": "」をご覧いただきますと、スムーズに配送方法をお選びいただけます。"
+
     
-    "about": {
-      "title": "About",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta incidunt ea ut commodi quidem temporibus illo quia. Et itaque deleniti veniam tempore facere ipsum animi totam culpa minima vel voluptatem adipisci natus blanditiis similique sunt expedita, ex dicta doloremque repellat vitae temporibus. Quisquam quia, accusantium blanditiis architecto facilis saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad unde laborum ut suscipit iure aliquam sapiente doloribus exercitationem nam sint."
-    }
+  },
+
+  "product": {
+    "quantity": "数量",
+    "item-total": "小計",
+    "total": "合計金額（税込・送料別）"
+  },
+
+  "btn": {
+    "update": "数量変更",
+    "remove": "削除",
+    "checkout": "購入する",
+    "shopping": "お買い物を続ける"
+   
   }
+    
+}

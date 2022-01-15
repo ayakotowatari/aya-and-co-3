@@ -11,7 +11,7 @@
             <v-col cols="12" sm="12" md="12">
                 <div class="heading-group">
                     <div class="page-heading">
-                        Your Basket
+                        Shopping Cart
                     </div>
                     <div v-if="user === null" class="page-subtitle grey--text text--darken-3">
                         お買い物かご
@@ -22,9 +22,9 @@
                 </div>
             </v-col>
         </v-row>
-        <div v-if="cart.length <= 0" class="jp-font-400 grey--text text--darken-2 mb48">
+        <div v-if="cart.length <= 0" class="mb48">
             <div class="mb-8">
-                お買い物かごに何も入っていません。
+                {{ $t('cart.message')}}
             </div>
             <v-row>
                 <v-col cols="12" sm="12" md="4">
@@ -59,7 +59,7 @@
                                         </div>
                                     <v-row align="center">
                                         <v-col cols="4" sm="4" md="4" >
-                                            <label for="">数量</label>
+                                            <label class="product-quantity" for="">{{ $t('product.quantity')}}</label>
                                         </v-col>
                                         <v-col cols="2" sm="2" md="2">
                                             <!-- <select :value="`${item.quantity}`" class="select-box" @change="updateCartQuantity(index, $event.target.value)">
@@ -77,7 +77,7 @@
                                         </v-col>
                                     </v-row>
                                     <div class="text-overline mb-4">
-                                    小計: {{ cartLineTotal(item) }}（税込）
+                                    {{ $t('product.item-total')}}: {{ cartLineTotal(item) }} 
                                     </div>
                                     <v-row>
                                         <v-col cols="12" md="12" sm="12">
@@ -87,14 +87,14 @@
                                                 @click="updateCartQuantity(item)"
                                                 class="mr-3"
                                             >
-                                                数量変更
+                                                {{ $t('btn.update')}}
                                             </v-btn>
                                             <v-btn
                                                 outlined
                                                 color="grey darken-1"
                                                 @click="remove(item)"
                                             >
-                                                削除
+                                                {{ $t('btn.remove')}}
                                             </v-btn>
                                         </v-col>
                                     </v-row>
@@ -115,7 +115,7 @@
                     <v-row>
                         <v-col cols="12" sm="12" md="12">
                             <span class="totalprice">
-                                合計金額（税込・送料別）：
+                                {{ $t('product.total')}}：
                             </span>
                             <span v-text="cartTotal" class="totalprice"></span>
                         </v-col>
@@ -129,7 +129,7 @@
                                 @click="$router.push({name: 'guest-order'})"
                                 class="hidden-sm-and-down"
                             >
-                            購入する
+                            {{ $t('btn.checkout')}}
                             </v-btn>
                             <v-btn
                                 block
@@ -139,7 +139,7 @@
                                 @click="$router.push({name: 'guest-order'})"
                                 class="hidden-md-and-up"
                             >
-                            購入する
+                            {{ $t('btn.checkout')}}
                             </v-btn>
                             <v-btn
                                 dark
@@ -148,7 +148,7 @@
                                 @click="toOrder"
                                 class="hidden-sm-and-down"
                             >
-                            購入する
+                            {{ $t('btn.checkout')}}
                             </v-btn>
                             <v-btn
                                 block
@@ -158,7 +158,7 @@
                                 @click="toOrder"
                                 class="hidden-md-and-up"
                             >
-                            購入する
+                            {{ $t('btn.checkout')}}
                             </v-btn>
                         </v-col>
                         <v-col cols="12" sm="12" md="3">
@@ -167,20 +167,20 @@
                                 outlined
                                 @click="goToProductsList"
                                 class="hidden-sm-and-down"
-                            >お買いものを続ける</v-btn>
+                            >{{ $t('btn.shopping')}}</v-btn>
                             <v-btn
                                 block
                                 color="primary"
                                 outlined
                                 @click="goToProductsList"
                                 class="hidden-md-and-up"
-                            >お買いものを続ける</v-btn>
+                            >{{ $t('btn.shopping')}}</v-btn>
                         </v-col>
                     </v-row>
                     <div class="mb-6">
-                        <p class="description">
-                            お買い物のまえに「<router-link to="/postage">配送方法と送料について</router-link>」をご覧いただきますと、スムーズにご注文いただけます。
-                        </p>
+                        <p :class="descriptionClasses">
+                            {{$t('cart.check-postage1')}}<router-link to="/postage">{{$t('cart.check-postage2')}}</router-link>{{$t('cart.check-postage3')}}
+                        </p>     
                     </div>
                     <v-row>
                         <v-col cols="12" sm="12" md="8">
@@ -209,13 +209,15 @@
         <v-tabs v-model="tab" class="mb-12">
           <v-tab
               href="#tab-1"
+              :class="tabClasses"
           >
-              全ての商品
+              {{ $t('products_list.heading_all')}}
           </v-tab>
           <v-tab
               href="#tab-2"
+              :class="tabClasses"
           >
-              いま販売中の商品
+              {{ $t('products_list.heading_current')}}
           </v-tab>
           <!-- <v-tab router :to="{name: 'search-events'}">Search</v-tab> -->
       </v-tabs>
@@ -273,6 +275,13 @@ export default {
             //console.log(amount);
             return amount.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
         },
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
+        tabClasses(){
+          if(this.$i18n.locale == 'en') return 'en-tab'
+        }
     },
     methods: {
         ...mapActions([
@@ -338,6 +347,9 @@ export default {
 </script>
 
 <style>
+.product-quantity{
+    font-weight: 400;
+}
 .item-quantity{
     border: 1px solid;
 }
@@ -349,11 +361,7 @@ export default {
 }
 
 .totalprice{
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.87)
 }
 
 @media(max-width:780px){

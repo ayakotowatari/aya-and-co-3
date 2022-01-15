@@ -34,10 +34,36 @@
       "line4": "Your order will be delivered directly to your doorstep!"
   },
 
+  "products_list": {
+    "lead": "<p class='mb-8'>We produce all of our marmalades and jams in small batches. Each product is in stock during its season and for a short period only. It tends to sell out soon, so if you like any of our jars, place an order quickly!</p>",
+    "heading_all": "All Products",
+    "heading_current": "Currently in Season"
     
+  },
 
-    "about": {
-      "title": "About",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta incidunt ea ut commodi quidem temporibus illo quia. Et itaque deleniti veniam tempore facere ipsum animi totam culpa minima vel voluptatem adipisci natus blanditiis similique sunt expedita, ex dicta doloremque repellat vitae temporibus. Quisquam quia, accusantium blanditiis architecto facilis saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad unde laborum ut suscipit iure aliquam sapiente doloribus exercitationem nam sint."
-    }
+  "cart": {
+    "message": "You have no items in your shopping cart.",
+    "check-postage1": "Check ",
+    "check-postage2": "Packaging & Delivery ",
+    "check-postage3": "before check-out. You will be able to select delivery option easily."
+
+
+    
+  },
+
+  "product": {
+    "quantity": "Qty",
+    "item-total": "Subtotal",
+    "total": "Total (incl. tax / excl. shipping fee)"
+  },
+
+  "btn": {
+    "update": "update",
+    "remove": "remove",
+    "checkout": "checkout",
+    "shopping": "continue shopping"
+   
   }
+
+  
+}
