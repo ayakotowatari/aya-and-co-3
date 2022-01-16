@@ -568,6 +568,7 @@ export default {
   font-weight: 400;
   font-style: normal;
   font-size: 40px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .page-subtitle{
@@ -578,6 +579,7 @@ export default {
   letter-spacing: 0.03em;
   margin-top: -10px; 
   margin-bottom: 24px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .note{
@@ -589,11 +591,7 @@ export default {
 }
 
 .item-title{
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .item-content{

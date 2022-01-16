@@ -15,6 +15,15 @@
     "privacy": "Privacy Terms",
     "about": "About"
 }, 
+
+"btn": {
+  "update": "update",
+  "remove": "remove",
+  "checkout": "checkout",
+  "shopping": "continue shopping"
+ 
+},
+
   
   "top": {
       "lead": "From Japanese citrus fruits to quintessentially British marmalades",
@@ -57,13 +66,16 @@
     "total": "Total (incl. tax / excl. shipping fee)"
   },
 
-  "btn": {
-    "update": "update",
-    "remove": "remove",
-    "checkout": "checkout",
-    "shopping": "continue shopping"
-   
+  "sustainability": {
+    "lead": "Learn about how we make our effort to achieve sustainable packaging.",
+    "title": "Natural Packaging",
+    "p1": "One of the first projects I worked on when I decided to start my online marmalade brand was to achieve sustainable packaging, which I believe any online shop owner is responsible for considering.",
+    "p2": "What can we do to avoid using plastic or paper cushioning while ensuring our products will be delivered to our customers safely?",
+    "p3": "After some careful thought, we decided to use 'wooden threads' (aka 'moku-men' = 木毛 in Japanese) to wrap and protect our jars from damages during shipment.",
+    "p4": "Moku-men, thin wooden threads made from trees such as pines, is a traditional, Japanese item for natural packaging. It was widely used in Japan until the mid 20th century when it was replaced by plastics. Nowadays, there is only one company specializing in Moku-men in Kochi Prefecture. Moku-men is considered to be beneficial for protecting forests in Japan as old trees need to be cut regularly to be replaced by new ones. Such old trees are used to produce moku-men.",
+    "p5": "An additional bonus is that you will enjoy the natural scent from the wooden threads when you open the package. "
   }
 
+ 
   
 }

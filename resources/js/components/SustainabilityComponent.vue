@@ -18,8 +18,8 @@
           </v-col>
       </v-row>
       <div class="mb-10">
-          <p class="description">
-            aya & co. では、環境に優しい包装に取り組んでいます。
+          <p :class="descriptionClasses">
+            {{$t('sustainability.lead')}}
           </p>   
       </div>
       <!-- <p class="description">
@@ -27,22 +27,11 @@
       </p>    -->
       <v-row>
           <v-col cols="12" sm="12" md="4">
-              <p class="item-title">自然の緩衝材</p>
+              <p class="item-title">{{$t('sustainability.title')}}</p>
           </v-col>
           <v-col cols="12" sm="12" md="8">
-              <p class="description">
-                  店舗をもたず、ネットでの販売をするときに課題になるのが、包装（パッケージ）です。<br class="lg">
-                  マーマレードのような瓶ものを安全に配送するためによく使われるのは、<br class="lg">
-                  個別に包装する紙の箱や、プラスチックの緩衝材。<br class="lg">
-                  これらの包装材は、環境に負荷がかかるものです。<br>
-                  どうにかして、環境への負担を減らしつつ、手にしたお客様に<br class="lg">
-                  喜んでいただけるパッケージを実現できないか。<br class="lg">
-                  aya & co.ではこの課題に取り組んでいます。<br>
-              </p>
-              <p class="description">
-                  まず挑戦しているのは、緩衝材としてプラスチックや紙の個別の箱を使用しないこと。<br class="lg">
-                  試行錯誤した結果、「木毛（もくめん）」という、国産の木材からできた緩衝材を<br class="lg">使用してみることにしました。<br>
-              </p>
+              <p :class="descriptionClasses" v-html="$t('sustainability.p1')"></p>
+              <p :class="descriptionClasses" v-html="$t('sustainability.p2')"></p>
               <div class="divider-image pine-image">
                     <v-img
                         max-width=90
@@ -50,25 +39,11 @@
                         src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/pine_tree.png"
                     ></v-img>
               </div>
-              <p class="description">
-                  <!-- <v-img
-                      max-width=300
-                      src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/mokumen.png"
-                  ></v-img> -->
-                  木の伐採は環境に良くないと思われがちですが、日本の森林は、その環境を守るためにも、<br class="lg">
-                  また、地滑りなどの災害から人々の生活を守るためにも、<br class="lg">
-                  伐採と植林というサイクルを繰り返すことが重要だそうです。<br>
-                  ところが近年の、より安価な外国産の木材の流通によって、<br class="lg">
-                  日本の森林は適切な伐採が行われていない状態だそうです。<br>
-                  また、昭和初期まで日本で緩衝材として広く使われていた木材ですが、<br class="lg">
-                  プラスチック製の緩衝材の利用が広まり、使われることは少なくなっています。<br>
-              </p>
-              <p class="description">
-                  木毛を使って環境に負荷のかからないパッケージを実現することは、<br class="lg">
-                  日本が誇る美しい森林を守ることにもつながります。<br>
-                  そこでaya & co.では高知県産の木毛（松）を使用して、お客様に商品をお届けいたします。<br>
-                  お客様からのご意見もいただきながら、引き続き、試行錯誤を続けていきたいと考えています。<br>
-              </p>
+              <p :class="descriptionClasses" v-html="$t('sustainability.p3')"></p>
+              <p :class="descriptionClasses" v-html="$t('sustainability.p4')"></p>
+              <div v-if="$i18n.locale=='en'">
+                  <p :class="descriptionClasses" v-html="$t('sustainability.p5')"></p>
+              </div>
           </v-col>
       </v-row>
     </v-container>
@@ -93,7 +68,10 @@ export default {
      
     },
     computed: {
-    
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
     },
     methods: {
       
