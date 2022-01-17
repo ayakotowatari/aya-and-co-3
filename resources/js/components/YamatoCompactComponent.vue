@@ -1,7 +1,7 @@
 <template>
     <div class="mb-8">
         <p class="description">
-            宅急便コンパクトでは、ヤマト運輸の薄型の専用ボックスに、木毛の緩衝材を用いて商品を配置します。ボックスの高さが低く、たとえば140g以上のサイズの瓶は、横向きに倒した状態で包装いたします。
+            宅急便コンパクトでは、ヤマト運輸の薄型の専用ボックスに、木毛の緩衝材を用いて商品を配置します。ボックスの高さが低く、たとえば150g以上のサイズの瓶は、横向きに倒した状態で包装いたします。
         </p>
         <!-- <p class="description mb-8">
             「<router-link to="/message-service">選べるメッセージカードサービス</router-link>」をご利用の場合は、宅急便コンパクトには葉書サイズのカードが同封できませんので、宅急便をお選びください。
@@ -44,7 +44,7 @@
             </v-col>
         </v-row>
 
-         <div class="item-content policy-title mb-4">
+        <div class="item-content policy-title mb-4">
             簡単ギフトラッピングキット
         </div>
         <p class="description mb-8">

@@ -12,7 +12,7 @@
             おすすめの用途
         </div>
         <p class="description mb-8">
-            宅急便でお送りするボックスは、ご自身のためはもちろん、ご家族、ご友人などのもとへギフトとして直接送られたい場合に最適です。
+            宅急便でお送りするボックスは、ご家族、ご友人などのもとへギフトとして直接送られたい場合に最適です。
         </p>
         <p class="description mb-8">
             会員登録をされたお客様は、「<router-link to="/message-service">選べるメッセージカード</router-link>」のサービス（無料）をご利用いただけます。ご注文時にお好きなメッセージを選んでいただきましたら、ご希望によってお客様のお名前とともに、葉書サイズのaya & co.特製のカードを丁寧に印刷して、同封いたします。
@@ -50,13 +50,13 @@
             上記以上の数量のご注文につきましても、別途、対応しておりますので、ご注文の前にどうぞご相談ください。
         </p>
 
-        <v-row class="mb-8">
+        <!-- <v-row class="mb-8">
             <v-col cols="12" sm="12" md="12" class="line-color">
                 <v-divider></v-divider>
             </v-col>
-        </v-row>
+        </v-row> -->
 
-        <div class="item-content policy-title mb-4">
+        <!-- <div class="item-content policy-title mb-4">
             ご自宅で受け取られてから、ギフトボックスとして使用されたい場合
         </div>
         <p class="description">
@@ -67,7 +67,7 @@
         </p>
         <p class="description mb-8">
             なおこのアレンジは、1つのギフトボックスにつき、2瓶以上をお求めいただいた場合、また、会員登録されているお客様限定でご利用いただけます。
-        </p>
+        </p> -->
     </div>
 </template>
 
