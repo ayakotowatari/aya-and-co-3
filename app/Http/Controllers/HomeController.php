@@ -47,6 +47,8 @@ class HomeController extends Controller
 
         // $lang = Lang::locale();
 
+        // DD(app()->getLocale());
+
         // DD($lang);
 
         // DD(App::getLocale());
@@ -60,14 +62,14 @@ class HomeController extends Controller
 
     }
 
-    public function check(){
+    // public function check(){
         
-        $lang = Lang::locale();
+    //     $lang = Lang::locale();
 
-        DD($lang);
+    //     DD($lang);
 
-        return view('main');
-    }
+    //     return view('main');
+    // }
 
     public function email()
     {

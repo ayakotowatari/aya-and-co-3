@@ -25,7 +25,7 @@ class SetLocale
             app()->setLocale(Config::get('app.fallback_locale'));
         }
 
-        // DD(App::getLocale());
+        // DD(app()->getLocale());
         
         return $next($request);
     }

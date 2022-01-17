@@ -25,21 +25,21 @@
         </v-row>
 
         <div class="mb-10">
-            <p class="description">
-                aya & co. では、季節の旬の果物を仕入れて、small batch（少量生産）にて商品を製造します。ほとんどはシーズンの短期間のみの販売となりますので、気に入られた商品は、ぜひお早めにお求めください。
-            </p>  
+            <div :class="descriptionClasses" v-html="$t('products_list.lead')"></div>
         </div>
 
         <v-tabs v-model="tab" class="mb-12">
           <v-tab
               href="#tab-1"
+              :class="tabClasses"
           >
-              全ての商品
+              {{ $t('products_list.heading_all')}}
           </v-tab>
           <v-tab
               href="#tab-2"
+              :class="tabClasses"
           >
-              いま販売中の商品
+              {{ $t('products_list.heading_current')}}
           </v-tab>
           <!-- <v-tab router :to="{name: 'search-events'}">Search</v-tab> -->
         </v-tabs>
@@ -74,6 +74,13 @@ export default {
      
     },
     computed: {
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
+        tabClasses(){
+          if(this.$i18n.locale == 'en') return 'en-tab'
+        }
     
     },
     methods: {

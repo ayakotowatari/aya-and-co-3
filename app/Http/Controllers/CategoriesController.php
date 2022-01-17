@@ -18,6 +18,34 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        // $lang = app()->getLocale();
+        // // DD($lang);
+
+        // if($lang == 'en'){
+
+        //     $categories = Category::whereNotNull('name')
+        //                 ->whereIn('status_id', [1, 2])
+        //                 ->select(
+        //                     'id', 
+        //                     'name',
+        //                     'subtitle', 
+        //                     'details_en as details',
+        //                     'description_en as description',
+        //                     'season_en as season',
+        //                     'ingredients_en as ingredients',
+        //                     'image',
+        //                     'status_id',
+        //                     'created_at',
+        //                     'updated_at',
+        //                     'deleted_at'
+        //                   )
+        //                 ->get();
+        // }else{
+        //     $categories = Category::whereNotNull('name')
+        //                 ->whereIn('status_id', [1, 2])
+        //                 ->get();
+        // }
+        
         $categories = Category::whereNotNull('name')
                         ->whereIn('status_id', [1, 2])
                         ->get();

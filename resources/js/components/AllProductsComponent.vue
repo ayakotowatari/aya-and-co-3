@@ -16,10 +16,16 @@
                 <div class="product-name mb-1">
                     {{category.name}}
                 </div>
-                <div class="product-season mb-4">
+                <div v-if="$i18n.locale=='en'" class="product-season mb-4">
+                    {{category.season_en}}
+                </div>
+                <div v-else class="product-season mb-4">
                     {{category.season}}
                 </div>
-                <div class="product-details">
+                <div v-if="$i18n.locale=='en'" class="product-details">
+                    {{category.details_en}}
+                </div>
+                <div v-else class="product-details">
                     {{category.details}}
                 </div>
             </v-card-text>

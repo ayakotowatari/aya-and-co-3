@@ -1077,6 +1077,7 @@ export default new Vuex.Store({
             .get("/fetch-categories")
             .then(res => {
                 categories = res.data.categories;
+                console.log('categories', categories);
                 // products = res.data.products;
                 // commit('setProducts', products);
                 commit('setCategories', categories);
