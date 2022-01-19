@@ -20,7 +20,9 @@
   "update": "update",
   "remove": "remove",
   "checkout": "checkout",
-  "shopping": "continue shopping"
+  "shopping": "continue shopping",
+  "add_cart": "add to cart",
+  "check_cart": "check cart"
  
 },
 
@@ -62,8 +64,13 @@
 
   "product": {
     "quantity": "Qty",
+    "select_qty": "Select Quantity",
     "item-total": "Subtotal",
-    "total": "Total (incl. tax / excl. shipping fee)"
+    "total": "Total (incl. tax / excl. shipping fee)",
+    "season": "In Season",
+    "ingredients": "Ingredients",
+    "note": "Tap an item you want to order, then select a quantity and add the item to cart.",
+    "tax_info": "(incl. tax)"
   },
 
   "sustainability": {

@@ -20,8 +20,9 @@
     "update": "数量変更",
     "remove": "削除",
     "checkout": "購入する",
-    "shopping": "お買い物を続ける"
-   
+    "shopping": "お買い物を続ける",
+    "add_cart": "カートに入れる",
+    "check_cart": "カートをみる"
   },
   
   "top": {
@@ -59,8 +60,14 @@
 
   "product": {
     "quantity": "数量",
+    "select_qty": "数量",
     "item-total": "小計",
-    "total": "合計金額（税込・送料別）"
+    "total": "合計金額（税込・送料別）",
+    "season": "シーズン",
+    "ingredients": "原材料",
+    "note": "購入したい商品をタップして、数量を選び、カートに入れてください。",
+    "tax_info": "（税込）"
+
   },
 
   "sustainability": {
