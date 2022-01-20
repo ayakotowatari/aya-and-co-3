@@ -30,6 +30,13 @@
                 <logintoorder-component></logintoorder-component>
             </v-col>
         </v-row>
+
+        <v-row justify="center">
+            <v-col cols="12" sm="12" md="6">
+                <v-divider class="mt-4 mb-8"></v-divider>
+            </v-col>
+        </v-row>
+
         <v-row justify="center">
             <v-col cols="12" sm="12" md="6">
                 <div :class="fontWeightClasses" class="grey--text text--darken-3">{{$t('checkout.order_guest')}}</div>

@@ -9,22 +9,26 @@
                         <v-col cols="12" sm="12" md="12">
                             <v-text-field
                                 v-model="email"
-                                label="メールアドレス" 
+                                :label="$t('register.email')" 
                                 outlined
                                 required
                                 :rules="emailRules" 
+                                validate-on-blur
+                                @blur="() => $refs.form.resetValidation()"
                                 :error="allLoginError.email ? true : false"
                                 :error-messages="allLoginError.email"
                             ></v-text-field>
                             <v-text-field 
                                 v-model="password"
-                                label="パスワード" 
+                                :label="$t('register.password')" 
                                 :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                                 :type="showPassword ? 'text' : 'password'"
                                 outlined
                                 required
                                 @click:append="showPassword = !showPassword"
                                 :rules="passwordRules" 
+                                validate-on-blur
+                                @blur="() => $refs.form.resetValidation()"
                                 :error="allLoginError.password ? true : false"
                                 :error-messages="allLoginError.password"
                             ></v-text-field>
@@ -38,7 +42,7 @@
                                         @click="goLogin()"
                                         :loading="loading"
                                     >
-                                        ログインする
+                                        {{$t('btn.login')}}
                                     </v-btn>
                                 </v-col>
                                 <!-- <v-col cols="12" sm="12" md="3" class="hidden-sm-and-down">
@@ -52,7 +56,7 @@
                                         @click="goLogin()"
                                         :loading="loading"
                                     >
-                                        ログインする
+                                        {{$t('btn.login')}}
                                     </v-btn>
                                 </v-col>
                                 <!-- <v-col cols="12" sm="12" md="3" class="hidden-md-and-up">
@@ -62,8 +66,8 @@
                         </div>
                         <v-row justify="center">
                             <v-col cols="12" sm="12" md="12">
-                                <v-btn text color="grey darken-1" class="pa-0 mr-4" @click="toRegister()">会員登録する</v-btn>
-                                <v-btn text color="grey darken-1" class="pa-0" @click="toReset()">パスワードをお忘れですか？</v-btn>
+                                <v-btn text color="grey darken-1" class="pa-0 mr-4" @click="toRegister()">{{$t('btn.to_register')}}</v-btn>
+                                <v-btn text color="grey darken-1" class="pa-0" @click="toReset()">{{$t('btn.forgot_password')}}</v-btn>
                             </v-col>
                         </v-row>
                     </v-col>
@@ -81,15 +85,7 @@ export default {
         return {
             valid: true,
             email: '',
-            emailRules: [
-                (v) => !!v || 'メールアドレスを入力してください。',
-                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'メールアドレスが正しく入力されていません。'
-            ],
             password: '',
-            passwordRules: [
-                (v) => !!v || 'パスワードを入力してください。',
-                (v) => v.length >= 8 || 'パスワードは8文字以上です。'
-            ],
             showPassword: false,
         }
     },
@@ -111,6 +107,18 @@ export default {
             'allLoginError',
             'loading',
         ]),
+        emailRules() {
+            return [
+                (v) => !!v || this.$t('register.email_rule'),
+                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t('register.email_rule2')
+            ];
+        },
+        passwordRules() {
+            return [
+                (v) => !!v || this.$t('register.password_rule'),
+                (v) => v.length >= 8 || this.$t('register.password_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([

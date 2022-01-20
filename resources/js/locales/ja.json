@@ -17,6 +17,10 @@
   },
 
   "btn": {
+    "register": "登録する",
+    "to_register": "会員登録する",
+    "login": "ログインする",
+    "forgot_password": "パスワードをお忘れですか？",
     "update": "数量変更",
     "remove": "削除",
     "checkout": "購入する",
@@ -25,9 +29,11 @@
     "add_cart": "カートに入れる",
     "check_cart": "カートをみる",
     "send": "この住所に送る",
+    "send2": "これらの住所を使用する",
     "continue_shopping": "お買い物を続ける",
     "next": "次へ",
-    "back": "戻る"
+    "back": "戻る",
+    "confirm": "確定する"
   },
 
   "message": {
@@ -45,6 +51,7 @@
     "phone": "電話番号",
     "email": "メールアドレス",
     "confirm_email": "メールアドレスの確認",
+    "password": "パスワード",
     "hint_zipcode": "ハイフンなしで、半角数字7桁のみをご記入ください。例: 1234567",
     "name_rule": "お名前を入力してください。",
     "kana_rule": "フリガナを入力してください。",
@@ -57,6 +64,8 @@
     "email_rule2": "メールアドレスが正しく入力されていません。",
     "confirmEmail_rule": "メールアドレスの確認が必要です。",
     "confirmEmail_rule2": "メールアドレスが一致していません。",
+    "password_rule": "パスワードを入力してください。",
+    "password_rule2": "パスワードは8文字以上です。",
     "deliveryTime_rule": "ご希望の配達時間を選択してください。"
   },
   
@@ -111,7 +120,17 @@
     "login": "会員としてログインする",
     "order_guest": "ゲストとして注文する",
     "ship_home": "ご自宅に送る",
-    "ship_other": "他の住所に送る"
+    "ship_other": "他の住所に送る",
+    "shipping_address2": "荷物の配送先の住所",
+    "home_address2": "お客様ご自身のご住所・ご連絡先",
+    "shipping_method": "配送オプションを選択する",
+    "shipping_label": "配送方法を選ぶ",
+    "select_shipping": "ご希望の配送方法をお選びください",
+    "delivery_time": "ご希望の配達時間をご指定ください",
+    "delivery_label": "ご希望の配達時間帯",
+    "courier_rule": "ご希望の配送方法を選択してください。",
+    "deliveryTime_rule": "ご希望の配達時間を選択してください。"
+
 
   },
 

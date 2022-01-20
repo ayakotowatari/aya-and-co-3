@@ -1,6 +1,13 @@
 <template>
         <v-row>
             <v-col cols="12" sm="12" md="12">
+                <div 
+                    v-if="$i18n.locale=='en'" 
+                    :class="fontWeightClasses" 
+                    class="mb24"
+                >
+                    {{$t('checkout.home_address')}}
+                </div>
                 <v-form
                     ref="form"
                     v-model="valid"
@@ -12,6 +19,8 @@
                         outlined
                         required
                         :rules="nameRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.name ? true : false"
                         :error-messages="allerror.name"
                     ></v-text-field>
@@ -21,6 +30,8 @@
                         outlined
                         required
                         :rules="kanaRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.kana ? true : false"
                         :error-messages="allerror.kana"
                     ></v-text-field>
@@ -32,6 +43,8 @@
                         :hint="$t('register.hint_zipcode')"
                         persistent-hint
                         :rules="zipcodeRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.zipcode ? true : false"
                         :error-messages="allerror.zipcode"
                     ></v-text-field>
@@ -41,6 +54,8 @@
                         outlined
                         required
                         :rules="prefectureRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.prefecture ? true : false"
                         :error-messages="allerror.prefecture"
                     ></v-text-field>
@@ -50,6 +65,8 @@
                         outlined
                         required
                         :rules="cityRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.city ? true : false"
                         :error-messages="allerror.city"
                     ></v-text-field>
@@ -59,6 +76,8 @@
                         outlined
                         required
                         :rules="address1Rules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.address_1 ? true : false"
                         :error-messages="allerror.address_1"
                     ></v-text-field>
@@ -75,6 +94,8 @@
                         outlined
                         required
                         :rules="phoneRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.phone ? true : false"
                         :error-messages="allerror.phone"
                     ></v-text-field>
@@ -84,6 +105,8 @@
                         outlined
                         required
                         :rules="emailRules"
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.email ? true : false"
                         :error-messages="allerror.email"
                     ></v-text-field>
@@ -93,6 +116,8 @@
                         outlined
                         required
                         :rules="confirmEmailRules" 
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.email ? true : false"
                         :error-messages="allerror.email"
                     ></v-text-field>
@@ -103,7 +128,7 @@
                         class="mb-6"
                         :disabled="disabled.guestHomeAddress"
                     >
-                    この住所に送る
+                    {{$t('btn.send')}}
                     </v-btn>
                 </v-form>
             </v-col>
@@ -162,7 +187,7 @@ export default {
         }
     },
     mounted(){
-      
+
     },
     created(){
      
@@ -172,6 +197,10 @@ export default {
             'allerror',
             'disabled',
         ]),
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        },
         nameRules(){
             return[
                 v => !!v || this.$t('register.name_rule')
@@ -184,7 +213,8 @@ export default {
         },
         zipcodeRules() {
             return [
-                v => !!v || this.$t('register.zipcode_rule')
+                v => !!v || this.$t('register.zipcode_rule'),
+                v => v.length == 7 || this.$t('register.hint_zipcode')
             ];
         },
         prefectureRules() {

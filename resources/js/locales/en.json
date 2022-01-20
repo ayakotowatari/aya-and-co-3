@@ -17,6 +17,10 @@
 }, 
 
 "btn": {
+  "register": "register",
+  "to_register": "register now",
+  "login": "login",
+  "forgot_password": "forgot your password?",
   "update": "update",
   "remove": "remove",
   "checkout": "checkout",
@@ -25,9 +29,11 @@
   "add_cart": "add to cart",
   "check_cart": "check cart",
   "send": "Submit",
+  "send2": "Submit",
   "continue_shopping": "Continue Shopping",
   "next": "Next",
-  "back": "Back"
+  "back": "Back",
+  "confirm": "Confirm"
 },
 
 "message": {
@@ -45,6 +51,7 @@
   "phone": "Phone",
   "email": "Email",
   "confirm_email": "Confirm Email",
+  "password": "Password",
   "hint_zipcode": "Enter 7-digit postcode with no hyphen, e.g. 1234567",
   "name_rule": "First name is required.",
   "kana_rule": "Last name is required.",
@@ -57,6 +64,8 @@
   "email_rule2": "Invalid email address.",
   "confirmEmail_rule": "Email confirmation is required.",
   "confirmEmail_rule2": "Given email does not match.",
+  "password_rule": "Password is required",
+  "password_rule2": "Password must be at least 8 characters.",
   "deliveryTime_rule": "Desired time of delivery is required."
 },
 
@@ -110,12 +119,22 @@
     "stepper2": "Shipping Method",
     "stepper3": "Preview Order",
     "stepper4": "Payment",
+    "home_address": "Shipping & Billing Address",
     "shipping_address": "Shipping Address",
     "login": "Checkout as Member",
     "order_guest": "Checkout as Guest",
     "message": "Choose where to send your delivery and enter the details.",
     "ship_home": "Home",
-    "ship_other": "Other Address"
+    "ship_other": "Other Address",
+    "shipping_address2": "Shipping Address",
+    "home_address2": "Home Address",
+    "shipping_method": "Shipping Options",
+    "shipping_label": "Preferred shipping method",
+    "select_shipping": "Select your preferred shipping method.",
+    "delivery_time": "Select your preferred delivery time.",
+    "delivery_label": "Preferred delivery time",
+    "courier_rule": "Shipping method is required.",
+    "deliveryTime_rule": "Preferred delivery is required."
   },
 
   "sustainability": {
