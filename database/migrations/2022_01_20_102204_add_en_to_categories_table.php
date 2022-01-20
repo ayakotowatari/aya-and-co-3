@@ -15,6 +15,10 @@ class AddEnToCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             //
+            $table->string('details_en', 191)->nullable()->after('details');
+            $table->text('description_en')->nullable()->after('description');
+            $table->string('season_en', 191)->nullable()->after('season');
+            $table->text('ingredients_en')->nullable()->after('ingredients');
         });
     }
 
@@ -27,6 +31,10 @@ class AddEnToCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             //
+            $table->dropColumn('details_en');
+            $table->dropColumn('description_en');
+            $table->dropColumn('season_en');
+            $table->dropColumn('ingredients_en');
         });
     }
 }

@@ -270,9 +270,9 @@ export default new Vuex.Store({
         let state_data = {}
 
         if(lang == "en"){
-            state_data = state.states.find(item => item.state_en == prefecture)
+            state_data = state.states.find(item => item.name_en == prefecture)
         }else{
-            state_data = state.states.find(item => item.state == prefecture)
+            state_data = state.states.find(item => item.name == prefecture)
         }
         
         let state_id = state_data.id
