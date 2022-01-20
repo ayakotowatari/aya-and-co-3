@@ -20,10 +20,18 @@
     "update": "数量変更",
     "remove": "削除",
     "checkout": "購入する",
+    "checkout2": "レジへ進む",
     "shopping": "お買い物を続ける",
     "add_cart": "カートに入れる",
     "check_cart": "カートをみる",
-    "send": "この住所に送る"
+    "send": "この住所に送る",
+    "continue_shopping": "お買い物を続ける",
+    "next": "次へ",
+    "back": "戻る"
+  },
+
+  "message": {
+    "logged_in": "お客様はすでにログインされています。"
   },
 
   "register":{
@@ -36,7 +44,20 @@
     "building": "マンション・建物名",
     "phone": "電話番号",
     "email": "メールアドレス",
-    "confirm_email": "メールアドレスの確認"
+    "confirm_email": "メールアドレスの確認",
+    "hint_zipcode": "ハイフンなしで、半角数字7桁のみをご記入ください。例: 1234567",
+    "name_rule": "お名前を入力してください。",
+    "kana_rule": "フリガナを入力してください。",
+    "zipcode_rule": "郵便番号を入力してください。",
+    "prefecture_rule": "都道府県を入力してください。",
+    "city_rule": "市町村を入力してください。",
+    "address1_rule": "番地・部屋番号等を入力してください。",
+    "phone_rule": "電話番号を入力してください。",
+    "email_rule": "メールアドレスを入力してください。",
+    "email_rule2": "メールアドレスが正しく入力されていません。",
+    "confirmEmail_rule": "メールアドレスの確認が必要です。",
+    "confirmEmail_rule2": "メールアドレスが一致していません。",
+    "deliveryTime_rule": "ご希望の配達時間を選択してください。"
   },
   
   "top": {
@@ -62,15 +83,6 @@
     "heading_current": "いま販売中の商品"
   },
 
-  "cart": {
-    "message": "お買い物かごに何も入っていません。",
-    "check-postage1": "購入手続きのまえに「",
-    "check-postage2": "配送方法と送料について",
-    "check-postage3": "」をご覧いただきますと、スムーズに配送方法をお選びいただけます。"
-
-    
-  },
-
   "product": {
     "quantity": "数量",
     "select_qty": "数量",
@@ -82,6 +94,27 @@
     "tax_info": "（税込）"
 
   },
+
+  "cart": {
+    "message": "お買い物かごに何も入っていません。",
+    "check-postage1": "購入手続きのまえに「",
+    "check-postage2": "配送方法と送料について",
+    "check-postage3": "」をご覧いただきますと、スムーズに配送方法をお選びいただけます。"
+  },
+
+  "checkout": {
+    "stepper1": "配送先住所の指定",
+    "stepper2": "配送オプションの選択",
+    "stepper3": "注文内容の確認",
+    "stepper4": "お支払い",
+    "shipping_address": "配送先の住所を指定する",
+    "login": "会員としてログインする",
+    "order_guest": "ゲストとして注文する",
+    "ship_home": "ご自宅に送る",
+    "ship_other": "他の住所に送る"
+
+  },
+
 
   "sustainability": {
     "lead": "aya & co. では、環境に優しい包装に取り組んでいます。",

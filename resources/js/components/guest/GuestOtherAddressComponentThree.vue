@@ -362,10 +362,7 @@ export default {
 
 <style>
 .jp-font{
-    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
-    font-style: normal;
-    letter-spacing: 0.03em;
 }
 
 .mb24{

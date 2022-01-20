@@ -29,7 +29,7 @@
                         :label="$t('register.zipcode')"
                         outlined
                         required
-                        hint="ハイフンなしで、半角数字7桁のみをご記入ください。例: 1234567"
+                        :hint="$t('register.hint_zipcode')"
                         persistent-hint
                         :rules="zipcodeRules"
                         :error="allerror.zipcode ? true : false"
@@ -123,49 +123,15 @@ export default {
             valid: true,
             type: '',
             name: '',
-            nameRules: [
-                v => !!v || 'お名前を入力してください。',
-            ],
             kana: '',
-            kanaRules: [
-                v => !!v || 'フリガナを入力してください。',
-            ],
             zipcode: '',
-            zipcodeRules: [
-                v => !!v || '郵便番号を入力してください。',
-                v => v.length == 7 || 'ハイフンなしで、半角数字7桁のみを入力してください。例：1234567'
-            ], 
             state: '',
-            prefectureRules: [
-                v => !!v || '都道府県を入力してください。',
-            ],
             city: '',
-            cityRules: [
-                v => !!v || '市町村を入力してください。',
-            ],
             address1: '',
-            address1Rules: [
-                v => !!v || '番地・部屋番号等を入力してください。',
-            ],
             building: '',
             phone: '',
-            phoneRules: [
-                v => !!v || '電話番号を入力してください。',
-            ],
             email: '',
-            emailRules: [
-                (v) => !!v || 'メールアドレスを入力してください。',
-                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'メールアドレスが正しく入力されていません。'
-            ],
             confirmEmail: '',
-            confirmEmailRules: [
-                (v) => !!v || 'メールアドレスの確認が必要です。',
-                (v) => v == this.email || 'メールアドレスが一致していません。'
-            ],   
-            deliveryTime: '',
-            deliveryTimeRules: [
-                v => !!v || 'ご希望の配達時間を選択してください。',
-            ],
             // items: ["希望なし", "午前中", "12:00-14:00頃", "14:00-16:00頃", "16:00-18:00頃", "18:00-20:00頃", "19:00-21:00頃", "20:00-21:00頃"],
         }
     },
@@ -205,7 +171,54 @@ export default {
         ...mapState([
             'allerror',
             'disabled',
-        ])
+        ]),
+        nameRules(){
+            return[
+                v => !!v || this.$t('register.name_rule')
+            ];
+        },
+        kanaRules() {
+            return [
+                v => !!v || this.$t('register.kana_rule')
+            ];
+        },
+        zipcodeRules() {
+            return [
+                v => !!v || this.$t('register.zipcode_rule')
+            ];
+        },
+        prefectureRules() {
+            return [
+                v => !!v || this.$t('register.prefecture_rule')
+            ];
+        },
+        cityRules() {
+            return [
+                v => !!v || this.$t('register.city_rule')
+            ];
+        },
+        address1Rules() {
+            return [
+                v => !!v || this.$t('register.address1_rule')
+            ];
+        },
+        phoneRules() {
+            return [
+                v => !!v || this.$t('register.phone_rule')
+            ];
+        },
+        emailRules() {
+            return [
+                (v) => !!v || this.$t('register.email_rule'),
+                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t('register.email_rule2')
+            ];
+        },
+        confirmEmailRules() {
+            return [
+                (v) => !!v || this.$t('register.confirmEmail_rule'),
+                (v) => v == this.email || this.$t('register.confirmEmail_rule2')
+            ];
+        }
     
     },
     methods: {

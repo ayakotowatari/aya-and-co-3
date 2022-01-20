@@ -20,10 +20,18 @@
   "update": "update",
   "remove": "remove",
   "checkout": "checkout",
+  "checkout2": "checkout",
   "shopping": "continue shopping",
   "add_cart": "add to cart",
   "check_cart": "check cart",
-  "send": "Submit"
+  "send": "Submit",
+  "continue_shopping": "Continue Shopping",
+  "next": "Next",
+  "back": "Back"
+},
+
+"message": {
+  "logged_in": "You are already logged in."
 },
 
 "register":{
@@ -36,7 +44,20 @@
   "building": "Apartment / Building Name",
   "phone": "Phone",
   "email": "Email",
-  "confirm_email": "Confirm Email"
+  "confirm_email": "Confirm Email",
+  "hint_zipcode": "Enter 7-digit postcode with no hyphen, e.g. 1234567",
+  "name_rule": "First name is required.",
+  "kana_rule": "Last name is required.",
+  "zipcode_rule": "Postcode is required.",
+  "prefecture_rule": "Prefecture is required.",
+  "city_rule": "City is required.",
+  "address1_rule": "House / room number is required.",
+  "phone_rule": "Phone is required.",
+  "email_rule": "Email is required.",
+  "email_rule2": "Invalid email address.",
+  "confirmEmail_rule": "Email confirmation is required.",
+  "confirmEmail_rule2": "Given email does not match.",
+  "deliveryTime_rule": "Desired time of delivery is required."
 },
 
   
@@ -65,16 +86,6 @@
     
   },
 
-  "cart": {
-    "message": "You have no items in your shopping cart.",
-    "check-postage1": "Check ",
-    "check-postage2": "Packaging & Delivery ",
-    "check-postage3": "before check-out. You will be able to select delivery option easily."
-
-
-    
-  },
-
   "product": {
     "quantity": "Qty",
     "select_qty": "Select Quantity",
@@ -84,6 +95,27 @@
     "ingredients": "Ingredients",
     "note": "Tap an item you want to order, then select a quantity and add the item to cart.",
     "tax_info": "(incl. tax)"
+  },
+
+  "cart": {
+    "message": "You have no items in your shopping cart.",
+    "check-postage1": "Check ",
+    "check-postage2": "Packaging & Delivery ",
+    "check-postage3": "before check-out. You will be able to select delivery option easily."
+    
+  },
+
+  "checkout": {
+    "stepper1": "Shipping Address",
+    "stepper2": "Shipping Method",
+    "stepper3": "Preview Order",
+    "stepper4": "Payment",
+    "shipping_address": "Shipping Address",
+    "login": "Checkout as Member",
+    "order_guest": "Checkout as Guest",
+    "message": "Choose where to send your delivery and enter the details.",
+    "ship_home": "Home",
+    "ship_other": "Other Address"
   },
 
   "sustainability": {
