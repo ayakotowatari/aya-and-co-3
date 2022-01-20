@@ -58,7 +58,7 @@
                     <h4 :class="fontWeightClasses" class="grey--text text--darken-3 mb24">Step 2: {{$t('checkout.delivery_time')}}</h4>
                     <v-select
                         v-model="deliveryTime"
-                        :items = "items"
+                        :items="$t('checkout.time_options')"
                         :label="$t('checkout.delivery_label')"
                         outlined
                         required
