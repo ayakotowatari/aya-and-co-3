@@ -8,7 +8,7 @@
                 >
                     <v-text-field
                         v-model="name"
-                        label="お名前"
+                        :label="$t('register.name1')"
                         outlined
                         required
                         :rules="nameRules"
@@ -17,7 +17,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="kana"
-                        label="フリガナ"
+                        :label="$t('register.name2')"
                         outlined
                         required
                         :rules="kanaRules"
@@ -26,7 +26,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="zipcode"
-                        label="郵便番号"
+                        :label="$t('register.zipcode')"
                         outlined
                         required
                         hint="ハイフンなしで、半角数字7桁のみをご記入ください。例: 1234567"
@@ -37,7 +37,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="state"
-                        label="都道府県"
+                        :label="$t('register.prefecture')"
                         outlined
                         required
                         :rules="prefectureRules"
@@ -46,7 +46,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="city"
-                        label="市町村"
+                        :label="$t('register.city')"
                         outlined
                         required
                         :rules="cityRules"
@@ -55,7 +55,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="address1"
-                        label="番地・部屋番号"
+                        :label="$t('register.address1')"
                         outlined
                         required
                         :rules="address1Rules"
@@ -64,14 +64,14 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="building"
-                        label="マンション・建物名"
+                        :label="$t('register.building')"
                         outlined
                         :error="allerror.building ? true : false"
                         :error-messages="allerror.building"
                     ></v-text-field>
                     <v-text-field
                         v-model="phone"
-                        label="電話番号"
+                        :label="$t('register.phone')"
                         outlined
                         required
                         :rules="phoneRules"
@@ -80,7 +80,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="email"
-                        label="メールアドレス" 
+                        :label="$t('register.email')"
                         outlined
                         required
                         :rules="emailRules"
@@ -89,7 +89,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="confirmEmail"
-                        label="メールアドレスの確認" 
+                        :label="$t('register.confirm_email')"
                         outlined
                         required
                         :rules="confirmEmailRules" 
@@ -176,8 +176,15 @@ export default {
             }
 
             let self = this;
+            let lang = "";
+            //言語
+            if(this.$i18n.locale == "en"){
+                lang = "rome";
+            }else{
+                lang = "ja";
+            }
             //自サイトのAPI
-            let url = "/ajax/zipcode/" + val;
+            let url = "/ajax/zipcode/" + val + "/" + lang;
 
             axios
             .get(url)

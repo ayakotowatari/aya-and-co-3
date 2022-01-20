@@ -105,7 +105,8 @@ export default {
       
     },
     created(){
-        this.$store.dispatch('fetchPostages')
+        this.$store.dispatch('fetchPostages');
+        this.$store.dispatch('fetchStates');
     },
     computed: {
         ...mapState([
@@ -151,6 +152,7 @@ export default {
 
                 // this.$store.dispatch('setPostage', this.courier);
                 this.setPostage({
+                    lang: this.$i18n.locale,
                     courier: this.courier,
                     prefecture: this.deliveryAddress.prefecture,
                     totalQuantity: this.totalQuantityInCart

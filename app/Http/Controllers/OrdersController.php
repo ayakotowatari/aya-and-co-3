@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Shipment;
 use App\Models\Status;
 use App\Models\Postage;
+use App\Models\State;
 use App\Models\Courier;
 use App\Models\Giftcard;
 use Illuminate\Http\Request;
@@ -621,10 +622,11 @@ class OrdersController extends Controller
     }
 
    
-     public function zipcode(Request $request, $zipcode)
-    {
+     public function zipcode(Request $request, $val, $lang)
+    {   
+    
         //外部API呼び出し
-            $handle = curl_init("https://api.zipaddress.net/?zipcode=" . $zipcode);
+            $handle = curl_init("https://api.zipaddress.net/?zipcode=" . $val . "&lang=" . $lang);
             curl_setopt($handle, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
             curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 
@@ -728,6 +730,14 @@ class OrdersController extends Controller
         $postageCompact = Postage::where('courier_id', 3)->get();
 
         return response() -> json(['postages' => $postages, 'yamatotakkyubin' => $postageYamatoTakkyubin, 'yamatobig' => $postageYamatoBig, 'compact' => $postageCompact, 'courier' => $couriers]);   
+    }
+
+    public function states()
+    {
+        $states = State::get();
+
+        return response() -> json(['states' => $states]); 
+
     }
 
     public function createUserReceipt($id)

@@ -22,8 +22,21 @@
   "checkout": "checkout",
   "shopping": "continue shopping",
   "add_cart": "add to cart",
-  "check_cart": "check cart"
- 
+  "check_cart": "check cart",
+  "send": "Submit"
+},
+
+"register":{
+  "name1": "First Name",
+  "name2": "Last Name",
+  "zipcode": "Postcode",
+  "prefecture": "Prefecture",
+  "city": "City",
+  "address1": "Street / House / Room Number",
+  "building": "Apartment / Building Name",
+  "phone": "Phone",
+  "email": "Email",
+  "confirm_email": "Confirm Email"
 },
 
   

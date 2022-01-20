@@ -70,9 +70,6 @@ export default new Vuex.Store({
       deliveryCardUse: '',
       deliveryCardMessage: '',
       deliveryCardName: '',
-      postages: {
-          
-      },
       guest: {
           id: '',
           name: '',
@@ -137,6 +134,7 @@ export default new Vuex.Store({
       },
       orderedProducts: [],
       postages: [],
+      states: [],
       postageYamatoTakkyubins: [],
       postageCompacts: [],
       postageYamatoBigs: [],
@@ -263,11 +261,23 @@ export default new Vuex.Store({
     },
     insertPostage(state, payload){
 
+        let lang = payload.lang
+        // console.log('lang', lang)
         let id = payload.courier
         let prefecture = payload.prefecture
+        // console.log('prefecture', prefecture)
         let totalQuantity = payload.totalQuantity
+        let state_data = {}
 
-        let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.prefecture === prefecture);
+        if(lang == "en"){
+            state_data = state.states.find(item => item.state_en == prefecture)
+        }else{
+            state_data = state.states.find(item => item.state == prefecture)
+        }
+        
+        let state_id = state_data.id
+        
+        let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.state_id === state_id);
         let postage = postage_data.postage
 
         if(id == 3){
@@ -699,6 +709,9 @@ export default new Vuex.Store({
     },
     setPostages(state, payload){
         state.postages = payload
+    },
+    setStates(state, payload){
+        state.states = payload
     },
     setPostageYamatoTakkyubin(state, payload){
         state.postageYamatoTakkyubins = payload
@@ -1744,6 +1757,18 @@ export default new Vuex.Store({
                 commit('setPostageCompact', compact);
                 commit('setPostageYamatoBig', yamatobig)
                 commit('setCouriers', courier);
+        });
+    },
+    async fetchStates({ commit }){
+        let states = [];
+
+        await axios
+            .get("/fetch-states")
+            .then(res => {
+                states = res.data.states;
+                commit('setStates', states);
+                // commit('setDeliveryAddress', payload);
+                
         });
     },
     async updateUserName({state, commit}, payload){
