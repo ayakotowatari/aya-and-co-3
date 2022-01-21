@@ -42,6 +42,16 @@
   "logged_in": "You are already logged in."
 },
 
+"invite_register": {
+  "lead": "Join us today and make most of our services for valued members, including: ",
+  "benefit1": "Get discount coupons for your purchases.",
+  "benefit2": "Receive updates on our new products.",
+  "benefit3": "Enjoy members-only offers such as custom card service",
+  "benefit4": "Smoother checkout process",
+  "benefit5": "Check your order summary and shipment date",
+  "message": "You already have an account with us and are logged in."
+},
+
 "register":{
   "title": "Member Registration",
   "name": "Full Name",

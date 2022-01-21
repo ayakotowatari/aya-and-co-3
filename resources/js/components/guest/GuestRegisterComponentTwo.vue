@@ -200,6 +200,8 @@ export default {
         ]),
         goRegister(){    
 
+            let lang = this.$i18n.locale
+
             if(this.$refs.form.validate()){
                 this.guestRegister({
                     url: "/register",
@@ -216,6 +218,7 @@ export default {
                     password: this.password,
                     password_confirmation: this.password_confirmation,
                     guest_id: this.guest.id,
+                    lang: lang
                     // timezone: this.timezone
                 })
             }

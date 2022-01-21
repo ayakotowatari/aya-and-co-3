@@ -41,6 +41,7 @@ export default new Vuex.Store({
           phone: '',
           email: '',
           password: '',
+          lang: ''
       },
       homeAddress: {},
       otherAddresses: [],
@@ -942,6 +943,7 @@ export default new Vuex.Store({
         let user = {};
 
         // commit("setLoading", true);
+        // console.log('lang', payload.lang)
 
         await axios
             .post(payload.url, {
@@ -957,6 +959,7 @@ export default new Vuex.Store({
                 email: payload.email,
                 password: payload.password,
                 password_confirmation: payload.password_confirmation,
+                lang: payload.lang
             })
             .then(response => {
                 // console.log(response);
@@ -1051,6 +1054,7 @@ export default new Vuex.Store({
                 email: payload.email,
                 password: payload.password,
                 password_confirmation: payload.password_confirmation,
+                lang: payload.lang
             })
             .then(response => {
                 // console.log(response);
