@@ -35,7 +35,9 @@
   "next": "Next",
   "back": "Back",
   "confirm": "Confirm",
-  "top_page": "Back to home"
+  "top_page": "Back to home",
+  "reset_password": "Send Password Reset Link",
+  "reset_email": "reset email"
 },
 
 "message": {
@@ -83,6 +85,14 @@
   "confirmPassword_rule": "Password confirmation is required.",
   "confirmPassword_rule2": "Given password does not match.",
   "deliveryTime_rule": "Desired time of delivery is required."
+},
+
+"reset": {
+  "title": "Password Reset Link",
+  "line1": "We have sent to your email a link to reset your password.",
+  "line2": "Please check your email and reset your password.",
+  "line3": "You will be automatically logged in once you have reset your password. Alternatively, log in from below after you have reset your password."
+
 },
 
   

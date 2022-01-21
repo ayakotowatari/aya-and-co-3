@@ -4,16 +4,16 @@
             <v-dialog v-model="dialogLinkSent" persistent max-width="320">
                 <v-card>
                     <v-card-title >
-                        <div class="dialog-title grey--text text--darken-4">パスワードリセット</div>
+                        <div class="dialog-title grey--text text--darken-4">{{$t('reset.title')}}</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
-                        登録されたメールアドレスに、パスワードをリセットするためのリンクが送られました。
+                        {{$t('reset.line1')}}
                     </v-card-text>
                     <v-card-text class="jp-font-400">
-                        メールを確認し、パスワードをリセットしてください。
+                        {{$t('reset.line2')}}
                     </v-card-text>
                     <v-card-text class="jp-font-400">
-                        パスワードをリセットすると、自動的にログインされます。もしくは、リセット後に、下記のボタンからログインしてください。
+                        {{$t('reset.line3')}}
                     </v-card-text>
                     <!-- <v-card-subtitle>
                         <p>{{ event.date }}</p>
@@ -21,8 +21,8 @@
                     </v-card-subtitle> -->
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="toLogin">ログインする</v-btn>
-                    <v-btn text @click="toHome">ホームに戻る</v-btn>
+                    <v-btn color="primary" text @click="toLogin">{{$t('btn.login')}}</v-btn>
+                    <v-btn text @click="toHome">{{$t('btn.top_page')}}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>

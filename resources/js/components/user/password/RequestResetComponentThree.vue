@@ -30,10 +30,12 @@
                                     <v-col cols="12" sm="12" md="6">
                                         <v-text-field
                                             v-model='email'
-                                            label="メールアドレス" 
+                                            :label="$t('register.email')"
                                             outlined
                                             required
                                             :rules="emailRules"
+                                            validate-on-blur
+                                            @blur="() => $refs.form.resetValidation()"
                                             :error = "errorMessage ? true : false"
                                             :error-messages="errorMessage"
                                         ></v-text-field>
@@ -46,9 +48,10 @@
                                                         @click="reset()"
                                                         :loading="loading"
                                                         :disabled="disabled.sendResetLink"
+                                                        :class="btnClasses"
                                                         class="mr-2"
                                                     >
-                                                        リセット用のリンクを送る
+                                                        {{$t('btn.reset_password')}}
                                                     </v-btn>
                                                     <v-btn
                                                         color="primary"
@@ -56,7 +59,7 @@
                                                         :disabled="disabled.resetEmail"
                                                         @click="resetInput()"
                                                     >
-                                                        入力し直す
+                                                        {{$t('btn.reset_email')}}
                                                     </v-btn>
                                                 </v-col>
                                                 <!-- <v-col cols="12" sm="12" md="3" class="hidden-sm-and-down">
@@ -72,7 +75,7 @@
                                                         :disabled="disabled.sendResetLink"
                                                         class="mb-2"
                                                     >
-                                                        リセット用のリンクを送る
+                                                        {{$t('btn.reset_password')}}
                                                     </v-btn>
                                                      <v-btn
                                                         block
@@ -80,7 +83,7 @@
                                                         outlined
                                                         :disabled="disabled.resetEmail"
                                                     >
-                                                        入力し直す
+                                                        {{$t('btn.reset_email')}}
                                                     </v-btn>
                                                 </v-col>
                                                 <!-- <v-col cols="12" sm="12" md="3" class="hidden-md-and-up">
@@ -141,6 +144,11 @@ export default {
             'dialogLinkSent',
             // 'user',
         ]),
+        btnClasses(){
+            if(this.$i18n.locale == 'en'){
+                return 'en-btn-mb'
+            }
+        }
     },
     methods: {
         ...mapActions([
@@ -169,5 +177,8 @@ export default {
 </script>
 
 <style>
+.en-btn-mb{
+    margin-bottom: 16px;
+}
 
 </style>
