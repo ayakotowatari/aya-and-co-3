@@ -14,16 +14,22 @@
        </v-row>
        <v-row>
            <v-col cols="12" sm="12" md="4">
-                <v-row>
-                    <v-col cols="12" sm="12" md="12">
-                        <div class="form-title grey--text text--darken-4">{{guest.name}}様の会員登録</div>
-                    </v-col>
-                </v-row>
+                
            </v-col>
            <v-col v-if="guest === null" cols="12" sm="12" md="8">
                <register-component></register-component>
            </v-col>
            <v-col v-if="guest !== null" cols="12" sm="12" md="8">
+               <v-row>
+                    <v-col cols="12" sm="12" md="12">
+                        <div v-if="$i18n.locale == 'en'">
+                            <p :class="formTitleClasses" class="grey--text text--darken-4">Dear {{guest.name}},</p>
+                            <p :class="formWeightClasses" class="grey--text text--darken-2">Register your password below, and you will be signed up with us.</p>
+                        </div>
+                        <div v-else :class="formTitleClasses" class="grey--text text--darken-4">{{guest.name}}様の会員登録</div>
+                        
+                    </v-col>
+                </v-row>
                 <v-row>
                     <!-- <v-col cols="12" sm="12" md="4">
                         <v-img 
@@ -33,6 +39,30 @@
                         </v-img>
                     </v-col> -->
                     <v-col cols="12" sm="12" md="6">
+                        <div class="mb-6">
+                            <div :class="itemContentClasses" class="policy-title">
+                                {{$t('register.name')}}
+                            </div>
+                            <div>
+                                {{guest.name}}
+                            </div>
+                        </div>
+                        <div v-if="$i18n.locale == 'ja'" class="mb-6">
+                            <div :class="itemContentClasses" class="policy-title">
+                                {{$t('register.kana')}}
+                            </div>
+                            <div>
+                                {{guest.kana}}
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div :class="itemContentClasses" class="policy-title">
+                                {{$t('register.email')}}
+                            </div>
+                            <div>
+                                {{guest.email}}
+                            </div>
+                        </div>
                         <v-form
                             ref="form"
                             v-model="valid"
@@ -42,26 +72,30 @@
                                 <v-col cols="12" sm="12" md="12">
                                     <v-text-field 
                                         v-model="password"
-                                        label="パスワード" 
+                                        :label="$t('register.password')" 
                                         :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                                         :type="showPassword ? 'text' : 'password'"
                                         outlined
                                         required
-                                        hint="8文字以上で設定してください。"
+                                        :hint="$t('register.hint_password')"
                                         persistent-hint
                                         :rules="passwordRules" 
+                                        validate-on-blur
+                                        @blur="() => $refs.form.resetValidation()"
                                         :error="allRegisterError.password ? true : false"
                                         :error-messages="allRegisterError.password"
                                         @click:append="showPassword = !showPassword"
                                     ></v-text-field>
                                     <v-text-field 
                                         v-model="password_confirmation"
-                                        label="パスワードの確認" 
+                                        :label="$t('register.confirm_password')"  
                                         :append-icon="showPassword2 ? 'mdi-eye' : 'mdi-eye-off'"
                                         :type="showPassword2 ? 'text' : 'password'"
                                         outlined
                                         required
                                         :rules="confirmPasswordRules" 
+                                        validate-on-blur
+                                        @blur="() => $refs.form.resetValidation()"
                                         :error="allRegisterError.password_confirmation ? true : false"
                                         :error-messages="allRegisterError.password_confirmation"
                                         @click:append="showPassword2 = !showPassword2"
@@ -77,7 +111,7 @@
                                         @click="goRegister()"
                                         :loading="loading"
                                     >
-                                            登録する
+                                            {{$t('btn.register')}}
                                     </v-btn>
                                     <div v-if="allRegisterError.email !== null">
                                         <p class="error-message grey--text text--grey-4" >
@@ -96,7 +130,7 @@
                                             outlined
                                             @click="toRegister"
                                         >
-                                            最初から登録しなおす
+                                            {{$t('btn.register_again')}}
                                         </v-btn>
                                     </div>
                                     <!-- <v-btn text color="primary" class="pa-0" @click="toLogin()">login</v-btn> -->
@@ -123,15 +157,7 @@ export default {
         return{
             valid: true,
             password: '',
-            passwordRules: [
-                (v) => !!v || 'パスワードを入力してください。',
-                (v) => v.length >= 8 || '最低8文字が必要です。'
-            ],
             password_confirmation: '',
-            confirmPasswordRules: [
-                (v) => !!v || 'パスワードを再度入力してください。',
-                (v) => v == this.password || 'パスワードが一致しません。'
-            ],      
             // timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
             showPassword: false,
             showPassword2: false
@@ -143,6 +169,30 @@ export default {
             'guest',
             'loading',
         ]),
+        formTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-form-title'
+          return 'form-title'
+        },
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        },
+        itemContentClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-content'
+          return 'item-content'
+        },
+        passwordRules(){
+            return[
+                (v) => !!v || this.$t('register.password_rule'),
+                (v) => v.length >= 8 || this.$t('register.password_rule2')
+            ];
+        },
+        confirmPasswordRules(){
+            return[
+                (v) => !!v || this.$t('register.confirmPassword_rule'),
+                (v) => v == this.password || this.$t('register.confirmPassword_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([
@@ -197,6 +247,9 @@ export default {
     font-style: normal;
     font-size: 16px;
     letter-spacing: 0.03em;
+}
+.en-item-content{
+    font-weight: 300;
 }
 
 </style>

@@ -19,6 +19,7 @@
 "btn": {
   "register": "register",
   "to_register": "register now",
+  "register_again":"register with new information",
   "login": "login",
   "forgot_password": "forgot your password?",
   "update": "update",
@@ -33,7 +34,8 @@
   "continue_shopping": "Continue Shopping",
   "next": "Next",
   "back": "Back",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "top_page": "Back to home"
 },
 
 "message": {
@@ -41,6 +43,7 @@
 },
 
 "register":{
+  "title": "Member Registration",
   "name": "Full Name",
   "zipcode": "Postcode",
   "prefecture": "Prefecture",
@@ -51,6 +54,8 @@
   "email": "Email",
   "confirm_email": "Confirm Email",
   "password": "Password",
+  "confirm_password": "Confirm Password",
+  "hint_password": "Password must be at least 8 characters.",
   "hint_zipcode": "Enter 7-digit postcode with no hyphen, e.g. 1234567",
   "name_rule": "Full name is required.",
   "kana_rule": "Kana is required.",
@@ -65,6 +70,8 @@
   "confirmEmail_rule2": "Given email does not match.",
   "password_rule": "Password is required",
   "password_rule2": "Password must be at least 8 characters.",
+  "confirmPassword_rule": "Password confirmation is required.",
+  "confirmPassword_rule2": "Given password does not match.",
   "deliveryTime_rule": "Desired time of delivery is required."
 },
 
@@ -143,7 +150,16 @@
     "address": "Address",
     "phone": "Phone",
     "method": "Method",
-    "time": "Preferred Delivery Time"
+    "time": "Preferred Delivery Time",
+    "card_payment": "Payment",
+    "card_note": "We accept payment by credit card only. Stripe, a payment service provider, will process your payment on our behalf. We do not store your credit card details. They are securely maintained in our payment provider's systems.",
+    "card_receipt": "We will email an electronic receipt of your payment once your delivery is shipped.",
+    "card_number": "Card Number",
+    "card_expiry": "Expiration Date",
+    "card_cvc": "Security Code",
+    "pay": "Process Payment",
+    "thank_guest": "Thank you for your order! Hope Your product will be shipped as soon as possible.",
+    "guest_signup":"We will be thrilled if you sign up with us now so that we can keep you updated on our products and you can get your coupon code for your second purchase."
   },
 
   "sustainability": {

@@ -14,7 +14,7 @@
         </v-row> -->
         <v-row justify="center">
             <v-col cols="12" sm="12" md="6">
-                 <h4 class="jp-font grey--text text--darken-2 mb24 marginminus">クレジットカードによるお支払い</h4>
+                 <h4 :class="formTitleClasses" class="grey--text text--darken-4 mb24 marginminus">{{$t('checkout.card_payment')}}</h4>
             </v-col>
         </v-row>
 
@@ -23,7 +23,7 @@
                         <v-row justify="start">
                             <v-col cols="6" sm="6" md="6" class="py-1">
                                 <div class="totalprice grey--text text--darken-3">
-                                    商品小計（税込）
+                                    {{$t('product.total2')}}
                                 </div>
                             </v-col>
                             <v-col cols="6" sm="6" md="6" class="py-1">
@@ -38,7 +38,7 @@
                         <v-row justify="start">
                             <v-col cols="6" sm="6" md="6" class="py-1">
                                 <div class="totalprice grey--text text--darken-3">
-                                    送料
+                                    {{$t('product.shipping')}}
                                 </div>
                             </v-col>
                             <v-col cols="6" sm="6" md="6" class="py-1">
@@ -59,7 +59,7 @@
                         <v-row justify="start" class="mb-4">
                             <v-col cols="6" sm="6" md="6" class="py-1">
                                 <div class="charge grey--text text--darken-3">
-                                    ご請求額
+                                    {{$t('product.total3')}}
                                 </div>
                             </v-col>
                             <v-col cols="6" sm="6" md="6" class="py-1">
@@ -72,14 +72,14 @@
                  <v-row justify="center">
                     <v-col cols="12" sm="12" md="6">
                         <div class="totalprice grey--text text--darken-2">
-                            お支払いには、Stripe社の決済プラットフォームを使用しています。本サイトにはお客様のクレジットカード番号は保存されませんので、安心してご利用ください。
+                            {{$t('checkout.card_note')}}
                         </div>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" sm="12" md="6">
                         <div class="totalprice grey--text text--darken-2">
-                            納品書兼領収書は、商品の発送後に、お客様のメールアドレスまで、PDF文書でお送りさせていただきます。
+                            {{$t('checkout.card_receipt')}}
                         </div>
                     </v-col>
                 </v-row>
@@ -105,7 +105,7 @@
                         <v-form>
                             <v-row justify="center">
                                 <v-col cols="12" sm="12" md="12">
-                                    <label for="card-number" class="card-info-title">カード番号</label>
+                                    <label for="card-number" class="card-info-title">{{$t('checkout.card_number')}}</label>
                                     <!-- <div id="card-element"></div> -->
                                     <div class="card-info" id="card-number"></div>
                                     <v-divider></v-divider>
@@ -114,7 +114,7 @@
                             </v-row>
                             <v-row justify="center">
                                 <v-col cols="12" sm="12" md="12">
-                                    <label for="card-expiry" class="card-info-title">有効期限</label>
+                                    <label for="card-expiry" class="card-info-title">{{$t('checkout.card_expiry')}}</label>
                                     <div class="card-info" id="card-expiry"></div>
                                     <v-divider></v-divider>
                                     <div id="card-error" v-if="cardExpiryError">{{ cardExpiryError }}</div>
@@ -122,7 +122,7 @@
                             </v-row>
                             <v-row justify="center">
                                 <v-col cols="12" sm="12" md="12">
-                                    <label for="card-cvc" class="card-info-title">3桁または4桁のセキュリティコード</label>
+                                    <label for="card-cvc" class="card-info-title">{{$t('checkout.card_cvc')}}</label>
                                     <div class="card-info" id="card-cvc"></div>
                                     <v-divider></v-divider>
                                     <div id="card-error" v-if="cardCvcError">{{ cardCvcError }}</div>
@@ -137,7 +137,7 @@
                                         @click="processPaymentAsGuest"
                                         :loading="loading"
                                     >
-                                        支払いをする
+                                        {{$t('checkout.pay')}}
                                     </v-btn>
                                 </v-col>
                             </v-row>
@@ -269,6 +269,10 @@ export default {
             'order',
             'dialogThankYouGuest',
         ]),
+        formTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-form-title'
+          return 'form-title'
+        },
         cartTotal(){
             let cartAmount = this.$store.state.cart.reduce((acc,item) => acc + (item.price * item.quantity), 0);
 

@@ -33,6 +33,8 @@
                                                     outlined
                                                     required
                                                     :rules="nameRules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.name ? true : false"
                                                     :error-messages="allRegisterError.name"
                                                 ></v-text-field>
@@ -42,6 +44,8 @@
                                                     outlined
                                                     required
                                                     :rules="kanaRules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.kana ? true : false"
                                                     :error-messages="allRegisterError.kana"
                                                 ></v-text-field>
@@ -53,6 +57,8 @@
                                                     hint="ハイフンなしで、数字7桁のみをご記入ください。例: 1234567"
                                                     persistent-hint
                                                     :rules="zipcodeRules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.zipcode ? true : false"
                                                     :error-messages="allRegisterError.zipcode"
                                                 ></v-text-field>
@@ -62,6 +68,8 @@
                                                     outlined
                                                     required
                                                     :rules="prefectureRules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.prefecture ? true : false"
                                                     :error-messages="allRegisterError.prefecture"
                                                 ></v-text-field>
@@ -71,6 +79,8 @@
                                                     outlined
                                                     required
                                                     :rules="cityRules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.city ? true : false"
                                                     :error-messages="allRegisterError.city"
                                                 ></v-text-field>
@@ -80,6 +90,8 @@
                                                     outlined
                                                     required
                                                     :rules="address1Rules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.address_1 ? true : false"
                                                     :error-messages="allRegisterError.address_1"
                                                 ></v-text-field>
@@ -96,6 +108,8 @@
                                                     outlined
                                                     required
                                                     :rules="phoneRules"
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.phone ? true : false"
                                                     :error-messages="allRegisterError.phone"
                                                 ></v-text-field>
@@ -105,6 +119,8 @@
                                                     outlined
                                                     required
                                                     :rules="emailRules" 
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.email ? true : false"
                                                     :error-messages="allRegisterError.email"
                                                 ></v-text-field>
@@ -114,6 +130,8 @@
                                                     outlined
                                                     required
                                                     :rules="confirmEmailRules" 
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.email ? true : false"
                                                     :error-messages="allRegisterError.email"
                                                 ></v-text-field>
@@ -125,6 +143,8 @@
                                                     outlined
                                                     required
                                                     :rules="passwordRules" 
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.password ? true : false"
                                                     :error-messages="allRegisterError.password"
                                                     @click:append="showPassword = !showPassword"
@@ -137,6 +157,8 @@
                                                     outlined
                                                     required
                                                     :rules="confirmPasswordRules" 
+                                                    validate-on-blur
+                                                    @blur="() => $refs.form.resetValidation()"
                                                     :error="allRegisterError.password_confirmation ? true : false"
                                                     :error-messages="allRegisterError.password_confirmation"
                                                     @click:append="showPassword2 = !showPassword2"
