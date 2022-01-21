@@ -35,7 +35,7 @@ class GuestsController extends Controller
     {
         $request ->validate([
             'name' => 'required',
-            'kana' => 'required',
+            // 'kana' => 'required',
             'zipcode' => 'required | min:7',
             "prefecture" => 'required',
             "city" => 'required',

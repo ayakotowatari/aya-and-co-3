@@ -299,8 +299,13 @@ export default new Vuex.Store({
         
 
         let courier = state.couriers.find(item=>item.id == payload.courier);
-        state.deliveryAddress.courier_type = courier.courier_type
 
+        if(lang == 'en'){
+            state.deliveryAddress.courier_type = courier.name_en + ' ' + courier.type_en;
+        }else{
+            state.deliveryAddress.courier_type = courier.courier_type
+        }
+        
     },
     setOtherAddresses(state, payload){
         state.otherAddresses = payload

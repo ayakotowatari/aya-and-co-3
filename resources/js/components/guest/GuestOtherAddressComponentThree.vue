@@ -10,24 +10,25 @@
                 >
                     <v-text-field
                         v-model="deliveryName"
-                        :label="$t('register.name1')"
+                        :label="$t('register.name')"
                         outlined
                         required
                         :rules="nameRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.name ? true : false"
                         :error-messages="allerror.name"
                         class="text-title"
                     ></v-text-field>
                     <v-text-field
+                        v-if="$i18n.locale == 'ja'"
                         v-model="deliveryKana"
-                        :label="$t('register.name2')"
+                        :label="$t('register.kana')"
                         outlined
                         required
                         :rules="kanaRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.kana ? true : false"
                         :error-messages="allerror.kana"
                     ></v-text-field>
@@ -41,7 +42,7 @@
                         persistent-hint
                         :rules="zipcodeRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.zipcode ? true : false"
                         :error-messages="allerror.zipcode"
                     ></v-text-field>
@@ -52,7 +53,7 @@
                         required
                         :rules="prefectureRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.prefecture ? true : false"
                         :error-messages="allerror.prefecture"
                     ></v-text-field>
@@ -63,7 +64,7 @@
                         required
                         :rules="cityRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.city ? true : false"
                         :error-messages="allerror.city"
                     ></v-text-field>
@@ -74,7 +75,7 @@
                         required
                         :rules="address1Rules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.address_1 ? true : false"
                         :error-messages="allerror.address_1"
                     ></v-text-field>
@@ -92,7 +93,7 @@
                         required
                         :rules="phoneRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form1.resetValidation()"
                         :error="allerror.phone ? true : false"
                         :error-messages="allerror.phone"
                     ></v-text-field>
@@ -107,26 +108,26 @@
                 >
                     <v-text-field
                         v-model="name"
-                        :counter="10"
-                        :label="$t('register.name1')"
+                        :label="$t('register.name')"
                         outlined
                         required
                         :rules="nameRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.name"
                         :error-messages="allerror.name"
                         class="text-title"
                     ></v-text-field>
                     <v-text-field
+                        v-if="$i18n.locale == 'ja'"
                         v-model="kana"
                         :counter="10"
-                        :label="$t('register.name2')"
+                        :label="$t('register.kana')"
                         outlined
                         required
                         :rules="kanaRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.kana"
                         :error-messages="allerror.kana"
                     ></v-text-field>
@@ -139,7 +140,7 @@
                         persistent-hint
                         :rules="zipcodeRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.zipcode"
                         :error-messages="allerror.zipcode"
                     ></v-text-field>
@@ -150,7 +151,7 @@
                         required
                         :rules="prefectureRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.prefecture"
                         :error-messages="allerror.prefecture"
                     ></v-text-field>
@@ -161,7 +162,7 @@
                         required
                         :rules="cityRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.city"
                         :error-messages="allerror.city"
                     ></v-text-field>
@@ -172,7 +173,7 @@
                         required
                         :rules="address1Rules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.address_1"
                         :error-messages="allerror.address_1"
                     ></v-text-field>
@@ -190,7 +191,7 @@
                         required
                         :rules="phoneRules"
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.phone"
                         :error-messages="allerror.phone"
                     ></v-text-field>
@@ -201,7 +202,7 @@
                         required
                         :rules="emailRules" 
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.email"
                         :error-messages="allerror.email"
                     ></v-text-field>
@@ -212,7 +213,7 @@
                         required
                         :rules="confirmEmailRules" 
                         validate-on-blur
-                        @blur="() => $refs.form.resetValidation()"
+                        @blur="() => $refs.form2.resetValidation()"
                         :error="allerror.email"
                         :error-messages="allerror.email"
                     ></v-text-field>
@@ -296,8 +297,16 @@ export default {
             }
 
             let self = this;
+
+            let lang = "";
+            //言語
+            if(this.$i18n.locale == "en"){
+                lang = "rome";
+            }else{
+                lang = "ja";
+            }
             //自サイトのAPI
-            let url = "/ajax/zipcode/" + val;
+            let url = "/ajax/zipcode/" + val + "/" + lang;
 
             axios
             .get(url)

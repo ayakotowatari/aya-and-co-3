@@ -41,8 +41,7 @@
 },
 
 "register":{
-  "name1": "First Name",
-  "name2": "Last Name",
+  "name": "Full Name",
   "zipcode": "Postcode",
   "prefecture": "Prefecture",
   "city": "City",
@@ -53,8 +52,8 @@
   "confirm_email": "Confirm Email",
   "password": "Password",
   "hint_zipcode": "Enter 7-digit postcode with no hyphen, e.g. 1234567",
-  "name_rule": "First name is required.",
-  "kana_rule": "Last name is required.",
+  "name_rule": "Full name is required.",
+  "kana_rule": "Kana is required.",
   "zipcode_rule": "Postcode is required.",
   "prefecture_rule": "Prefecture is required.",
   "city_rule": "City is required.",
@@ -98,8 +97,11 @@
   "product": {
     "quantity": "Qty",
     "select_qty": "Select Quantity",
-    "item-total": "Subtotal",
+    "item-total": "Line Total",
     "total": "Total (incl. tax / excl. shipping fee)",
+    "total2": "Subtotal (incl.tax)",
+    "shipping": "Shipping",
+    "total3": "Total",
     "season": "In Season",
     "ingredients": "Ingredients",
     "note": "Tap an item you want to order, then select a quantity and add the item to cart.",
@@ -135,7 +137,13 @@
     "delivery_label": "Preferred delivery time",
     "courier_rule": "Shipping method is required.",
     "deliveryTime_rule": "Preferred delivery is required.",
-    "time_options": ["No preference", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"]
+    "time_options": ["No preference", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"],
+    "confirm_order": "Preview Order",
+    "shipping_details": "Shipping Details",
+    "address": "Address",
+    "phone": "Phone",
+    "method": "Method",
+    "time": "Preferred Delivery Time"
   },
 
   "sustainability": {

@@ -15,7 +15,7 @@
                 >
                     <v-text-field
                         v-model="name"
-                        :label="$t('register.name1')"
+                        :label="$t('register.name')"
                         outlined
                         required
                         :rules="nameRules"
@@ -25,8 +25,9 @@
                         :error-messages="allerror.name"
                     ></v-text-field>
                     <v-text-field
+                        v-if="$i18n.locale == 'ja'"
                         v-model="kana"
-                        :label="$t('register.name2')"
+                        :label="$t('register.kana')"
                         outlined
                         required
                         :rules="kanaRules"
