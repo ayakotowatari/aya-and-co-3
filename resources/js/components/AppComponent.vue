@@ -71,4 +71,8 @@ export default {
     margin-bottom: 56px;
 }
 
+.v-text-field input{
+    font-size: 15px;
+}
+
 </style>
