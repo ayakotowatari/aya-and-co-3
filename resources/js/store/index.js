@@ -263,8 +263,9 @@ export default new Vuex.Store({
     insertPostage(state, payload){
 
         let lang = payload.lang
-        // console.log('lang', lang)
+        console.log('lang', lang)
         let id = payload.courier
+        console.log('courier', payload.courier)
         let prefecture = payload.prefecture
         // console.log('prefecture', prefecture)
         let totalQuantity = payload.totalQuantity
@@ -297,9 +298,9 @@ export default new Vuex.Store({
             state.deliveryAddress.postage = postage
             state.deliveryAddress.box_quantity = ''
         }
-        
 
         let courier = state.couriers.find(item=>item.id == payload.courier);
+        console.log('couriers', courier)
 
         if(lang == 'en'){
             state.deliveryAddress.courier_type = courier.name_en + ' ' + courier.type_en;
@@ -332,8 +333,8 @@ export default new Vuex.Store({
     setDeliveryOption(state, payload){
         state.deliveryAddress.delivery_time = payload.delivery_time
 
-        let courier = state.couriers.find(item=>item.id == payload.courier);
-        state.deliveryAddress.courier_type = courier.courier_type
+        // let courier = state.couriers.find(item=>item.id == payload.courier);
+        // state.deliveryAddress.courier_type = courier.courier_type
 
         state.deliveryCardUse = payload.delivery_carduse
         state.deliveryCardMessage = payload.delivery_cardmessage

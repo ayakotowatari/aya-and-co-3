@@ -19,10 +19,10 @@
                 <v-list-item two-line>
                     <v-list-item-content>
                         <v-list-item-subtitle>{{$t('checkout.address')}}</v-list-item-subtitle>
-                        <v-list-item-title>〒{{user.zipcode}}</v-list-item-title>
-                        <v-list-item-title>{{user.prefecture}}{{user.city}}{{user.address_1}}</v-list-item-title>
-                        <v-list-item-title v-if="user.building !==null">{{user.building}}</v-list-item-title>
-                        <v-list-item-title>{{user.name}}<span v-if="user.lang == 'ja'">様</span></v-list-item-title>
+                        <div class="space">〒{{user.zipcode}}</div>
+                        <div class="space">{{user.prefecture}} {{user.city}} {{user.address_1}}</div>
+                        <div class="space" v-if="user.building !==null">{{user.building}}</div>
+                        <div class="space">{{user.name}}<span v-if="user.lang == 'ja'">様</span></div>
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item two-line>
@@ -148,6 +148,10 @@ export default {
 
 .mb48{
     margin-bottom: 48px;
+}
+
+.space{
+    letter-spacing: 0.03em;
 }
 
 </style>

@@ -107,20 +107,15 @@
                                     <v-list-item-subtitle>
                                         {{ $t('checkout.address')}}
                                     </v-list-item-subtitle>
-                                    <v-list-item-title>
+                                    <div>
                                         〒{{deliveryAddress.zipcode}}<br>
                                         {{deliveryAddress.prefecture}} {{deliveryAddress.city}} {{deliveryAddress.address_1}}<br>
-                                    </v-list-item-title>
+                                    </div>
                                     <v-list-item-title v-if="deliveryAddress.building !== null" class="jp-font-400">
                                         {{deliveryAddress.building}}
                                     </v-list-item-title>
                                     <v-list-item-title>
-                                        <div v-if="$i18n.locale == 'ja'">
-                                        {{deliveryAddress.name}}様
-                                        </div>
-                                        <div v-else>
-                                        {{deliveryAddress.name}}
-                                        </div>
+                                        {{deliveryAddress.name}}<span v-if="$i18n.locale == 'ja'">様</span>
                                     </v-list-item-title>
                                 </v-list-item-content>
                             </v-list-item>

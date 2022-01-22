@@ -17,7 +17,7 @@
 
 Route::group(['middleware' => 'setlocale'], function(){
 
-    Route::get('/', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/lang', 'HomeController@switchLang')->name('lang');
 //テスト

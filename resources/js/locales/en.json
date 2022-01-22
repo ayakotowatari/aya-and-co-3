@@ -4,7 +4,7 @@
     "cart": "Shopping Cart",
     "sustainability": "Sustainable Packaging",
     "products": "Products List",
-    "delivery": "Packaging & Postage", 
+    "delivery": "Shipping Methods & Costs", 
     "card": "Custom Card Service",
     "member": "Member Only",
     "logout": "Logout",
@@ -40,7 +40,11 @@
   "top_page": "Back to home",
   "reset_password": "Send Password Reset Link",
   "reset_email": "reset email",
-  "update_data": "update"
+  "update_data": "update",
+  "add_address": "add new address",
+  "add": "add",
+  "close": "close",
+  "summary": "Order Summary"
 },
 
 "message": {
@@ -165,11 +169,16 @@
     "shipping_method": "Shipping Options",
     "shipping_label": "Preferred shipping method",
     "select_shipping": "Select your preferred shipping method.",
+    "shipping_note1": "Please see ",
+    "shipping_note2": "Shipping Methods & Costs ",
+    "shipping_note3": "for different shipping options.",
     "delivery_time": "Select your preferred delivery time.",
     "delivery_label": "Preferred delivery time",
     "courier_rule": "Shipping method is required.",
     "deliveryTime_rule": "Preferred delivery is required.",
     "time_options": ["No preference", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"],
+    "note": "Message to aya & co.",
+    "no": "No message",
     "confirm_order": "Preview Order",
     "shipping_details": "Shipping Details",
     "address": "Address",
@@ -177,15 +186,55 @@
     "email": "Email",
     "method": "Method",
     "time": "Preferred Delivery Time",
+    "yamato_compact": "Yamato TA-Q-BIN Compact",
+    "yamato": "Yamato TA-Q-BIN",
+    "yamato_large": "Yamato TA-Q-BIN (larger size)",
+    "box_qty": "Box Qty",
     "card_payment": "Payment",
     "card_note": "We accept payment by credit card only. Stripe, a payment service provider, will process your payment on our behalf. We do not store your credit card details. They are securely maintained in our payment provider's systems.",
     "card_receipt": "We will email an electronic receipt of your payment once your delivery is shipped.",
+    "member_receipt": "Your receipt will be downloadable in a PDF format from your order summary once we have shipped your purchase.",
     "card_number": "Card Number",
     "card_expiry": "Expiration Date",
     "card_cvc": "Security Code",
     "pay": "Process Payment",
     "thank_guest": "Thank you for your order! Hope Your product will be shipped as soon as possible.",
     "guest_signup":"We will be thrilled if you sign up with us now so that we can keep you updated on our products and you can get your coupon code for your second purchase."
+  },
+
+  "otheraddress": {
+    "no_data": "You have no other address registered.",
+    "lead": "Select where to send your delivery.",
+    "note": "Click address and it will be highlighted in red. Then, click button to submit.",
+    "ask": "Add a new address？",
+    "add": "Add a new shipping address"
+  },
+
+  "customcard": {
+    "lead": "Custom Card Service",
+    "line1": "Options will be shown once you have chosen a shipping method.",
+    "line2": "Custom Card Service is not availavle for Yamato TA-Q-Bin Compact.",
+    "line3": "Would you like us to enclose a custom card in the package？",
+    "line4": "If no, we will enclose a Thank you card. ",
+    "line5": "Select which message to print on the card.",
+    "use_option": ["Yes", "No"],
+    "label": "Order custom card",
+    "carduse_rule": "This field is mandatory.",
+    "select_message": "Select message",
+    "cardmessage_rule": "Message option is required.",
+    "use": "Yes",
+    "nouse": "No",
+    "message": "Type",
+    "from": "From",
+    "card_name": "Customer's Name"
+  },
+
+  "coupon": {
+    "discount": "Discount",
+    "check": "Check coupon",
+    "label": "Enter coupon code",
+    "apply": "Apply coupon",
+    "remove": "delete & reset"
   },
 
   "sustainability": {

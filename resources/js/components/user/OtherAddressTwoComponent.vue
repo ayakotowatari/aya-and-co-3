@@ -10,8 +10,8 @@
         <div v-if="otherAddresses.length >= 1">
             <v-row>
                 <v-col cols="12" sm="12" md="12">
-                    <h4 class="jp-font grey--text text--darken-3 mb24">配送先の住所を選択する</h4>
-                    <div class="jp-font-400 grey--text text--darken-2 mb24">住所をクリックして選択すると、色が赤く変わります。そのうえで、「この住所に送る」ボタンを押してください。</div>
+                    <h4 :class="fontWeightClasses" class="grey--text text--darken-3 mb24">{{$t('otheraddress.lead')}}</h4>
+                    <div class="grey--text text--darken-2 mb24">{{$t('otheraddress.note')}}</div>
                     <v-item-group v-model="addressGroup" mandatory>
                         <v-row>
                             <v-col cols="12" sm="12" md="12">
@@ -25,23 +25,23 @@
                                         max-width=560
                                     >   
                                         <v-row align="center">
-                                        <v-col cols="9" sm="9" md="8">
+                                        <v-col cols="9" sm="9" md="9">
                                             <v-list-item three-line>
                                             <v-list-item-content>
-                                                <div>
-                                                    {{address.prefecture}}{{address.city}}{{address.address_1}}
+                                                <div class="space">
+                                                    {{address.prefecture}} {{address.city}} {{address.address_1}}
                                                 </div>
-                                                <div v-if="address.building !== null">
+                                                <div class="space" v-if="address.building !== null">
                                                     {{address.building}}
                                                 </div>
-                                                <div>
-                                                    {{address.name}}様
+                                                <div class="space">
+                                                    {{address.name}}<span v-if="$i18n.locale == 'ja'">様</span>
                                                 </div>
                                             </v-list-item-content>
                                             </v-list-item>
                                         </v-col>
 
-                                        <v-col cols="12" sm="12" md="4">
+                                        <v-col cols="12" sm="12" md="3">
                                         <v-card-actions>
                                             <v-btn
                                                 rounded
@@ -49,7 +49,7 @@
                                                 color="grey darken-1"
                                                 @click.stop="remove(address)"
                                             >
-                                                削除する
+                                                {{$t('btn.remove')}}
                                             </v-btn>
                                         </v-card-actions>
                                         </v-col>
@@ -66,7 +66,7 @@
                         @click="confirmAddress"
                         class="mb24"
                     >
-                        この住所に送る
+                        {{$t('btn.send')}}
                     </v-btn>
                     <!-- <v-form v-if="otherAddresses !== null">
                         <v-radio-group v-model="radioGroup">
@@ -91,14 +91,14 @@
             </v-row>
             <v-row>
                 <v-col cols="12" sm="12" md="12">
-                    <div class="jp-font-400 grey--text text--darken-2 mb24">まだ登録されていない住所を追加しますか？</div>
+                    <div class="jp-font-400 grey--text text--darken-2 mb24">{{$t('otheraddress.ask')}}</div>
                     <v-btn
                         color="primary"
                         outlined
                         :disabled="disabled.addNewAddress"
                         @click="newAddress"
                     >
-                        新しい住所を追加する
+                        {{$t('btn.add_address')}}
                     </v-btn>
                 </v-col>
             </v-row>
@@ -106,7 +106,7 @@
         <div v-if="otherAddresses.length <= 0">
             <v-row>
                 <v-col cols="12" sm="12" md="12">
-                    <p>ご自宅以外の住所はまだ登録されていません。</p>
+                    <p>{{$t('otheraddress.no_data')}}</p>
                 </v-col>
             </v-row>
             <v-row>
@@ -117,7 +117,7 @@
     
                     @click="newAddress"
                 >
-                    新しい住所を追加する
+                    {{$t('btn.add_address')}}
                 </v-btn>
             </v-col>
             </v-row>
@@ -156,7 +156,11 @@ export default {
             'dialogRemoveAddress',
             'disabled',
             // 'selectCard',
-        ])
+        ]),
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        },
     
     },
     methods: {
