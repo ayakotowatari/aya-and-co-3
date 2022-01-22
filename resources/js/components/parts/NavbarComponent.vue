@@ -74,7 +74,7 @@
                 color="primary"
             >
                 <v-list-item v-for="link in links" :key="link.title" router :to="link.route">
-                    <v-list-item-title class="jp-font-300">{{$t(link.title)}}</v-list-item-title>
+                    <v-list-item-title class="font-300">{{$t(link.title)}}</v-list-item-title>
                 </v-list-item>
                 <!-- <v-list-item router :to="home">
                     <v-list-item-title class="jp-font-300">ホーム</v-list-item-title>
@@ -94,7 +94,7 @@
                     v-for="product in products" :key="product.title"
                     route :to="product.route"
                 >
-                    <v-list-item-title v-text="$t(product.title)" class="jp-font-300"></v-list-item-title>
+                    <v-list-item-title v-text="$t(product.title)" class="font-300"></v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
 
@@ -123,14 +123,14 @@
                 no-action
             >
                 <template v-slot:activator>
-                    <v-list-item-title class="jp-font-300">{{$t('nav.member')}}</v-list-item-title>
+                    <v-list-item-title class="font-300">{{$t('nav.member')}}</v-list-item-title>
                 </template>
 
                     <v-list-item
                         v-for="item in members" :key="item.title"
                         route :to="item.route"
                     >
-                        <v-list-item-title v-text="$t(item.title)" class="jp-font-300"></v-list-item-title>
+                        <v-list-item-title v-text="$t(item.title)" class="font-300"></v-list-item-title>
                     </v-list-item>
                     <v-list-item
                         @click="logout"
@@ -152,7 +152,7 @@
                     v-for="item in guests" :key="item.title"
                     route :to="item.route"
                 >
-                    <v-list-item-title v-text="$t(item.title)" class="jp-font-300"></v-list-item-title>
+                    <v-list-item-title v-text="$t(item.title)" class="font-300"></v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
 
@@ -166,7 +166,7 @@
                     v-for="item in items" :key="item.title"
                     route :to="item.route"
                 >
-                    <v-list-item-title v-text="$t(item.title)" class="jp-font-300"></v-list-item-title>
+                    <v-list-item-title v-text="$t(item.title)" class="font-300"></v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
         </v-list>
@@ -305,10 +305,8 @@ import { mapState } from 'vuex'
     width: 100%;
     height: 100%;
 }
-.jp-font-300{
-  font-family: 'Noto Sans JP', sans-serif;
+.font-300{
   font-weight: 300;
-  letter-spacing: 0.03em;
 }
 
 .v-list--dense .v-list-item .v-list-item__title{
