@@ -80,7 +80,7 @@
                                         {{product.size}}
                                     </div>
                                     <div class="product-price mb-6">
-                                        {{formatPrice(product.price)}}　{{product.quantity}}点　
+                                        {{formatPrice(product.price)}}　{{product.quantity}}<span :class="fontClasses">{{$t('summary.unit')}}</span>　
                                     </div>
                                 </v-list-item-content>
                                 <v-list-item-avatar
@@ -99,7 +99,7 @@
                             <v-row>
                                 <v-col cols="8" sm="8" md="4" class="py-1">
                                     <div class="totalprice grey--text text--darken-3">
-                                        商品小計（税込）
+                                        {{$t('product.total2')}}
                                     </div>
                                 </v-col>
                                 <v-col cols="4" sm="4" md="4" class="py-1">
@@ -111,7 +111,7 @@
                             <v-row>
                                 <v-col cols="8" sm="8" md="4" class="py-1">
                                     <div class="totalprice grey--text text--darken-3">
-                                        送料
+                                        {{$t('product.shipping')}}
                                     </div>
                                 </v-col>
                                 <v-col cols="4" sm="4" md="4" class="py-1">
@@ -123,7 +123,7 @@
                             <v-row v-if="order.discount !== null">
                                 <v-col cols="8" sm="8" md="4" class="py-1">
                                     <div class="totalprice grey--text text--darken-3">
-                                        クーポン割引
+                                        {{$t('coupon.discount')}}
                                     </div>
                                 </v-col>
                                 <v-col cols="4" sm="4" md="4" class="py-1">
@@ -140,7 +140,7 @@
                             <v-row>
                                 <v-col cols="8" sm="8" md="4" class="py-1">
                                     <div class="charge grey--text text--darken-3">
-                                        ご請求額
+                                        {{$t('product.total3')}}
                                     </div>
                                 </v-col>
                                 <v-col cols="4" sm="4" md="4" class="py-1 mb48">
@@ -153,7 +153,7 @@
                     
                     <v-divider class="mb48"></v-divider>
 
-                    <h4 class="jp-font grey--text text--darken-3 mb-4">ご請求先</h4>
+                    <h4 :class="fontWeightClasses" class="grey--text text--darken-3 mb-4">{{$t('summary.billing')}}</h4>
                     <v-row class="mb-6">
                         <v-col cols="12" sm="12" md="6">
                             <v-card
@@ -162,31 +162,31 @@
                             >
                                 <v-list-item>
                                     <v-list-item-content two-line>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            お名前
+                                        <v-list-item-subtitle>
+                                            {{ $t('register.name')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400 mb-4">
-                                            {{order.user_name}}様
+                                        <v-list-item-title class="mb-4">
+                                            {{order.user_name}}<span v-if="$i18n.locale == 'ja'">様</span>
                                         </v-list-item-title>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            メールアドレス
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.email')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400 mb-4">
+                                        <v-list-item-title class="mb-4">
                                             {{order.user_email}}
                                         </v-list-item-title>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            お電話
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.phone')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400 mb-4">
+                                        <v-list-item-title class="mb-4">
                                             {{order.user_phone}}
                                         </v-list-item-title>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            ご住所
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.address')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400">
+                                        <div>
                                             〒{{order.user_zipcode}}<br>
-                                            {{order.user_prefecture}}{{order.user_city}} {{order.user_address_1}}<br>
-                                        </v-list-item-title>
+                                            {{order.user_prefecture}} {{order.user_city}} {{order.user_address_1}}<br>
+                                        </div>
                                         <v-list-item-title v-if="order.user_building !== null" class="jp-font-400">
                                             {{order.user_building}}
                                         </v-list-item-title>
@@ -195,7 +195,7 @@
                             </v-card>
                         </v-col>
                     </v-row>
-                    <h4 class="jp-font grey--text text--darken-3 mb-4">お届け先</h4>
+                    <h4 :class="fontWeightClasses" class="grey--text text--darken-3 mb-4">{{$t('summary.shipping')}}</h4>
                     <v-row>
                         <v-col cols="12" sm="12" md="6" class="mb48">
                             <v-card
@@ -204,77 +204,77 @@
                             >
                                 <v-list-item>
                                     <v-list-item-content two-line>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            ご住所
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.address')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400">
+                                        <div>
                                             〒{{order.delivery_zipcode}}<br>
-                                            {{order.delivery_prefecture}}{{order.delivery_city}}{{order.delivery_address_1}}<br>
-                                        </v-list-item-title>
-                                        <v-list-item-title v-if="order.user_building !== null" class="jp-font-400">
+                                            {{order.delivery_prefecture}} {{order.delivery_city}} {{order.delivery_address_1}}<br>
+                                        </div>
+                                        <div v-if="order.user_building !== null">
                                             {{order.delivery_building}}
-                                        </v-list-item-title>
-                                        <v-list-item-title class="jp-font-400">
-                                            {{order.delivery_name}}様
+                                        </div>
+                                        <v-list-item-title>
+                                            {{order.delivery_name}}<span v-if="$i18n.locale == 'ja'">様</span>
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
                                 <v-list-item>
                                     <v-list-item-content>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            お電話番号
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.phone')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400">
+                                        <v-list-item-title>
                                             {{order.delivery_phone}}
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
                                 <v-list-item v-if="order.delivery_courier !== null">
                                     <v-list-item-content>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            配送オプション
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.method')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400">
+                                        <v-list-item-title>
                                             {{order.delivery_courier}}
                                         </v-list-item-title>
                                         <div v-if="order.box_quantity !== null">
-                                            <v-list-item-title class="jp-font-400">
-                                                梱包数：{{order.box_quantity}}個
+                                            <v-list-item-title>
+                                                {{$t('checkout.box_qty')}}：{{order.box_quantity}}
                                             </v-list-item-title>
                                         </div>
                                     </v-list-item-content>
                                 </v-list-item>
                                   <v-list-item>
                                     <v-list-item-content>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            ご希望のお届け時間帯
+                                        <v-list-item-subtitle>
+                                            {{ $t('checkout.time')}}
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400">
+                                        <v-list-item-title>
                                             {{order.delivery_time}}
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item v-if="order.delivery_courier == 'ヤマト運輸 宅急便'">
+                                <v-list-item v-if="order.delivery_courier == $t('checkout.yamato')">
                                     <v-list-item-content>
-                                        <v-list-item-subtitle class="jp-font-400">
-                                            メッセージカード
+                                        <v-list-item-subtitle>
+                                            {{$t('customcard.card')}}
                                         </v-list-item-subtitle>
-                                        <div v-if="order.delivery_carduse === '利用しない' || order.delivery_carduse === null">
+                                        <div v-if="order.delivery_carduse === $t('customcard.nouse') || order.delivery_carduse === null">
                                             <v-list-item-title class="jp-font-400">
-                                                利用なし
+                                                {{$t('customcard.nouse')}}
                                             </v-list-item-title>
                                         </div>
                                         <div v-if="order.delivery_carduse === '利用する'">
-                                            <v-list-item-title class="jp-font-400">
-                                                メッセージ：{{order.delivery_cardmessage}}
+                                            <v-list-item-title>
+                                                {{$t('customcard.message')}}：{{order.delivery_cardmessage}}
                                             </v-list-item-title>
-                                            <v-list-item-title class="jp-font-400">
-                                                差出人お名前の表記：{{order.delivery_cardname}}
+                                            <v-list-item-title>
+                                                {{$t('customcard.from')}}：{{order.delivery_cardname}}
                                             </v-list-item-title>
                                         </div>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item v-if="order.delivery_courier == 'ヤマト運輸 宅急便コンパクト'">
+                                <!-- <v-list-item v-if="order.delivery_courier == 'ヤマト運輸 宅急便コンパクト'">
                                     <v-list-item-content>
                                         <v-list-item-subtitle class="jp-font-400">
                                             簡単ギフトラッピングキットのご利用
@@ -289,28 +289,19 @@
 
                                         </div>
                                     </v-list-item-content>
-                                </v-list-item>
+                                </v-list-item> -->
                                  <v-list-item>
-                                    <div v-if="this.order.message !== null">
                                         <v-list-item-content>
-                                            <v-list-item-subtitle class="jp-font-400">
-                                                備考欄
+                                            <v-list-item-subtitle>
+                                                {{$t('checkout.note')}}
                                             </v-list-item-subtitle>
-                                            <p class="jp-font-400 line-height">
+                                            <p v-if="this.order.message !== null" class=" line-height">
                                                 {{order.message}}
                                             </p>
+                                            <p v-else>
+                                                {{$t('checkout.no')}}
+                                            </p>
                                         </v-list-item-content>
-                                    </div>
-                                    <div v-if="this.order.message == null">
-                                        <v-list-item-content>
-                                            <v-list-item-subtitle class="jp-font-400">
-                                                備考欄
-                                            </v-list-item-subtitle>
-                                            <v-list-item-title class="jp-font-400">
-                                                なし
-                                            </v-list-item-title>
-                                        </v-list-item-content>
-                                    </div>
                                 </v-list-item>
                             </v-card>
                         </v-col>
@@ -321,7 +312,7 @@
                         @click="$router.push({name: 'order-summary'})"
                         class="hidden-sm-and-down"
                     >
-                        注文履歴リストへ戻る
+                        {{$t('btn.summary2')}}
                     </v-btn>
                     <v-btn
                         color="primary"
@@ -330,7 +321,7 @@
                         @click="$router.push({name: 'order-summary'})"
                         class="hidden-md-and-up"
                     >
-                        注文履歴リストへ戻る
+                        {{$t('btn.summary2')}}
                     </v-btn>
                 </v-col>
             </v-row>
@@ -396,7 +387,19 @@ export default {
         ]),
         ...mapState('giftcard', [
             'orderedCards'
-        ])
+        ]),
+        fontClasses(){
+          if(this.$i18n.locale == 'en') return 'en-font-small'
+          return 'font-small'
+        },
+        formTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-form-title'
+          return 'form-title'
+        },
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        },
     },
     methods: {
         formatPrice(value){
@@ -420,5 +423,18 @@ export default {
 </script>
 
 <style>
+.font-small{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.en-font-small{
+    font-family: quasimoda, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
 
 </style>

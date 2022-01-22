@@ -188,6 +188,8 @@
     "method": "配送オプション",
     "time": "ご希望の配達時間帯",
     "yamato_compact": "ヤマト運輸 宅急便コンパクト",
+    "yamato": "ヤマト運輸 宅急便",
+    "yamato_large": "ヤマト運輸 宅急便（プラスサイズ）",
     "box_qty": "梱包数",
     "card_payment": "クレジットカードによるお支払い",
     "card_note": "お支払いには、Stripe社の決済プラットフォームを使用しています。本サイトにはお客様のクレジットカード番号は保存されませんので、安心してご利用ください。",
@@ -225,7 +227,8 @@
     "nouse": "利用しない",
     "message": "メッセージ",
     "from": "差出人名の表記",
-    "card_name": "aya & co."
+    "card_name": "aya & co.",
+    "card": "メッセージカード"
   },
 
   "coupon": {
@@ -243,9 +246,10 @@
     "shipment_date": "発送予定日",
     "shipment_date2": "発送日",
     "billing": "ご請求先",
-    "shipment": "お届け先",
+    "shipping": "お届け先",
     "tbc": "まだ決定されてません",
-    "receipt": "納品書兼領収書ダウンロード"
+    "receipt": "納品書兼領収書ダウンロード",
+    "unit": "点"
 
   },
 

@@ -46,7 +46,9 @@
   "add_address": "add new address",
   "add": "add",
   "close": "close",
-  "summary": "Order Summary"
+  "summary": "Order Summary",
+  "summary2": "Back to Orders List"
+
 },
 
 "message": {
@@ -228,7 +230,8 @@
     "nouse": "No",
     "message": "Type",
     "from": "From",
-    "card_name": "Customer's Name"
+    "card_name": "Customer's Name",
+    "card": "Custom Card"
   },
 
   "coupon": {
@@ -246,9 +249,10 @@
     "shipment_date": "Expected Shipment Date",
     "shipment_date2": "Shipment Date",
     "billing": "Billing Address",
-    "shipment": "Shipping Address",
+    "shipping": "Shipping Address",
     "tbc": "To be confirmed.",
-    "receipt": "Download Receipt"
+    "receipt": "Download Receipt",
+    "unit": " Qty"
   },
 
   "sustainability": {
