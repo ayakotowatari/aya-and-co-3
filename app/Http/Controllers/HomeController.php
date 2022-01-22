@@ -57,6 +57,7 @@ class HomeController extends Controller
 
         // return Redirect::back();
         return redirect() -> back();
+        
 
         // return response() -> json(['lang' => $lang]);  
 

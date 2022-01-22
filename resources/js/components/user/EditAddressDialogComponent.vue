@@ -13,7 +13,7 @@
                                 <v-col cols="12" sm="12" md="12">
                                     <v-row justify="center">
                                         <v-col cols="12" sm="12" md="12">
-                                            <div class="jp-font-400-18 grey--text text--darken-4 mt48 mb48">自宅住所を編集する</div>
+                                            <div :class="formTitleClasses" class="grey--text text--darken-4 mt48 mb48">{{$t('checkout.edit_home')}}</div>
                                         </v-col>
                                     </v-row>
                                     <v-form
@@ -43,55 +43,65 @@
                                         <v-text-field
                                             v-model="zipcode"
                                             :counter="7"
-                                            label="郵便番号"
+                                            :label="$t('register.zipcode')"
                                             outlined
                                             required
-                                            hint="ハイフンなしで、半角数字7桁のみをご記入ください。例: 1234567"
+                                            :hint="$t('register.hint_zipcode')"
                                             persistent-hint
                                             :rules="zipcodeRules"
+                                            validate-on-blur
+                                            @blur="() => $refs.form.resetValidation()"
                                             :error="allerror.zipcode ? true : false"
                                             :error-messages="allerror.zipcode"
                                         ></v-text-field>
                                         <v-text-field
                                             v-model="state"
-                                            label="都道府県"
+                                            :label="$t('register.prefecture')"
                                             outlined
                                             required
                                             :rules="prefectureRules"
+                                            validate-on-blur
+                                            @blur="() => $refs.form.resetValidation()"
                                             :error="allerror.prefecture ? true : false"
                                             :error-messages="allerror.prefecture"
                                         ></v-text-field>
                                         <v-text-field
                                             v-model="city"
-                                            label="市町村"
+                                            :label="$t('register.city')"
                                             outlined
                                             required
                                             :rules="cityRules"
+                                            validate-on-blur
+                                            @blur="() => $refs.form.resetValidation()"
                                             :error="allerror.city ? true : false"
                                             :error-messages="allerror.city"
                                         ></v-text-field>
                                         <v-text-field
                                             v-model="address1"
-                                            label="番地・部屋番号"
+                                            :label="$t('register.address1')"
                                             outlined
                                             required
                                             :rules="address1Rules"
+                                            validate-on-blur
+                                            @blur="() => $refs.form.resetValidation()"
                                             :error="allerror.address_1 ? true : false"
                                             :error-messages="allerror.address_1"
                                         ></v-text-field>
                                         <v-text-field
                                             v-model="building"
-                                            label="マンション・建物名"
+                                            :label="$t('register.building')"
                                             outlined
                                             :error="allerror.building ? true : false"
                                             :error-messages="allerror.building"
                                         ></v-text-field>
                                         <v-text-field
                                             v-model="phone"
-                                            label="電話番号"
+                                            :label="$t('register.phone')"
                                             outlined
                                             required
                                             :rules="phoneRules"
+                                            validate-on-blur
+                                            @blur="() => $refs.form.resetValidation()"
                                             :error="allerror.phone ? true : false"
                                             :error-messages="allerror.phone"
                                         ></v-text-field>
@@ -105,7 +115,7 @@
                                                     :loading="loading"
                                                     class="mb24"
                                                 >
-                                                更新する
+                                                {{$t('btn.update_data')}}
                                                 </v-btn>
                                             </v-col>
                                             
@@ -117,7 +127,7 @@
                                                         outlined
                                                         @click="back"
                                                     >
-                                                        戻る
+                                                        {{$t('btn.back')}}
                                                     </v-btn>
                                                 </div>
                                             </v-col>
@@ -152,22 +162,6 @@ export default {
             // kanaRules: [
             //     v => !!v || 'フリガナを入力してください。',
             // ],
-            zipcodeRules: [
-                v => !!v || '郵便番号を半角数字7桁で入力してください。',
-                // v => v.length == 7 || 'ハイフンなしで、半角数字7桁を入力してください。例：1234567'
-            ], 
-            prefectureRules: [
-                v => !!v || '都道府県を入力してください。',
-            ],
-            cityRules: [
-                v => !!v || '市町村を入力してください。',
-            ],
-            address1Rules: [
-                v => !!v || '番地・部屋番号等を入力してください。',
-            ],
-            phoneRules: [
-                v => !!v || '電話番号を入力してください。',
-            ],
         }
     },
     watch: {
@@ -177,8 +171,15 @@ export default {
             }
 
             let self = this;
+            let lang = "";
+            //言語
+            if(this.user.lang == "en"){
+                lang = "rome";
+            }else{
+                lang = "ja";
+            }
             //自サイトのAPI
-            let url = "/ajax/zipcode/" + val;
+            let url = "/ajax/zipcode/" + val + "/" + lang;
 
             axios
             .get(url)
@@ -202,6 +203,36 @@ export default {
             'loading',
             'user',
         ]),
+        formTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-form-title'
+          return 'form-title'
+        },
+         zipcodeRules() {
+            return [
+                v => !!v || this.$t('register.zipcode_rule'),
+                v => v.length == 7 || this.$t('register.hint_zipcode')
+            ];
+        },
+        prefectureRules() {
+            return [
+                v => !!v || this.$t('register.prefecture_rule')
+            ];
+        },
+        cityRules() {
+            return [
+                v => !!v || this.$t('register.city_rule')
+            ];
+        },
+        address1Rules() {
+            return [
+                v => !!v || this.$t('register.address1_rule')
+            ];
+        },
+        phoneRules() {
+            return [
+                v => !!v || this.$t('register.phone_rule')
+            ];
+        },
         // name: {
         //     get(){                
         //         return this.user.name

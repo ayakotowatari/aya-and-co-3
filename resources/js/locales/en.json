@@ -31,13 +31,16 @@
   "check_cart": "check cart",
   "send": "Submit",
   "send2": "Submit",
+  "send3": "Confirm",
+  "edit": "Edit",
   "continue_shopping": "Continue Shopping",
   "next": "Next",
   "back": "Back",
   "confirm": "Confirm",
   "top_page": "Back to home",
   "reset_password": "Send Password Reset Link",
-  "reset_email": "reset email"
+  "reset_email": "reset email",
+  "update_data": "update"
 },
 
 "message": {
@@ -157,6 +160,8 @@
     "ship_other": "Other Address",
     "shipping_address2": "Shipping Address",
     "home_address2": "Home Address",
+    "home_address3": "Confirm Home Address",
+    "edit_home": "Edit Home Address",
     "shipping_method": "Shipping Options",
     "shipping_label": "Preferred shipping method",
     "select_shipping": "Select your preferred shipping method.",
@@ -169,6 +174,7 @@
     "shipping_details": "Shipping Details",
     "address": "Address",
     "phone": "Phone",
+    "email": "Email",
     "method": "Method",
     "time": "Preferred Delivery Time",
     "card_payment": "Payment",

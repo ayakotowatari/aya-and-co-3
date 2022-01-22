@@ -31,13 +31,16 @@
     "check_cart": "カートをみる",
     "send": "この住所に送る",
     "send2": "これらの住所を使用する",
+    "send3": "この住所へ送る",
+    "edit": "編集する",
     "continue_shopping": "お買い物を続ける",
     "next": "次へ",
     "back": "戻る",
     "confirm": "確定する",
     "top_page": "トップページへ戻る",
     "reset_password": "リセット用のリンクを送る",
-    "reset_email": "入力し直す"
+    "reset_email": "入力し直す",
+    "update_data": "更新する"
   },
 
   "message": {
@@ -154,6 +157,8 @@
     "ship_other": "他の住所に送る",
     "shipping_address2": "荷物の配送先の住所",
     "home_address2": "お客様ご自身のご住所・ご連絡先",
+    "home_address3": "ご自宅住所を確認する",
+    "edit_home": "自宅住所を編集する",
     "shipping_method": "配送オプションを選択する",
     "shipping_label": "配送方法を選ぶ",
     "select_shipping": "ご希望の配送方法をお選びください",
@@ -166,6 +171,7 @@
     "shipping_details": "お届け先のご住所等",
     "address": "ご住所",
     "phone": "お電話番号",
+    "email": "メールアドレス",
     "method": "配送オプション",
     "time": "ご希望の配達時間帯",
     "card_payment": "クレジットカードによるお支払い",

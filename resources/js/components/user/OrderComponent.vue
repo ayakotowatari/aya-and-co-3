@@ -22,7 +22,7 @@
         <div v-if="cart.length <= 0">
             <v-row>
                 <v-col cols="12" sm="12" md="12">
-                    <div class="jp-font-400 grey--text text--darken-2">カートに商品が入っておりません。</div>
+                    <div class="jp-font-400 grey--text text--darken-2">{{$t('cart.message')}}</div>
                 </v-col>
             </v-row>
             <v-row>
@@ -31,7 +31,7 @@
                         outlined
                         color="primary"
                         @click="$router.push({name: 'products-list'})"
-                    >お買いものを続ける</v-btn>
+                    >{{$t('btn.continue_shopping')}}</v-btn>
                 </v-col>
             </v-row>
         </div>
@@ -41,7 +41,7 @@
                     :complete="e1 > 1"
                     step="1"
                 >
-                    配送先住所の選択
+                    {{$t('checkout.stepper1')}}
                 </v-stepper-step>
 
                 <v-divider></v-divider>
@@ -50,7 +50,7 @@
                     :complete="e1 > 2"
                     step="2"
                 >
-                    配送オプション等の選択
+                    {{$t('checkout.stepper2')}}
                 </v-stepper-step>
 
                 <v-divider></v-divider>
@@ -59,13 +59,13 @@
                     :complete="e1 > 3"
                     step="3"
                 >
-                    注文内容の確認
+                    {{$t('checkout.stepper3')}}
                 </v-stepper-step>
 
                 <v-divider></v-divider>
 
                 <v-stepper-step step="4">
-                    お支払い
+                    {{$t('checkout.stepper4')}}
                 </v-stepper-step>
             </v-stepper-header>
 
@@ -80,7 +80,7 @@
                                 @click="nextTo2"
                                 :disabled="disableContinue1"
                                 >
-                                次へ
+                                {{$t('btn.next')}}
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -97,7 +97,7 @@
                                 color="primary"
                                 @click="backTo1"
                                 >
-                                戻る
+                                {{$t('btn.back')}}
                             </v-btn>
                         </v-col>
                         <v-col cols="4" sm="4" md="2">
@@ -107,7 +107,7 @@
                                 @click="nextTo3"
                                 :disabled="disableContinue2"
                                 >
-                                次へ
+                                {{$t('btn.next')}}
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -118,7 +118,7 @@
                                 outlined
                                 @click="backTo1"
                             >
-                                戻る
+                                {{$t('btn.back')}}
                             </v-btn>
                         </v-col>
                         <v-col cols="4" sm="4" md="2">
@@ -128,7 +128,7 @@
                                 @click="nextTo3"
                                 :disabled="disableContinue2"
                                 >
-                                次へ
+                                {{$t('btn.next')}}
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -145,7 +145,7 @@
                                 color="primary"
                                 @click="backTo2"
                                 >
-                                戻る
+                                {{$t('btn.back')}}
                             </v-btn>
                         </v-col>
                         <v-col cols="5" sm="5" md="2">
@@ -153,7 +153,7 @@
                                 color="primary"
                                 @click="nextTo4"
                                 >
-                                レジへ進む
+                                {{$t('btn.checkout')}}
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -165,7 +165,7 @@
                                 color="primary"
                                 @click="nextTo4"
                                 >
-                                レジへ進む
+                                {{$t('btn.checkout')}}
                             </v-btn>
                         </v-col>
                         <v-col cols="3" sm="3" md="2">
@@ -174,7 +174,7 @@
                                 outlined
                                 @click="backTo2"
                             >
-                                戻る
+                                {{$t('btn.back')}}
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -191,7 +191,7 @@
                                 color="primary"
                                 @click="backTo3"
                                 >
-                                戻る
+                                {{$t('btn.back')}}
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -202,7 +202,7 @@
                                 color="primary"
                                 @click="backTo3"
                                 >
-                                戻る
+                                {{$t('btn.back')}}
                             </v-btn>
                         </v-col>
                     </v-row>

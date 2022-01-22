@@ -17,11 +17,11 @@
 
 Route::group(['middleware' => 'setlocale'], function(){
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
 
 Route::post('/lang', 'HomeController@switchLang')->name('lang');
 //テスト
-Route::get('/lang/check', 'HomeController@check');
+// Route::get('/lang/check', 'HomeController@check');
 
 
 //adminログイン

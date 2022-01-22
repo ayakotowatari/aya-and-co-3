@@ -143,6 +143,7 @@ export default {
   font-size: 18px;
 }
 .en-form-title{
+  font-family: quasimoda, sans-serif;
   font-weight: 500;
   font-size: 20px;
 }
