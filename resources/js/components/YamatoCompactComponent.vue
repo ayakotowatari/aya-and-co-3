@@ -1,7 +1,7 @@
 <template>
     <div class="mb-8">
-        <p class="description">
-            宅急便コンパクトでは、ヤマト運輸の薄型の専用ボックスに、木毛の緩衝材を用いて商品を配置します。ボックスの高さが低く、たとえば150g以上のサイズの瓶は、横向きに倒した状態で包装いたします。
+        <p :class="descriptionClasses">
+            {{$t('shipping.compact.p1')}}
         </p>
         <!-- <p class="description mb-8">
             「<router-link to="/message-service">選べるメッセージカードサービス</router-link>」をご利用の場合は、宅急便コンパクトには葉書サイズのカードが同封できませんので、宅急便をお選びください。
@@ -12,11 +12,11 @@
             </v-col>
         </v-row>
 
-        <div class="item-content policy-title mb-4">
-            おすすめの用途
+        <div :class="itemContentClasses" class="policy-title mb-4">
+            {{$t('shipping.title1')}}
         </div>
-        <p class="description mb-8">
-            宅急便コンパクトのパッケージは、宅急便と比較して、審美的には簡素になりますが、送料がリーズナブルです。ご自宅などでの普段づかいとしてお買い求めいただく際に、ぜひご利用ください。
+        <p :class="descriptionClasses" class="mb-8">
+            {{$t('shipping.compact.p2')}}
         </p>
 
          <v-row class="mb-8">
@@ -25,20 +25,20 @@
             </v-col>
         </v-row>
     
-        <div class="item-content policy-title mb-4">
-            1梱包（宅急便コンパクト）でお送りできる商品数
+        <div :class="itemContentClasses" class="policy-title mb-4">
+            {{$t('shipping.title2')}}
         </div>
-        <p class="description">
-            100g瓶の場合、セット商品、単品あわせて、全部で6瓶までとなります。
+        <p :class="descriptionClasses">
+            {{$t('shipping.compact.p3')}}
         </p>
-        <p class="description">
-            7瓶以上の商品をご注文いただくことも可能です。その際には、複数の梱包となり、梱包数分の送料がかかります。
+        <p :class="descriptionClasses">
+            {{$t('shipping.compact.p4')}}
         </p>
-        <p class="description">
-            また、150gや250g瓶との組み合わせは、ご注文時に、梱包数が自動計算され、送料に反映されます。「ご注文内容の確認」に表示されますので、どうぞお確かめください。
+        <p :class="descriptionClasses">
+            {{$t('shipping.compact.p5')}}
         </p>
 
-         <v-row class="mb-8">
+         <!-- <v-row class="mb-8">
             <v-col cols="12" sm="12" md="12" class="line-color">
                 <v-divider></v-divider>
             </v-col>
@@ -55,7 +55,7 @@
         </p>
         <div class="mb-8">
             <campaignbanner-component></campaignbanner-component>
-        </div>
+        </div> -->
         <!-- <v-btn
             color="primary"
             outlined
@@ -87,6 +87,14 @@ export default {
      
     },
     computed: {
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
+        itemContentClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-content'
+          return 'item-content'
+        },
     
     },
     methods: {

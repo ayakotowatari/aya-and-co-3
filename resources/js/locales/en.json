@@ -4,7 +4,7 @@
     "cart": "Shopping Cart",
     "sustainability": "Sustainable Packaging",
     "products": "Products List",
-    "delivery": "Shipping Methods & Costs", 
+    "delivery": "Shipping & Postage", 
     "card": "Custom Card Service",
     "member": "Members Only",
     "summary": "Order Summary",
@@ -25,7 +25,9 @@
   "login": "login",
   "forgot_password": "forgot your password?",
   "update": "update",
+  "update2": "update",
   "remove": "remove",
+  "remove2": "remove",
   "checkout": "checkout",
   "checkout2": "checkout",
   "shopping": "continue shopping",
@@ -143,7 +145,44 @@
     "season": "In Season",
     "ingredients": "Ingredients",
     "note": "Tap an item you want to order, then select a quantity and add the item to cart.",
-    "tax_info": "(incl. tax)"
+    "tax_info": "(incl. tax)",
+    "remove": "Are you sure you want to remove this item?",
+    "inventory": "In stock"
+  },
+
+  "shipping": {
+    "lead": "Shipping Options",
+    "line1": "We offer two shipping options to choose from.", 
+    "line2": "・Yamato TA-Q-BIN <br>・Yamato TA-Q-BIN Compact",
+    "line3": "Please see below for details and the cost of each option.",
+    "tab1": "TA-Q-BIN",
+    "tab2": "TA-Q-BIN Compact",
+    "title1": "Key Feature",
+    "title2": "Size",
+    "title3": "Larger Size",
+    "takkyuubin": {
+      "p1": "If you select this option, we will package your products in a small-sized box with lovely wooden threads protecting the jars from damage during shipment.",
+      "p2": "Select this option when you want to send a package to your family or friends as a gift. ",
+      "p3": "Registered customers are eligible for a free ",
+      "p3-2": " where we will enclose a lovely card with a message of your choice printed.",
+      "p4": "One package can contain up to four 100g jars.",
+      "p5": "ギフトとして考えた場合に、1つの箱に1瓶ですと、箱がやや大きめとなります。最適な数量は、2〜4瓶となります。",
+      "p6": "If you order more than five 100g jars, the shipping fee for 'TA-Q-BIN (larger size)' will be automatically applied.",
+      "p7": "Please contact us when you would like to place a corporate order.",
+      "card": "Custom Card Service"
+    },
+    "compact": {
+      "p1": "The Compact is a more reasonable package option. We package your products more simply than the other option, using a box designated for this type of shipment. ",
+      "p2": "This option is suitable when you purchase the products for home use.",
+      "p3": "One package can contain up to six 100g jars.",
+      "p4": "If you order more than seven 100g jars, we will automatically arrange additional packages.",
+      "p5": "When your order includes different sizes of jars, we will automatically calculate the number of packages. You can check how much it will cost when you confirm the order."
+    },
+    "postage": {
+      "title": "Postage",
+      "lead": "Check how much each shipping method costs to send a package to your area.",
+      "select": "Shipping options"
+    }
   },
 
   "cart": {
@@ -211,7 +250,8 @@
     "lead": "Select where to send your delivery.",
     "note": "Click address and it will be highlighted in red. Then, click button to submit.",
     "ask": "Add a new address？",
-    "add": "Add a new shipping address"
+    "add": "Add a new shipping address",
+    "remove": "Are you sure you want to remove this address?"
   },
 
   "customcard": {

@@ -723,11 +723,17 @@ class OrdersController extends Controller
         
         $postages = Postage::get();
 
-        $postageYamatoTakkyubin = Postage::where('courier_id', 1)->get();
+        $postageYamatoTakkyubin = Postage::join('states', 'states.id', '=', 'postages.state_id')
+                                    ->where('courier_id', 1)
+                                    ->get();
 
-        $postageYamatoBig = Postage::where('courier_id', 2)->get();
+        $postageYamatoBig = Postage::join('states', 'states.id', '=', 'postages.state_id')
+                            ->where('courier_id', 2)
+                            ->get();
 
-        $postageCompact = Postage::where('courier_id', 3)->get();
+        $postageCompact = Postage::join('states', 'states.id', '=', 'postages.state_id')
+                            ->where('courier_id', 3)
+                            ->get();
 
         return response() -> json(['postages' => $postages, 'yamatotakkyubin' => $postageYamatoTakkyubin, 'yamatobig' => $postageYamatoBig, 'compact' => $postageCompact, 'courier' => $couriers]);   
     }

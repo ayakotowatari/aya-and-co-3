@@ -4,11 +4,11 @@
         <v-row justify="center">
             <v-dialog v-model="dialogRemoveCartItem" persistent max-width="320">
                 <v-card>
-                    <v-card-title class="jp-font-400 dialog-title-14">
+                    <v-card-title class="dialog-title-14">
                         {{cartItem.name}}({{cartItem.size}})
                     </v-card-title>
                     <v-card-text class="jp-font-400">
-                        この商品をカートから削除をしてよろしいですか？
+                        {{$t('product.remove')}}
                     </v-card-text>
                     <!-- <v-card-subtitle>
                         <p>{{ event.date }}</p>
@@ -16,8 +16,8 @@
                     </v-card-subtitle> -->
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="remove(cartItem)">削除する</v-btn>
-                    <v-btn color="grey darken-2" text @click="back">戻る</v-btn>
+                    <v-btn color="primary" text @click="remove(cartItem)">{{$t('btn.remove2')}}</v-btn>
+                    <v-btn color="grey darken-2" text @click="back">{{$t('btn.back')}}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
