@@ -14,12 +14,13 @@
         </v-row>
         <v-row>
             <v-col cols="12" sm="12" md="4">
-                <div class="jp-font-400 grey--text text--darken-4">{{user.name}}様の注文履歴リスト</div>
+                <div v-if="$i18n.locale == 'en'" class="grey--text text--darken-4">List of Your Orders</div>
+                <div v-else class="grey--text text--darken-4">{{user.name}}様の注文履歴リスト</div>
             </v-col>
             <v-col cols="12" sm="12" md="8">
                 <v-row class="mb-6" v-if="orders.length <= 0">
                     <v-col cols="12" sm="12" md="6" class="jp-font-400 grey--text text--darken-2">
-                        まだ注文履歴がありません。
+                        {{$t('summary.message')}}
                     </v-col>
                 </v-row>
                 <v-row class="mb-6" v-if="orders.length > 0">

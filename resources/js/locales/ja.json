@@ -46,7 +46,8 @@
     "add_address": "新しい住所を追加する",
     "add": "追加する",
     "close": "閉じる",
-    "summary": "注文履歴を見る"
+    "summary": "注文履歴を見る",
+    "summary2": "注文履歴リストへ戻る"
 
   },
 
@@ -235,6 +236,18 @@
     "remove": "削除・リセットする"
   },
 
+  "summary": {
+    "message": "まだ注文履歴がありません。",
+    "id": "注文ID",
+    "date": "注文日",
+    "shipment_date": "発送予定日",
+    "shipment_date2": "発送日",
+    "billing": "ご請求先",
+    "shipment": "お届け先",
+    "tbc": "まだ決定されてません",
+    "receipt": "納品書兼領収書ダウンロード"
+
+  },
 
   "sustainability": {
     "lead": "aya & co. では、環境に優しい包装に取り組んでいます。",

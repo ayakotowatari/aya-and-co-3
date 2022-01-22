@@ -17,7 +17,7 @@
                 <v-col cols="12" sm="12" md="4">
                     <div class="mb-4">
                         <div class="item-content">
-                        注文ID
+                        {{$t('summary.id')}}
                         </div>
                         <div class="item-title">
                         {{order.id}}
@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-8">
                         <div class="item-content">
-                        注文日
+                        {{$t('summary.date')}}
                         </div>
                         <div class="item-title">
                         {{order.created_at}}
@@ -33,24 +33,24 @@
                     </div>
                     <div class="mb-8">
                         <div class="item-content">
-                        発送予定日
+                        {{$t('summary.shipment_date')}}
                         </div>
                         <div class="item-title mb-2" v-if="plannedShipmentDate !== null">
                             {{plannedShipmentDate}} 
                         </div>
                         <div class="item-title mb-2" v-if="plannedShipmentDate === null">
-                        まだ決定されていません。
+                        {{$t('summary.tbc')}}
                         </div>
                     </div>
                     <div class="mb-8">
                         <div class="item-content">
-                        発送日
+                        {{$t('summary.shipment_date2')}}
                         </div>
                         <div class="item-title" v-if="actualShipmentDate !== null">
                             {{actualShipmentDate}}
                         </div>
                         <div class="item-title" v-if="actualShipmentDate === null">
-                        まだ発送されていません。
+                        {{$t('summary.tbc')}}
                         </div>
                     </div>
                     <div v-if="order.status == 'Shipped' || order.status =='Delivered'" class="mb-8">
@@ -59,7 +59,7 @@
                             outlined
                             @click="create(order.id)"
                         >
-                            納品書兼領収書ダウンロード
+                            {{$t('summary.receipt')}}
                         </v-btn>
                     </div>
                 </v-col>

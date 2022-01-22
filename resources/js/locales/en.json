@@ -239,6 +239,18 @@
     "remove": "delete & reset"
   },
 
+  "summary": {
+    "message": "You have no orders yet.",
+    "id": "Order ID",
+    "date": "Order Date",
+    "shipment_date": "Expected Shipment Date",
+    "shipment_date2": "Shipment Date",
+    "billing": "Billing Address",
+    "shipment": "Shipping Address",
+    "tbc": "To be confirmed.",
+    "receipt": "Download Receipt"
+  },
+
   "sustainability": {
     "lead": "Learn about how we make our effort to achieve sustainable packaging.",
     "title": "Natural Packaging",

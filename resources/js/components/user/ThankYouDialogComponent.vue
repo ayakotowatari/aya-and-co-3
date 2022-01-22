@@ -8,7 +8,7 @@
                         <div v-else class="dialog-title grey--text text--darken-4">Dear {{user.name}},</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
-                        {{$t('checkout.guest_signup')}}
+                        {{$t('checkout.thank_guest')}}
                     </v-card-text>
                     <!-- <v-card-subtitle>
                         <p>{{ event.date }}</p>
@@ -17,7 +17,7 @@
                     <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" text @click="toOrderSummary">{{$t('btn.summary')}}</v-btn>
-                    <v-btn color="primary" text @click="backHome">{{$t('top_page')}}</v-btn>
+                    <v-btn color="primary" text @click="backHome">{{$t('btn.top_page')}}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
