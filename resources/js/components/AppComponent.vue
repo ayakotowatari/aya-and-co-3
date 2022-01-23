@@ -62,7 +62,7 @@ export default {
     font-style: normal;
     font-size: 16px;
     letter-spacing: 0.03em;
-    color: rgba(0, 0, 0, 0.6)
+    color: rgba(0, 0, 0, 0.87)
 }
 .ja{
     line-height: 1.5;
