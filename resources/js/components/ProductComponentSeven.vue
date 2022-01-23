@@ -20,22 +20,22 @@
       <v-row align="start">
           <v-col cols="12" sm="12" md="4">
               <div class="mb-6">
-                <div class="item-title mb-1">
+                <div class="mb-1">
                   {{$t('product.season')}}
                 </div>
-                <div v-if="$i18n.locale=='ja'" class="item-content">
+                <div v-if="$i18n.locale=='ja'" :class="itemContentClasses">
                   {{category.season}}
                 </div>
-                <div v-else class="item-content">
+                <div v-else :class="itemContentClasses">
                   {{category.season_en}}
                 </div>
               </div>
               <div class="mb-6">
-                <div class="item-title mb-1">
+                <div class="mb-1">
                   {{$t('product.ingredients')}}
                 </div>
-                <div v-if="$i18n.locale=='ja'" v-html="category.ingredients" class="item-content"></div>
-                <div v-else v-html="category.ingredients_en" class="item-content"></div>
+                <div v-if="$i18n.locale=='ja'" v-html="category.ingredients" :class="itemContentClasses"></div>
+                <div v-else v-html="category.ingredients_en" :class="itemContentClasses"></div>
               </div>
           </v-col>
           <v-col cols="12" sm="12" md="8">
@@ -267,8 +267,8 @@
                 </div>
                 <v-row>
                     <v-col cols="12" sm="12" md="12">
-                      <div v-html="category.description" class="description mt24">
-                      </div>
+                      <div v-if="$i18n.locale=='en'" v-html="category.description_en" :class="descriptionClasses" class="mt24"></div>
+                      <div v-else v-html="category.description" :class="descriptionClasses" class="mt24"></div>
                     </v-col>
                 </v-row>
             </v-col>
@@ -426,6 +426,14 @@ export default {
           // 'selectedItem'
           // 'product'
         ]),
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
+        itemContentClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-content'
+          return 'item-content'
+        },
         // category(){
         //   return this.categories.find(category => category.id === Number(this.id));
         // },
