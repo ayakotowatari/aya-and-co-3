@@ -243,6 +243,7 @@ import { mapState } from 'vuex'
                 this.$store.dispatch('language/setLang', {
                     lang: "en"
                 });
+                this.$store.commit('language/setEnglishSnackbar', true)
             }else{
                 // this.$store.commit('language/language', {
                 //     lang: 'ja'

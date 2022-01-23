@@ -1,6 +1,9 @@
 <template>
 <v-app>
     <v-main :class="$i18n.locale">
+        <englishsnackbar-component
+            v-bind:englishSnackbar="englishSnackbar"
+        ></englishsnackbar-component>
         <navbar-component
             v-bind:user='user'
         ></navbar-component>
@@ -37,6 +40,9 @@ export default {
         ...mapState([
             'user',
             'deliveryAddress',
+        ]),
+        ...mapState('language', [
+            'englishSnackbar'
         ])
     
     },

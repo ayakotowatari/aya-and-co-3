@@ -5,9 +5,13 @@ export const language = {
 
     state: {
         allerror: [],
+        englishSnackbar: false
         
     },
     mutations: {
+        setEnglishSnackbar(state, payload){
+            state.englishSnackbar = payload
+        },
         
     },
 

@@ -61,6 +61,7 @@ Vue.component('editaddressdialog-component', require('./components/user/EditAddr
 Vue.component('newaddressdialog-component', require('./components/user/NewAddressDialogComponent.vue').default);
 Vue.component('removeaddressdialog-component', require('./components/user/RemoveAddressDialogComponent.vue').default);
 Vue.component('checkoutsnackbar-component', require('./components/user/CheckoutSnackbarComponent.vue').default);
+Vue.component('englishsnackbar-component', require('./components/parts/EnglishSnackbarComponent.vue').default);
 Vue.component('thankyou-component', require('./components/user/ThankYouDialogComponent.vue').default);
 // Vue.component('requestreset-component', require('./components/user/password/RequestResetComponent.vue').default);
 // Vue.component('linksentsnackbar-component', require('./components/user/password/LinkSentSnackbarComponent.vue').default);
