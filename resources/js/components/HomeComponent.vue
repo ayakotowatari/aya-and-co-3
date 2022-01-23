@@ -308,6 +308,15 @@ export default {
   letter-spacing: 0.03em;
 }
 
+.en-product-details{
+  font-size: 16px;
+  letter-spacing: 0.03em;
+}
+
+.en-product-season{
+  font-size: 12px;
+}
+
 .sm {
   display: none
 }

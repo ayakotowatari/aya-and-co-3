@@ -16,16 +16,16 @@
                 <div class="product-name mb-1">
                     {{category.name}}
                 </div>
-                <div v-if="$i18n.locale=='ja'" class="product-season mb-4">
+                <div v-if="$i18n.locale=='ja'" :class="productSeasonClasses" class="mb-4">
                     {{category.season}}
                 </div>
-                <div v-else class="product-season mb-4">
+                <div v-else :class="productSeasonClasses" class="mb-4">
                     {{category.season_en}}
                 </div>
-                <div v-if="$i18n.locale=='ja'" class="product-details">
+                <div v-if="$i18n.locale=='ja'" :class="productDetailsClasses">
                     {{category.details}}
                 </div>
-                <div v-else class="product-details">
+                <div v-else :class="productDetailsClasses">
                     {{category.details_en}}
                 </div>
             </v-card-text>
@@ -83,7 +83,15 @@ export default {
     computed: {
         ...mapState([
             'categories'
-        ])
+        ]),
+        productSeasonClasses(){
+          if(this.$i18n.locale == 'en') return 'en-product-season'
+          return 'product-season'
+        },
+         productDetailsClasses(){
+          if(this.$i18n.locale == 'en') return 'en-product-details'
+          return 'product-details'
+        },
     },
     methods: {
         showmore(id){
