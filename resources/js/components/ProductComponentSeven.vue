@@ -26,7 +26,7 @@
                 <div v-if="$i18n.locale=='ja'" :class="itemContentClasses">
                   {{category.season}}
                 </div>
-                <div v-else :class="itemContentClasses">
+                <div v-else :class="itemContentClasses" class="grey--text text--darken-4">
                   {{category.season_en}}
                 </div>
               </div>
@@ -35,7 +35,7 @@
                   {{$t('product.ingredients')}}
                 </div>
                 <div v-if="$i18n.locale=='ja'" v-html="category.ingredients" :class="itemContentClasses"></div>
-                <div v-else v-html="category.ingredients_en" :class="itemContentClasses"></div>
+                <div v-else v-html="category.ingredients_en" :class="itemContentClasses" class="grey--text text--darken-4"></div>
               </div>
           </v-col>
           <v-col cols="12" sm="12" md="8">
