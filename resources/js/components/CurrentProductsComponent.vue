@@ -35,11 +35,17 @@
                             <div class="product-name mb-1">
                                 {{category.name}}
                             </div>
-                            <div class="product-season mb-4">
+                            <div v-if="$i18n.locale=='ja'" class="product-season mb-4">
                                 {{category.season}}
                             </div>
-                            <div class="product-details">
+                            <div v-else class="product-season mb-4">
+                                {{category.season_en}}
+                            </div>
+                            <div v-if="$i18n.locale=='ja'" class="product-details">
                                 {{category.details}}
+                            </div>
+                            <div v-else class="product-details">
+                                {{category.details_en}}
                             </div>
                         </v-card-text>
                         <div class="link">
@@ -51,12 +57,22 @@
                                 @click.native="scrollToTop"
                             >
                                 <v-card-actions>
+                                    <v-spacer></v-spacer>
                                     <v-btn
+                                    v-if="$i18n.locale == 'ja'"
                                     outlined
                                     rounded
                                     text
-                                    @click.prevent="expand(category.id)"          >
+                                    color="grey darken-2"
+                                    @click.prevent="expand(category.id)">
                                     詳細
+                                    </v-btn>
+                                    <v-btn
+                                    v-else
+                                    text
+                                    color="grey darken-2"
+                                    @click.prevent="expand(category.id)">
+                                    <v-icon>mdi-open-in-new</v-icon>
                                     </v-btn>
                                 </v-card-actions>
                             </router-link>

@@ -39,12 +39,22 @@
                     @click.native="scrollToTop"
                 >
                     <v-card-actions>
+                        <v-spacer></v-spacer>
                         <v-btn
+                        v-if="$i18n.locale == 'ja'"
                         outlined
                         rounded
                         text
-                        @click.prevent="expand(category.id)"          >
+                        color="grey darken-2"
+                        @click.prevent="expand(category.id)">
                         詳細
+                        </v-btn>
+                        <v-btn
+                        v-else
+                        text
+                        color="grey darken-2"
+                        @click.prevent="expand(category.id)">
+                        <v-icon>mdi-open-in-new</v-icon>
                         </v-btn>
                     </v-card-actions>
                 </router-link>
