@@ -183,7 +183,7 @@ import { mapState } from 'vuex'
         user: Object
     },
     data: () => ({
-        language: false,
+        // language: false,
         drawer: false,
         group1: null,
         group2: null,
@@ -266,10 +266,19 @@ import { mapState } from 'vuex'
         },
         ...mapState([
             'cart',
+            'lang'
             // 'user',
             // 'initials',
             // 'isLoggedIn',
         ]),
+        language: {
+            get(){                
+                return this.lang
+            },
+            set (value) {
+                this.$store.commit('setLanguage', value)
+            }
+        },
         itemNumber(){
             if(this.cart.length > 0){
                 return true

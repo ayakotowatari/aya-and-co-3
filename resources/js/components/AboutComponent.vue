@@ -31,7 +31,7 @@
                         {{ item.text }}
                     </v-col>
                 </v-row> -->
-                <v-row align="end mb24">
+                <v-row align="end" class="mb24">
                     <v-col cols="12" sm="12" md="2">
                         <div>
                             <v-img

@@ -213,7 +213,7 @@
     "shipping_label": "Preferred shipping method",
     "select_shipping": "Select your preferred shipping method.",
     "shipping_note1": "Please see ",
-    "shipping_note2": "Shipping Methods & Costs ",
+    "shipping_note2": "Shipping & Postage ",
     "shipping_note3": "for different shipping options.",
     "delivery_time": "Select your preferred delivery time.",
     "delivery_label": "Preferred delivery time",
@@ -241,7 +241,7 @@
     "card_expiry": "Expiration Date",
     "card_cvc": "Security Code",
     "pay": "Process Payment",
-    "thank_guest": "Thank you for your order! Hope Your product will be shipped as soon as possible.",
+    "thank_guest": "Thank you for your order! Your product will be shipped as soon as possible.",
     "guest_signup":"We will be thrilled if you sign up with us now so that we can keep you updated on our products and you can get your coupon code for your second purchase."
   },
 
@@ -303,6 +303,29 @@
     "p3": "After some careful thought, we decided to use 'wooden threads' (aka 'moku-men' = 木毛 in Japanese) to wrap and protect our jars from damages during shipment.",
     "p4": "Moku-men, thin wooden threads made from trees such as pines, is a traditional, Japanese item for natural packaging. It was widely used in Japan until the mid 20th century when it was replaced by plastics. Nowadays, there is only one company specializing in Moku-men in Kochi Prefecture. Moku-men is considered to be beneficial for protecting forests in Japan as old trees need to be cut regularly to be replaced by new ones. Such old trees are used to produce moku-men.",
     "p5": "An additional bonus is that you will enjoy the natural scent from the wooden threads when you open the package. "
+  },
+
+  "privacy": {
+    "lead": "aya & co. (hereafter referred to as 'we' or 'us') takes the protection of personal information very seriously and in order to ensure that the services provided on this website are suitable for all users (hereafter referred to as 'the Service', the company has established a policy on the protection of personal information. We will protect personal information by establishing a system for the protection of personal information and by ensuring that the importance of the protection of personal information is fully recognized and addressed.",
+    "a1": {
+      "lead": "第1条 個人情報とは",
+      "p1":"1.「個人情報」とは，個人情報保護法にある「個人情報」を指すものとし、生存する個人に関する情報であり、当該情報に含まれる氏名、住所、電話番号、連絡先、その他の記述等により特定の個人を識別できる情報を指します。",
+      "p2": "2.個人情報のうち「履歴情報および特性情報」とは、上記に定める「個人情報」以外のものをいい、利用頂いたサービスや購入頂いた商品、閲覧したページや広告の履歴、検索キーワード、利用日時、利用方法、利用環境、郵便番号や性別、職業、年齢、IPアドレス、クッキー情報、位置情報、端末の個体識別情報などを指します。"
+    },
+    "a2": "",
+    "a3": "",
+    "a4": "",
+    "a5": "",
+    "a6": "",
+    "a7": "",
+    "a8": "",
+    "a9": "",
+    "a10": "",
+    "a11": "",
+    "a12": ""
+
+
+  
   }
 
  

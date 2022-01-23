@@ -207,7 +207,7 @@ export default {
           if(this.$i18n.locale == 'en') return 'en-form-title'
           return 'form-title'
         },
-         zipcodeRules() {
+        zipcodeRules() {
             return [
                 v => !!v || this.$t('register.zipcode_rule'),
                 v => v.length == 7 || this.$t('register.hint_zipcode')

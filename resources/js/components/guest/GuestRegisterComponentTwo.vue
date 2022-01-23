@@ -24,7 +24,7 @@
                     <v-col cols="12" sm="12" md="12">
                         <div v-if="$i18n.locale == 'en'">
                             <p :class="formTitleClasses" class="grey--text text--darken-4">Dear {{guest.name}},</p>
-                            <p :class="formWeightClasses" class="grey--text text--darken-2">Register your password below, and you will be signed up with us.</p>
+                            <p :class="fontWeightClasses" class="grey--text text--darken-2">Register your password below, and you will be signed up with us.</p>
                         </div>
                         <div v-else :class="formTitleClasses" class="grey--text text--darken-4">{{guest.name}}様の会員登録</div>
                         

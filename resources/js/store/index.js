@@ -43,6 +43,7 @@ export default new Vuex.Store({
           password: '',
           lang: ''
       },
+      lang: false,
       homeAddress: {},
       otherAddresses: [],
       deliveryAddress: {
@@ -210,6 +211,35 @@ export default new Vuex.Store({
   mutations: {
     setUser(state, payload){
         state.user = payload
+
+        if(state.user !== null){
+            if(state.user.lang == 'en'){
+                state.lang = true
+            }else{
+                state.lang = false
+            }
+        }else{
+            state.lang=false
+        }
+    },
+    // setLang(state, payload){
+
+    //     let user = payload
+
+    //     if(user !== null){
+    //         if(user.lang == 'en'){
+    //             state.lang = true
+    //         }else{
+    //             state.lang = false
+    //         }
+    //     }else{
+    //         state.lang=false
+    //     }
+
+    // },
+    setLanguage(state, payload){
+        state.lang = payload
+        
     },
     updateUser(state, payload){
         state.user = payload
@@ -533,25 +563,28 @@ export default new Vuex.Store({
     },
     setSelectableNumbers(state, payload){
 
-        let quantity = payload
-        let product_id = state.product[0].id
-
-        // console.log('product_id', product_id)
-
-        if(product_id == 11){
-
-            state.selectableNumbers = [1]
-        }else{
-
-            if(quantity <= 5 && quantity >= 4){
-                state.selectableNumbers = [1, 2]
-            
-            // }else if(quantity <= 1){
+        if(state.product > 0){
+            let quantity = payload
+            let product_id = state.product[0].id
     
-            }else if(quantity <=3){
+            // console.log('product_id', product_id)
+    
+            if(product_id == 11){
+    
                 state.selectableNumbers = [1]
             }else{
-                state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+    
+                if(quantity <= 5 && quantity >= 4){
+                    state.selectableNumbers = [1, 2]
+                
+                // }else if(quantity <= 1){
+        
+                }else if(quantity <=3){
+                    state.selectableNumbers = [1]
+                }else{
+                    state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+                }
+    
             }
 
         }
@@ -927,7 +960,7 @@ export default new Vuex.Store({
                 // console.log(response);
                 user = response.data.user;
                 // commit('clearGuest', {});
-                commit('setUser', user);
+                // commit('setUser', user);
                 commit('setLoading', false);
                 commit('setDialogRegisterToOrder', false);
                 // router.push({path: '/'});
@@ -966,7 +999,8 @@ export default new Vuex.Store({
                 // console.log(response);
                 user = response.data.user;
                 // commit('clearGuest', {});
-                commit('setUser', user);
+                // commit('setUser', user);
+                // commit('setLang', user);
                 commit('setLoading', false);
                 window.location = '/'
                 // router.push({path: '/'});
@@ -1061,7 +1095,7 @@ export default new Vuex.Store({
                 // console.log(response);
                 user = response.data.user;
                 // commit('clearGuest', {});
-                commit('setUser', user);
+                // commit('setUser', user);
                 commit('setLoading', false);
                 dispatch('updateOrderUserId', {guest_id: guest_id});
                 // router.push({path: '/'});
