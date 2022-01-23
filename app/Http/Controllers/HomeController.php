@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 //test
 use App\Models\Guest;
 use App\Models\Order;
+use Session;
+use App;
+use Redirect;
+use Lang;
 
 class HomeController extends Controller
 {
@@ -30,6 +34,43 @@ class HomeController extends Controller
         // return view('main');
         return redirect('/');
     }
+
+    public function switchLang(Request $request){
+
+        $lang = request('lang');
+
+        if(isset($lang)){
+            Session::put('applocale', $lang);
+            // App::setLocale($lang);
+            // app()->setLocale($lang);
+        }
+
+        // $lang = Lang::locale();
+
+        // DD(app()->getLocale());
+
+        // DD($lang);
+
+        // DD(App::getLocale());
+        // DD(Session::get('applocale'));
+
+
+        // return Redirect::back();
+        return redirect() -> back();
+        
+
+        // return response() -> json(['lang' => $lang]);  
+
+    }
+
+    // public function check(){
+        
+    //     $lang = Lang::locale();
+
+    //     DD($lang);
+
+    //     return view('main');
+    // }
 
     public function email()
     {

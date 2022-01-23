@@ -1,0 +1,333 @@
+{
+  "nav": {
+    "home": "Top",
+    "cart": "Shopping Cart",
+    "sustainability": "Sustainable Packaging",
+    "products": "Products List",
+    "delivery": "Shipping & Postage", 
+    "card": "Custom Card Service",
+    "member": "Members Only",
+    "summary": "Order Summary",
+    "profile": "Account Details",
+    "logout": "Logout",
+    "login": "Login", 
+    "register": "Register",
+    "contact": "Contact",
+    "policy": "Terms & Conditions",
+    "privacy": "Privacy Terms",
+    "about": "About"
+}, 
+
+"btn": {
+  "register": "register",
+  "to_register": "register now",
+  "register_again":"register with new information",
+  "login": "login",
+  "forgot_password": "forgot your password?",
+  "update": "update",
+  "update2": "update",
+  "remove": "remove",
+  "remove2": "remove",
+  "checkout": "checkout",
+  "checkout2": "checkout",
+  "shopping": "continue shopping",
+  "add_cart": "add to cart",
+  "check_cart": "check cart",
+  "send": "Submit",
+  "send2": "Submit",
+  "send3": "Confirm",
+  "edit": "Edit",
+  "continue_shopping": "Continue Shopping",
+  "next": "Next",
+  "back": "Back",
+  "confirm": "Confirm",
+  "top_page": "Back to home",
+  "reset_password": "Send Password Reset Link",
+  "reset_email": "reset email",
+  "update_data": "update",
+  "add_address": "add new address",
+  "add": "add",
+  "close": "close",
+  "summary": "Order Summary",
+  "summary2": "Back to Orders List"
+
+},
+
+"message": {
+  "logged_in": "You are already logged in."
+},
+
+"invite_register": {
+  "lead": "Join us today and make most of our services for valued members, including: ",
+  "benefit1": "Get discount coupons for your purchases.",
+  "benefit2": "Receive updates on our new products.",
+  "benefit3": "Enjoy members-only offers such as custom card service",
+  "benefit4": "Smoother checkout process",
+  "benefit5": "Check your order summary and shipment date",
+  "message": "You already have an account with us and are logged in."
+},
+
+"register":{
+  "title": "Member Registration",
+  "name": "Full Name",
+  "zipcode": "Postcode",
+  "prefecture": "Prefecture",
+  "city": "City",
+  "address1": "Street / House / Room Number",
+  "building": "Apartment / Building Name",
+  "phone": "Phone",
+  "email": "Email",
+  "confirm_email": "Confirm Email",
+  "password": "Password",
+  "confirm_password": "Confirm Password",
+  "hint_password": "Password must be at least 8 characters.",
+  "hint_zipcode": "Enter 7-digit postcode with no hyphen, e.g. 1234567",
+  "name_rule": "Full name is required.",
+  "kana_rule": "Kana is required.",
+  "zipcode_rule": "Postcode is required.",
+  "prefecture_rule": "Prefecture is required.",
+  "city_rule": "City is required.",
+  "address1_rule": "House / room number is required.",
+  "phone_rule": "Phone is required.",
+  "email_rule": "Email is required.",
+  "email_rule2": "Invalid email address.",
+  "confirmEmail_rule": "Email confirmation is required.",
+  "confirmEmail_rule2": "Given email does not match.",
+  "password_rule": "Password is required",
+  "password_rule2": "Password must be at least 8 characters.",
+  "confirmPassword_rule": "Password confirmation is required.",
+  "confirmPassword_rule2": "Given password does not match.",
+  "deliveryTime_rule": "Desired time of delivery is required."
+},
+
+"reset": {
+  "title": "Password Reset Link",
+  "line1": "We have sent to your email a link to reset your password.",
+  "line2": "Please check your email and reset your password.",
+  "line3": "You will be automatically logged in once you have reset your password. Alternatively, log in from below after you have reset your password."
+
+},
+
+  
+  "top": {
+      "lead": "From Japanese citrus fruits to quintessentially British marmalades",
+      "key_message": "<p>We are a small, independent, craft marmalade maker, excelling in turning high-quality citrus fruits grown in Japan into authentically British preserves.</p><p>The result is bright and tangy marmalades that help you discover the beauty of the Japanese citrus variety and bring you back to the breakfast table from your childhood.</p><p>We hope you enjoy our jars!</p>",
+      "description": "<p>We carefully source farmers from all over the country, especially those who grow fruits either organically or without any chemicals. So all of the fruits we use are excellent to taste and safe to eat.</p><p class='mb-12'>Most of our marmalades are made following traditional British recipes, with meticulous attention to the set so that you will get the best taste of jelly as well as fragrant peels. Sometimes we add some adjustments to the recipe, then it draws out the best from Japanese, distinctive fruits.</p>"
+  },
+
+  "how_to_shop": {
+      "lead": "We deliver our products to anywhere in Japan. Please enjoy your online shopping!",
+      "line1": "Select your marmalades and add them to your cart.",
+      "line2a": "Check ",
+      "line2b": "Shipping & Postage ",
+      "line2c": "in advance. Your shopping experience will become simple and easy. ",
+      "line3a": "Become a member and you will be eligible for our popular ", 
+      "line3b": " Custom Card Service",
+      "line3c": " free of charge.",
+      "line4": "Your order will be delivered directly to your doorstep!"
+  },
+
+  "products_list": {
+    "lead": "<p class='mb-8'>We produce all of our marmalades and jams in small batches. Each product is in stock during its season and for a short period only. It tends to sell out soon, so if you like any of our jars, place an order quickly!</p>",
+    "heading_all": "All Products",
+    "heading_current": "Currently in Season"
+    
+  },
+
+  "product": {
+    "quantity": "Qty",
+    "select_qty": "Select Quantity",
+    "item-total": "Line Total",
+    "total": "Total (incl. tax / excl. shipping fee)",
+    "total2": "Subtotal (incl.tax)",
+    "shipping": "Shipping",
+    "total3": "Total",
+    "season": "In Season",
+    "ingredients": "Ingredients",
+    "note": "Tap an item you want to order, then select a quantity and add the item to cart.",
+    "tax_info": "(incl. tax)",
+    "remove": "Are you sure you want to remove this item?",
+    "inventory": "In stock"
+  },
+
+  "shipping": {
+    "lead": "Shipping Options",
+    "line1": "We offer two shipping options to choose from.", 
+    "line2": "・Yamato TA-Q-BIN <br>・Yamato TA-Q-BIN Compact",
+    "line3": "Please see below for details and the cost of each option.",
+    "tab1": "TA-Q-BIN",
+    "tab2": "TA-Q-BIN Compact",
+    "title1": "Key Feature",
+    "title2": "Size",
+    "title3": "Larger Size",
+    "takkyuubin": {
+      "p1": "If you select this option, we will package your products in a small-sized box with lovely wooden threads protecting the jars from damage during shipment.",
+      "p2": "Select this option when you want to send a package to your family or friends as a gift. ",
+      "p3": "Registered customers are eligible for a free ",
+      "p3-2": " where we will enclose a lovely card with a message of your choice printed.",
+      "p4": "One package can contain up to four 100g jars.",
+      "p5": "ギフトとして考えた場合に、1つの箱に1瓶ですと、箱がやや大きめとなります。最適な数量は、2〜4瓶となります。",
+      "p6": "If you order more than five 100g jars, the shipping fee for 'TA-Q-BIN (larger size)' will be automatically applied.",
+      "p7": "Please contact us when you would like to place a corporate order.",
+      "card": "Custom Card Service"
+    },
+    "compact": {
+      "p1": "The Compact is a more reasonable package option. We package your products more simply than the other option, using a box designated for this type of shipment. ",
+      "p2": "This option is suitable when you purchase the products for home use.",
+      "p3": "One package can contain up to six 100g jars.",
+      "p4": "If you order more than seven 100g jars, we will automatically arrange additional packages.",
+      "p5": "When your order includes different sizes of jars, we will automatically calculate the number of packages. You can check how much it will cost when you confirm the order."
+    },
+    "postage": {
+      "title": "Postage",
+      "lead": "Check how much each shipping method costs to send a package to your area.",
+      "select": "Shipping options"
+    }
+  },
+
+  "cart": {
+    "message": "You have no items in your shopping cart.",
+    "check-postage1": "Check ",
+    "check-postage2": "Packaging & Delivery ",
+    "check-postage3": "before check-out. You will be able to select delivery option easily."
+    
+  },
+
+  "checkout": {
+    "stepper1": "Shipping Address",
+    "stepper2": "Shipping Method",
+    "stepper3": "Preview Order",
+    "stepper4": "Payment",
+    "home_address": "Shipping & Billing Address",
+    "shipping_address": "Shipping Address",
+    "login": "Checkout as Member",
+    "order_guest": "Checkout as Guest",
+    "message": "Choose where to send your delivery and enter the details.",
+    "ship_home": "Home",
+    "ship_other": "Other Address",
+    "shipping_address2": "Shipping Address",
+    "home_address2": "Home Address",
+    "home_address3": "Confirm Home Address",
+    "edit_home": "Edit Home Address",
+    "shipping_method": "Shipping Options",
+    "shipping_label": "Preferred shipping method",
+    "select_shipping": "Select your preferred shipping method.",
+    "shipping_note1": "Please see ",
+    "shipping_note2": "Shipping & Postage ",
+    "shipping_note3": "for different shipping options.",
+    "delivery_time": "Select your preferred delivery time.",
+    "delivery_label": "Preferred delivery time",
+    "courier_rule": "Shipping method is required.",
+    "deliveryTime_rule": "Preferred delivery is required.",
+    "time_options": ["No preference", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"],
+    "note": "Message to aya & co.",
+    "no": "No message",
+    "confirm_order": "Preview Order",
+    "shipping_details": "Shipping Details",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "method": "Method",
+    "time": "Preferred Delivery Time",
+    "yamato_compact": "Yamato TA-Q-BIN Compact",
+    "yamato": "Yamato TA-Q-BIN",
+    "yamato_large": "Yamato TA-Q-BIN (larger size)",
+    "box_qty": "Box Qty",
+    "card_payment": "Payment",
+    "card_note": "We accept payment by credit card only. Stripe, a payment service provider, will process your payment on our behalf. We do not store your credit card details. They are securely maintained in our payment provider's systems.",
+    "card_receipt": "We will email an electronic receipt of your payment once your delivery is shipped.",
+    "member_receipt": "Your receipt will be downloadable in a PDF format from your order summary once we have shipped your purchase.",
+    "card_number": "Card Number",
+    "card_expiry": "Expiration Date",
+    "card_cvc": "Security Code",
+    "pay": "Process Payment",
+    "thank_guest": "Thank you for your order! Your product will be shipped as soon as possible.",
+    "guest_signup":"We will be thrilled if you sign up with us now so that we can keep you updated on our products and you can get your coupon code for your second purchase."
+  },
+
+  "otheraddress": {
+    "no_data": "You have no other address registered.",
+    "lead": "Select where to send your delivery.",
+    "note": "Click address and it will be highlighted in red. Then, click button to submit.",
+    "ask": "Add a new address？",
+    "add": "Add a new shipping address",
+    "remove": "Are you sure you want to remove this address?"
+  },
+
+  "customcard": {
+    "lead": "Custom Card Service",
+    "line1": "Options will be shown once you have chosen a shipping method.",
+    "line2": "Custom Card Service is not availavle for Yamato TA-Q-Bin Compact.",
+    "line3": "Would you like us to enclose a custom card in the package？",
+    "line4": "If no, we will enclose a Thank you card. ",
+    "line5": "Select which message to print on the card.",
+    "use_option": ["Yes", "No"],
+    "label": "Order custom card",
+    "carduse_rule": "This field is mandatory.",
+    "select_message": "Select message",
+    "cardmessage_rule": "Message option is required.",
+    "use": "Yes",
+    "nouse": "No",
+    "message": "Type",
+    "from": "From",
+    "card_name": "Customer's Name",
+    "card": "Custom Card"
+  },
+
+  "coupon": {
+    "discount": "Discount",
+    "check": "Check coupon",
+    "label": "Enter coupon code",
+    "apply": "Apply coupon",
+    "remove": "delete & reset"
+  },
+
+  "summary": {
+    "message": "You have no orders yet.",
+    "id": "Order ID",
+    "date": "Order Date",
+    "shipment_date": "Expected Shipment Date",
+    "shipment_date2": "Shipment Date",
+    "billing": "Billing Address",
+    "shipping": "Shipping Address",
+    "tbc": "To be confirmed.",
+    "receipt": "Download Receipt",
+    "unit": " Qty"
+  },
+
+  "sustainability": {
+    "lead": "Learn about how we make our effort to achieve sustainable packaging.",
+    "title": "Natural Packaging",
+    "p1": "One of the first projects I worked on when I decided to start my online marmalade brand was to achieve sustainable packaging, which I believe any online shop owner is responsible for considering.",
+    "p2": "What can we do to avoid using plastic or paper cushioning while ensuring our products will be delivered to our customers safely?",
+    "p3": "After some careful thought, we decided to use 'wooden threads' (aka 'moku-men' = 木毛 in Japanese) to wrap and protect our jars from damages during shipment.",
+    "p4": "Moku-men, thin wooden threads made from trees such as pines, is a traditional, Japanese item for natural packaging. It was widely used in Japan until the mid 20th century when it was replaced by plastics. Nowadays, there is only one company specializing in Moku-men in Kochi Prefecture. Moku-men is considered to be beneficial for protecting forests in Japan as old trees need to be cut regularly to be replaced by new ones. Such old trees are used to produce moku-men.",
+    "p5": "An additional bonus is that you will enjoy the natural scent from the wooden threads when you open the package. "
+  },
+
+  "privacy": {
+    "lead": "aya & co. (hereafter referred to as 'we' or 'us') takes the protection of personal information very seriously and in order to ensure that the services provided on this website are suitable for all users (hereafter referred to as 'the Service', the company has established a policy on the protection of personal information. We will protect personal information by establishing a system for the protection of personal information and by ensuring that the importance of the protection of personal information is fully recognized and addressed.",
+    "a1": {
+      "lead": "第1条 個人情報とは",
+      "p1":"1.「個人情報」とは，個人情報保護法にある「個人情報」を指すものとし、生存する個人に関する情報であり、当該情報に含まれる氏名、住所、電話番号、連絡先、その他の記述等により特定の個人を識別できる情報を指します。",
+      "p2": "2.個人情報のうち「履歴情報および特性情報」とは、上記に定める「個人情報」以外のものをいい、利用頂いたサービスや購入頂いた商品、閲覧したページや広告の履歴、検索キーワード、利用日時、利用方法、利用環境、郵便番号や性別、職業、年齢、IPアドレス、クッキー情報、位置情報、端末の個体識別情報などを指します。"
+    },
+    "a2": "",
+    "a3": "",
+    "a4": "",
+    "a5": "",
+    "a6": "",
+    "a7": "",
+    "a8": "",
+    "a9": "",
+    "a10": "",
+    "a11": "",
+    "a12": ""
+
+
+  
+  }
+
+ 
+  
+}

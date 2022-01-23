@@ -7,6 +7,7 @@ import router from "../router"
 import { admin } from './modules/admin';
 import { coupon } from './modules/coupon';
 import { giftcard } from './modules/giftcard';
+import { language } from './modules/language';
  
 Vue.use(Vuex)
  
@@ -40,7 +41,9 @@ export default new Vuex.Store({
           phone: '',
           email: '',
           password: '',
+          lang: ''
       },
+      lang: false,
       homeAddress: {},
       otherAddresses: [],
       deliveryAddress: {
@@ -69,9 +72,6 @@ export default new Vuex.Store({
       deliveryCardUse: '',
       deliveryCardMessage: '',
       deliveryCardName: '',
-      postages: {
-          
-      },
       guest: {
           id: '',
           name: '',
@@ -136,6 +136,7 @@ export default new Vuex.Store({
       },
       orderedProducts: [],
       postages: [],
+      states: [],
       postageYamatoTakkyubins: [],
       postageCompacts: [],
       postageYamatoBigs: [],
@@ -210,6 +211,21 @@ export default new Vuex.Store({
   mutations: {
     setUser(state, payload){
         state.user = payload
+
+        if(state.user !== null){
+            if(state.user.lang == 'en'){
+                state.lang = true
+                state.language.englishSnackbar = true
+            }else{
+                state.lang = false
+            }
+        }else{
+            state.lang=false
+        }
+    },
+    setLanguage(state, payload){
+        state.lang = payload
+        
     },
     updateUser(state, payload){
         state.user = payload
@@ -262,11 +278,24 @@ export default new Vuex.Store({
     },
     insertPostage(state, payload){
 
+        let lang = payload.lang
+        console.log('lang', lang)
         let id = payload.courier
+        console.log('courier', payload.courier)
         let prefecture = payload.prefecture
+        // console.log('prefecture', prefecture)
         let totalQuantity = payload.totalQuantity
+        let state_data = {}
 
-        let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.prefecture === prefecture);
+        if(lang == "en"){
+            state_data = state.states.find(item => item.name_en == prefecture)
+        }else{
+            state_data = state.states.find(item => item.name == prefecture)
+        }
+        
+        let state_id = state_data.id
+        
+        let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.state_id === state_id);
         let postage = postage_data.postage
 
         if(id == 3){
@@ -285,11 +314,16 @@ export default new Vuex.Store({
             state.deliveryAddress.postage = postage
             state.deliveryAddress.box_quantity = ''
         }
-        
 
         let courier = state.couriers.find(item=>item.id == payload.courier);
-        state.deliveryAddress.courier_type = courier.courier_type
+        console.log('couriers', courier)
 
+        if(lang == 'en'){
+            state.deliveryAddress.courier_type = courier.name_en + ' ' + courier.type_en;
+        }else{
+            state.deliveryAddress.courier_type = courier.courier_type
+        }
+        
     },
     setOtherAddresses(state, payload){
         state.otherAddresses = payload
@@ -315,8 +349,8 @@ export default new Vuex.Store({
     setDeliveryOption(state, payload){
         state.deliveryAddress.delivery_time = payload.delivery_time
 
-        let courier = state.couriers.find(item=>item.id == payload.courier);
-        state.deliveryAddress.courier_type = courier.courier_type
+        // let courier = state.couriers.find(item=>item.id == payload.courier);
+        // state.deliveryAddress.courier_type = courier.courier_type
 
         state.deliveryCardUse = payload.delivery_carduse
         state.deliveryCardMessage = payload.delivery_cardmessage
@@ -515,25 +549,28 @@ export default new Vuex.Store({
     },
     setSelectableNumbers(state, payload){
 
-        let quantity = payload
-        let product_id = state.product[0].id
-
-        // console.log('product_id', product_id)
-
-        if(product_id == 11){
-
-            state.selectableNumbers = [1]
-        }else{
-
-            if(quantity <= 5 && quantity >= 4){
-                state.selectableNumbers = [1, 2]
-            
-            // }else if(quantity <= 1){
+        if(state.product > 0){
+            let quantity = payload
+            let product_id = state.product[0].id
     
-            }else if(quantity <=3){
+            // console.log('product_id', product_id)
+    
+            if(product_id == 11){
+    
                 state.selectableNumbers = [1]
             }else{
-                state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+    
+                if(quantity <= 5 && quantity >= 4){
+                    state.selectableNumbers = [1, 2]
+                
+                // }else if(quantity <= 1){
+        
+                }else if(quantity <=3){
+                    state.selectableNumbers = [1]
+                }else{
+                    state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+                }
+    
             }
 
         }
@@ -698,6 +735,9 @@ export default new Vuex.Store({
     },
     setPostages(state, payload){
         state.postages = payload
+    },
+    setStates(state, payload){
+        state.states = payload
     },
     setPostageYamatoTakkyubin(state, payload){
         state.postageYamatoTakkyubins = payload
@@ -906,7 +946,7 @@ export default new Vuex.Store({
                 // console.log(response);
                 user = response.data.user;
                 // commit('clearGuest', {});
-                commit('setUser', user);
+                // commit('setUser', user);
                 commit('setLoading', false);
                 commit('setDialogRegisterToOrder', false);
                 // router.push({path: '/'});
@@ -923,6 +963,7 @@ export default new Vuex.Store({
         let user = {};
 
         // commit("setLoading", true);
+        // console.log('lang', payload.lang)
 
         await axios
             .post(payload.url, {
@@ -938,12 +979,14 @@ export default new Vuex.Store({
                 email: payload.email,
                 password: payload.password,
                 password_confirmation: payload.password_confirmation,
+                lang: payload.lang
             })
             .then(response => {
                 // console.log(response);
                 user = response.data.user;
                 // commit('clearGuest', {});
-                commit('setUser', user);
+                // commit('setUser', user);
+                // commit('setLang', user);
                 commit('setLoading', false);
                 window.location = '/'
                 // router.push({path: '/'});
@@ -1032,12 +1075,13 @@ export default new Vuex.Store({
                 email: payload.email,
                 password: payload.password,
                 password_confirmation: payload.password_confirmation,
+                lang: payload.lang
             })
             .then(response => {
                 // console.log(response);
                 user = response.data.user;
                 // commit('clearGuest', {});
-                commit('setUser', user);
+                // commit('setUser', user);
                 commit('setLoading', false);
                 dispatch('updateOrderUserId', {guest_id: guest_id});
                 // router.push({path: '/'});
@@ -1076,6 +1120,7 @@ export default new Vuex.Store({
             .get("/fetch-categories")
             .then(res => {
                 categories = res.data.categories;
+                console.log('categories', categories);
                 // products = res.data.products;
                 // commit('setProducts', products);
                 commit('setCategories', categories);
@@ -1744,6 +1789,18 @@ export default new Vuex.Store({
                 commit('setCouriers', courier);
         });
     },
+    async fetchStates({ commit }){
+        let states = [];
+
+        await axios
+            .get("/fetch-states")
+            .then(res => {
+                states = res.data.states;
+                commit('setStates', states);
+                // commit('setDeliveryAddress', payload);
+                
+        });
+    },
     async updateUserName({state, commit}, payload){
     
         let allerror = [];
@@ -1928,7 +1985,8 @@ export default new Vuex.Store({
   modules: {
     admin,
     coupon,
-    giftcard
+    giftcard,
+    language
   }
 
 })

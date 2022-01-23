@@ -4,16 +4,14 @@
       flat app color="white"
     >
         <v-app-bar-nav-icon
+            class="mr-6"
             @click.stop="drawer = !drawer"
         ></v-app-bar-nav-icon>
-        
-        
-        <v-spacer></v-spacer>
-        
+
         <router-link
             to="/"
         >
-            <v-toolbar-title>
+            <v-app-bar-title>
                 <v-img
                     max-width=120
                     height=auto
@@ -28,9 +26,14 @@
                     src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/logo.png"
                 >
                 </v-img>
-            </v-toolbar-title>
+            </v-app-bar-title>
         </router-link>
         <v-spacer></v-spacer>
+        <v-switch
+            class="pt-5 mr-6"
+            v-model="language"
+            label="EN"
+        ></v-switch>
         <v-badge
             color="error"
             :content="cartQuantity"
@@ -71,7 +74,7 @@
                 color="primary"
             >
                 <v-list-item v-for="link in links" :key="link.title" router :to="link.route">
-                    <v-list-item-title class="jp-font-300">{{link.title}}</v-list-item-title>
+                    <v-list-item-title class="font-300">{{$t(link.title)}}</v-list-item-title>
                 </v-list-item>
                 <!-- <v-list-item router :to="home">
                     <v-list-item-title class="jp-font-300">ホーム</v-list-item-title>
@@ -91,10 +94,9 @@
                     v-for="product in products" :key="product.title"
                     route :to="product.route"
                 >
-                    <v-list-item-title v-text="product.title" class="jp-font-300"></v-list-item-title>
+                    <v-list-item-title v-text="$t(product.title)" class="font-300"></v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
-           
 
              <!-- <v-list-group
                 :value="true"
@@ -121,19 +123,19 @@
                 no-action
             >
                 <template v-slot:activator>
-                    <v-list-item-title class="jp-font-300">会員専用</v-list-item-title>
+                    <v-list-item-title class="font-300">{{$t('nav.member')}}</v-list-item-title>
                 </template>
 
                     <v-list-item
                         v-for="item in members" :key="item.title"
                         route :to="item.route"
                     >
-                        <v-list-item-title v-text="item.title" class="jp-font-300"></v-list-item-title>
+                        <v-list-item-title v-text="$t(item.title)" class="font-300"></v-list-item-title>
                     </v-list-item>
                     <v-list-item
                         @click="logout"
                     >
-                        <v-list-item-title>ログアウト</v-list-item-title>
+                        <v-list-item-title>{{$t('nav.logout')}}</v-list-item-title>
                             <form id="logout-form" action="/logout" method="POST">
                             <input type="hidden" name="_token" :value="token">
                             </form>
@@ -150,7 +152,7 @@
                     v-for="item in guests" :key="item.title"
                     route :to="item.route"
                 >
-                    <v-list-item-title v-text="item.title" class="jp-font-300"></v-list-item-title>
+                    <v-list-item-title v-text="$t(item.title)" class="font-300"></v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
 
@@ -164,7 +166,7 @@
                     v-for="item in items" :key="item.title"
                     route :to="item.route"
                 >
-                    <v-list-item-title v-text="item.title" class="jp-font-300"></v-list-item-title>
+                    <v-list-item-title v-text="$t(item.title)" class="font-300"></v-list-item-title>
                 </v-list-item>
             </v-list-item-group>
         </v-list>
@@ -181,6 +183,7 @@ import { mapState } from 'vuex'
         user: Object
     },
     data: () => ({
+        // language: false,
         drawer: false,
         group1: null,
         group2: null,
@@ -188,9 +191,9 @@ import { mapState } from 'vuex'
         group4: null,
         // itemNumber: 0,
       links: [
-        { title: 'ホーム', route: '/' },
-        { title: 'お買いものかご', route: '/cart' },
-        { title: '環境にやさしい包装について', route: '/sustainability'},
+        { title: 'nav.home', route: '/' },
+        { title: 'nav.cart', route: '/cart' },
+        { title: 'nav.sustainability', route: '/sustainability'},
        ],
     //   products: [
     //     { title: 'Summer Meets Autumn', route: '/products/1' },
@@ -203,25 +206,25 @@ import { mapState } from 'vuex'
     //     { title: 'Lemonade', route: '/products/8' },
     //   ],
       products: [
-          {title: '商品リスト', route:'/products-list'},
-          {title: '配送方法と送料について', route: '/postage'},
-          {title: '選べるメッセージカードサービス', route: '/message-service'},
+          {title: 'nav.products', route:'/products-list'},
+          {title: 'nav.delivery', route: '/postage'},
+          {title: 'nav.card', route: '/message-service'},
       ],
       members: [
-        {title: '注文履歴', route: '/member/summary'},
-        {title: 'アカウント情報の編集', route: "/member/profile"},
+        {title: 'nav.summary', route: '/member/summary'},
+        {title: 'nav.profile', route: "/member/profile"},
         //{title: '配送先の編集', route: "/member/addresses"},
       ],
       guests: [
-        {title: 'ログイン', route: "/guest/login"},
-        {title: '会員登録', route: '/guest/register'},
+        {title: 'nav.login', route: "/guest/login"},
+        {title: 'nav.register', route: '/guest/register'},
       ],
       items:  [
-        {title: 'お問い合わせ', route: '/contact'},
+        {title: 'nav.contact', route: '/contact'},
         //{title: 'よくある質問', route: "/faq"},
-        {title: '特定商取引法に基づく表記', route:"/policy"},
-        {title: 'プライバシーポリシー', route:"/privacy-policy"},
-        {title: 'ABOUT', route:"/about"}
+        {title: 'nav.policy', route:"/policy"},
+        {title: 'nav.privacy', route:"/privacy-policy"},
+        {title: 'nav.about', route:"/about"}
       ],
       closeOnContentClick: true,
     }),
@@ -229,6 +232,29 @@ import { mapState } from 'vuex'
         group(){
             this.drawer = false
         },
+        language(newValue){
+            let lang = newValue
+
+            if(lang == true){
+                // this.$store.commit('language/language', {
+                //     lang: 'en'
+                // });
+                this.$i18n.locale = 'en'
+                this.$store.dispatch('language/setLang', {
+                    lang: "en"
+                });
+                this.$store.commit('language/setEnglishSnackbar', true)
+            }else{
+                // this.$store.commit('language/language', {
+                //     lang: 'ja'
+                // });
+                this.$i18n.locale = 'ja'
+                this.$store.dispatch('language/setLang', {
+                    lang: "ja"
+                });
+            }
+            console.log(newValue)
+        }
     },
     mounted() {
         // this.$store.dispatch('student/fetchStudentUser');
@@ -241,10 +267,19 @@ import { mapState } from 'vuex'
         },
         ...mapState([
             'cart',
+            'lang'
             // 'user',
             // 'initials',
             // 'isLoggedIn',
         ]),
+        language: {
+            get(){                
+                return this.lang
+            },
+            set (value) {
+                this.$store.commit('setLanguage', value)
+            }
+        },
         itemNumber(){
             if(this.cart.length > 0){
                 return true
@@ -280,10 +315,8 @@ import { mapState } from 'vuex'
     width: 100%;
     height: 100%;
 }
-.jp-font-300{
-  font-family: 'Noto Sans JP', sans-serif;
+.font-300{
   font-weight: 300;
-  letter-spacing: 0.03em;
 }
 
 .v-list--dense .v-list-item .v-list-item__title{

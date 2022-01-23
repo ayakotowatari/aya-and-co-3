@@ -18,6 +18,34 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        // $lang = app()->getLocale();
+        // // DD($lang);
+
+        // if($lang == 'en'){
+
+        //     $categories = Category::whereNotNull('name')
+        //                 ->whereIn('status_id', [1, 2])
+        //                 ->select(
+        //                     'id', 
+        //                     'name',
+        //                     'subtitle', 
+        //                     'details_en as details',
+        //                     'description_en as description',
+        //                     'season_en as season',
+        //                     'ingredients_en as ingredients',
+        //                     'image',
+        //                     'status_id',
+        //                     'created_at',
+        //                     'updated_at',
+        //                     'deleted_at'
+        //                   )
+        //                 ->get();
+        // }else{
+        //     $categories = Category::whereNotNull('name')
+        //                 ->whereIn('status_id', [1, 2])
+        //                 ->get();
+        // }
+        
         $categories = Category::whereNotNull('name')
                         ->whereIn('status_id', [1, 2])
                         ->get();
@@ -57,9 +85,13 @@ class CategoriesController extends Controller
                             'categories.name',
                             'categories.subtitle',
                             'categories.details', 
+                            'categories.details_en',
                             'categories.description', 
+                            'categories.description_en', 
                             'categories.season',
+                            'categories.season_en',
                             'categories.ingredients',
+                            'categories.ingredients_en',
                             'categories.image',
                             'statuses.status'
                         )                
@@ -108,6 +140,26 @@ class CategoriesController extends Controller
 
     }
 
+    public function editDetailsEn(Request $request)
+    {
+        $request ->validate([
+            'id' => 'required',
+            'details' => 'required',
+        ]);
+
+        $id = request('id');
+        
+        $category = Category::find($id);
+
+        $category -> details_en = request('details');
+        $category->update();
+
+        $updatedDetails = $category -> details_en;
+
+        return response() -> json(['details' => $updatedDetails]);
+
+    }
+
     public function editDescription(Request $request)
     {
         $request ->validate([
@@ -123,6 +175,26 @@ class CategoriesController extends Controller
         $category->update();
 
         $updatedDescription = $category -> description;
+
+        return response() -> json(['description' => $updatedDescription]);
+
+    }
+
+    public function editDescriptionEn(Request $request)
+    {
+        $request ->validate([
+            'id' => 'required',
+            'description' => 'required',
+        ]);
+
+        $id = request('id');
+        
+        $category = Category::find($id);
+
+        $category -> description_en = request('description');
+        $category->update();
+
+        $updatedDescription = $category -> description_en;
 
         return response() -> json(['description' => $updatedDescription]);
 
@@ -148,6 +220,26 @@ class CategoriesController extends Controller
 
     }
 
+    public function editSeasonEn(Request $request)
+    {
+        $request ->validate([
+            'id' => 'required',
+            'season' => 'required',
+        ]);
+
+        $id = request('id');
+        
+        $category = Category::find($id);
+
+        $category -> season_en = request('season');
+        $category->update();
+
+        $updatedSeason = $category -> season_en;
+
+        return response() -> json(['season' => $updatedSeason]);
+
+    }
+
     public function editIngredients(Request $request)
     {
         $request ->validate([
@@ -163,6 +255,26 @@ class CategoriesController extends Controller
         $category->update();
 
         $updatedIngredients = $category -> ingredients;
+
+        return response() -> json(['ingredients' => $updatedIngredients]);
+
+    }
+
+    public function editIngredientsEn(Request $request)
+    {
+        $request ->validate([
+            'id' => 'required',
+            'ingredients' => 'required',
+        ]);
+
+        $id = request('id');
+        
+        $category = Category::find($id);
+
+        $category -> ingredients_en = request('ingredients');
+        $category->update();
+
+        $updatedIngredients = $category -> ingredients_en;
 
         return response() -> json(['ingredients' => $updatedIngredients]);
 

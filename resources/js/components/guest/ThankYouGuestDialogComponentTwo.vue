@@ -4,15 +4,12 @@
             <v-dialog v-model="dialogThankYouGuest" persistent max-width="320">
                 <v-card>
                     <v-card-title >
-                        <div class="dialog-title grey--text text--darken-4">{{guest.name}}様</div>
+                        <div v-if="$i18n.locale == 'ja'" class="dialog-title grey--text text--darken-4">{{guest.name}}様</div>
+                        <div v-else class="dialog-title grey--text text--darken-4">Dear {{guest.name}},</div>
                     </v-card-title>
-                    <v-card-text class="jp-font-400">
-                        ご注文をお受付けいたしました。
-                        誠にありがとうございます。<br>
-                        お届けまでしばらくお待ちくださいませ。
-                    </v-card-text>
-                    <v-card-text class="jp-font-400">
-                        会員としてご登録いただけますと、次回以降のご注文からお買い物がスムーズになりますので、ぜひご検討ください。
+                    <v-card-text v-html="$t('checkout.thank_guest')"></v-card-text>
+                    <v-card-text>
+                        {{$t('checkout.guest_signup')}}
                     </v-card-text>
                     <!-- <v-card-subtitle>
                         <p>{{ event.date }}</p>
@@ -20,8 +17,8 @@
                     </v-card-subtitle> -->
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="toRegister">会員登録をする</v-btn>
-                    <v-btn color="grey darken-2" text @click="backHome">トップページに戻る</v-btn>
+                    <v-btn color="primary" text @click="toRegister">{{$t('btn.to_register')}}</v-btn>
+                    <v-btn color="grey darken-2" text @click="backHome">{{$t('btn.top_page')}}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
@@ -75,11 +72,6 @@ export default {
 
 <style>
 .dialog-title{
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.03em;
   margin-bottom: 24px;
 }
 

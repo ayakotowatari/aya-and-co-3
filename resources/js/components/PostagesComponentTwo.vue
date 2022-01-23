@@ -9,7 +9,7 @@
             <v-col cols="12" sm="12" md="12">
                 <div class="heading-group">
                     <div class="page-heading">
-                        Packaging & Postage
+                        Shipping & Postage
                     </div>
                     <div class="page-subtitle grey--text text--darken-3">
                         配送方法と送料について
@@ -19,19 +19,17 @@
         </v-row>
         <v-row>
             <v-col cols="12" sm="12" md="4">
-                <div class="item-title">配送方法について</div>
+                <div class="item-title">{{$t('shipping.lead')}}</div>
             </v-col>
             <v-col cols="12" sm="12" md="8">
                 <div class="mb-8">
-                    <p class="description">
-                        aya & co.では、商品のご注文時に、以下の２つのオプションから配送方法をお選びいただけます。
+                    <p :class="descriptionClasses">
+                        {{$t('shipping.line1')}}
                     </p>
-                    <p class="description">
-                        ・宅急便（ヤマト運輸）<br>
-                        ・宅急便コンパクト（ヤマト運輸）
+                    <p :class="descriptionClasses" v-html="$t('shipping.line2')">
                     </p>
-                    <p class="description">
-                        配送方法によって、パッケージ（包装）と送料が異なりますので、ご用途にあった方法をお選びください。<br>
+                    <p :class="descriptionClasses">
+                        {{$t('shipping.line3')}}
                     </p>
                     <!-- <v-btn
                         color="primary"
@@ -45,12 +43,12 @@
                     <v-tab
                         href="#tab-1"
                     >
-                        宅急便
+                        {{$t('shipping.tab1')}}
                     </v-tab>
                     <v-tab
                         href="#tab-2"
                     >
-                        宅急便コンパクト
+                        {{$t('shipping.tab2')}}
                     </v-tab>
                     <!-- <v-tab router :to="{name: 'search-events'}">Search</v-tab> -->
                 </v-tabs>
@@ -79,20 +77,20 @@
                 </v-row>
         <v-row>
             <v-col cols="12" sm="12" md="4">
-                <div class="item-title">送料について</div>
+                <div class="item-title">{{$t('shipping.postage.title')}}</div>
             </v-col>
             <v-col cols="12" sm="12" md="8">
                 <p class="description mb-8">
-                    日本全国各地への、配送オプションごとの送料（1梱包の料金）は、下記よりお確かめいただけます。
+                    {{$t('shipping.postage.lead')}}
                 </p>
                 <v-row>
                     <v-col cols="12" sm="12" md="6">
                         <v-select
                             v-model="courier"
                             :items="couriers"
-                            item-text="courier_type"
+                            :item-text="setItem()"
                             item-value="id"
-                            label="配送方法を選ぶ"
+                            :label="$t('shipping.postage.select')"
                             required
                             class="mb24"
                             solo
@@ -104,7 +102,8 @@
                             >
                                 <v-row>
                                     <v-col cols="6" sm="6" md="6">
-                                        <div class="item-content">{{ postageYamatoTakkyubin.prefecture}}</div>
+                                        <div v-if="$i18n.locale=='en'" :class="itemContentClasses">{{ postageYamatoTakkyubin.name_en}}</div>
+                                        <div v-else :class="itemContentClasses">{{ postageYamatoTakkyubin.name}}</div>
                                     </v-col>
                                     <v-col cols="6" sm="6" md="6">
                                         <div class="grey--text text--darken-3">{{ formatPrice(postageYamatoTakkyubin.postage)}}</div>
@@ -119,7 +118,8 @@
                             >
                                 <v-row>
                                     <v-col cols="6" sm="6" md="6">
-                                        <div class="item-content">{{ postageYamatoBig.prefecture}}</div>
+                                        <div v-if="$i18n.locale=='en'" :class="itemContentClasses">{{ postageYamatoBig.name_en}}</div>
+                                        <div v-else :class="itemContentClasses">{{ postageYamatoBig.name}}</div>
                                     </v-col>
                                     <v-col cols="6" sm="6" md="6">
                                         <div class="grey--text text--darken-3">{{ formatPrice(postageYamatoBig.postage)}}</div>
@@ -134,7 +134,8 @@
                             >
                                 <v-row>
                                     <v-col cols="6" sm="6" md="6">
-                                        <div class="item-content">{{ postageCompact.prefecture}}</div>
+                                        <div v-if="$i18n.locale=='en'" :class="itemContentClasses">{{ postageCompact.name_en}}</div>
+                                        <div v-else :class="itemContentClasses">{{ postageCompact.name}}</div>
                                     </v-col>
                                     <v-col cols="6" sm="6" md="6">
                                         <div class="grey--text text--darken-3">{{ formatPrice(postageCompact.postage)}}</div>
@@ -173,11 +174,26 @@ export default {
             'postageYamatoBigs',
             'postageCompacts',
             'couriers'
-        ])
+        ]),
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
+        itemContentClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-content'
+          return 'item-content'
+        },
     },
     methods: {
         formatPrice(value){
           return value.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'})
+        },
+        setItem(){
+            if(this.$i18n.locale == 'ja'){
+                return item => item.name + ' ' + item.type
+            }else{
+                return item => item.name_en + ' ' + item.type_en
+            }
         },
     }
 }

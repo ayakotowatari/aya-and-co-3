@@ -125,6 +125,28 @@
                                 </div>
                             </div>
                             <div class="mb-10">
+                                <h4 class="jp-font grey--text text--darken-3 mb-4">Details - English</h4>
+                                <div class="jp-font-400 mb-2" v-if="category.details_en === null || category.details_en === ''">
+                                    未設定
+                                </div>
+                                <div class="mb-2" v-if="category.details_en !== null | category.details_en !== ''">
+                                    {{category.details_en}}
+                                </div>
+                                <div>
+                                    <v-btn
+                                        color="primary"
+                                        outlined
+                                        @click="updateDetailsEn"
+                                        class="mb-2"
+                                    >更新</v-btn>
+                                </div>
+                                <div v-if="showEditDetailsEn == true">
+                                    <editdetailsen-component
+                                        v-bind:category="category"
+                                    ></editdetailsen-component>
+                                </div>
+                            </div>
+                            <div class="mb-10">
                                 <h4 class="jp-font grey--text text--darken-3 mb-4">説明文</h4>
                                 <div class="jp-font-400 mb-2" v-if="category.description === null || category.description === ''">
                                     未設定
@@ -144,6 +166,28 @@
                                     <editdescription-component
                                         v-bind:category="category"
                                     ></editdescription-component>
+                                </div>
+                            </div>
+                            <div class="mb-10">
+                                <h4 class="jp-font grey--text text--darken-3 mb-4">Description - English</h4>
+                                <div class="jp-font-400 mb-2" v-if="category.description_en === null || category.description_en === ''">
+                                    未設定
+                                </div>
+                                <div class="mb-2" v-if="category.description_en !== null || category.description_en !== ''">
+                                    {{category.description_en}}
+                                </div>
+                                <div>
+                                    <v-btn
+                                        color="primary"
+                                        outlined
+                                        @click="updateDescriptionEn"
+                                        class="mb-2"
+                                    >更新</v-btn>
+                                </div>
+                                <div v-if="showEditDescriptionEn == true">
+                                    <editdescriptionen-component
+                                        v-bind:category="category"
+                                    ></editdescriptionen-component>
                                 </div>
                             </div>
                             <div class="mb-10">
@@ -169,6 +213,28 @@
                                 </div>
                             </div>
                             <div class="mb-10">
+                                <h4 class="jp-font grey--text text--darken-3 mb-4">Season - English</h4>
+                                <div class="jp-font-400 mb-2" v-if="category.season_en === null || category.season_en === ''">
+                                    未設定
+                                </div>
+                                <div class="mb-2" v-if="category.season_en !== null || category.season_en !== ''">
+                                    {{category.season_en}}
+                                </div>
+                                <div>
+                                    <v-btn
+                                        color="primary"
+                                        outlined
+                                        @click="updateSeasonEn"
+                                        class="mb-2"
+                                    >更新</v-btn>
+                                </div>
+                                <div v-if="showEditSeasonEn == true">
+                                    <editseasonen-component
+                                        v-bind:category="category"
+                                    ></editseasonen-component>
+                                </div>
+                            </div>
+                            <div class="mb-10">
                                 <h4 class="jp-font grey--text text--darken-3 mb-4">原材料</h4>
                                 <div class="jp-font-400 mb-2" v-if="category.ingredients === null || category.ingredients === ''">
                                     未設定
@@ -188,6 +254,28 @@
                                     <editingredients-component
                                         v-bind:category="category"
                                     ></editingredients-component>
+                                </div>
+                            </div>
+                            <div class="mb-10">
+                                <h4 class="jp-font grey--text text--darken-3 mb-4">Ingredients</h4>
+                                <div class="jp-font-400 mb-2" v-if="category.ingredients_en === null || category.ingredients_en === ''">
+                                    未設定
+                                </div>
+                                <div class="mb-2" v-if="category.ingredients_en !== null || category.ingredients_en !== ''">
+                                    {{category.ingredients_en}}
+                                </div>
+                                <div>
+                                    <v-btn
+                                        color="primary"
+                                        outlined
+                                        @click="updateIngredientsEn"
+                                        class="mb-2"
+                                    >更新</v-btn>
+                                </div>
+                                <div v-if="showEditIngredientsEn == true">
+                                    <editingredientsen-component
+                                        v-bind:category="category"
+                                    ></editingredientsen-component>
                                 </div>
                             </div>
                             <div class="mb-8">
@@ -233,9 +321,13 @@ export default {
             'category',
             'showEditSubtitle',
             'showEditDetails',
+            'showEditDetailsEn',
             'showEditDescription',
+            'showEditDescriptionEn',
             'showEditSeason',
+            'showEditSeasonEn',
             'showEditIngredients',
+            'showEditIngredientsEn',
             'showUpdateCategoryStatus',
             // 'dialogShipment',
             // 'dialogUpdateShipment',
@@ -281,12 +373,29 @@ export default {
                 this.$store.commit('admin/setShowEditDetails', false);
             }
         },
+        updateDetailsEn(){
+
+            if(this.showEditDetailsEn == false){
+                this.$store.commit('admin/setShowEditDetailsEn', true);
+            }else{
+                this.$store.commit('admin/setShowEditDetailsEn', false);
+            }
+        },
         updateDescription(){
 
             if(this.showEditDescription == false){
                 this.$store.commit('admin/setShowEditDescription', true);
             }else{
                 this.$store.commit('admin/setShowEditDescription', false);
+            }
+
+        },
+        updateDescriptionEn(){
+
+            if(this.showEditDescriptionEn == false){
+                this.$store.commit('admin/setShowEditDescriptionEn', true);
+            }else{
+                this.$store.commit('admin/setShowEditDescriptionEn', false);
             }
 
         },
@@ -299,12 +408,29 @@ export default {
             }
 
         },
+         updateSeasonEn(){
+
+            if(this.showEditSeasonEn == false){
+                this.$store.commit('admin/setShowEditSeasonEn', true);
+            }else{
+                this.$store.commit('admin/setShowEditSeasonEn', false);
+            }
+
+        },
         updateIngredients(){
             
              if(this.showEditIngredients== false){
                 this.$store.commit('admin/setShowEditIngredients', true);
             }else{
                 this.$store.commit('admin/setShowEditIngredients', false);
+            }
+        },
+        updateIngredientsEn(){
+            
+            if(this.showEditIngredientsEn== false){
+                this.$store.commit('admin/setShowEditIngredientsEn', true);
+            }else{
+                this.$store.commit('admin/setShowEditIngredientsEn', false);
             }
         },
         updateImage(){

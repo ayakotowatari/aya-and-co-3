@@ -12,7 +12,7 @@
             v-bind="attrs"
             @click="$store.commit('setCheckoutSnackbar', false)"
             >
-            閉じる
+            {{$t('btn.close')}}
             </v-btn>
         </template>
     </v-snackbar>

@@ -12,6 +12,7 @@ import Vuetify from 'vuetify';
 import store from './store/';
 import VueClipboard from 'vue-clipboard2';
 import AppComponent from "./components/AppComponent";
+import i18n from './i18n';
 
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
@@ -60,6 +61,7 @@ Vue.component('editaddressdialog-component', require('./components/user/EditAddr
 Vue.component('newaddressdialog-component', require('./components/user/NewAddressDialogComponent.vue').default);
 Vue.component('removeaddressdialog-component', require('./components/user/RemoveAddressDialogComponent.vue').default);
 Vue.component('checkoutsnackbar-component', require('./components/user/CheckoutSnackbarComponent.vue').default);
+Vue.component('englishsnackbar-component', require('./components/parts/EnglishSnackbarComponent.vue').default);
 Vue.component('thankyou-component', require('./components/user/ThankYouDialogComponent.vue').default);
 // Vue.component('requestreset-component', require('./components/user/password/RequestResetComponent.vue').default);
 // Vue.component('linksentsnackbar-component', require('./components/user/password/LinkSentSnackbarComponent.vue').default);
@@ -94,6 +96,8 @@ Vue.component('register-component', require('./components/RegisterComponent.vue'
 //icons
 import BasketIcon from "./components/icons/BasketIconComponent"
 
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -126,6 +130,7 @@ const app = new Vue({
     ),
     router,
     store,
+    i18n,
     components: {
         "app-component": AppComponent,
     },

@@ -75,11 +75,6 @@ export default {
 
 <style>
 .dialog-title{
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.03em;
   margin-bottom: 24px;
 }
 

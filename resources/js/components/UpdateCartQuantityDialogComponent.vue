@@ -3,21 +3,26 @@
         <v-row justify="center">
             <v-dialog v-model="dialogUpdateCartQuantity" persistent max-width="320">
                 <v-card>
-                    <v-card-title class="jp-font-400 dialog-title-14">
-                        {{cartItem.name}}({{cartItem.size}})の数量変更
+                    <v-card-title class="dialog-title-14">
+                        <div v-if="$i18n.locale == 'ja'">
+                            {{cartItem.name}}({{cartItem.size}})の数量変更
+                        </div>
+                        <div v-else>
+                            Change quantity of {{cartItem.name}}({{cartItem.size}})
+                        </div>
                     </v-card-title>
-                    <div v-if="cartItem.inventory <= 5">
+                    <v-card-subtitle v-if="cartItem.inventory <= 5">
                         <v-card-text class="jp-font-400">
-                            在庫数：{{inventory}}
+                            {{$t('product.inventory')}}：{{inventory}}
                         </v-card-text>
-                    </div>
+                    </v-card-subtitle>
                     <v-card-text class="jp-font-400">
                         <v-row>
-                            <v-col cols="6" sm="6" md="6">
+                            <v-col cols="8" sm="8" md="8">
                                 <v-select
                                     v-model="selectedQuantity"
                                     :items="selectableNumbers"
-                                    label="数量"
+                                    :label="$t('product.select_qty')"
                                     required
                                 >
                                 </v-select>
@@ -30,8 +35,8 @@
                     </v-card-subtitle> -->
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="changeQuantity">更新する</v-btn>
-                    <v-btn color="grey darken-2" text @click="back">戻る</v-btn>
+                    <v-btn color="primary" text @click="changeQuantity">{{$t('btn.update2')}}</v-btn>
+                    <v-btn color="grey darken-2" text @click="back">{{$t('btn.back')}}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>

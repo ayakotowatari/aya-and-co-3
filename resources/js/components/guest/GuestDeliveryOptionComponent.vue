@@ -2,7 +2,7 @@
     <div class="pt-6">
         <v-row justify="center">
             <v-col cols="12" sm="12" md="6">
-                <div class="form-title grey--text text--darken-4">配送オプションを選択する</div>
+                <div :class="formTitleClasses" class="grey--text text--darken-4">{{$t('checkout.shipping_method')}}</div>
             </v-col>
         </v-row>
         <v-row justify="center">
@@ -15,35 +15,39 @@
                 
                     <div class="mb-8">
                         <div v-if="totalQuantityInCart >= 4">
-                            <div class="jp-font grey--text text--darken-3 mb24">Step 1: ご希望の配送方法をお選びください。</div>
+                            <div :class="fontWeightClasses" class="grey--text text--darken-3 mb24">Step 1: {{$t('checkout.select_shipping')}}</div>
                             <!-- <div class="jp-font grey--text text--darken-2 mb24">ご用途に応じた配送方法の選び方については、<router-link to="/postage">こちら</router-link>でご案内しております。</div> -->
 
                             <v-select
                                 v-model="courier"
                                 outlined
                                 :items = "courierMiddle"
-                                item-text="courier_type"
+                                :item-text="setItem()"
                                 item-value="id"
-                                label="配送方法を選ぶ"
+                                :label="$t('checkout.shipping_label')"
                                 required
                                 :rules="courierRules" 
+                                validate-on-blur
+                                @blur="() => $refs.form.resetValidation()"
                                 :error="allerror.couriers ? true : false"
                                 :error-messages="allerror.couriers"
                             ></v-select>
                         </div>
                         <div v-else class="mb-8">
-                            <div class="jp-font grey--text text--darken-3 mb24">Step 1: ご希望の配送方法をお選びください。</div>
+                            <div :class="fontWeightClasses" class="grey--text text--darken-3 mb24">Step 1: {{$t('checkout.select_shipping')}}</div>
                             <!-- <div class="jp-font grey--text text--darken-2 mb24">ご用途に応じた配送方法の選び方については、<router-link to="/postage">こちら</router-link>でご案内しております。</div> -->
 
                             <v-select
                                 v-model="courier"
                                 outlined
                                 :items = "courierStandard"
-                                item-text="courier_type"
+                                :item-text="setItem()"
                                 item-value="id"
-                                label="配送方法を選ぶ"
+                                :label="$t('checkout.shipping_label')"
                                 required
                                 :rules="courierRules" 
+                                validate-on-blur
+                                @blur="() => $refs.form.resetValidation()"
                                 :error="allerror.couriers ? true : false"
                                 :error-messages="allerror.couriers"
                             ></v-select>
@@ -51,14 +55,16 @@
                     </div>
                     <v-divider class="mt-4 mb-8"></v-divider>
                    
-                    <h4 class="jp-font grey--text text--darken-3 mb24">Step 2: ご希望の配達時間を指定する</h4>
+                    <h4 :class="fontWeightClasses" class="grey--text text--darken-3 mb24">Step 2: {{$t('checkout.delivery_time')}}</h4>
                     <v-select
                         v-model="deliveryTime"
-                        :items = "items"
-                        label="ご希望の配達時間帯"
+                        :items="$t('checkout.time_options')"
+                        :label="$t('checkout.delivery_label')"
                         outlined
                         required
                         :rules="deliveryTimeRules" 
+                        validate-on-blur
+                        @blur="() => $refs.form.resetValidation()"
                         :error="allerror.delivery_time"
                         :error-messages="allerror.delivery_time"
                     ></v-select>
@@ -69,7 +75,7 @@
                         :disabled="disabled.confirmGuestDeliveryOption"
                         class="mb-6"
                     >
-                    確定する
+                    {{$t('btn.confirm')}}
                     </v-btn>
                 </v-form>
             </v-col>
@@ -90,13 +96,7 @@ export default {
         return {
             valid: true,
             courier: null,
-            courierRules: [
-                v => !!v || 'ご希望の配送方法を選択してください。',
-            ],
             deliveryTime: '',
-            deliveryTimeRules: [
-                v => !!v || 'ご希望の配達時間を選択してください。',
-            ],
             // items: ["希望なし", "午前中", "12:00-14:00頃", "14:00-16:00頃", "16:00-18:00頃", "18:00-20:00頃", "19:00-21:00頃", "20:00-21:00頃"],
             items: ["希望なし", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"],
         }
@@ -105,7 +105,8 @@ export default {
       
     },
     created(){
-        this.$store.dispatch('fetchPostages')
+        this.$store.dispatch('fetchPostages');
+        this.$store.dispatch('fetchStates');
     },
     computed: {
         ...mapState([
@@ -116,6 +117,24 @@ export default {
             'couriers', 
             'cart'
         ]),
+        courierRules(){
+            return[
+                v => !!v || this.$t('checkout.courier_rule')
+            ];
+        },
+        deliveryTimeRules(){
+            return[
+                v => !!v || this.$t('checkout.deliveryTime_rule')
+            ];
+        },
+        formTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-form-title'
+          return 'form-title'
+        },
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        },
         totalQuantityInCart(){
            
             let setInCart = this.cart.filter(cart => cart.if_set === 1);
@@ -143,6 +162,13 @@ export default {
             'setGuestDeliveryOption',
             'setPostage',
         ]),
+        setItem(){
+            if(this.$i18n.locale == 'ja'){
+                return item => item.name + ' ' + item.type
+            }else{
+                return item => item.name_en + ' ' + item.type_en
+            }
+        },
         scrollToTop(){
           window.scrollTo(0,0);
         },
@@ -151,6 +177,7 @@ export default {
 
                 // this.$store.dispatch('setPostage', this.courier);
                 this.setPostage({
+                    lang: this.$i18n.locale,
                     courier: this.courier,
                     prefecture: this.deliveryAddress.prefecture,
                     totalQuantity: this.totalQuantityInCart

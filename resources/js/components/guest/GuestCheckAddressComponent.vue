@@ -17,12 +17,12 @@
         ></registertoorderdialog-component>
         <v-row justify="center">
             <v-col cols="12" sm="12" md="6">
-                <div class="form-title grey--text text--darken-4">配送先の住所を指定する</div>
+                <div :class="formTitleClasses" class="grey--text text--darken-4">{{$t('checkout.shipping_address')}}</div>
             </v-col>
         </v-row>
         <v-row justify="center">
             <v-col cols="12" sm="12" md="6">
-                <div class="jp-font grey--text text--darken-2">会員としてログインする</div>
+                <div :class="fontWeightClasses" class="grey--text text--darken-3">{{$t('checkout.login')}}</div>
             </v-col>
         </v-row>
         <v-row justify="center">
@@ -30,23 +30,33 @@
                 <logintoorder-component></logintoorder-component>
             </v-col>
         </v-row>
+
         <v-row justify="center">
             <v-col cols="12" sm="12" md="6">
-                <div class="jp-font grey--text text--darken-2">ゲストとして注文する</div>
+                <v-divider class="mt-4 mb-8"></v-divider>
+            </v-col>
+        </v-row>
+
+        <v-row justify="center">
+            <v-col cols="12" sm="12" md="6">
+                <div :class="fontWeightClasses" class="grey--text text--darken-3">{{$t('checkout.order_guest')}}</div>
             </v-col>
         </v-row>
         <v-row justify="center">
                     <v-col cols="12" sm="12" md="4">
+                        <div v-if="$i18n.locale == 'en'" class="grey--text text--darken-2 mb-2">
+                            {{$t('checkout.message')}}
+                        </div>
                         <v-tabs v-model="tab" class="mb-12">
                             <v-tab
                                 href="#tab-1"
                             >
-                                ご自宅に送る
+                                {{$t('checkout.ship_home')}}
                             </v-tab>
                             <v-tab
                                 href="#tab-2"
                             >
-                                他の住所に送る
+                                {{$t('checkout.ship_other')}}
                             </v-tab>
                             <!-- <v-tab router :to="{name: 'search-events'}">Search</v-tab> -->
                         </v-tabs>
@@ -110,7 +120,15 @@ export default {
     computed: {
         ...mapState([
             'dialogRegisterToOrder'
-        ])
+        ]),
+        formTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-form-title'
+          return 'form-title'
+        },
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        }
     },
     methods: {
         
@@ -121,11 +139,17 @@ export default {
 
 <style>
 .form-title{
-  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 500;
-  font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.03em;
+  font-size: 18px;
+}
+.en-form-title{
+  font-family: quasimoda, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.en-jp-font{
+    font-weight:500;
+    font-size:18px;
 }
 
 </style>

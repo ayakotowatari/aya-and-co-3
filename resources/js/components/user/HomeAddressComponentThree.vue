@@ -5,7 +5,7 @@
         ></editaddressdialog-component>
         <v-row>
             <v-col cols="12" sm="12" md="12">
-                <h4 class="jp-font grey--text text--darken-3">ご自宅住所を確認する</h4>
+                <h4 :class="fontWeightClasses" class="grey--text text--darken-3">{{$t('checkout.home_address3')}}</h4>
             </v-col>
         </v-row>
         <v-row justify="center">
@@ -18,27 +18,22 @@
                 >
                 <v-list-item two-line>
                     <v-list-item-content>
-                        <v-list-item-subtitle class="jp-font-400">郵便番号</v-list-item-subtitle>
-                        <v-list-item-title class="jp-font-400">〒{{user.zipcode}}</v-list-item-title>
+                        <v-list-item-subtitle>{{$t('checkout.address')}}</v-list-item-subtitle>
+                        <div class="space">〒{{user.zipcode}}</div>
+                        <div class="space">{{user.prefecture}} {{user.city}} {{user.address_1}}</div>
+                        <div class="space" v-if="user.building !==null">{{user.building}}</div>
+                        <div class="space">{{user.name}}<span v-if="user.lang == 'ja'">様</span></div>
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item two-line>
                     <v-list-item-content>
-                        <v-list-item-subtitle class="jp-font-400">ご住所</v-list-item-subtitle>
-                        <v-list-item-title class="jp-font-400">{{user.prefecture}}{{user.city}}{{user.address_1}}</v-list-item-title>
-                        <v-list-item-title class="jp-font-400" v-if="user.building !==null">{{user.building}}</v-list-item-title>
-                        <v-list-item-title class="jp-font-400">{{user.name}}様</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item two-line>
-                    <v-list-item-content>
-                        <v-list-item-subtitle class="jp-font-400">お電話番号</v-list-item-subtitle>
+                        <v-list-item-subtitle class="jp-font-400">{{$t('checkout.phone')}}</v-list-item-subtitle>
                         <v-list-item-title class="jp-font-400">{{user.phone}}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
                  <v-list-item two-line>
                     <v-list-item-content>
-                        <v-list-item-subtitle class="jp-font-400">メールアドレス</v-list-item-subtitle>
+                        <v-list-item-subtitle class="jp-font-400">{{$t('checkout.email')}}</v-list-item-subtitle>
                         <v-list-item-title class="jp-font-400">{{user.email}}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
@@ -50,7 +45,7 @@
                     :disabled="disabled.homeAddress"
                     class="mb24"
                 >
-                    この住所へ送る
+                    {{$t('btn.send3')}}
                 </v-btn>
                 <v-btn 
                     outlined
@@ -59,7 +54,7 @@
                     @click="edit"
                     :disabled="disabled.editHomeAddress"
                 >
-                    編集する
+                    {{$t('btn.edit')}}
                 </v-btn>
                
             </v-col>
@@ -111,6 +106,10 @@ export default {
             'disabled',
             'dialogEditAddress',
         ]),
+        fontWeightClasses(){
+          if(this.$i18n.locale == 'en') return 'en-jp-font'
+          return 'jp-font'
+        },
     },
     methods: {
         ...mapActions([
@@ -149,6 +148,10 @@ export default {
 
 .mb48{
     margin-bottom: 48px;
+}
+
+.space{
+    letter-spacing: 0.03em;
 }
 
 </style>

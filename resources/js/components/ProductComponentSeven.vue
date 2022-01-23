@@ -20,19 +20,22 @@
       <v-row align="start">
           <v-col cols="12" sm="12" md="4">
               <div class="mb-6">
-                <div class="item-title">
-                  シーズン
+                <div class="mb-1">
+                  {{$t('product.season')}}
                 </div>
-                <div class="item-content">
+                <div v-if="$i18n.locale=='ja'" :class="itemContentClasses">
                   {{category.season}}
+                </div>
+                <div v-else :class="itemContentClasses">
+                  {{category.season_en}}
                 </div>
               </div>
               <div class="mb-6">
-                <div class="season-title">
-                  原材料
+                <div class="mb-1">
+                  {{$t('product.ingredients')}}
                 </div>
-                <div v-html="category.ingredients" class="item-content">
-                </div>
+                <div v-if="$i18n.locale=='ja'" v-html="category.ingredients" :class="itemContentClasses"></div>
+                <div v-else v-html="category.ingredients_en" :class="itemContentClasses"></div>
               </div>
           </v-col>
           <v-col cols="12" sm="12" md="8">
@@ -45,7 +48,7 @@
                   </div>
               </div>
               <div v-if="product.length >= 1" class="note">
-                  購入したい商品をタップして、数量を選び、カートに入れてください。
+                  {{$t('product.note')}}
               </div>
               <v-row v-if="product.length <= 0">
                  <!-- <v-col v-if="category.id == 12 || category.id == 13">
@@ -119,10 +122,15 @@
                                               {{item.size}}
                                               </div>
                                               <div class="product-price mb-6">
-                                              {{formatPrice(item.price)}} <span class="jp-font-300 tax">（税込・送料別）</span>
+                                              {{formatPrice(item.price)}} <span class="jp-font-300 tax">{{$t('product.tax_info')}}</span>
                                               </div>
                                               <div v-if="item.inventory <= 10" class="stock jp-font-400 grey--text text--darken-2">
-                                                残り{{item.inventory}}個
+                                                <div v-if="$i18n.locale=='ja'">
+                                                  残り{{item.inventory}}個
+                                                </div>
+                                                <div v-else>
+                                                  In stock: {{item.inventory}}
+                                                </div>
                                               </div>
                                           </v-list-item-content>
                                           <v-list-item-avatar
@@ -145,25 +153,26 @@
                             <v-select
                                 v-model="selectedQuantity"
                                 :items="selectableNumbers"
-                                label="数量"
+                                :label="$t('product.select_qty')"
                                 required
                             ></v-select>
                         </v-col>
                     </v-row>
                     <div class="mb24">
                         <v-btn
-                            outlined
-                            text
+                            color="primary"
+                            dark
+                            class="mr-2"
                             @click="add()">
-                            カートに入れる
+                            {{$t('btn.add_cart')}}
                         </v-btn>
                         <v-btn
                             v-if="cart !== null"
+                            color="primary"
                             outlined
-                            text
                             @click="$router.push({name: 'cart'})"
                         >
-                            カートをみる
+                            {{$t('btn.check_cart')}}
                         </v-btn>
                     </div>
                     <!-- <div v-if="category.id == 12" class="mt-8 mb-8">
@@ -202,7 +211,7 @@
                                               {{item.size}}
                                               </div>
                                               <div class="product-price mb-6">
-                                              {{formatPrice(item.price)}} <span class="jp-font-300 tax">（税込・送料別）</span>
+                                              {{formatPrice(item.price)}} <span class="jp-font-300 tax">{{$t('product.price_info')}}</span>
                                               </div>
                                               <div v-if="item.inventory <= 5" class="stock jp-font-400 grey--text text--darken-2">
                                                 残り{{item.inventory}}個
@@ -258,8 +267,8 @@
                 </div>
                 <v-row>
                     <v-col cols="12" sm="12" md="12">
-                      <div v-html="category.description" class="description mt24">
-                      </div>
+                      <div v-if="$i18n.locale=='en'" v-html="category.description_en" :class="descriptionClasses" class="mt24"></div>
+                      <div v-else v-html="category.description" :class="descriptionClasses" class="mt24"></div>
                     </v-col>
                 </v-row>
             </v-col>
@@ -417,6 +426,14 @@ export default {
           // 'selectedItem'
           // 'product'
         ]),
+        descriptionClasses(){
+          if(this.$i18n.locale == 'en') return 'en-description'
+          return 'description'
+        },
+        itemContentClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-content'
+          return 'item-content'
+        },
         // category(){
         //   return this.categories.find(category => category.id === Number(this.id));
         // },
@@ -568,6 +585,7 @@ export default {
   font-weight: 400;
   font-style: normal;
   font-size: 40px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .page-subtitle{
@@ -578,6 +596,7 @@ export default {
   letter-spacing: 0.03em;
   margin-top: -10px; 
   margin-bottom: 24px;
+  color: rgba(0, 0, 0, 0.87)
 }
 
 .note{
@@ -589,11 +608,7 @@ export default {
 }
 
 .item-title{
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .item-content{

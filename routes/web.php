@@ -15,7 +15,14 @@
 //     return view('welcome');
 // });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'setlocale'], function(){
+
+    // Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/lang', 'HomeController@switchLang')->name('lang');
+//テスト
+// Route::get('/lang/check', 'HomeController@check');
+
 
 //adminログイン
 Route::get('/admin/login', 'HomeController@adminLogin')->name('admin.login.form');
@@ -26,6 +33,9 @@ Route::post('/admin/logout', 'Admin\Auth\LoginController@logout')->name('admin.l
 Route::post('/login', 'Auth\LoginController@login')->name('member.login');
 Route::post('/register', 'Auth\RegisterController@register')->name('member.register');
 Route::post('/logout', 'LoginController@logout')->name('member.logout');
+
+
+
 
 //ユーザーパスワードリセット
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -43,9 +53,10 @@ Route::get('/fetch-products', 'ProductsController@index')->name('products');
 Route::get('/fetch-product/{id}', 'ProductsController@show')->name('product');
 Route::get('/fetch-categories', 'CategoriesController@index')->name('categories');
 Route::get('/fetch-category/{id}', 'CategoriesController@fetchCategory')->name('categories');
-Route::get('/ajax/zipcode/{val}', 'OrdersController@zipcode')->name('zipcode');
+Route::get('/ajax/zipcode/{val}/{lang}', 'OrdersController@zipcode')->name('zipcode');
 Route::get('/fetch-inventory/{id}', 'ProductsController@inventory')->name('inventory.quantity');
 Route::get('/fetch-postages', 'OrdersController@postage')->name('postages');
+Route::get('/fetch-states', 'OrdersController@states')->name('states');
 
 // Route::get('/cart', 'ProductsController@addToCart')->name('add.cart');
 
@@ -96,9 +107,13 @@ Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){
     Route::get('/admin/fetch-product/{id}', 'ProductsController@fetchProduct')->name('admin.fetch.product');
     Route::post('/admin/edit-subtitle', 'CategoriesController@editSubtitle')->name('admin.edit.subtitle');
     Route::post('/admin/edit-details', 'CategoriesController@editDetails')->name('admin.edit.details');
+    Route::post('/admin/edit-detailsen', 'CategoriesController@editDetailsEn')->name('admin.edit.detailsen');
     Route::post('/admin/edit-description', 'CategoriesController@editDescription')->name('admin.edit.description');
+    Route::post('/admin/edit-descriptionen', 'CategoriesController@editDescriptionEn')->name('admin.edit.descriptionen');
     Route::post('/admin/edit-season', 'CategoriesController@editSeason')->name('admin.edit.season');
+    Route::post('/admin/edit-seasonen', 'CategoriesController@editSeasonEn')->name('admin.edit.seasonen');
     Route::post('/admin/edit-ingredients', 'CategoriesController@editIngredients')->name('admin.edit.ingredients');
+    Route::post('/admin/edit-ingredientsen', 'CategoriesController@editIngredientsEn')->name('admin.edit.ingredientsen');
     Route::post('/admin/edit-image', 'CategoriesController@editImage')->name('admin.edit.image');
     Route::post('/admin/update-inventory', 'ProductsController@updateInventory')->name('admin.update.inventory');
     Route::post('/admin/create-inventory', 'CategoriesController@store')->name('admin.category.create');
@@ -174,6 +189,10 @@ Route::group(['middleware' => ['auth', 'can:normal-user']], function(){
 Route::get('/{any}',function(){
     return view ('main');
 })->where('any','.*');
+
+
+});
+
 
 
 
