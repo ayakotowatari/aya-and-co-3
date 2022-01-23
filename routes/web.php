@@ -107,9 +107,13 @@ Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){
     Route::get('/admin/fetch-product/{id}', 'ProductsController@fetchProduct')->name('admin.fetch.product');
     Route::post('/admin/edit-subtitle', 'CategoriesController@editSubtitle')->name('admin.edit.subtitle');
     Route::post('/admin/edit-details', 'CategoriesController@editDetails')->name('admin.edit.details');
+    Route::post('/admin/edit-detailsen', 'CategoriesController@editDetailsEn')->name('admin.edit.detailsen');
     Route::post('/admin/edit-description', 'CategoriesController@editDescription')->name('admin.edit.description');
+    Route::post('/admin/edit-descriptionen', 'CategoriesController@editDescriptionEn')->name('admin.edit.descriptionen');
     Route::post('/admin/edit-season', 'CategoriesController@editSeason')->name('admin.edit.season');
+    Route::post('/admin/edit-seasonen', 'CategoriesController@editSeasonEn')->name('admin.edit.seasonen');
     Route::post('/admin/edit-ingredients', 'CategoriesController@editIngredients')->name('admin.edit.ingredients');
+    Route::post('/admin/edit-ingredientsen', 'CategoriesController@editIngredientsEn')->name('admin.edit.ingredientsen');
     Route::post('/admin/edit-image', 'CategoriesController@editImage')->name('admin.edit.image');
     Route::post('/admin/update-inventory', 'ProductsController@updateInventory')->name('admin.update.inventory');
     Route::post('/admin/create-inventory', 'CategoriesController@store')->name('admin.category.create');

@@ -45,9 +45,13 @@
  Vue.component('adminregister-component', require('./components/admin/AdminRegisterComponent.vue').default);
  Vue.component('editsubtitle-component', require('./components/admin/products/edit/EditSubtitleComponent.vue').default);
  Vue.component('editdetails-component', require('./components/admin/products/edit/EditDetailsComponent.vue').default);
+ Vue.component('editdetailsen-component', require('./components/admin/products/edit/EditDetailsEnComponent.vue').default);
  Vue.component('editdescription-component', require('./components/admin/products/edit/EditDescriptionComponent.vue').default);
+ Vue.component('editdescriptionen-component', require('./components/admin/products/edit/EditDescriptionEnComponent.vue').default);
  Vue.component('editseason-component', require('./components/admin/products/edit/EditSeasonComponent.vue').default);
+ Vue.component('editseasonen-component', require('./components/admin/products/edit/EditSeasonEnComponent.vue').default);
  Vue.component('editingredients-component', require('./components/admin/products/edit/EditIngredientsComponent.vue').default);
+ Vue.component('editingredientsen-component', require('./components/admin/products/edit/EditIngredientsEnComponent.vue').default);
  Vue.component('editimage-component', require('./components/admin/products/edit/EditImageComponent.vue').default);
  Vue.component('updateinventory-component', require('./components/admin/products/UpdateInventoryComponent.vue').default);
  Vue.component('updatecategorystatus-component', require('./components/admin/products/edit/UpdateCategoryStatusComponent.vue').default);

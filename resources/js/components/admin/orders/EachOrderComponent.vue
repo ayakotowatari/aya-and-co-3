@@ -299,13 +299,13 @@
                                             ご住所
                                         </v-list-item-subtitle>
                                         <div class="mb-4">
-                                            <v-list-item-title class="jp-font-400">
+                                            <div class="jp-font-400">
                                                 〒{{order.user_zipcode}}<br>
                                                 {{order.user_prefecture}}{{order.user_city}} {{order.user_address_1}}<br>
-                                            </v-list-item-title>
-                                            <v-list-item-title v-if="order.user_building !== null" class="jp-font-400">
+                                            </div>
+                                            <div v-if="order.user_building !== null" class="jp-font-400">
                                                 {{order.user_building}}
-                                            </v-list-item-title>
+                                            </div>
                                         </div>
                                         <v-list-item-subtitle class="jp-font-400">
                                             ステータス
@@ -333,13 +333,13 @@
                                         <v-list-item-subtitle class="jp-font-400">
                                             ご住所
                                         </v-list-item-subtitle>
-                                        <v-list-item-title class="jp-font-400">
+                                        <div class="jp-font-400">
                                             〒{{order.delivery_zipcode}}<br>
                                             {{order.delivery_prefecture}}{{order.delivery_city}}{{order.delivery_address_1}}<br>
-                                        </v-list-item-title>
-                                        <v-list-item-title v-if="order.delivery_building !== null" class="jp-font-400">
+                                        </div>
+                                        <div v-if="order.delivery_building !== null" class="jp-font-400">
                                             {{order.delivery_building}}
-                                        </v-list-item-title>
+                                        </div>
                                         <v-list-item-title class="jp-font-400">
                                             {{order.delivery_name}}様
                                         </v-list-item-title>

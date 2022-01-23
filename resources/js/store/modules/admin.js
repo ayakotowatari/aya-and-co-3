@@ -53,9 +53,13 @@ export const admin = {
            name: '',
            subtitle: '',
            details: '',
+           details_en: '',
            description: '',
+           description_en: '',
            season: '',
+           season_en: '',
            ingredients: '',
+           ingredients_en: '',
            image: '',
            absolute_path:'',
            status: '',
@@ -77,9 +81,13 @@ export const admin = {
        categoryStatuses: [],
        showEditSubtitle: false,
        showEditDetails: false,
+       showEditDetailsEn: false,
        showEditDescription: false,
+       showEditDescriptionEn: false,
        showEditSeason: false,
+       showEditSeasonEn: false,
        showEditIngredients: false,
+       showEditIngredientsEn: false,
        showEditImage: false,
        showUpdateInventory: false,
        showUpdateTotal: false,
@@ -205,26 +213,50 @@ export const admin = {
         setShowEditDetails(state, payload){
             state.showEditDetails = payload
         },
+        setShowEditDetailsEn(state, payload){
+            state.showEditDetailsEn = payload
+        },
         setCategoryDetails(state, payload){
             state.category.details = payload
+        },
+        setCategoryDetailsEn(state, payload){
+            state.category.details_en = payload
         },
         setShowEditDescription(state, payload){
             state.showEditDescription= payload
         },
+        setShowEditDescriptionEn(state, payload){
+            state.showEditDescriptionEn= payload
+        },
         setCategoryDescription(state, payload){
             state.category.description = payload
+        },
+        setCategoryDescriptionEn(state, payload){
+            state.category.description_en = payload
         },
         setShowEditSeason(state, payload){
             state.showEditSeason= payload
         },
+        setShowEditSeasonEn(state, payload){
+            state.showEditSeasonEn= payload
+        },
         setCategorySeason(state, payload){
             state.category.season = payload
+        },
+        setCategorySeasonEn(state, payload){
+            state.category.season_en = payload
         },
         setShowEditIngredients(state, payload){
             state.showEditIngredients= payload
         },
+        setShowEditIngredientsEn(state, payload){
+            state.showEditIngredientsEn= payload
+        },
         setCategoryIngredients(state, payload){
             state.category.ingredients = payload
+        },
+        setCategoryIngredientsEn(state, payload){
+            state.category.ingredients_en = payload
         },
         setShowEditImage(state, payload){
             state.showEditImage= payload
@@ -719,6 +751,28 @@ export const admin = {
                     commit('setallErrors', allerror)
                 })
         },
+        async editDetailsEn({state, commit}, payload){
+
+            //console.log('payload', payload)
+
+            let newDetails = "";
+            let allerror = [];
+
+            await axios
+                .post('/admin/edit-detailsen', {
+                    id: payload.id,
+                    details: payload.details
+                })
+                .then(response => {
+                    newDetails = response.data.details;
+                    commit('setCategoryDetailsEn', newDetails);
+                    commit('setShowEditDetailsEn', false);
+                })
+                .catch(error => {
+                    allerror = error.response.data.errors,
+                    commit('setallErrors', allerror)
+                })
+        },
         async editDescription({state, commit}, payload){
 
             //console.log('payload', payload)
@@ -735,6 +789,28 @@ export const admin = {
                     newDescription = response.data.description;
                     commit('setCategoryDescription', newDescription);
                     commit('setShowEditDescription', false);
+                })
+                .catch(error => {
+                    allerror = error.response.data.errors,
+                    commit('setallErrors', allerror)
+                })
+        },
+        async editDescriptionEn({state, commit}, payload){
+
+            //console.log('payload', payload)
+
+            let newDescription = "";
+            let allerror = [];
+
+            await axios
+                .post('/admin/edit-descriptionen', {
+                    id: payload.id,
+                    description: payload.description
+                })
+                .then(response => {
+                    newDescription = response.data.description;
+                    commit('setCategoryDescriptionEn', newDescription);
+                    commit('setShowEditDescriptionEn', false);
                 })
                 .catch(error => {
                     allerror = error.response.data.errors,
@@ -763,6 +839,28 @@ export const admin = {
                     commit('setallErrors', allerror)
                 })
         },
+        async editSeasonEn({state, commit}, payload){
+
+            //console.log('payload', payload)
+
+            let newSeason = "";
+            let allerror = [];
+
+            await axios
+                .post('/admin/edit-seasonen', {
+                    id: payload.id,
+                    season: payload.season
+                })
+                .then(response => {
+                    newSeason = response.data.season;
+                    commit('setCategorySeasonEn', newSeason);
+                    commit('setShowEditSeasonEn', false);
+                })
+                .catch(error => {
+                    allerror = error.response.data.errors,
+                    commit('setallErrors', allerror)
+                })
+        },
         async editIngredients({state, commit}, payload){
 
             //console.log('payload', payload)
@@ -779,6 +877,28 @@ export const admin = {
                     newIngredients = response.data.ingredients;
                     commit('setCategoryIngredients', newIngredients);
                     commit('setShowEditIngredients', false);
+                })
+                .catch(error => {
+                    allerror = error.response.data.errors,
+                    commit('setallErrors', allerror)
+                })
+        },
+        async editIngredientsEn({state, commit}, payload){
+
+            //console.log('payload', payload)
+
+            let newIngredients = "";
+            let allerror = [];
+
+            await axios
+                .post('/admin/edit-ingredientsen', {
+                    id: payload.id,
+                    ingredients: payload.ingredients
+                })
+                .then(response => {
+                    newIngredients = response.data.ingredients;
+                    commit('setCategoryIngredientsEn', newIngredients);
+                    commit('setShowEditIngredientsEn', false);
                 })
                 .catch(error => {
                     allerror = error.response.data.errors,
