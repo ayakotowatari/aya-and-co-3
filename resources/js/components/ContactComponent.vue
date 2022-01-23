@@ -20,11 +20,13 @@
                 <!-- <div class="jp-font-400 grey--text text--darken-2 mb-4">
                     このページは、ただいま準備中です。
                 </div> -->
-                <div class="grey--text text--darken-2 mb-4">
-                    <a href="https://forms.gle/kSJ8nj9ennqwvvai8" target="_blank" rel="noopener noreferrer">こちらのフォーム</a>よりお問い合わせをお送りください。                
+                <div :class="itemTitleClasses" class="mb-4" v-if="$i18n.locale == 'en'">
+                    We look forward to hearing from you.
+                </div>
+                <div class="grey--text text--darken-2 mb-4" v-html="$t('contact.google')">             
                 </div>
                 <div class="grey--text text--darken-2 mb-6">
-                    公式LINEアカウントからのお問い合わせもお受付けしております。以下のボタンから、「友だち追加」の上、メッセージをお送りください。
+                    {{$t('contact.line')}}
                 </div>
                 <div>
                 <v-btn
@@ -32,7 +34,7 @@
                     outlined
                     color="primary"
                 >
-                    LINEに友だち追加する
+                    {{$t('product.line.line')}}
                 </v-btn>
                 </div>
             </v-col>
@@ -54,6 +56,10 @@ export default {
      
     },
     computed: {
+        itemTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-title'
+          return 'item-title'
+        }
     
     },
     methods: {
