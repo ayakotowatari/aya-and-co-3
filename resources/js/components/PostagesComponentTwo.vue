@@ -19,7 +19,7 @@
         </v-row>
         <v-row>
             <v-col cols="12" sm="12" md="4">
-                <div class="item-title">{{$t('shipping.lead')}}</div>
+                <div :class="itemTitleClasses">{{$t('shipping.lead')}}</div>
             </v-col>
             <v-col cols="12" sm="12" md="8">
                 <div class="mb-8">
@@ -183,6 +183,10 @@ export default {
           if(this.$i18n.locale == 'en') return 'en-item-content'
           return 'item-content'
         },
+        itemTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-title'
+          return 'item-title'
+        }
     },
     methods: {
         formatPrice(value){

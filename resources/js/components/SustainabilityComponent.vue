@@ -27,7 +27,7 @@
       </p>    -->
       <v-row>
           <v-col cols="12" sm="12" md="4">
-              <p class="item-title">{{$t('sustainability.title')}}</p>
+              <p :class="itemTitleClasses">{{$t('sustainability.title')}}</p>
           </v-col>
           <v-col cols="12" sm="12" md="8">
               <p :class="descriptionClasses" v-html="$t('sustainability.p1')"></p>
@@ -72,6 +72,10 @@ export default {
           if(this.$i18n.locale == 'en') return 'en-description'
           return 'description'
         },
+        itemTitleClasses(){
+          if(this.$i18n.locale == 'en') return 'en-item-title'
+          return 'item-title'
+        }
     },
     methods: {
       
@@ -87,6 +91,10 @@ export default {
 .mb60 {
   margin-bottom: 60px;
 
+}
+
+.en-item-title{
+  font-weight: 600;
 }
 
 @media(max-width:780px){

@@ -260,10 +260,6 @@ export default {
   /* color: #424242 */
 }
 
-.en-description{
-  font-weight: 500;
-}
-
 .subheading{
   font-family: mrs-eaves, serif;
   font-weight: 400;
