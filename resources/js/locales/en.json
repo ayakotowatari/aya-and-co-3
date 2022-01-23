@@ -147,8 +147,12 @@
     "note": "Tap an item you want to order, then select a quantity and add the item to cart.",
     "tax_info": "(incl. tax)",
     "remove": "Are you sure you want to remove this item?",
-    "inventory": "In stock"
-
+    "inventory": "In stock",
+    "line": {
+      "lead": "Follow our LINE and/or Instagram. We will keep you updated our products!",
+      "line": "Add LINE",
+      "instagram": "Follow Instagram"
+    }
   },
 
   "shipping": {

@@ -85,19 +85,31 @@
                       </div>
                 </v-col> -->
                 <v-col>
-                  <div class="message grey--text text--darken-3 mb-3">
+                  <div v-if="$i18n.locale=='ja'" class="grey--text text--darken-3 mb-3">
                     この商品は、完売、もしくは、シーズン（{{category.season}}）まで準備中です。
                   </div>
-                  <div class="message grey--text text--darken-3 mb-6">
-                    公式LINEアカウントで、発売日をお知らせしています。ぜひご登録ください。
+                  <div v-else class="grey--text text--darken-3 mb-3">
+                    This product is either sold out or out of stock until its season（{{category.season_en}}).
+                  </div>
+                  <div class="grey--text text--darken-3 mb-6">
+                    {{$t('product.line.lead')}}
                   </div>
                   <div>
                     <v-btn
                         href = "https://lin.ee/1RJJ9C3"
                         outlined
                         color="primary"
+                        class="mr-2 mb-2"
                     >
-                      LINEに友だち追加する
+                      {{$t('product.line.line')}}
+                    </v-btn>
+                    <v-btn
+                        href="https://www.instagram.com/ayaandco.jp/"
+                        outlined
+                        color="primary"
+                        class="mb-2"
+                    >
+                      {{$t('product.line.instagram')}}
                     </v-btn>
                   </div>
                 </v-col>
@@ -298,12 +310,12 @@
           <v-tab
               href="#tab-1"
           >
-              全ての商品
+              {{ $t('products_list.heading_all')}}
           </v-tab>
           <v-tab
               href="#tab-2"
           >
-              いま販売中の商品
+              {{ $t('products_list.heading_current')}}
           </v-tab>
           <!-- <v-tab router :to="{name: 'search-events'}">Search</v-tab> -->
       </v-tabs>
