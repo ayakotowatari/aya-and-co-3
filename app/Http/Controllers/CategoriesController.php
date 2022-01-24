@@ -55,6 +55,22 @@ class CategoriesController extends Controller
         return response() -> json(['categories' => $categories]);
     }
 
+    public function checkCategory(Request $request)
+    {
+
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        $category_id = request('id');
+
+        $category = Category::where('id', $category_id)
+                    ->first();
+
+        return $category;
+    }
+
+
     public function fetchCategories()
     {
         $categories = Category::with('status')

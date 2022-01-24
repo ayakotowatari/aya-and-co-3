@@ -404,6 +404,31 @@ export default {
             active: false,
         }
     },
+     beforeRouteEnter: (to, from, next) => {
+       axios.post('/check-category', {
+           id: to.params.id
+       })
+       .then((response) => {
+           console.log('response', response)
+           if (response.data.length === 0){
+               next({path: 'not-found'})
+           }else{
+               next();
+           }
+       })
+    },
+    beforeRouteUpdate: (to, from, next) => {
+       axios.post('/check-category', {
+           id: to.params.id
+       })
+       .then((response) => {
+           if (response.data.length === 0){
+               next({path: 'not-found'})
+           }else{
+               next();
+           }
+       })
+    },
     watch: { 
     },
     mounted(){

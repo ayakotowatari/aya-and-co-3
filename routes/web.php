@@ -68,6 +68,7 @@ Route::post('/guest/order-confirmation', 'GuestsController@orderConfirm')->name(
 Route::get('/email/message', 'HomeController@email');
 Route::get('/email/notification', 'HomeController@notification');
 Route::get('/check-coupon', 'CouponsController@checkIfCoupon')->name('member.check.ifcoupon');
+Route::post('/check-category', 'CategoriesController@checkCategory')->name('check.category');
 
 //register by guest
 // Route::post('/register', 'RegisterController@register')->name('register');

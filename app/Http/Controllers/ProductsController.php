@@ -75,7 +75,6 @@ class ProductsController extends Controller
         return response() -> json(['inventory' => $inventoryQuantity]);
 
     }
-
     // public function addToCart(Request $request, $id){
 
     //     $product = Product::find($id);
