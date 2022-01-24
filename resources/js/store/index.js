@@ -564,34 +564,34 @@ export default new Vuex.Store({
     
             // console.log('product_id', product_id)
 
-            if(quantity <= 5 && quantity >= 4){
-                state.selectableNumbers = [1, 2]
+            // if(quantity <= 5 && quantity >= 4){
+            //     state.selectableNumbers = [1, 2]
             
-            // }else if(quantity <= 1){
+            // // }else if(quantity <= 1){
     
-            }else if(quantity <=3){
-                state.selectableNumbers = [1]
-            }else{
-                state.selectableNumbers = [1, 2, 3, 4, 5, 6]
-            }
-    
-            // if(product_id == 11){
-    
+            // }else if(quantity <=3){
             //     state.selectableNumbers = [1]
             // }else{
-    
-            //     if(quantity <= 5 && quantity >= 4){
-            //         state.selectableNumbers = [1, 2]
-                
-            //     // }else if(quantity <= 1){
-        
-            //     }else if(quantity <=3){
-            //         state.selectableNumbers = [1]
-            //     }else{
-            //         state.selectableNumbers = [1, 2, 3, 4, 5, 6]
-            //     }
-    
+            //     state.selectableNumbers = [1, 2, 3, 4, 5, 6]
             // }
+    
+            if(product_id == 13){
+    
+                state.selectableNumbers = [1]
+            }else{
+    
+                if(quantity <= 5 && quantity >= 4){
+                    state.selectableNumbers = [1, 2]
+                
+                // }else if(quantity <= 1){
+        
+                }else if(quantity <=3){
+                    state.selectableNumbers = [1]
+                }else{
+                    state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+                }
+    
+            }
 
         }
 
@@ -601,10 +601,10 @@ export default new Vuex.Store({
         let quantity = state.inventory
         let product_id = payload
 
-        // console.log('product_id', product_id)
+        console.log('product_id', product_id)
         // console.log('inventory', quantity)
 
-        if(product_id == 11){
+        if(product_id == 13){
             state.selectableNumbers = [1]
         }else{
 
