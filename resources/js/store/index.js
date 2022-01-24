@@ -279,25 +279,31 @@ export default new Vuex.Store({
     insertPostage(state, payload){
 
         let lang = payload.lang
-        console.log('lang', lang)
+        // console.log('lang', lang)
         let id = payload.courier
-        console.log('courier', payload.courier)
+        // console.log('courier', payload.courier)
         let prefecture = payload.prefecture
-        console.log('prefecture', prefecture)
+        // console.log('prefecture', prefecture)
         let totalQuantity = payload.totalQuantity
         let state_data = {}
 
         if(lang == "en"){
             state_data = state.states.find(item => item.name_en == prefecture)
+            if(state_data == null){
+                state_data = state.states.find(item => item.name == prefecture)
+            }
         }else{
             state_data = state.states.find(item => item.name == prefecture)
+            if(state_data == null){
+                state_data = state.states.find(item => item.name_en == prefecture)
+            }
         }
         
-        console.log('data', state_data);
+        // console.log('data', state_data);
         let state_id = state_data.id
         
         let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.state_id === state_id);
-        console.log('(postage_data', postage_data)
+        // console.log('postage_data', postage_data)
         let postage = postage_data.postage
 
         if(id == 3){
@@ -318,7 +324,7 @@ export default new Vuex.Store({
         }
 
         let courier = state.couriers.find(item=>item.id == payload.courier);
-        console.log('couriers', courier)
+        // console.log('couriers', courier)
 
         if(lang == 'en'){
             state.deliveryAddress.courier_type = courier.name_en + ' ' + courier.type_en;

@@ -115,8 +115,15 @@ export default {
             }
 
             let self = this;
+            let lang = "";
+            //言語
+            if(this.$i18n.locale == "en"){
+                lang = "rome";
+            }else{
+                lang = "ja";
+            }
             //自サイトのAPI
-            let url = "/ajax/zipcode/" + val;
+            let url = "/ajax/zipcode/" + val + "/" + lang;
 
             axios
             .get(url)
