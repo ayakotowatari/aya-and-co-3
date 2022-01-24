@@ -556,30 +556,42 @@ export default new Vuex.Store({
         state.firstItem = payload
     },
     setSelectableNumbers(state, payload){
+        console.log('payload', payload)
 
-        if(state.product > 0){
+        if(state.product.length > 0){
             let quantity = payload
             let product_id = state.product[0].id
     
             // console.log('product_id', product_id)
+
+            if(quantity <= 5 && quantity >= 4){
+                state.selectableNumbers = [1, 2]
+            
+            // }else if(quantity <= 1){
     
-            if(product_id == 11){
-    
+            }else if(quantity <=3){
                 state.selectableNumbers = [1]
             }else{
-    
-                if(quantity <= 5 && quantity >= 4){
-                    state.selectableNumbers = [1, 2]
-                
-                // }else if(quantity <= 1){
-        
-                }else if(quantity <=3){
-                    state.selectableNumbers = [1]
-                }else{
-                    state.selectableNumbers = [1, 2, 3, 4, 5, 6]
-                }
-    
+                state.selectableNumbers = [1, 2, 3, 4, 5, 6]
             }
+    
+            // if(product_id == 11){
+    
+            //     state.selectableNumbers = [1]
+            // }else{
+    
+            //     if(quantity <= 5 && quantity >= 4){
+            //         state.selectableNumbers = [1, 2]
+                
+            //     // }else if(quantity <= 1){
+        
+            //     }else if(quantity <=3){
+            //         state.selectableNumbers = [1]
+            //     }else{
+            //         state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+            //     }
+    
+            // }
 
         }
 
@@ -1187,6 +1199,7 @@ export default new Vuex.Store({
         .get("/fetch-inventory/" + product_id)
         .then(res => {
             inventory = res.data.inventory;
+            console.log('inventory', inventory)
             commit('setInventory', inventory)
             commit('setSelectableNumbers', inventory)
             // console.log(payload);
