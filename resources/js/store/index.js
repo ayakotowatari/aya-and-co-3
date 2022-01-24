@@ -283,7 +283,7 @@ export default new Vuex.Store({
         let id = payload.courier
         console.log('courier', payload.courier)
         let prefecture = payload.prefecture
-        // console.log('prefecture', prefecture)
+        console.log('prefecture', prefecture)
         let totalQuantity = payload.totalQuantity
         let state_data = {}
 
@@ -293,6 +293,7 @@ export default new Vuex.Store({
             state_data = state.states.find(item => item.name == prefecture)
         }
         
+        console.log('data', state_data);
         let state_id = state_data.id
         
         let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.state_id === state_id);

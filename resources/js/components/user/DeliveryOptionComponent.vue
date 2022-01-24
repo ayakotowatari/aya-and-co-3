@@ -312,7 +312,8 @@ export default {
 
                 // this.$store.dispatch('setPostage', this.courier);
                 this.setPostage({
-                    lang: this.$i18n.locale,
+                    // lang: this.$i18n.locale,
+                    lang: this.user.lang,
                     courier: this.courier,
                     prefecture: this.deliveryAddress.prefecture,
                     totalQuantity: this.totalQuantityInCart
