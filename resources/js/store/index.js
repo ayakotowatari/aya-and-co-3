@@ -297,6 +297,7 @@ export default new Vuex.Store({
         let state_id = state_data.id
         
         let postage_data = state.postages.find(postage=>postage.courier_id == id && postage.state_id === state_id);
+        console.log('(postage_data', postage_data)
         let postage = postage_data.postage
 
         if(id == 3){
