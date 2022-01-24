@@ -89,7 +89,7 @@
                     この商品は、完売、もしくは、シーズン（{{category.season}}）まで準備中です。
                   </div>
                   <div v-else class="grey--text text--darken-3 mb-3">
-                    This product is either sold out or out of stock until its season（{{category.season_en}}).
+                    This product is either sold out or temporarily out of stock.
                   </div>
                   <div class="grey--text text--darken-3 mb-6">
                     {{$t('product.line.lead')}}

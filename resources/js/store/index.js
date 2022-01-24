@@ -555,12 +555,42 @@ export default new Vuex.Store({
     setFirstItem(state, payload){
         state.firstItem = payload
     },
-    setSelectableNumbers(state, payload){
-        console.log('payload', payload)
+    setFirstSelectableNumbers(state, payload){
+        // console.log('payload', payload)
 
         if(state.product.length > 0){
             let quantity = payload
+            // let product_id = payload.product_id
             let product_id = state.product[0].id
+    
+            if(product_id == 13){
+    
+                state.selectableNumbers = [1, 2]
+            }else{
+    
+                if(quantity <= 5 && quantity >= 4){
+                    state.selectableNumbers = [1, 2]
+                
+                // }else if(quantity <= 1){
+        
+                }else if(quantity <=3){
+                    state.selectableNumbers = [1]
+                }else{
+                    state.selectableNumbers = [1, 2, 3, 4, 5, 6]
+                }
+    
+            }
+
+        }
+
+    },
+    setSelectableNumbers(state, payload){
+        // console.log('payload', payload)
+
+        if(state.product.length > 0){
+            let quantity = payload.inventory
+            let product_id = payload.product_id
+            // let product_id = state.product[0].id
     
             // console.log('product_id', product_id)
 
@@ -577,7 +607,7 @@ export default new Vuex.Store({
     
             if(product_id == 13){
     
-                state.selectableNumbers = [1]
+                state.selectableNumbers = [1, 2]
             }else{
     
                 if(quantity <= 5 && quantity >= 4){
@@ -605,7 +635,7 @@ export default new Vuex.Store({
         // console.log('inventory', quantity)
 
         if(product_id == 13){
-            state.selectableNumbers = [1]
+            state.selectableNumbers = [1, 2]
         }else{
 
             if(quantity <= 5 && quantity >= 4){
@@ -1185,7 +1215,7 @@ export default new Vuex.Store({
                 inventory = res.data.inventory;
                 firstItem = res.data.item;
                 commit('setProduct', product)
-                commit('setSelectableNumbers', inventory)
+                commit('setFirstSelectableNumbers', inventory)
                 commit('setFirstItem', firstItem)
             })
     },
@@ -1201,7 +1231,7 @@ export default new Vuex.Store({
             inventory = res.data.inventory;
             console.log('inventory', inventory)
             commit('setInventory', inventory)
-            commit('setSelectableNumbers', inventory)
+            commit('setSelectableNumbers', {inventory:inventory, product_id:product_id})
             // console.log(payload);
         });
 
