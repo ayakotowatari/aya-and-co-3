@@ -631,7 +631,7 @@ export default new Vuex.Store({
         let quantity = state.inventory
         let product_id = payload
 
-        console.log('product_id', product_id)
+        // console.log('product_id', product_id)
         // console.log('inventory', quantity)
 
         if(product_id == 13){
@@ -1170,7 +1170,7 @@ export default new Vuex.Store({
             .get("/fetch-categories")
             .then(res => {
                 categories = res.data.categories;
-                console.log('categories', categories);
+                // console.log('categories', categories);
                 // products = res.data.products;
                 // commit('setProducts', products);
                 commit('setCategories', categories);
@@ -1229,7 +1229,7 @@ export default new Vuex.Store({
         .get("/fetch-inventory/" + product_id)
         .then(res => {
             inventory = res.data.inventory;
-            console.log('inventory', inventory)
+            // console.log('inventory', inventory)
             commit('setInventory', inventory)
             commit('setSelectableNumbers', {inventory:inventory, product_id:product_id})
             // console.log(payload);
