@@ -568,12 +568,12 @@ export default new Vuex.Store({
                 state.selectableNumbers = [1, 2]
             }else{
     
-                if(quantity <= 5 && quantity >= 4){
+                if(quantity <= 5 && quantity >= 2){
                     state.selectableNumbers = [1, 2]
                 
                 // }else if(quantity <= 1){
         
-                }else if(quantity <=3){
+                }else if(quantity <=1){
                     state.selectableNumbers = [1]
                 }else{
                     state.selectableNumbers = [1, 2, 3, 4, 5, 6]

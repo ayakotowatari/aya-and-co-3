@@ -187,6 +187,7 @@
                             {{$t('btn.check_cart')}}
                         </v-btn>
                     </div>
+                    <p class="notice" v-html="$t('product.soldout')"></p>
                     <!-- <div v-if="category.id == 12" class="mt-8 mb-8">
                       <div class="message grey--text text--darken-3 mb-3">
                         ただいまこの商品は、Harvest in the North（VelvetyとMarmelada）のセットとしてもご購入いただけます。
@@ -279,7 +280,6 @@
                 </div>
                 <v-row>
                     <v-col cols="12" sm="12" md="12">
-                      <p class="notice" v-html="$t('product.soldout')"></p>
                       <div v-if="$i18n.locale=='en'" v-html="category.description_en" :class="descriptionClasses" class="mt24"></div>
                       <div v-else v-html="category.description" :class="descriptionClasses" class="mt24"></div>
                     </v-col>
