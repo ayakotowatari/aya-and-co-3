@@ -279,6 +279,7 @@
                 </div>
                 <v-row>
                     <v-col cols="12" sm="12" md="12">
+                      <p class="notice" v-html="$t('product.soldout')"></p>
                       <div v-if="$i18n.locale=='en'" v-html="category.description_en" :class="descriptionClasses" class="mt24"></div>
                       <div v-else v-html="category.description" :class="descriptionClasses" class="mt24"></div>
                     </v-col>
@@ -577,6 +578,9 @@ export default {
 </script>
 
 <style>
+.notice{
+  font-size: 14px;
+}
 .mb80{
   margin-bottom: 80px;
 }
