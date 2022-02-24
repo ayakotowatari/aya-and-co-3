@@ -1,21 +1,21 @@
 <template>
     <div class="mb-8">
-        <p :class="descriptionClasses">
+        <!-- <p :class="descriptionClasses">
             {{$t('shipping.takkyuubin.p1')}}
         </p>
         <v-row class="mb-8">
             <v-col cols="12" sm="12" md="12" class="line-color">
                 <v-divider></v-divider>
             </v-col>
-        </v-row>
+        </v-row> -->
         <div :class="itemContentClasses" class="policy-title mb-4">
             {{$t('shipping.title1')}}
         </div>
         <p :class="descriptionClasses" class="mb-8">
-            {{$t('shipping.takkyuubin.p2')}}
+            {{$t('shipping.takkyuubin.p1')}}
         </p>
         <p :class="descriptionClasses" class="mb-8">
-            {{$t('shipping.takkyuubin.p3')}}<router-link to="/message-service">{{$t('shipping.takkyuubin.card')}}</router-link>{{$t('shipping.takkyuubin.p3-2')}}
+            {{$t('shipping.takkyuubin.p2')}}
         </p>
 
         <v-row class="mb-8">
@@ -28,7 +28,11 @@
             {{$t('shipping.title2')}}
         </div>
         <p :class="descriptionClasses" class="mb-8">
-            {{$t('shipping.takkyuubin.p4')}}
+            {{$t('shipping.takkyuubin.p3')}}
+        </p>
+        <p v-html="$t('shipping.takkyuubin.p3-1')" :class="descriptionClasses" class="mb-8">
+        </p>
+        <p v-html="$t('shipping.takkyuubin.p3-2')" :class="descriptionClasses" class="mb-8">
         </p>
         <!-- <p class="description mb-8">
             {{$t('shipping.takkyuubin.p5')}}
@@ -44,11 +48,13 @@
             {{$t('shipping.title3')}}
         </div>
         <p :class="descriptionClasses" class="mb-8">
-            {{$t('shipping.takkyuubin.p6')}}
+            {{$t('shipping.takkyuubin.p4')}}
         </p>
-         <p :class="descriptionClasses" class="mb-8">
-            {{$t('shipping.takkyuubin.p7')}}
+        <p :class="descriptionClasses" class="mb-8">
+            {{$t('shipping.takkyuubin.p5')}}<router-link to="/message-service">{{$t('shipping.takkyuubin.card')}}</router-link>{{$t('shipping.takkyuubin.p5-2')}}
         </p>
+
+        
 
         <!-- <v-row class="mb-8">
             <v-col cols="12" sm="12" md="12" class="line-color">

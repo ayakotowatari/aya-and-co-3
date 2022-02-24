@@ -307,8 +307,8 @@ export default new Vuex.Store({
         let postage = postage_data.postage
 
         if(id == 3){
-            if(totalQuantity > 8){
-                let boxQuantity = Math.ceil(totalQuantity/8)
+            if(totalQuantity > 6){
+                let boxQuantity = Math.ceil(totalQuantity/6)
                 // console.log('boxQuantity', boxQuantity);
                 let finalPostage = postage * boxQuantity
                 

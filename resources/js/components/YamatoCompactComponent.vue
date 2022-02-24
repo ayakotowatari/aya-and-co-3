@@ -1,25 +1,16 @@
 <template>
     <div class="mb-8">
-        <p :class="descriptionClasses">
-            {{$t('shipping.compact.p1')}}
-        </p>
-        <!-- <p class="description mb-8">
-            「<router-link to="/message-service">選べるメッセージカードサービス</router-link>」をご利用の場合は、宅急便コンパクトには葉書サイズのカードが同封できませんので、宅急便をお選びください。
-        </p> -->
-        <v-row class="mb-8">
-            <v-col cols="12" sm="12" md="12" class="line-color">
-                <v-divider></v-divider>
-            </v-col>
-        </v-row>
-
         <div :class="itemContentClasses" class="policy-title mb-4">
             {{$t('shipping.title1')}}
         </div>
         <p :class="descriptionClasses" class="mb-8">
+            {{$t('shipping.compact.p1')}}
+        </p>
+        <p :class="descriptionClasses" class="mb-8">
             {{$t('shipping.compact.p2')}}
         </p>
 
-         <v-row class="mb-8">
+        <v-row class="mb-8">
             <v-col cols="12" sm="12" md="12" class="line-color">
                 <v-divider></v-divider>
             </v-col>
@@ -34,6 +25,16 @@
         <p :class="descriptionClasses">
             {{$t('shipping.compact.p4')}}
         </p>
+
+        <v-row class="mb-8">
+            <v-col cols="12" sm="12" md="12" class="line-color">
+                <v-divider></v-divider>
+            </v-col>
+        </v-row>
+
+        <div :class="itemContentClasses" class="policy-title mb-4">
+            {{$t('shipping.title4')}}
+        </div>
         <p :class="descriptionClasses">
             {{$t('shipping.compact.p5')}}
         </p>
