@@ -25,7 +25,8 @@
         </v-row>
 
         <div class="mb-10">
-            <div :class="descriptionClasses" v-html="$t('products_list.lead')"></div>
+            <p :class="descriptionClasses">{{$t('products_list.lead')}}</p>
+            <p :class="descriptionClasses">{{$t('products_list.lead2')}}</p>
         </div>
 
         <v-tabs v-model="tab" class="mb-12">

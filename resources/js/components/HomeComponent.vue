@@ -73,7 +73,8 @@
               </div>
           </v-col>
           <v-col cols="12" sm="12" md="8">
-              <div :class="descriptionClasses" v-html="$t('products_list.lead')"></div>
+              <p :class="descriptionClasses">{{$t('products_list.lead')}}</p>
+              <p :class="descriptionClasses">{{$t('products_list.lead2')}}</p>
           </v-col>
       </v-row>
       

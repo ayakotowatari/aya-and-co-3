@@ -128,7 +128,8 @@
   },
 
   "products_list": {
-    "lead": "<p class='mb-8'>We produce all of our marmalades and jams by hand in small batches. Each product is in stock during its season and for a short period only. It tends to sell out soon, so if you like any of our jars, place an order quickly!</p>",
+    "lead": "We produce all of our marmalades and jams by hand in small batches. Each product is in stock during its season and for a short period only. It tends to sell out soon, so if you like any of our jars, place an order quickly!",
+    "lead2": "When we add a product to “Currently in Season”, it means that the product is in stock or out of stock only temporarily. Any products that we shortly start selling will also appear in this section.",
     "heading_all": "All",
     "heading_current": "Currently in Season"
     
