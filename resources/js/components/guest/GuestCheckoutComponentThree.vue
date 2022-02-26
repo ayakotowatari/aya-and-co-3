@@ -76,13 +76,13 @@
                         </div>
                     </v-col>
                 </v-row>
-                <v-row justify="center">
+                <!-- <v-row justify="center">
                     <v-col cols="12" sm="12" md="6">
                         <div class="totalprice grey--text text--darken-2">
                             {{$t('checkout.card_receipt')}}
                         </div>
                     </v-col>
-                </v-row>
+                </v-row> -->
                 <!-- <v-row justify="center">
                     <v-col cols="12" sm="12" md="4">
                         {{user.name}} 様のご購入手続き
