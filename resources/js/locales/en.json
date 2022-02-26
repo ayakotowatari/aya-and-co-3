@@ -157,6 +157,10 @@
   },
 
   "shipping": {
+    "timing": {
+      "lead": "How long does delivery take?",
+      "text": "We usually start the shipping process within one week after your order. After we ship the products, the delivery can take up to three days, depending on your location. "
+    },
     "lead": "Shipping Options",
     "line1": "We offer two shipping options to choose from.", 
     "line2": "・Yamato TA-Q-BIN <br>・Yamato TA-Q-BIN Compact",

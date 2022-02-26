@@ -19,6 +19,14 @@
         </v-row>
         <v-row>
             <v-col cols="12" sm="12" md="4">
+                <div :class="itemTitleClasses">{{$t('shipping.timing.lead')}}</div>
+            </v-col>
+            <v-col cols="12" sm="12" md="8">
+                <div :class="descriptionClasses">{{$t('shipping.timing.text')}}</div>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="12" sm="12" md="4">
                 <div :class="itemTitleClasses">{{$t('shipping.lead')}}</div>
             </v-col>
             <v-col cols="12" sm="12" md="8">
@@ -73,8 +81,8 @@
                         src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/delivery.png"
                     ></v-img>
                 </div>
-                </v-col>
-                </v-row>
+            </v-col>
+        </v-row>
         <v-row>
             <v-col cols="12" sm="12" md="4">
                 <div class="item-title">{{$t('shipping.postage.title')}}</div>

@@ -96,7 +96,7 @@ td.align-right{
                 <td>
                     @foreach($order['products'] as $product)
                     <div class="font-32">
-                        {{ $product['name']}}: {{ $product['pivot']['quantity']}}個 
+                        {{ $product['name']}} {{ $product['size']}}: {{ $product['pivot']['quantity']}}個 
                     </div>
                     @endforeach
                 </td>
