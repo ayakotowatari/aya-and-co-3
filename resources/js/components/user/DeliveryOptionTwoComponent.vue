@@ -165,7 +165,7 @@ export default {
             courier: null,
             deliveryTime: '',
             // items: ["希望なし", "午前中", "12:00-14:00頃", "14:00-16:00頃", "16:00-18:00頃", "18:00-20:00頃", "19:00-21:00頃", "20:00-21:00頃"],
-            cards: ["Thank You", "Happy Birthday", "Take Care", "Get Well Soon", "With Love", 'Sending You a Hug'],
+            cards: ["Thank You", "Happy Spring", "Happy Birthday", "Take Care", "Get Well Soon", "With Love", 'Sending You a Hug'],
             deliveryCardUse: '',
             deliveryCardMessage: '',
             sender: null,

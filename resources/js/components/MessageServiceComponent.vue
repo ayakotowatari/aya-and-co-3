@@ -83,6 +83,9 @@
                                     Thank You（ありがとう）
                                 </div>
                                 <div class="mb-2">
+                                    Happy Spring（季節の挨拶）
+                                </div>
+                                <div class="mb-2">
                                     Happy Birthday（お誕生日おめでとう)
                                 </div>
                                 <div class="mb-2">
