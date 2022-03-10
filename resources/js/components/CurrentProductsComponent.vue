@@ -2,7 +2,7 @@
     <div>
         <div v-if="inSeasonCategories.length <= 0">
             <div class="jp-font-400 grey--text text--darken-2 mb48">
-                現在、商品は完売、もしくは、シーズンまで準備中です。次回の発売は、2022年1月中旬を予定しております。
+                現在、商品は完売、もしくは、シーズンまで準備中です。次回の発売は、2022年3月下旬を予定しております。
             </div>
             <div class="message grey--text text--darken-3 mb-6">
                 公式LINEアカウントで、商品の発売日をお知らせしています。ぜひご登録ください。
