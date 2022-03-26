@@ -153,7 +153,10 @@
       "line": "LINEに友達追加する",
       "instagram": "インスタグラムへ"
     },
-    "soldout": "150g瓶は、完売のため、ただいま欠品中です。再販の場合は、<a href='https://lin.ee/1RJJ9C3' target='_blank' rel='noopener noreferrer'>LINE公式アカウント</a>、また<a href='https://www.instagram.com/ayaandco.jp/' target='_blank' rel='noopener noreferrer'>インスタグラム</a>でお知らせいたします。"
+    "soldout": "150g瓶は、完売のため、ただいま欠品中です。再販の場合は、<a href='https://lin.ee/1RJJ9C3' target='_blank' rel='noopener noreferrer'>LINE公式アカウント</a>、また<a href='https://www.instagram.com/ayaandco.jp/' target='_blank' rel='noopener noreferrer'>インスタグラム</a>でお知らせいたします。",
+    "current": {
+      "lead": "現在、商品は完売、もしくは、シーズンまで準備中です。次回の発売は、2022年3月末から4月初旬を予定しております。"
+    }
 
   },
 

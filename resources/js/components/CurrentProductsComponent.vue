@@ -1,19 +1,28 @@
 <template>
     <div>
         <div v-if="inSeasonCategories.length <= 0">
-            <div class="jp-font-400 grey--text text--darken-2 mb48">
-                現在、商品は完売、もしくは、シーズンまで準備中です。次回の発売は、2022年3月下旬を予定しております。
+            <div class="grey--text text--darken-3 mb-3">
+                {{$t('product.current.lead')}}
             </div>
-            <div class="message grey--text text--darken-3 mb-6">
-                公式LINEアカウントで、商品の発売日をお知らせしています。ぜひご登録ください。
-                </div>
-                <div>
+            <div class="grey--text text--darken-3 mb-6">
+                {{$t('product.line.lead')}}
+            </div>
+            <div>
                 <v-btn
                     href = "https://lin.ee/1RJJ9C3"
                     outlined
                     color="primary"
+                    class="mr-2 mb-2"
                 >
-                    LINEに友だち追加する
+                    {{$t('product.line.line')}}
+                </v-btn>
+                <v-btn
+                    href="https://www.instagram.com/ayaandco.jp/"
+                    outlined
+                    color="primary"
+                    class="mb-2"
+                >
+                    {{$t('product.line.instagram')}}
                 </v-btn>
             </div>
         </div>
