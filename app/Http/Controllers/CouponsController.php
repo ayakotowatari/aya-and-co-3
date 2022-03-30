@@ -61,9 +61,9 @@ class CouponsController extends Controller
                         $order_date = new Carbon($first_order->created_at);
     
                         if($user_id <= 28){
-                            $deadline = $order_date->addMonths(4);
+                            $deadline = $order_date->addMonths(8);
                         }else{
-                            $deadline = $order_date->addMonths(2);
+                            $deadline = $order_date->addMonths(3);
                         }
     
                          //もし有効期限がまだなら
@@ -224,9 +224,9 @@ class CouponsController extends Controller
                 $order_date = new Carbon($first_order->created_at);
 
                 if($user->id <= 28){
-                    $deadline = $order_date->addMonths(5);
+                    $deadline = $order_date->addMonths(8);
                 }else{
-                    $deadline = $order_date->addMonths(2);
+                    $deadline = $order_date->addMonths(3);
                 }
 
                 $redeemed = $coupon-> users() -> where('user_id', $user->id) ->first();
