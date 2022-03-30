@@ -10,6 +10,7 @@
             <div>
                 <v-btn
                     href = "https://lin.ee/1RJJ9C3"
+                    target="_blank"
                     outlined
                     color="primary"
                     class="mr-2 mb-2"
@@ -18,6 +19,7 @@
                 </v-btn>
                 <v-btn
                     href="https://www.instagram.com/ayaandco.jp/"
+                    target="_blank"
                     outlined
                     color="primary"
                     class="mb-2"

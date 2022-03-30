@@ -31,6 +31,7 @@
                 <div>
                 <v-btn
                     href = "https://lin.ee/1RJJ9C3"
+                    target="_blank"
                     outlined
                     color="primary"
                 >
