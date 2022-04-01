@@ -66,6 +66,9 @@ export const admin = {
        },
        products: [],
        product: {},
+       sales: {
+            total: null,
+       },
        dialogShipment: false,
        dialogUpdateShipment: false,
        dialogUpdateStatus: false,
@@ -149,6 +152,9 @@ export const admin = {
         },
         setProduct(state, payload){
             state.product = payload
+        },
+        setSalesTotal(state, payload){
+            state.sales.total = payload
         },
         setallErrors(state, payload){
             state.allerror = payload
@@ -371,6 +377,22 @@ export const admin = {
                     // console.log(users)
                 })
 
+        },
+        async fetchSales({state, commit}){
+
+            let total = '';
+            let allerror = [];
+
+            await axios
+                .get('/fetch-sales')
+                .then(response => {
+                    total = response.data.total;
+                    commit('setSalesTotal', total)
+                })
+                .catch(error => {
+                    allerror = error.response.data.errors,
+                    commit('setallErrors', allerror)
+                })
         },
         async fetchOrders({state, commit}, payload){
 

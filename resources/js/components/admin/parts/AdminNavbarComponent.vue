@@ -130,6 +130,7 @@ import { mapState } from 'vuex'
         { title: '顧客発送リスト', route: '/admin/shipments-list' },
         { title: 'ゲスト注文リスト', route: '/admin/guestorders-list' },
         { title: 'ゲスト発送リスト', route: '/admin/guestshipments-list' },
+        { title: 'ダッシュボード', route: '/admin/dashboard' },
         {title: 'お問い合わせ', route: '/admin/enquiries'}
        ],
       lists: [

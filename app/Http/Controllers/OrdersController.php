@@ -14,6 +14,7 @@ use App\Models\Giftcard;
 use Illuminate\Http\Request;
 use Auth;
 use PDF;
+use DB;
 
 class OrdersController extends Controller
 {
@@ -50,6 +51,14 @@ class OrdersController extends Controller
                     ->get();
         // DD($orders);
         return response() -> json(['orders' => $orders]);  
+
+    }
+
+    public function sales()
+    {
+        
+        $total = DB::table('order_product')->sum('quantity');
+        return response() -> json(['total' => $total]);  
 
     }
 

@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import AdminHome from "./components/admin/orders/OrdersListComponent";
+import Dashboard from "./components/admin/orders/DashboardComponent";
 import OrdersList from "./components/admin/orders/OrdersListComponent";
 import ShipmentsList from "./components/admin/orders/ShipmentsListComponent";
 import GuestOrdersList from "./components/admin/orders/GuestOrdersListComponent";
@@ -50,6 +51,12 @@ const routes = [
         path: "/admin/login" ,
         name: "admin-login" ,
         component: AdminLogin
+    },
+
+    {
+        path: "/admin/dashboard" ,
+        name: "dashboard" ,
+        component: Dashboard
     },
 
     {

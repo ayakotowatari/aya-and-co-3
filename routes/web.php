@@ -89,6 +89,7 @@ Route::group(['middleware' => ['auth:admin', 'can:admin']], function(){
     Route::get('/fetch-guestorder/{id}', 'OrdersController@eachGuestOrder')->name('admin.each.guestorder');
     Route::get('/fetch-orders', 'OrdersController@index')->name('admin.orders');
     Route::get('/fetch-guestorders', 'OrdersController@guestOrders')->name('admin.guest.orders');
+    Route::get('/fetch-sales', 'OrdersController@sales')->name('admin.sales');
     Route::get('/fetch-shipment/{id}', 'OrdersController@shipmentDetails')->name('admin.orders');
     Route::post('/schedule-shipment', 'OrdersController@scheduleShipment')->name('admin.schedule.shipment');
     Route::post('/update-shipment', 'OrdersController@updateShipment')->name('admin.update.shipment');
