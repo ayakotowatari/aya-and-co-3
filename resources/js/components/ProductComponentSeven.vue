@@ -116,7 +116,7 @@
                   </div>
                 </v-col>
               </v-row>
-              <div v-if="product.length >= 1 && category.id !== 13">
+              <div v-if="product.length >= 1 && product[0].slug !== 'marmalade-loaf'">
                     <v-list-item-group v-model="itemGroup">
                         <v-row>
                             <v-col cols="12" sm="12" md="6">
@@ -132,7 +132,7 @@
                                               <div class="product-name mb-1">
                                               {{item.name}}
                                               </div>
-                                              <div class="product-size mb-4">
+                                              <div v-if="item.slug !== 'marmalade-loaf'" class="product-size mb-4">
                                               {{item.size}}
                                               </div>
                                               <div class="product-price mb-6">
@@ -189,7 +189,7 @@
                             {{$t('btn.check_cart')}}
                         </v-btn>
                     </div>
-                    <p class="notice" v-html="$t('product.soldout')"></p>
+                    <!-- <p class="notice" v-html="$t('product.soldout')"></p> -->
                     <!-- <div v-if="category.id == 12" class="mt-8 mb-8">
                       <div class="message grey--text text--darken-3 mb-3">
                         ただいまこの商品は、Harvest in the North（VelvetyとMarmelada）のセットとしてもご購入いただけます。
@@ -206,7 +206,7 @@
                     </div> -->
                 </div>
                 
-                <div v-if="product.length >= 1 && category.id == 13">
+                <div v-if="product.length >= 1 && product[0].slug == 'marmalade-loaf'">
                     <v-list-item-group v-model="itemGroup">
                         <v-row>
                             <v-col cols="12" sm="12" md="6">
@@ -222,11 +222,11 @@
                                               <div class="product-name mb-1">
                                               {{item.name}}
                                               </div>
-                                              <div class="product-size mb-4">
+                                              <div v-if="item.slug !=='marmalade-loaf'" class="product-size mb-4">
                                               {{item.size}}
                                               </div>
                                               <div class="product-price mb-6">
-                                              {{formatPrice(item.price)}} <span class="jp-font-300 tax">{{$t('product.price_info')}}</span>
+                                              {{formatPrice(item.price)}} <span class="jp-font-300 tax">{{$t('product.tax_info')}}</span>
                                               </div>
                                               <div v-if="item.inventory <= 5" class="stock jp-font-400 grey--text text--darken-2">
                                                 残り{{item.inventory}}個
@@ -277,7 +277,7 @@
                         <p>{{ cartMessage }}</p>
                     </div>
                     <div class="item-content">
-                        <p>こちらの商品は現在、販売数に限りがあるため、お一人につき1点までのご購入とさせていただいております。</p>
+                        <p>こちらの商品は販売数に限りがあるため、お一人につき1点までのご購入とさせていただいております。</p>
                     </div>
                 </div>
                 <v-row>

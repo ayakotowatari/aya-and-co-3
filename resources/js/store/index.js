@@ -562,10 +562,14 @@ export default new Vuex.Store({
             let quantity = payload
             // let product_id = payload.product_id
             let product_id = state.product[0].id
+            let product_slug = state.product[0].slug
     
             if(product_id == 13){
     
                 state.selectableNumbers = [1, 2]
+            }else if(product_slug == 'marmalade-loaf'){
+
+                state.selectableNumbers = [1]
             }else{
     
                 if(quantity <= 5 && quantity >= 2){
@@ -590,6 +594,8 @@ export default new Vuex.Store({
         if(state.product.length > 0){
             let quantity = payload.inventory
             let product_id = payload.product_id
+            let product_slug = state.product[0].slug
+            
             // let product_id = state.product[0].id
     
             // console.log('product_id', product_id)
@@ -608,6 +614,10 @@ export default new Vuex.Store({
             if(product_id == 13){
     
                 state.selectableNumbers = [1, 2]
+            }else if(product_slug == 'marmalade-loaf'){
+
+                state.selectableNumbers = [1]
+            
             }else{
     
                 if(quantity <= 5 && quantity >= 2){

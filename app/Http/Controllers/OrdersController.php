@@ -593,7 +593,8 @@ class OrdersController extends Controller
                         ->where('orders.id', $order_id)
                         ->select(
                             'products.name', 
-                            'products.size', 
+                            'products.size',
+                            'products.slug', 
                             'products.price',
                             'products.image',
                             'order_product.quantity',

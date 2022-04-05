@@ -201,7 +201,13 @@ class CouponsController extends Controller
 
             $coupon_code = 'welcomeback';
 
-            $coupon = Coupon::where('name', $coupon_code)->first();
+            $coupon = Coupon::where('name', $coupon_code)
+                    ->where('status_id', 1)
+                    ->first();
+
+            if($coupon == null){
+                return response() -> json(['ifCoupon' => null]);
+            }
 
             //他のクーポンがないか確認。ongoingで、期限が過ぎておらず、ターゲットが全員で、最低累計金額に達しているか。
             $otherCoupon = Coupon::where('status_id', 1)

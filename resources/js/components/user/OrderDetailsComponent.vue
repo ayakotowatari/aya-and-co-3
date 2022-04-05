@@ -76,7 +76,7 @@
                                     <div class="product-name mb-1">
                                         {{product.name}} 
                                     </div>
-                                    <div class="product-size mb-4">
+                                    <div v-if="product.slug !== 'marmalade-loaf'" class="product-size mb-4">
                                         {{product.size}}
                                     </div>
                                     <div class="product-price mb-6">

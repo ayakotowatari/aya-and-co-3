@@ -59,7 +59,7 @@
                                                     <v-list-item-title class="product-name">
                                                         {{item.name}} 
                                                     </v-list-item-title>
-                                                    <v-list-item-subtitle class="product-size mb-2">
+                                                    <v-list-item-subtitle v-if="item.slug !== 'marmalade-loaf'" class="product-size mb-2">
                                                         {{item.size}}
                                                     </v-list-item-subtitle>
                                                     <v-list-item-title class="date grey--text text--darken-4">

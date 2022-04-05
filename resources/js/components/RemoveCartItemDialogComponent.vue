@@ -5,7 +5,7 @@
             <v-dialog v-model="dialogRemoveCartItem" persistent max-width="320">
                 <v-card>
                     <v-card-title class="dialog-title-14">
-                        {{cartItem.name}}({{cartItem.size}})
+                        {{cartItem.name}}<span v-if="cartItem.slug !=='marmalade-loaf'">({{cartItem.size}})</span>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
                         {{$t('product.remove')}}

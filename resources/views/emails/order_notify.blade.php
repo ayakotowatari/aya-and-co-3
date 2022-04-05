@@ -95,9 +95,15 @@ td.align-right{
                 <td class="pr20">商品:</td>
                 <td>
                     @foreach($order['products'] as $product)
-                    <div class="font-32">
-                        {{ $product['name']}} {{ $product['size']}}: {{ $product['pivot']['quantity']}}個 
-                    </div>
+                        @if($product['slug'] === "marmalade-loaf")
+                            <div class="font-32">
+                                {{ $product['name']}}: {{ $product['pivot']['quantity']}}個 
+                            </div>
+                        @else
+                            <div class="font-32">
+                                {{ $product['name']}} {{ $product['size']}}: {{ $product['pivot']['quantity']}}個 
+                            </div>
+                        @endif
                     @endforeach
                 </td>
             </tr>
