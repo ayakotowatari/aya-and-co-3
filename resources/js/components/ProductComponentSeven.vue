@@ -228,8 +228,13 @@
                                               <div class="product-price mb-6">
                                               {{formatPrice(item.price)}} <span class="jp-font-300 tax">{{$t('product.tax_info')}}</span>
                                               </div>
-                                              <div v-if="item.inventory <= 5" class="stock jp-font-400 grey--text text--darken-2">
-                                                残り{{item.inventory}}個
+                                              <div v-if="item.inventory <= 10" class="stock jp-font-400 grey--text text--darken-2">
+                                                <div v-if="$i18n.locale=='ja'">
+                                                  残り{{item.inventory}}個
+                                                </div>
+                                                <div v-else>
+                                                  In stock: {{item.inventory}}
+                                                </div>
                                               </div>
                                           </v-list-item-content>
                                           <v-list-item-avatar
@@ -252,32 +257,32 @@
                             <v-select
                                 v-model="selectedQuantity"
                                 :items="selectableNumbers"
-                                label="数量"
+                                :label="$t('product.select_qty')"
                                 required
                             ></v-select>
                         </v-col>
                     </v-row>
                     <div class="mb48">
                         <v-btn
-                            outlined
-                            text
+                            color="primary"
+                            dark
                             @click="addOne()">
-                            カートに入れる
+                            {{$t('btn.add_cart')}}
                         </v-btn>
                         <v-btn
-                            v-if="cart !== null"
+                            color="primary"
                             outlined
-                            text
+                            v-if="cart !== null"
                             @click="$router.push({name: 'cart'})"
                         >
-                            カートをみる
+                            {{$t('btn.check_cart')}}
                         </v-btn>
                     </div>
                     <div v-if="cartMessage !== null" class="item-content">
                         <p>{{ cartMessage }}</p>
                     </div>
                     <div class="item-content">
-                        <p>こちらの商品は販売数に限りがあるため、お一人につき1点までのご購入とさせていただいております。</p>
+                        <p>{{$t('product.limit')}}</p>
                     </div>
                 </div>
                 <v-row>
@@ -549,7 +554,8 @@ export default {
             let cartItem = this.itemGroup;
             // console.log('item', cartItem)
             let cartQuantity = this.selectedQuantity
-            this.$store.commit('addOneToCart', {cartItem, cartQuantity})
+            let lang = this.$i18n.locale
+            this.$store.commit('addOneToCart', {cartItem, cartQuantity, lang})
             this.$store.commit('setProductQuantity', 1);
         },
         formatPrice(value){
@@ -643,9 +649,6 @@ export default {
 }
 
 .note{
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  font-style: normal;
   font-size: 12px;
   margin-bottom: 24px;
 }
@@ -655,7 +658,7 @@ export default {
 }
 
 .item-content{
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: 'Noto Sans JP', sans-serif; */
   font-weight: 300;
   font-style: normal;
   font-size: 16px;

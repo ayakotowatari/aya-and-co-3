@@ -3,7 +3,7 @@
         <v-row justify="center">
             <v-dialog v-model="dialogRemoveAddress" persistent max-width="320">
                 <v-card>
-                    <v-card-title >
+                    <v-card-title>
                         {{$t('otheraddress.remove')}}
                     </v-card-title>
                     <v-card-text>
@@ -74,6 +74,10 @@ export default {
 <style>
 .dialog-title{
   margin-bottom: 24px;
+}
+
+.v-card__text, .v-card__title {
+  word-break: normal; /* maybe !important  */
 }
 
 

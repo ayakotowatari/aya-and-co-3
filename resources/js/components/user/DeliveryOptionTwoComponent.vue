@@ -14,8 +14,7 @@
                 >
                     <div class="mb-8">
                         <div :class="fontWeightClasses" class="grey--text text--darken-3 mb24">Step 1: {{$t('checkout.select_shipping')}}</div>
-                        <div class="grey--text text--darken-2 mb24">{{$t('checkout.shipping_note1')}}<router-link to="/postage">{{$t('checkout.shipping_note2')}}</router-link>{{$t('checkout.shipping_note3')}}</div>
-
+                    
                          <v-select
                             v-model="courier"
                             outlined
@@ -30,6 +29,8 @@
                             :error="allerror.couriers ? true : false"
                             :error-messages="allerror.couriers"
                         ></v-select>
+
+                        <div class="grey--text text--darken-2 note">{{$t('checkout.shipping_note1')}}<router-link to="/postage">{{$t('checkout.shipping_note2')}}</router-link>{{$t('checkout.shipping_note3')}}</div>
                     </div>
 
                     <v-divider class="mt-4 mb-8"></v-divider>

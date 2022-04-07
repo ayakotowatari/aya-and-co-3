@@ -691,6 +691,7 @@ export default new Vuex.Store({
 
         let product = payload.cartItem
         let newQuantity = payload.cartQuantity
+        let lang = payload.lang
 
         // console.log('newQuantity', newQuantity)
         // console.log('slug', product.slug)
@@ -700,7 +701,12 @@ export default new Vuex.Store({
             //let originalQuantity = state.cart[productInCartIndex].quantity
             //state.cart[productInCartIndex].quantity = Number(originalQuantity) + newQuantity
             // state.cart[productInCartIndex].quantity++;
-            state.cartMessage = "カートにすでに商品が入っております。"
+            if(lang == 'en'){
+                state.cartMessage = "You already have one item in your cart."
+            }else{
+                state.cartMessage = "カートにすでに商品が入っております。"
+            }
+            
             return;
         }else{
             product.quantity = newQuantity;
@@ -1001,6 +1007,7 @@ export default new Vuex.Store({
                 email: payload.email,
                 password: payload.password,
                 password_confirmation: payload.password_confirmation,
+                lang: payload.lang
             })
             .then(response => {
                 // console.log(response);

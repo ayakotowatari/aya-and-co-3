@@ -157,7 +157,8 @@
     "soldout": "Miss You 150g is sold out and currently out of stock. Stay connected with us on <a href='https://lin.ee/1RJJ9C3' target='_blank' rel='noopener noreferrer'>LINE</a> or <a href='https://www.instagram.com/ayaandco.jp/' target='_blank' rel='noopener noreferrer'>Instagram</a> so that we can let you know if it is back in stock.",
     "current": {
       "lead": "We are working hard to get our products ready. Our next products will be ready around the end of March 2022."
-    }
+    },
+    "limit": "Due to limited availability, we have one item per customer policy for this product."
   },
 
   "shipping": {
@@ -227,9 +228,9 @@
     "shipping_method": "Shipping Options",
     "shipping_label": "Preferred shipping method",
     "select_shipping": "Select your preferred shipping method.",
-    "shipping_note1": "Please see ",
+    "shipping_note1": "Would you like to check ",
     "shipping_note2": "Shipping & Postage ",
-    "shipping_note3": "for different shipping options.",
+    "shipping_note3": "for different shipping options?",
     "delivery_time": "Select your preferred delivery time.",
     "delivery_label": "Preferred delivery time",
     "courier_rule": "Shipping method is required.",
@@ -256,7 +257,7 @@
     "card_expiry": "Expiration Date",
     "card_cvc": "Security Code",
     "pay": "Process Payment",
-    "thank_guest": "Thank you for your order! Your product will be shipped as soon as possible.",
+    "thank_guest": "Thank you for your order! Your product will be shipped within one week.",
     "guest_signup":"We will be thrilled if you sign up with us now so that we can keep you updated on our products and you can get your coupon code for your second purchase."
   },
 
@@ -321,24 +322,70 @@
   },
 
   "privacy": {
-    "lead": "aya & co. (hereafter referred to as 'we' or 'us') takes the protection of personal information very seriously and in order to ensure that the services provided on this website are suitable for all users (hereafter referred to as 'the Service', the company has established a policy on the protection of personal information. We will protect personal information by establishing a system for the protection of personal information and by ensuring that the importance of the protection of personal information is fully recognized and addressed.",
+    "lead": "aya & co. (hereafter referred to as 'we' or 'us') takes the protection of personal information seriously and ensures that we have established a policy on the protection of personal information for the services provided on this website (hereafter referred to as 'the Service'). We will protect personal information by establishing a system for its protection and by ensuring that the importance of such protection is fully recognized and addressed. ",
     "a1": {
-      "lead": "第1条 個人情報とは",
-      "p1":"1.「個人情報」とは，個人情報保護法にある「個人情報」を指すものとし、生存する個人に関する情報であり、当該情報に含まれる氏名、住所、電話番号、連絡先、その他の記述等により特定の個人を識別できる情報を指します。",
-      "p2": "2.個人情報のうち「履歴情報および特性情報」とは、上記に定める「個人情報」以外のものをいい、利用頂いたサービスや購入頂いた商品、閲覧したページや広告の履歴、検索キーワード、利用日時、利用方法、利用環境、郵便番号や性別、職業、年齢、IPアドレス、クッキー情報、位置情報、端末の個体識別情報などを指します。"
+      "lead": "What is personal information?",
+      "p1":"1. Personal information refers to the information as defined in the Personal Information Protection Law in Japan and is any information relating to a living individual that can be used to identify that individual by name, address, telephone number, contact details, or any other description contained in the information.",
+      "p2": "2. Among personal information, 'review history and characteristic information' refers to information other than 'personal information', such as services used, products purchased, history of page viewed and advertisements, search keywords, usage dates, usage methods, usage environment, postal code, gender, occupation, age, IP address, cookie information, location information, individual device identification information, individual identification information of the terminal, etc."
     },
-    "a2": "",
-    "a3": "",
-    "a4": "",
-    "a5": "",
-    "a6": "",
-    "a7": "",
-    "a8": "",
-    "a9": "",
-    "a10": "",
-    "a11": "",
-    "a12": ""
-
+    "a2": {
+      "lead": "How is personal information obtained?",
+      "p1":"1. This service may ask for personal information such as name, birthdates, address, telephone number and email address when the user registers as a member and/or purchase our products.",
+      "p2": "2. In this service, we do not collect historical and characteristic information."
+    },
+    "a3": {
+      "lead": "Why do we collect and use personal information?",
+      "p1":"The purpose of collecting and using personal information in this service is as follows:",
+      "p2": "1. To allow the user to view and modify their data, such as name, address, emails, purchase history, etc.",
+      "p3": "2. To use the user's information such as name, address, email address, etc. to send notifications and products to the customer and to contact the customer when necessary. ",
+      "p4": "3. To use information relating to payment such as the name and quantity of goods ordered, the amount of money charged, the user's name, address, credit card number, etc. for the purpose of billing.",
+      "p5": "4. To display the registered information on the input screen to make it easy for the user to input data when ordering products.",
+      "p6": "5. To identify personal information, such as the user's name, address, phone and email to refuse the use of customers who have violated the terms of this service, such as delaying payment or causing damage, or customers who are trying to use the service for illegal or improper purposes.",
+      "p7": "6. To respond to the customer's enquiries.",
+      "p8": "7. Any additional reasons for the above."
+    },
+    "a4": {
+      "lead": "How we maintain personal information",
+      "p1":"We will keep the personal information of our customers accurate and up-to-date, and prevent unauthorized access, loss, damage, falsification and leakage of personal information by taking the necessary measures such as maintaining a security system, improving the management system and thorough employee training, and implementing safety measures to ensure the strict management of personal information."
+    },
+    "a5": {
+      "lead": "Disclosure of personal information",
+      "p1": "1. In the event that the customer requests the disclosure of the customer's own personal information, we will do so without delay. However, if the disclosure of personal information falls under any of the following cases, we may not display all or part of the information, and if we decide not to display the information, we will notify the customer to that effect without delay.:<br>If the disclosure is likely to harm the life, body, property or other rights or interests of the customer or a third party<br>If the disclosure is likely to significantly interfere with the proper operation of the company's business<br>In the event of any other violation of the law",
+      "p2": "2. Notwithstanding the above, we will not, in principle, disclose any information other than personal information including review history and characteristic information."
+    },
+    "a6": {
+      "lead": "Disclosure of personal information to third parties",
+      "p1":"1. The personal information we receive from our customers will be managed appropriately and will not be provided to any third party without the prior consent of the customer, except in cases permitted by the Personal Information Protection Law in Japan and other applicable laws and regulations.:<br>Where required by law<br>Where it is necessary for the protection of the life, body or property of a person and it is difficult to obtain the consent of the person<br>Where it is particularly necessary for the improvement of public health or the promotion of the healthy development of children, it is difficult to obtain the consent of the person concerned.<br>Where it is necessary to cooperate with a national agency, a local public body, or a party entrusted by either of the foregoing to carry out tasks prescribed by law, and obtaining the consent of the person concerned is likely to impede the completion of such tasks.<br>When the following matters are notified or announced in advance:<br>The disclosure to the third party is included in the purpose of use.<br>Section of data to be provided to third parties<br>The means of how the information will be disclosed to third parties<br>To stop the disclosure of personal information to third parties at the request of the individual",
+      "p2": "2. Notwithstanding the above, the following cases shall not be considered as third parties<br>In the case of entrusting all or part of personal information within the scope necessary to achieve the purpose of use<br>when personal information is disclosed as a result of the succession of business due to a merger or other reasons.<br>In cases where personal information is used jointly with a specific person, the user shall be notified in advance of the purpose of use, the name of the person responsible for the management of the personal information, and the purpose of use of the joint use. "
+    },
+    "a7": {
+      "lead": "Security measures for personal information",
+      "p1":"This service has taken all possible measures to ensure the security of personal information in order to ensure its accuracy and security. We will always strive to collect information on the protection of personal information and to ensure that the latest security measures are taken."
+    },
+    "a8": {
+      "lead": "Correction and deletion of personal information",
+      "p1":"1. If the personal information held by this Service about the individual is incorrect, the user may request the amendment or deletion of the personal data by following the procedures set out in this document.",
+      "p2": "2. In the event that the Service receives a request from a user as per the above and deems it necessary to respond to such request, the Service will, without delay, carry out the correction or deletion of the relevant personal information and notify the user of such correction or deletion."
+    },
+    "a9": {
+      "lead": "Suspension of use of personal information",
+      "p1":"When we are requested by a user to stop using or erase (hereafter referred to as 'stop using') personal information due to a reason beyond the scope of the purpose of the use or that it has been obtained illegally, we will carryout the necessary investigation without delay and based on the result, we will stop using the personal information and notify the user to that effect. However, in the case that it costs a lot of money to stop using personal information, or it is difficult to stop using personal information, alternative measures will be taken."
+    },
+    "a10": {
+      "lead": "Compliance with laws and regulations and changes to the privacy policy",
+      "p1":"1. This Service complies with all applicable Japanese laws and regulations regarding personal information held.",
+      "p2": "2. The content of the privacy policy may be changed at any time without notice to the user.",
+      "p3": "3. Unless otherwise specified by the Service, the revised privacy policy will take effect when it is published on this website."
+    },
+    "a11": {
+      "lead": "Personal Information Management Officer",
+      "p1":"Ayako Ueda, the Founder of aya & co."
+    },
+    "a12": {
+      "lead": "Contact",
+      "p1":"For any enquiries regarding the privacy policy and handling of personal information in this Service, please contact the following contact point. ",
+      "p2": "Ayako Ueda<br>aya & co.<br>1-6-1-505 Arima, Miyamae-ku, Kawasaki-shi, Kanagawa, 216-0003, Japan<br><a href='https://forms.gle/kSJ8nj9ennqwvvai8' target='_blank' rel='noopener noreferrer'>Enquiry Form</a>"
+    }
   },
 
   "contact": {

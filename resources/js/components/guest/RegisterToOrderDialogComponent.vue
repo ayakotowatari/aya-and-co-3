@@ -29,7 +29,7 @@
                                             <v-col cols="12" sm="12" md="12">
                                                 <v-text-field
                                                     v-model="name"
-                                                    label="お名前" 
+                                                    :label="$t('register.name')" 
                                                     outlined
                                                     required
                                                     :rules="nameRules"
@@ -39,8 +39,9 @@
                                                     :error-messages="allRegisterError.name"
                                                 ></v-text-field>
                                                 <v-text-field
+                                                    v-if="$i18n.locale == 'ja'"
                                                     v-model="kana"
-                                                    label="フリガナ"
+                                                    :label="$t('register.kana')"
                                                     outlined
                                                     required
                                                     :rules="kanaRules"
@@ -51,10 +52,10 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="zipcode"
-                                                    label="郵便番号"
+                                                    :label="$t('register.zipcode')"
                                                     outlined
                                                     required
-                                                    hint="ハイフンなしで、数字7桁のみをご記入ください。例: 1234567"
+                                                    :hint="$t('register.hint_zipcode')"
                                                     persistent-hint
                                                     :rules="zipcodeRules"
                                                     validate-on-blur
@@ -64,7 +65,7 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="state"
-                                                    label="都道府県"
+                                                    :label="$t('register.prefecture')"
                                                     outlined
                                                     required
                                                     :rules="prefectureRules"
@@ -75,7 +76,7 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="city"
-                                                    label="市町村"
+                                                    :label="$t('register.city')"
                                                     outlined
                                                     required
                                                     :rules="cityRules"
@@ -86,7 +87,7 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="address1"
-                                                    label="番地・部屋番号"
+                                                    :label="$t('register.address1')"
                                                     outlined
                                                     required
                                                     :rules="address1Rules"
@@ -97,14 +98,14 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="building"
-                                                    label="マンション・建物名"
+                                                    :label="$t('register.building')"
                                                     outlined
                                                     :error="allRegisterError.building ? true : false"
                                                     :error-messages="allRegisterError.building"
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="phone"
-                                                    label="電話番号"
+                                                    :label="$t('register.phone')"
                                                     outlined
                                                     required
                                                     :rules="phoneRules"
@@ -115,7 +116,7 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="email"
-                                                    label="メールアドレス" 
+                                                    :label="$t('register.email')"
                                                     outlined
                                                     required
                                                     :rules="emailRules" 
@@ -126,7 +127,7 @@
                                                 ></v-text-field>
                                                 <v-text-field
                                                     v-model="confirmEmail"
-                                                    label="メールアドレスの確認" 
+                                                    :label="$t('register.confirm_email')"
                                                     outlined
                                                     required
                                                     :rules="confirmEmailRules" 
@@ -137,11 +138,12 @@
                                                 ></v-text-field>
                                                 <v-text-field 
                                                     v-model="password"
-                                                    label="パスワード" 
+                                                    :label="$t('register.password')"  
                                                     :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                                                     :type="showPassword ? 'text' : 'password'"
                                                     outlined
                                                     required
+                                                    :hint="$t('register.hint_password')"
                                                     :rules="passwordRules" 
                                                     validate-on-blur
                                                     @blur="() => $refs.form.resetValidation()"
@@ -151,7 +153,7 @@
                                                 ></v-text-field>
                                                 <v-text-field 
                                                     v-model="password_confirmation"
-                                                    label="パスワードの確認" 
+                                                    :label="$t('register.confirm_password')"  
                                                     :append-icon="showPassword2 ? 'mdi-eye' : 'mdi-eye-off'"
                                                     :type="showPassword2 ? 'text' : 'password'"
                                                     outlined
@@ -171,7 +173,7 @@
                                                     @click="goRegister()"
                                                     :looading="loading"
                                                 >
-                                                    登録する
+                                                    {{$t('btn.register')}}
                                                 </v-btn>
                                                  <v-btn 
                                                     outlined
@@ -179,7 +181,7 @@
                                                     class="mb-2" 
                                                     @click="close()"
                                                 >
-                                                    戻る
+                                                    {{$t('btn.back')}}
                                                 </v-btn>
                                                 <!-- <v-btn text color="primary" class="pa-0" @click.stop="toLogin()">ログインする</v-btn> -->
                                             </v-col>
@@ -210,55 +212,17 @@ export default {
         return {
             valid: true,
             name: '',
-            nameRules: [
-                (v) => !!v || '名前を入力してください。',
-            ],
             kana: '',
-            kanaRules: [
-                v => !!v || 'フリガナを入力してください。',
-            ],
             zipcode: '',
-            zipcodeRules: [
-                v => !!v || '郵便番号を入力してください。',
-                v => v.length == 7 || 'ハイフンなしで、数字7桁を入力してください。'
-            ], 
             state: '',
-            prefectureRules: [
-                v => !!v || '都道府県を入力してください。',
-            ],
             city: '',
-            cityRules: [
-                v => !!v || '市町村を入力してください。',
-            ],
             address1: '',
-            address1Rules: [
-                v => !!v || '番地・部屋番号等を入力してください。',
-            ],
             building: '',
             phone: '',
-            phoneRules: [
-                v => !!v || '電話番号を入力してください。',
-            ],
             email: '',
-            emailRules: [
-                (v) => !!v || 'メールを入力してください。',
-                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'メールアドレスが正しくありません。'
-            ],
             confirmEmail: '',
-            confirmEmailRules: [
-                (v) => !!v || 'メールアドレスの確認が必要です。',
-                (v) => v == this.email || 'メールアドレスが一致していません。'
-            ],   
             password: '',
-            passwordRules: [
-                (v) => !!v || 'パスワードを入力してください。',
-                (v) => v.length >= 8 || 'パスワードは8文字以上です。'
-            ],
-            password_confirmation: '',
-            confirmPasswordRules: [
-                (v) => !!v || '確認のためパスワードを入力してください。',
-                (v) => v == this.password || 'パスワードが一致しません。'
-            ],      
+            password_confirmation: '', 
             showPassword: false,
             showPassword2: false
         }
@@ -270,8 +234,15 @@ export default {
             }
 
             let self = this;
+            let lang = "";
+            //言語
+            if(this.$i18n.locale == "en"){
+                lang = "rome";
+            }else{
+                lang = "ja";
+            }
             //自サイトのAPI
-            let url = "/ajax/zipcode/" + val;
+            let url = "/ajax/zipcode/" + val + "/" + lang;
 
             axios
             .get(url)
@@ -293,7 +264,67 @@ export default {
          ...mapState([
             'allRegisterError',
             'loading'
-        ])
+        ]),
+         nameRules(){
+            return[
+                v => !!v || this.$t('register.name_rule')
+            ];
+        },
+        kanaRules() {
+            return [
+                v => !!v || this.$t('register.kana_rule')
+            ];
+        },
+        zipcodeRules() {
+            return [
+                v => !!v || this.$t('register.zipcode_rule'),
+                v => v.length == 7 || this.$t('register.hint_zipcode')
+            ];
+        },
+        prefectureRules() {
+            return [
+                v => !!v || this.$t('register.prefecture_rule')
+            ];
+        },
+        cityRules() {
+            return [
+                v => !!v || this.$t('register.city_rule')
+            ];
+        },
+        address1Rules() {
+            return [
+                v => !!v || this.$t('register.address1_rule')
+            ];
+        },
+        phoneRules() {
+            return [
+                v => !!v || this.$t('register.phone_rule')
+            ];
+        },
+        emailRules() {
+            return [
+                (v) => !!v || this.$t('register.email_rule'),
+                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t('register.email_rule2')
+            ];
+        },
+        confirmEmailRules() {
+            return [
+                (v) => !!v || this.$t('register.confirmEmail_rule'),
+                (v) => v == this.email || this.$t('register.confirmEmail_rule2')
+            ];
+        },
+        passwordRules(){
+            return[
+                (v) => !!v || this.$t('register.password_rule'),
+                (v) => v.length >= 8 || this.$t('register.password_rule2')
+            ];
+        },
+        confirmPasswordRules(){
+            return[
+                (v) => !!v || this.$t('register.confirmPassword_rule'),
+                (v) => v == this.password || this.$t('register.confirmPassword_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([
@@ -302,6 +333,8 @@ export default {
         goRegister(){    
 
             this.$store.commit('setLoading', true)
+
+            let lang = this.$i18n.locale
             
             if(this.$refs.form.validate()){
                 this.registerToOrder({
@@ -318,6 +351,7 @@ export default {
                     email: this.email,
                     password: this.password,
                     password_confirmation: this.password_confirmation,
+                    lang: lang
                 })
             }
         }, 

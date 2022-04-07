@@ -20,7 +20,7 @@
                             <div class="product-name mb-1">
                                 {{item.name}} 
                             </div>
-                            <div class="product-size mb-4">
+                            <div v-if="item.slug !== 'marmalade-loaf'" class="product-size mb-4">
                                 {{item.size}}
                             </div>
                             <div class="product-price mb-6">
