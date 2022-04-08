@@ -454,6 +454,17 @@ public function purchase(Request $request){
 
     // DD($user);
 
+    foreach(json_decode(request('cart'), true) as $item) {
+
+        $product_check = Product::where('id', $item['id'])->first();
+        $inventory = $product_check->inventory;
+
+        if($inventory <= 0){
+            $error= "誠に申し訳ございませんが、この商品はただいま完売となりました。お客様のカードへのご請求はございません。";
+            return response() ->json(['errors' => ['message' => $error]], 500);
+        }
+    };
+
     try {
 
         $payment = $user->charge(

@@ -78,6 +78,7 @@ Vue.component('subscribedialog-component', require('./components/user/edit/Subsc
 Vue.component('coupondialog-component', require('./components/user/CouponDialogComponent.vue').default);
 Vue.component('seasoncard-component', require('./components/user/SeasonCardComponent.vue').default);
 Vue.component('ordercarddialog-component', require('./components/user/OrderCardDialogComponent.vue').default);
+Vue.component('soldoutdialog-component', require('./components/user/SoldoutDialogComponent.vue').default);
 
 //guest
 Vue.component('guestcheckaddress-component', require('./components/guest/GuestCheckAddressComponent.vue').default);
@@ -91,6 +92,7 @@ Vue.component('registertoorderdialog-component', require('./components/guest/Reg
 Vue.component('loginexception-component', require('./components/LoginForExceptionComponent.vue').default);
 Vue.component('registerexception-component', require('./components/RegisterForExceptionComponent.vue').default);
 Vue.component('thankyouguest-component', require('./components/guest/ThankYouGuestDialogComponentTwo.vue').default);
+Vue.component('guestsoldoutdialog-component', require('./components/guest/GuestSoldoutDialogComponent.vue').default);
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 
 //icons

@@ -157,6 +157,8 @@ export default new Vuex.Store({
       dialogDeleteUser: false,
       dialogUnsubscribe: false,
       dialogSubscribe: false,
+      dialogSoldout: false,
+      dialogGuestSoldout: false,
       disabled: {
         homeAddress: false,
         editHomeAddress: false,
@@ -940,6 +942,12 @@ export default new Vuex.Store({
     },
     setCheckoutSnackbar(state, payload){
         state.checkoutSnackbar = payload
+    },
+    setDialogSoldout(state, payload){
+        state.dialogSoldout = payload
+    },
+    setDialogGuestSoldout(state, payload){
+        state.dialogGuestSoldout = payload
     },
     setLinkSentSnackbar(state, payload){
         state.linkSentSnackbar = payload

@@ -239,7 +239,7 @@ export const coupon = {
                     allerror = error.response.data.errors
                     commit('setAllErrors', allerror)
                     commit('setCouponDisabled', true);
-                    console.log('error', allerror)
+                    // console.log('error', allerror)
                 })
         },
         async storeCouponData({state, commit}, payload){

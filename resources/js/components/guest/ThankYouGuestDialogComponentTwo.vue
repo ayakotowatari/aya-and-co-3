@@ -7,9 +7,9 @@
                         <div v-if="$i18n.locale == 'ja'" class="dialog-title grey--text text--darken-4">{{guest.name}}様</div>
                         <div v-else class="dialog-title grey--text text--darken-4">Dear {{guest.name}},</div>
                     </v-card-title>
-                    <v-card-text v-html="$t('checkout.thank_guest')"></v-card-text>
+                    <v-card-text v-html="$t('checkout.thanks')"></v-card-text>
                     <v-card-text>
-                        {{$t('checkout.guest_signup')}}
+                        {{$t('checkout.guest.signup')}}
                     </v-card-text>
                     <!-- <v-card-subtitle>
                         <p>{{ event.date }}</p>

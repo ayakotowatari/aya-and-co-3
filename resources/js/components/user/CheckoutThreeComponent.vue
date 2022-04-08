@@ -181,6 +181,8 @@ export default {
             cardCvcError: null,
             expired_card: null,
             message: "",
+            errors: [],
+            errorMessage:'',
             customer: {
                 name: '',
                 email: '',
@@ -453,9 +455,24 @@ export default {
                 this.paymentProcessing = false;
                 this.loading = false;
                 //console.log(error);
-                this.message = error.response.data.message;
-                this.$store.commit('setCheckoutErrorMessage', this.message);
-                this.$store.commit('setCheckoutSnackbar', true);
+
+                this.errors = error.response.data.errors;
+                console.log('errors', this.errors)
+                this.errorMessage = error.response.data.message;
+
+                if(this.errors){
+                    // this.message = this.errors.message;
+                    // this.$store.commit('setSoldOutMessage', this.message);
+                    this.$store.commit('setDialogSoldout', true);
+                }else{
+                    this.message = this.errorMessage;
+                    this.$store.commit('setCheckoutErrorMessage', this.message);
+                    this.$store.commit('setCheckoutSnackbar', true);
+                }
+
+                // this.message = error.response.data.message;
+                // this.$store.commit('setCheckoutErrorMessage', this.message);
+                // this.$store.commit('setCheckoutSnackbar', true);
             })
         },
     },

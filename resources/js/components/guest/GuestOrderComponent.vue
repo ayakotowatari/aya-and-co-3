@@ -3,6 +3,10 @@
         <checkoutsnackbar-component
             v-bind:checkoutError="checkoutError"
         ></checkoutsnackbar-component>
+        <guestsoldoutdialog-component
+            v-bind:dialogGuestSoldout="dialogGuestSoldout"
+            v-bind:guest='guest'
+        ></guestsoldoutdialog-component>
         <thankyouguest-component
             v-bind:dialogThankYouGuest='dialogThankYouGuest'
             v-bind:guest='guest'
@@ -274,6 +278,7 @@ export default {
             'disableContinue1',
             'disableContinue2',
             'checkoutError',
+            'dialogGuestSoldout',
             'dialogThankYouGuest',
             'guest',
             'cart',

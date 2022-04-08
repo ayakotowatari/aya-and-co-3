@@ -3,6 +3,10 @@
         <checkoutsnackbar-component
             v-bind:checkoutError="checkoutError"
         ></checkoutsnackbar-component>
+        <soldoutdialog-component
+            v-bind:dialogSoldout="dialogSoldout"
+            v-bind:user='user'
+        ></soldoutdialog-component>
         <thankyou-component
             v-bind:dialogThankYou='dialogThankYou'
             v-bind:user='user'
@@ -253,6 +257,7 @@ export default {
             'deliveryAddress',
             'cart',
             'checkoutError',
+            'dialogSoldout',
             'dialogThankYou',
             'user'
         ])
