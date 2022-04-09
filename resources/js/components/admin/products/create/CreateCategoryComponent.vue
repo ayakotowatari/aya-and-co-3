@@ -122,7 +122,7 @@ export default {
             description: '',
             descriptionRules: [
                 v => !!v || '説明文を入力してください。',
-                v => v.length == 800 || '800字以内で入力してください。'
+                v => v.length == 1000 || '1000字以内で入力してください。'
             ],
             season: '',
             seasonRules: [

@@ -38,7 +38,7 @@ export default {
         return {
             valid: true,
             description: "",
-            textareaRules: [v => v.length <= 800 || 'Max 800 characters'],
+            textareaRules: [v => v.length <=   1000 || 'Max 1000 characters'],
         }
     },
     mounted(){
