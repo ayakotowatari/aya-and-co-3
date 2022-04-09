@@ -284,6 +284,12 @@
                     <div class="item-content">
                         <p>{{$t('product.limit')}}</p>
                     </div>
+                    <div class="item-content">
+                        <p>{{$t('product.loaf.lead')}}</p>
+                    </div>
+                    <div class="item-content">
+                        <p>{{$t('product.loaf.main')}}</p>
+                    </div>
                 </div>
                 <v-row>
                     <v-col cols="12" sm="12" md="12">
