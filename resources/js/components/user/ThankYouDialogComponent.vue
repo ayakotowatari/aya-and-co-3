@@ -7,7 +7,7 @@
                         <div v-if="$i18n.locale == 'ja'" class="dialog-title grey--text text--darken-4">{{user.name}}様</div>
                         <div v-else class="dialog-title grey--text text--darken-4">Dear {{user.name}},</div>
                     </v-card-title>
-                    <v-card-text v-html="$t('checkout.thanks')" class="jp-font-400"></v-card-text>
+                    <v-card-text v-html="$t('checkout.thanks_loaf')" class="jp-font-400"></v-card-text>
                     <!-- <v-card-subtitle>
                         <p>{{ event.date }}</p>
                         <p>{{ event.title }}</p>

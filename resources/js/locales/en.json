@@ -263,6 +263,7 @@
     "pay": "Process Payment",
     "soldout": "So sorry. The product in your cart has just sold out and we stopped processing your payment. It will be great if you can keep an eye on our new products. Thank you so much for your support.",
     "thanks": "Thank you so much for your order! Your product will be shipped within one week.",
+    "thanks_loaf": "Thank you so much for your order! Your product will be shipped on Sunday 24 April 2022.",
     "guest": {
       "signup": "We will be thrilled if you sign up with us now so that we can keep you updated on our products and you can get your coupon code for your second purchase.",
       "soldout": "So sorry. The product in your cart has just sold out and we stopped processing your payment. It will be great if you can keep an eye on our new products. Thank you so much for your support."
