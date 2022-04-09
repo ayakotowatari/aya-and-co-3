@@ -158,7 +158,11 @@
     "current": {
       "lead": "We are working hard to get our products ready. Our next products will be ready around the end of March 2022."
     },
-    "limit": "Due to limited availability, we have one item per customer policy for this product."
+    "limit": "Due to limited availability, we have one item per customer policy for this product.",
+    "loaf": {
+      "lead": "Please note the following when placing an order.",
+      "main": "1. This item will be produced and shipped on Sunday 24 April, 2022. Delivery will take one day for Tokyo and Osaka areas, and two days for Kyushu area. Please receive your order as soon as possible. <br> 2. The product is best before five days from the date of production. "
+    }
   },
 
   "shipping": {
