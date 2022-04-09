@@ -281,7 +281,25 @@
                             <div class="mb-8">
                                 <div class="mb-8">
                                 <h4 class="jp-font grey--text text--darken-3 mb-4">画像</h4>
+                                <div v-if="category.absolute_path !== null" class="mb-10">
+                                    <v-img
+                                        max-width=240
+                                        :src="category.absolute_path"
+                                    >
+                                    </v-img>
+                                </div>
+                                <div class="jp-font-400 mb-2" v-if="category.absolute_path === null">
+                                    未設定
+                                </div>
                                 <div>
+                                    <v-btn
+                                        color="primary"
+                                        outlined
+                                        @click="updateImage"
+                                        class="mb-2"
+                                    >更新</v-btn>
+                                </div>
+                                <div v-if="showEditImage == true">
                                     <editimage-component
                                         v-bind:category="category"
                                     ></editimage-component>
@@ -329,6 +347,7 @@ export default {
             'showEditIngredients',
             'showEditIngredientsEn',
             'showUpdateCategoryStatus',
+            'showEditImage',
             // 'dialogShipment',
             // 'dialogUpdateShipment',
             // 'dialogUpdateStatus',
@@ -434,7 +453,11 @@ export default {
             }
         },
         updateImage(){
-
+            if(this.showEditImage == false){
+                this.$store.commit('admin/setShowEditImage', true);
+            }else{
+                this.$store.commit('admin/setShowEditImage', false);
+            }
         },
         updateStatus(){
 

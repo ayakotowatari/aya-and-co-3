@@ -933,7 +933,7 @@ export const admin = {
 
             // let newImage = "";
             // let absolutePath = "";
-            let category={};
+            let newImage='';
             let allerror = [];
 
             let data = new FormData();
@@ -949,9 +949,9 @@ export const admin = {
                     // absolutePath = response.data.absolute_path;
                     // console.log('image', newImage);
                     // console.log('absolute', absolutePath);
-                    category = response.data.category;
+                    newImage = response.data.image;
                     // commit('setCategoryImage', newImage);
-                    commit('setCategory', category);
+                    commit('setCategoryImage', newImage);
                     commit('setShowEditImage', false);
                 })
                 .catch(error => {
