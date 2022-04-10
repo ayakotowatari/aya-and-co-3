@@ -59,6 +59,10 @@ body {
 td.align-right{
     text-align: right;
 }
+.mail-link{
+    text-decoration: none;
+    color: #FE6862;
+}
 
 @media screen and (max-width:768px){
     /* body{
@@ -192,13 +196,14 @@ td.align-right{
         <div class="mb20">
             <p>
                 メールアドレス:<br>
-                ayaandco.info@gmail.com
+                <a href="mailto:ayaandco.info@gmail.com" class="mail-link">ayaandco.info@gmail.com</a> 
             </p>
         </div>
         <div class="mb20">
             <p>
                 ウェブサイト:<br>
-                https://www.ayaandco.com
+                <a href="https://www.ayaandco.com" class="mail-link" target="_blank">https://www.ayaandco.com</a> 
+            </p>
             </p>
         </div>
         <div class="mb20">
@@ -211,8 +216,8 @@ td.align-right{
             </p>
         </div>
         <div class="mb20">
-            <p>LINE公式アカウント:<br>
-               https://lin.ee/1RJJ9C3
+            <p>
+                <a href="https://lin.ee/1RJJ9C3" class="mail-link" target="_blank">LINE公式アカウント</a>
             </p>
         </div>
     </div>

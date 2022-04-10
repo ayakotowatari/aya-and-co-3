@@ -9,6 +9,7 @@ use Laravel\Cashier\Billable;
 use Illuminate\Database\Eloquent\SoftDeletes;	//追記
 
 use App\Notifications\OrderNotify;
+use App\Notifications\OrderNotifyEng;
 use App\Notifications\PasswordResetNotification;
 
 class User extends Authenticatable
@@ -72,6 +73,10 @@ class User extends Authenticatable
     //notifications
     public function sendOrderNotify($user, $order){
         $this->notify(new OrderNotify($user, $order));
+    }
+
+    public function sendOrderNotifyEng($user, $order){
+        $this->notify(new OrderNotifyEng($user, $order));
     }
 
     //new password reset notification

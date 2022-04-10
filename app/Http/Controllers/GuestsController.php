@@ -42,6 +42,7 @@ class GuestsController extends Controller
             "address_1" => 'required',
             "phone" => 'required',
             'email' => 'required',
+            'lang' => 'required'
             // "delivery_time" => 'required'
         ]);
 
@@ -63,6 +64,7 @@ class GuestsController extends Controller
         $guest->building = request('building');
         $guest->phone = request('phone');
         $guest->email = request('email');
+        $guest->lang = request('lang');
         // $guest->delivery_time = request('delivery_time');
 
         $guest->save();
@@ -337,7 +339,13 @@ public function orderConfirm (Request $request)
 
     // DD($orderObject);
 
-    $guest->sendGuestOrderNotify($guest, $order);
+    if($guest->lang !== 'en'){
+        $guest->sendGuestOrderNotify($guest, $order);
+    }else{
+        $guest->sendGuestOrderNotifyEng($guest, $order);
+    }
+
+    
 
 }
 

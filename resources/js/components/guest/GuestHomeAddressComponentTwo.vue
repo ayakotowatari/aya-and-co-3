@@ -258,6 +258,8 @@ export default {
         ]),
         add(){
 
+            let lang = this.$i18n.locale;
+
             if(this.$refs.form.validate()){
                 this.addGuest({
                     type: 0,
@@ -270,6 +272,7 @@ export default {
                     building: this.building,
                     phone: this.phone,
                     email: this.email,
+                    lang: lang
                     // delivery_time: this.deliveryTime
                 })
             }

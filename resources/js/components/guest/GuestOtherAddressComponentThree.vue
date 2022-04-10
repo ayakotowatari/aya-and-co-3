@@ -390,6 +390,8 @@ export default {
 
             if(this.$refs.form1.validate() && this.$refs.form2.validate()){
 
+                let lang = this.$i18n.locale;
+
                 let deliveryAddress = {
                     name: this.deliveryName,
                     kana: this.deliveryKana,
@@ -414,6 +416,7 @@ export default {
                     building: this.building,
                     phone: this.phone,
                     email: this.email,
+                    lang: lang
                 })
             }
         },

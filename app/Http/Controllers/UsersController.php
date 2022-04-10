@@ -587,7 +587,7 @@ public function purchase(Request $request){
     
 }
 
-    public function orderConfirm (Request $request)
+public function orderConfirm (Request $request)
     {
         $user = Auth::user();
 
@@ -613,8 +613,12 @@ public function purchase(Request $request){
         // }
 
         // DD($orderObject);
-
-        $user->sendOrderNotify($user, $order);
+        if($user->lang !== 'en'){
+            $user->sendOrderNotify($user, $order);
+        }else{
+            $user->sendOrderNotifyEng($user, $order);
+        }
+        
 
     }
 

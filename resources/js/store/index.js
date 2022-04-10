@@ -1341,6 +1341,7 @@ export default new Vuex.Store({
             building: payload.building,
             phone: payload.phone,
             email: payload.email,
+            lang: payload.lang
             // delivery_time: payload.delivery_time
         })
         .then(res => {
@@ -1383,6 +1384,7 @@ export default new Vuex.Store({
             building: payload.building,
             phone: payload.phone,
             email: payload.email,
+            lang: payload.lang
         })
         .then(res => {
             //console.log(res)

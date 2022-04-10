@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
 
 use App\Notifications\GuestOrderNotify;
+use App\Notifications\GuestOrderNotifyEng;
 
 class Guest extends Model
 {
@@ -29,6 +30,10 @@ class Guest extends Model
 
     public function sendGuestOrderNotify($guest, $order){
         $this->notify(new GuestOrderNotify($guest, $order));
+    }
+
+    public function sendGuestOrderNotifyEng($guest, $order){
+        $this->notify(new GuestOrderNotifyEng($guest, $order));
     }
 
 

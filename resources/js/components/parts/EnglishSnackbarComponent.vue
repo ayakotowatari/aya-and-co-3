@@ -28,8 +28,8 @@ export default {
         return {
             message: "Good news! You can now place an order in English on our website for delivery in Japan. We are in the process of translation and some pages and functions are still in Japanese only. Please bear with us for another few weeks before we complete the process! Thank you for your patience.",
             vertical: true,
-            timeout: -1,
-            // timeout: 5000,
+            // timeout: -1,
+            timeout: 6000,
         }
     },
     mounted(){
