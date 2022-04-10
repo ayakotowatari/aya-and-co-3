@@ -330,6 +330,65 @@
     "p5": "An additional bonus is that you will enjoy the natural scent from the wooden threads when you open the package. "
   },
 
+  "terms": {
+    "business": {
+      "lead": "Business name",
+      "content": "aya & co."
+    },
+    "owner": {
+      "lead": "Manager",
+      "content": "Ayako Ueda"
+    },
+    "address": {
+      "lead": "Address",
+      "content": "1-6-1-505, Arima, Miyamae-ku, Kawasaki, Kanagawa, 216-0003, Japan"
+    },
+    "qualification": {
+      "lead": "Qualification",
+      "content": "Food Hygiene Manager (Shokuhin-eisei-sekininsha)"
+    },
+    "price": {
+      "lead": "Price",
+      "content": "The price of each product is shown on the product page. "
+    },
+    "others": {
+      "lead": "Other price"
+    },
+    "courier": {
+      "lead": "Courier",
+      "content": "Yamato Transport Co., Ltd"
+    },
+    "shipment": {
+      "lead": "When will my order be shipped?",
+      "content": "We do our best to ship your order within one week of your purchase unless otherwise stated on the product page. If it is likely to be delayed, we will notify you by email."
+    },
+    "time": {
+      "lead": "Can I specify what time I would like to receive the delivery?",
+      "content": "You can specify what time you receive the delivery when you place an order."
+    },
+    "payment": {
+      "lead": "Payment method",
+      "content": "We accept credit card payment only."
+    },
+    "return": {
+      "lead": "Return policy",
+      "lead1": "1. When can I return items?",
+      "content1": "We maintain our products at a high standard. Please open your parcel as soon as it is delivered.",
+      "content2": "If your products are damaged during shipment, please notify us by email within seven days after your order was delivered. Please keep the confirmation of shipment once you return the products to us.",
+      "lead2": "2. Can I return or exchange items for personal reasons?",
+      "content3": "You cannot return or exchange items for personal reasons. We will not be able to accept returns after you open the package and taste the products.",
+      "lead3": "3. How can I return items when I received wrong or damaged items?",
+      "content4": "We will re-send and/or exchange the items at our costs if we shipped the wrong items, or the products are faulty, or they are damaged during shipment. We will notify and refund you if the products you ordered are no longer available."
+    },
+    "contact": {
+      "lead": "Contact"
+    }
+  },
+
+  "about": {
+    "contact": "Please contact by this <a href='https://forms.gle/kSJ8nj9ennqwvvai8' target='_blank' rel='noopener noreferrer'>enquiry form</a> or adding my <a href='https://lin.ee/1RJJ9C3' target='_blank' rel='noopener noreferrer'>official LINE account</a>."
+  },
+
   "privacy": {
     "lead": "aya & co. (hereafter referred to as 'we' or 'us') takes the protection of personal information seriously and ensures that we have established a policy on the protection of personal information for the services provided on this website (hereafter referred to as 'the Service'). We will protect personal information by establishing a system for its protection and by ensuring that the importance of such protection is fully recognized and addressed. ",
     "a1": {

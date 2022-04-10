@@ -4,7 +4,7 @@
             <v-col cols="12" sm="12" md="12">
                 <div class="heading-group">
                     <div class="page-heading">
-                        Policy
+                        Terms & Conditions
                     </div>
                     <div class="page-subtitle grey--text text--darken-3">
                         特定商取引法に基づく表記
@@ -19,123 +19,130 @@
             <v-col cols="12" sm="12" md="8">
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        事業者
+                        {{ $t('terms.business.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3">
-                        aya & co.（アヤアンドコー）
+                        {{ $t('terms.business.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        責任者
+                        {{ $t('terms.owner.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3">
-                        上田文子
+                        {{ $t('terms.owner.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        住所
+                        {{ $t('terms.address.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3">
-                        神奈川県川崎市宮前区有馬1-6-1-505
+                        {{ $t('terms.address.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        資格
+                        {{ $t('terms.qualification.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3">
-                        食品衛生責任者
+                        {{ $t('terms.qualification.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        商品の価格
+                        {{ $t('terms.price.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3">
-                        各商品ページにて表示しております。
+                         {{ $t('terms.price.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        商品代金以外の付帯費用
+                        {{ $t('terms.others.lead') }}
                     </div>
-                    <div class="item-title line-height grey--text text--darken-3">
+                    <div v-if="$i18n.locale=='ja'" class="item-title line-height grey--text text--darken-3">
                         送料<br>
                         ヤマト運輸の運賃によります。詳しくは、<router-link to="/postage">送料のページ</router-link>をご覧ください。
                     </div>
+                     <div v-else class="item-title line-height grey--text text--darken-3">
+                        Postage<br>
+                        Postages are set by our courier, Yamato. For more detail, please see <router-link to="/postage">Shipping & Postage</router-link>.
+                    </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        運送業者
+                        {{ $t('terms.courier.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3">
-                        ヤマト運輸
+                        {{ $t('terms.courier.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        商品発送時期
+                        {{ $t('terms.shipment.lead') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
-                        通常は、ご注文より1週間以内に発送いたします。これよりも遅れる場合は、別途、お客様までメールでご連絡いたします。
+                        {{ $t('terms.shipment.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        時間指定の有無
+                        {{ $t('terms.time.lead') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
-                        配達時間のご希望を、ご注文のお手続きのなかでご指定いただけます。
+                        {{ $t('terms.time.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        お支払い方法
+                        {{ $t('terms.payment.lead') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
-                        クレジットカードでのお支払いとなります。
+                        {{ $t('terms.payment.content') }}
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        返品
+                        {{ $t('terms.return.lead') }}
                     </div>
                     <div class="item-title grey--text text--darken-3 mb-2">
-                        ①返品・交換時期
+                        {{ $t('terms.return.lead1') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3 mb-6">
                         <p>
-                            商品の品質につきましては徹底した管理のもとお届けしております。お届けした商品は、到着後すぐにご開封ください。
+                            {{ $t('terms.return.content1') }}
                         </p>
                         <p>
-                            万一配送中の事故で破損や汚損などがあった場合は、商品到着後、7日以内に下記メールアドレスまでご連絡ください。商品の返品後は、必ずお手元に送り状の控えを保管しておいてください。
-                        </p>
-                    </div>
-                    <div class="item-title grey--text text--darken-3 mb-2">
-                        ②お客様都合の場合
-                    </div>
-                    <div class="item-title line-height grey--text text--darken-3 mb-6">
-                        <p>
-                            返品・交換はできません。また、ご賞味後の返品はご遠慮願います。
+                            {{ $t('terms.return.content2') }}
                         </p>
                     </div>
                     <div class="item-title grey--text text--darken-3 mb-2">
-                        ③商品不備等の場合
+                        {{ $t('terms.return.lead2') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3 mb-6">
                         <p>
-                            弊社手違いによる商品のお届け間違い、商品の不備、配送途中の事故などによる欠損等があった場合は、返品送料・再発送料等、手数料は弊社負担でお取り替えいたします。なお、同じ商品の再発送が困難な場合は、お客様にご連絡の上、代金を返金させていただきます。
+                            {{ $t('terms.return.content3') }}
+                        </p>
+                    </div>
+                    <div class="item-title grey--text text--darken-3 mb-2">
+                        {{ $t('terms.return.lead3') }}
+                    </div>
+                    <div class="item-title line-height grey--text text--darken-3 mb-6">
+                        <p>
+                            {{ $t('terms.return.content4') }}
                         </p>
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="item-content policy-title">
-                        お問い合わせ
+                        {{ $t('terms.contact.lead') }}
                     </div>
-                    <div class="item-title grey--text text--darken-3">
+                    <div v-if="$i18n.locale=='ja'" class="item-title grey--text text--darken-3">
                         <router-link to="/contact">お問い合わせフォーム</router-link>をご利用ください。
+                    </div>
+                    <div v-else class="item-title grey--text text--darken-3">
+                        Please contact us by <router-link to="/contact">Contact Form</router-link>.
                     </div>
                 </div>
                 

@@ -44,13 +44,13 @@
                     <v-col cols="12" sm="12" md="10">
                         <div class="name">
                             <span class="jobtitle">Founder</span><br>
-                            Ayako Towatari Ueda
+                            Ayako Ueda
                         </div>
                     </v-col>
                 </v-row>
                 
                 
-                <div class="jp-serif-400-16 grey--text text--darken-2 mb-6">
+                <div v-if="$i18n.locale == 'ja'" class="jp-serif-400-16 grey--text text--darken-2 mb-6">
                     <p>
                         マーマレードのレシピが初めて歴史上にあらわれるのは、<br class="lg">1677年ごろのことだそうです。
                     </p>
@@ -77,6 +77,31 @@
                         こうして、aya & co.として、Little Black Jarsをスタートさせました。
                     </p>
                 </div>
+                <div v-else class="jp-serif-400-16 grey--text text--darken-2 mb-6">
+                    <p>
+                        There is something emotional and beautiful about marmalade making.
+                    </p>
+                    <p>
+                        It is emotional because, for me, it reminds me of my days in Britain. It connects me with one summer in Oxford when I was a student and the moment when my host father in the family I stayed with proudly introduced an "Oxford" marmalade jar to me. Its taste and look were so different from what I had known in Japan that I brought one back home, and my mother fell in love with it. Since then, a few jars of marmalades had always travelled with me between Japan and Britain. 
+                    </p>
+                    <p>
+                        I found marmalade making beautiful because of the idea that it appreciates the entire fruit of citruses, from pips and pulps to skins and juice. Absolutely no waste. Every bit of the fruit contributes to a gorgeous jar of preserves. It never fails to amaze me and make me feel good and happy. 
+                    </p>
+                    <p>
+                        So when I took a career break a few years ago (I left a British organisation in Tokyo where I had worked for more than ten years), I decided to start a small business focusing on marmalade making. The idea and act of turning distinctively Japanese citrus fruits into authentic marmalades through British recipes enchanted me. Something that emotionally connects me with Britain and makes me feel good and happy.
+                    </p>
+                    <p>
+                        In the meantime, I studied web design and development skills to create this website where my customers can purchase seasonal jars directly from me. Encouraged by my British friend, I also ventured into a translation of my Japanese site to English. This project is yet to complete as of April 2022, and you will find some parts still not readable, but I am now happy to welcome English-speaking customers to my online store. 
+                    </p>
+                    <p>
+                        I hope that the marmalades I create will bring you moments of happiness! 
+                    </p>
+                    <p>
+                        With love,<br>
+                        Ayako
+                    </p>
+
+                </div>
                 <div class="divider-image bird-image">
                     <v-img
                         max-width=120
@@ -85,32 +110,31 @@
                     ></v-img>
                 </div>
                 <div>
-                    <div class="jobtitle mb-2">Profile</div>
-                    <div class="jp-sanserif-400-14 mb-8">
-                        <p>
-                            早稲田大学第一文学部卒業、ロンドン大学歴史学研究所研究修士号<br>
-                            2006-2008年、大阪大学大学院文学研究科助教を経て、<br>
-                            2009-2019年、英国の公的な国際文化交流機関ブリティッシュ・カウンシルで<br>
-                            日本とイギリスを繋ぐ教育・研究事業のプロジェクトマネージャーを務める。<br>
-                            2019年、デジタルハリウッドのStudio渋谷にてWebデザインを、<br>
-                            2020年、ジーズアカデミーでプログラミングを学ぶ。<br>
-                            2021年、aya & co.を創業。
-                            <br>
-                        </p>
-                    </div>
-                    <div class="jobtitle mb-2">Works</div>
-                    <div class="jp-sanserif-400-14 mb-8">
-                        <p>
-                            マーマレード・ジャムの製作と販売<br>
-                            ウェブサイトのデザインと制作<br>
-                        </p>
+                    <div v-if="$i18n.locale == 'ja'">
+                        <div class="jobtitle mb-2">Profile</div>
+                        <div class="jp-sanserif-400-14 mb-8">
+                            <p>
+                                早稲田大学第一文学部卒業、ロンドン大学歴史学研究所研究修士号<br>
+                                2006-2008年、大阪大学大学院文学研究科助教を経て、<br>
+                                2009-2019年、英国の公的な国際文化交流機関ブリティッシュ・カウンシルで<br>
+                                日本とイギリスを繋ぐ教育・研究事業のプロジェクトマネージャーを務める。<br>
+                                2019年、デジタルハリウッドのStudio渋谷にてWebデザインを、<br>
+                                2020年、ジーズアカデミーでプログラミングを学ぶ。<br>
+                                2021年、aya & co.を創業。
+                                <br>
+                            </p>
+                        </div>
+                        <div class="jobtitle mb-2">Works</div>
+                        <div class="jp-sanserif-400-14 mb-8">
+                            <p>
+                                マーマレード・ジャムの製作と販売<br>
+                                ウェブサイトのデザインと制作<br>
+                            </p>
+                        </div>
                     </div>
                     <div class="jobtitle mb-2">Contact</div>
                     <div class="jp-sanserif-400-14 mb-10">
-                        <p>
-                            お問い合わせは、<a href="https://forms.gle/kSJ8nj9ennqwvvai8" target="_blank" rel="noopener noreferrer">メールフォーム</a>、
-                            もしくは<a href="https://lin.ee/1RJJ9C3" target="_blank" rel="noopener noreferrer">LINE公式アカウント</a>よりお願いいたします。
-                        </p>
+                        <p v-html="$t('about.contact')" ></p>
                     </div>
                     <div class="jobtitle mb-8">
                         <p>
@@ -181,7 +205,6 @@ export default {
 
 .jp-sanserif-400-14{
     line-height: 1.5;
-    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 14px;
