@@ -320,6 +320,39 @@
     "unit": " Qty"
   },
 
+  "edit": {
+    "name": "Full Name",
+    "btn": "edit",
+    "address": "Addess & Phone",
+    "email": {
+      "email": "Email",
+      "new_email": "New Email",
+      "confirm_new_email": "Confirm New Email"
+    },
+    "password": {
+      "password": "Password",
+      "new_password": "New Password",
+      "confirm_new_password": "Confirm New Password"
+    },
+    "subscription": {
+      "subscription": "Unsubscribe from Emails",
+      "restart": "Subscribe to Emails",
+      "stop": "unsubscribe",
+      "message": "You have unsubscribed from emails.",
+      "line1": "If you subscribe to emails, you will receive information about our products and coupons by email.",
+      "line2": "Are you sure you want to subscribe to emails?",
+      "btn_restart": "subscribe",
+      "line3": "If you unsubscribe from emails, you will no longer receive information about our products or coupons by email. Please note that you will still receive emails which aya & co. needs to send to all customers for administrative purposes.",
+      "line4": "Are you sure you want to unsubscribe from emails?"
+    },
+    "account": "Delete Account",
+    "delete": {
+      "btn": "delete",
+      "line1": "Once you deleted your account, your address details will be removed and you will no longer have access to your order history.",
+      "line2": "Are you sure you want to delete your account?"
+    }
+  },
+
   "sustainability": {
     "lead": "Learn about how we make our effort to achieve sustainable packaging.",
     "title": "Natural Packaging",

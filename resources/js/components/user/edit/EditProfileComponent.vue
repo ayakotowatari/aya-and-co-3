@@ -20,10 +20,13 @@
                 <v-col cols="12" sm="12" md="8">
                         <div class="mb-6">
                             <div class="item-content policy-title mb-3">
-                                名前（フリガナ）
+                                {{ $t('edit.name') }}
                             </div>
-                            <div class="item-title grey--text text--darken-3 mb-3">
-                                {{ user.name }}（{{ user.kana }}）
+                            <div v-if="$i18n.locale == 'ja'" class="item-title grey--text text--darken-3 mb-3">
+                                {{ user.name }}（{{ user.kana }}）様
+                            </div>
+                            <div v-else class="item-title grey--text text--darken-3 mb-3">
+                                {{ user.name }}
                             </div>
                             <div>
                                 <v-btn
@@ -32,7 +35,7 @@
                                     v-if="!isEditingName"
                                     @click="$store.commit('setIsEditingName', true)"
                                 >
-                                    編集
+                                    {{ $t('edit.btn')}}
                                 </v-btn>
                             </div>
                             <div v-if="isEditingName">
@@ -46,7 +49,7 @@
 
                         <div class="mb-6">
                             <div class="item-content policy-title mb-3">
-                                住所・電話番号
+                                {{ $t('edit.address') }}
                             </div>
                             <div class="mb-3">
                                 <div class="mb-2">
@@ -68,7 +71,7 @@
                                     v-if="!isEditingAddress"
                                     @click="$store.commit('setIsEditingAddress', true)"
                                 >
-                                    編集
+                                    {{ $t('edit.btn')}}
                                 </v-btn>
                             </div>
                             <div v-if="isEditingAddress">
@@ -82,7 +85,7 @@
 
                         <div class="mb-6">
                             <div class="item-content policy-title mb-3">
-                                メールアドレス
+                                {{ $t('edit.email.email') }}
                             </div>
                             <div class="item-title grey--text text--darken-3 mb-3">
                                 {{ user.email }}
@@ -94,7 +97,7 @@
                                     v-if="!isEditingEmail"
                                     @click="$store.commit('setIsEditingEmail', true)"
                                 >
-                                    編集
+                                    {{ $t('edit.btn')}}
                                 </v-btn>
                             </div>
                             <div v-if="isEditingEmail">
@@ -108,7 +111,7 @@
 
                         <div class="mb-6">
                             <div class="item-content policy-title mb-3">
-                                パスワード
+                                {{ $t('edit.password.password')}}
                             </div>
                             <div class="item-title grey--text text--darken-3 mb-3">
                                 ********
@@ -120,7 +123,7 @@
                                     v-if="!isEditingPassword"
                                     @click="$store.commit('setIsEditingPassword', true)"
                                 >
-                                    編集
+                                    {{ $t('edit.btn')}}
                                 </v-btn>
                             </div>
                             <div v-if="isEditingPassword">
@@ -135,7 +138,7 @@
                         <div class="mb-6">
                             <div v-if="user.unsubscribe !== 1">
                                 <div class="item-content policy-title mb-3">
-                                    メール配信の停止
+                                    {{ $t('edit.subscription.subscription')}}
                                 </div>
                                 <div>
                                     <v-btn
@@ -143,13 +146,13 @@
                                         outlined
                                         @click="$store.commit('setDialogUnsubscribe', true)"
                                     >
-                                        停止する
+                                        {{ $t('edit.subscription.stop')}}
                                     </v-btn>
                                 </div>
                             </div>
                             <div v-else>
                                 <div class="item-title grey--text text--darken-3 mb-3">
-                                    メール配信は停止されています。
+                                    {{ $t('edit.subscription.message')}}
                                 </div>
                                 <div>
                                     <v-btn
@@ -157,7 +160,7 @@
                                         outlined
                                         @click="$store.commit('setDialogSubscribe', true)"
                                     >
-                                        メール配信の再開
+                                        {{ $t('edit.subscription.restart')}}
                                     </v-btn>
                                 </div>
                             </div>
@@ -180,7 +183,7 @@
 
                         <div class="mb-6">
                             <div class="item-content policy-title mb-3">
-                                アカウントの削除
+                                {{ $t('edit.account')}}
                             </div>
                             <div>
                                 <v-btn
@@ -188,7 +191,7 @@
                                     outlined
                                     @click="$store.commit('setDialogDeleteUser', true)"
                                 >
-                                    削除する
+                                    {{ $t('edit.delete.btn')}}
                                 </v-btn>
                             </div>
                         </div>

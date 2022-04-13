@@ -8,10 +8,10 @@
             <v-col cols="12" sm="12" md="6">
                 <v-text-field
                     v-model="zipcode"
-                    label="郵便番号"
+                    :label="$t('register.zipcode')"
                     outlined
                     required
-                    hint="ハイフンなしでご記入ください。例: 1234567"
+                    :hint="$t('register.hint_zipcode')"
                     persistent-hint
                     :rules="zipcodeRules"
                     :error="allerror.zipcode ? true : false"
@@ -19,7 +19,7 @@
                 ></v-text-field>
                 <v-text-field
                     v-model="state"
-                    label="都道府県"
+                    :label="$t('register.prefecture')"
                     outlined
                     required
                     :rules="prefectureRules"
@@ -28,7 +28,7 @@
                 ></v-text-field>
                 <v-text-field
                     v-model="city"
-                    label="市町村"
+                    :label="$t('register.city')"
                     outlined
                     required
                     :rules="cityRules"
@@ -37,7 +37,7 @@
                 ></v-text-field>
                 <v-text-field
                     v-model="address1"
-                    label="番地・部屋番号"
+                    :label="$t('register.address1')"
                     outlined
                     required
                     :rules="address1Rules"
@@ -46,12 +46,12 @@
                 ></v-text-field>
                 <v-text-field
                     v-model="building"
-                    label="マンション・建物名"
+                    :label="$t('register.building')"
                     outlined
                 ></v-text-field>
                 <v-text-field
                     v-model="phone"
-                    label="電話番号"
+                    :label="$t('register.phone')"
                     outlined
                     required
                     :rules="phoneRules"
@@ -64,14 +64,14 @@
                     @click="updateAddress"
                     class="mr-2"
                 >
-                    更新する
+                    {{ $t('btn.update_data') }}
                 </v-btn>
                 <v-btn
                     outlined
                     color="grey darken-2"
                     @click="back"
                 >
-                    戻る
+                    {{ $t('btn.back') }}
                 </v-btn>
             </v-col>
         </v-row>
@@ -89,22 +89,6 @@ export default {
         
         return {
             valid: true,
-            zipcodeRules: [
-                v => !!v || '郵便番号を入力してください。',
-                v => v.length == 7 || 'ハイフンなしで、数字7桁を入力してください。'
-            ], 
-            prefectureRules: [
-                v => !!v || '都道府県を入力してください。',
-            ],
-            cityRules: [
-                v => !!v || '市町村を入力してください。',
-            ],
-            address1Rules: [
-                v => !!v || '番地・部屋番号等を入力してください。',
-            ],
-            phoneRules: [
-                v => !!v || '電話番号を入力してください。',
-            ],
             
         }
     },
@@ -146,6 +130,32 @@ export default {
             'isEditingAddress',
             'user',
         ]),
+        zipcodeRules() {
+            return [
+                v => !!v || this.$t('register.zipcode_rule'),
+                v => v.length == 7 || this.$t('register.hint_zipcode')
+            ];
+        },
+        prefectureRules() {
+            return [
+                v => !!v || this.$t('register.prefecture_rule')
+            ];
+        },
+        cityRules() {
+            return [
+                v => !!v || this.$t('register.city_rule')
+            ];
+        },
+        address1Rules() {
+            return [
+                v => !!v || this.$t('register.address1_rule')
+            ];
+        },
+        phoneRules() {
+            return [
+                v => !!v || this.$t('register.phone_rule')
+            ];
+        },
         zipcode: {
             get(){                
                 return this.user.zipcode
@@ -219,7 +229,7 @@ export default {
         },
         back(){
             this.$store.commit('setIsEditingAddress', false)
-            this.$store.dispatch('fetchUser')
+            // this.$store.dispatch('fetchUser')
         }
 
       

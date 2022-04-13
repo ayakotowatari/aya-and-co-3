@@ -8,11 +8,12 @@
             <v-col cols="12" sm="12" md="6">
                 <v-text-field 
                     v-model="password"
-                    label="新しいパスワード" 
+                    :label="$t('edit.password.new_password')" 
                     :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                     :type="showPassword ? 'text' : 'password'"
                     outlined
                     required
+                    :hint="$t('register.hint_password')"
                     :rules="passwordRules" 
                     :error="allerror.password ? true : false"
                     :error-messages="allerror.password"
@@ -20,7 +21,7 @@
                 ></v-text-field>
                 <v-text-field 
                     v-model="password_confirmation"
-                    label="新しいパスワードの確認" 
+                    :label="$t('edit.password.confirm_new_password')"  
                     :append-icon="showPassword2 ? 'mdi-eye' : 'mdi-eye-off'"
                     :type="showPassword2 ? 'text' : 'password'"
                     outlined
@@ -36,14 +37,14 @@
                     class="mr-2"
                     @click="updatePassword"
                 >
-                    更新する
+                    {{ $t('btn.update_data') }}
                 </v-btn>
                 <v-btn
                     outlined
                     color="grey darken-2"
                     @click="backPassword"
                 >
-                    戻る
+                    {{ $t('btn.back') }}
                 </v-btn>
             </v-col>
         </v-row>
@@ -63,15 +64,7 @@ export default {
         return {
             valid: true,
             password: '',
-            passwordRules: [
-                (v) => !!v || 'パスワードを入力してください。',
-                (v) => v.length >= 8 || 'パスワードは8文字以上です。'
-            ],
             password_confirmation: '',
-            confirmPasswordRules: [
-                (v) => !!v || '確認のためパスワードを入力してください。',
-                (v) => v == this.password || 'パスワードが一致しません。'
-            ],      
             showPassword: false,
             showPassword2: false
         }
@@ -86,6 +79,18 @@ export default {
         ...mapState([
             'allerror',
         ]),
+        passwordRules(){
+            return[
+                (v) => !!v || this.$t('register.password_rule'),
+                (v) => v.length >= 8 || this.$t('register.password_rule2')
+            ];
+        },
+        confirmPasswordRules(){
+            return[
+                (v) => !!v || this.$t('register.confirmPassword_rule'),
+                (v) => v == this.password || this.$t('register.confirmPassword_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([
@@ -104,7 +109,7 @@ export default {
         backPassword(){
             this.$refs.form.reset();
             this.$store.commit('setIsEditingPassword', false)
-            this.$router.go({name: 'profile'})
+            // this.$router.go({name: 'profile'})
         }
     }
 

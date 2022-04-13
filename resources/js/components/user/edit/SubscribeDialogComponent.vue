@@ -4,14 +4,14 @@
             <v-dialog v-model="dialogSubscribe" persistent max-width="320">
                 <v-card>
                     <v-card-title >
-                        <div class="dialog-title primary--text">メール配信の再開</div>
+                        <div class="dialog-title primary--text">{{ $t('edit.subscription.restart') }}</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
                         <p>
-                            メール配信を再開すると、商品やご利用いただけるクーポンのご案内がご登録のメールアドレスまで送られます。
+                            {{ $t('edit.subscription.line1') }}
                         </p>
                         <p>
-                            メール配信を再開しますか？
+                            {{ $t('edit.subscription.line2') }}
                         </p>
                     </v-card-text>
                     <!-- <v-card-subtitle>
@@ -20,8 +20,8 @@
                     </v-card-subtitle> -->
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="subscribe">再開する</v-btn>
-                    <v-btn color="grey darken-2" text @click="back">戻る</v-btn>
+                    <v-btn color="primary" text @click="subscribe">{{ $t('edit.subscription.btn_restart') }}</v-btn>
+                    <v-btn color="grey darken-2" text @click="back">{{ $t('btn.back') }}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>

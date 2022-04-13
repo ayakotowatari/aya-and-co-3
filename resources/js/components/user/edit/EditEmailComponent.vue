@@ -8,7 +8,7 @@
             <v-col cols="12" sm="12" md="6">
                 <v-text-field
                     v-model="email"
-                    label="新しいメールアドレス" 
+                    :label="$t('edit.email.new_email')" 
                     outlined
                     required
                     :rules="emailRules"
@@ -18,7 +18,7 @@
                 </v-text-field>
                  <v-text-field
                     v-model="confirmEmail"
-                    label="新しいメールアドレスの確認" 
+                    :label="$t('edit.email.confirm_new_email')" 
                     outlined
                     required
                     :rules="confirmEmailRules" 
@@ -31,14 +31,14 @@
                     class="mr-2"
                     @click="updateEmail"
                 >
-                    更新する
+                    {{ $t('btn.update_data') }}
                 </v-btn>
                 <v-btn
                     outlined
                     color="grey darken-2"
                     @click="backEmail"
                 >
-                    戻る
+                    {{ $t('btn.back') }}
                 </v-btn>
             </v-col>
         </v-row>
@@ -58,15 +58,7 @@ export default {
         return {
             valid: true,
             email: '',
-            emailRules: [
-                (v) => !!v || 'メールを入力してください。',
-                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'メールアドレスが正しくありません。'
-            ],
-            confirmEmail: '',
-            confirmEmailRules: [
-                (v) => !!v || 'メールアドレスの確認が必要です。',
-                (v) => v == this.email || 'メールアドレスが一致していません。'
-            ],   
+            confirmEmail: '', 
         }
     },
     mounted(){
@@ -79,6 +71,18 @@ export default {
         ...mapState([
             'allerror',
         ]),
+        emailRules() {
+            return [
+                (v) => !!v || this.$t('register.email_rule'),
+                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t('register.email_rule2')
+            ];
+        },
+        confirmEmailRules() {
+            return [
+                (v) => !!v || this.$t('register.confirmEmail_rule'),
+                (v) => v == this.email || this.$t('register.confirmEmail_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([
@@ -88,15 +92,18 @@ export default {
 
             if(this.$refs.form.validate()){
                 this.updateUserEmail({
-                email: this.email,
-            })
-            }
+                 email: this.email,
+                })
+            };
+
+            this.$store.dispatch('clearError');
             
         },
         backEmail(){
-            this.$refs.form.reset();
+            // this.$refs.form.reset();
             this.$store.commit('setIsEditingEmail', false)
-            this.$router.go({name: 'profile'})
+            this.$store.dispatch('clearError');
+            // this.$router.go({name: 'profile'})
         }
     }
 

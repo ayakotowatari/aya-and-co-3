@@ -4,14 +4,14 @@
             <v-dialog v-model="dialogDeleteUser" persistent max-width="320">
                 <v-card>
                     <v-card-title >
-                        <div class="dialog-title primary--text">アカウントの削除</div>
+                        <div class="dialog-title primary--text">{{ $t('edit.account') }}</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
                         <p>
-                            アカウントを削除すると、登録された住所（ご自宅・その他）が削除され、注文履歴の閲覧ができなくなります。
+                            {{ $t('edit.delete.line1') }}
                         </p>
                         <p>
-                            アカウントを削除しますか？
+                            {{ $t('edit.delete.line2') }}
                         </p>
                     </v-card-text>
                     <!-- <v-card-subtitle>
@@ -20,8 +20,8 @@
                     </v-card-subtitle> -->
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="toDelete">削除する</v-btn>
-                    <v-btn color="grey darken-2" text @click="back">戻る</v-btn>
+                    <v-btn color="primary" text @click="toDelete">{{ $t('edit.delete.btn') }}</v-btn>
+                    <v-btn color="grey darken-2" text @click="back">{{ $t('btn.back') }}</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>

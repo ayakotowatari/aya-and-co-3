@@ -792,6 +792,9 @@ export default new Vuex.Store({
     updateCart(state, cart) {
         state.cart = cart;
     },
+    updateError(state, error){
+        state.allerror = error;
+    },
     setOrders(state, payload){
         state.orders = payload
     },
@@ -1276,6 +1279,9 @@ export default new Vuex.Store({
             // console.log(payload);
         });
 
+    },
+    clearError({commit}) {
+        commit('updateError', []);
     },
     clearCart({commit}) {
         commit('updateCart', []);

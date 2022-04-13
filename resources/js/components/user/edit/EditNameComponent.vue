@@ -8,7 +8,7 @@
             <v-col cols="12" sm="12" md="6">
                 <v-text-field
                     v-model="name"
-                    label="お名前" 
+                    :label="$t('register.name')"
                     outlined
                     required
                     :rules="nameRules"
@@ -17,8 +17,9 @@
                 >
                 </v-text-field>
                 <v-text-field
+                    v-if="$i18n.locale == 'ja'"
                     v-model="kana"
-                    label="フリガナ" 
+                    :label="$t('register.kana')" 
                     outlined
                     required
                     :rules="nameRules"
@@ -32,14 +33,14 @@
                     class="mr-2"
                     @click="updateName"
                 >
-                    更新する
+                    {{ $t('btn.update_data') }}
                 </v-btn>
                 <v-btn
                     outlined
                     color="grey darken-2"
                     @click="back"
                 >
-                    戻る
+                    {{ $t('btn.back') }}
                 </v-btn>
             </v-col>
         </v-row>
@@ -58,12 +59,6 @@ export default {
     data: function(){
         return {
             valid: true,
-            nameRules: [
-                v => !!v || '名前の入力が必要です。',
-            ],
-            kanaRules: [
-                v => !!v || 'フリガナの入力が必要です。',
-            ],
         }
     },
     mounted(){
@@ -76,6 +71,16 @@ export default {
         ...mapState([
             'allerror',
         ]),
+        nameRules(){
+            return[
+                v => !!v || this.$t('register.name_rule')
+            ];
+        },
+        kanaRules() {
+            return [
+                v => !!v || this.$t('register.kana_rule')
+            ];
+        },
         name: {
             get(){                
                 return this.user.name
@@ -109,7 +114,7 @@ export default {
         },
         back(){
             this.$store.commit('setIsEditingName', false)
-            this.$store.dispatch('fetchUser');
+            // this.$store.dispatch('fetchUser');
         },
       
 
