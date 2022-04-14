@@ -675,11 +675,11 @@ export default {
 }
 
 .description{
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.03em; */
   line-height: 1.8;
 }
 

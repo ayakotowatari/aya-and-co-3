@@ -253,13 +253,13 @@ export default {
   color: rgba(0, 0, 0, 0.87)
 }
 
-.description{
+/* .description{
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
   letter-spacing: 0.03em;
-  /* color: #424242 */
-}
+  color: #424242
+} */
 
 .subheading{
   font-family: mrs-eaves, serif;

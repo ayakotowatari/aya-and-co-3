@@ -9,7 +9,7 @@
           <v-col cols="12" sm="12" md="12">
               <div class="heading-group">
                   <div class="page-heading">
-                    Sending a Gift 
+                    Send a Gift 
                   </div>
                   <div class="page-subtitle grey--text text--darken-3">
                     ギフトサービス
@@ -97,10 +97,7 @@
                         <p>
                             {{ $t('gift.message.line2') }}
                         </p>
-                        <p>
-                             {{ $t('gift.message.line3') }}
-                        </p>
-                        <p v-html="$t('gift.message.line4')">
+                        <p v-html="$t('gift.message.line3')">
                         </p>
                     </div>
                 </div>
@@ -119,10 +116,10 @@
                         <p>
                             {{ $t('gift.name.line1') }}
                         </p>
-                        <p>
+                        <p v-if="$i18n.locale == 'ja'">
                             {{ $t('gift.name.line2') }}
                         </p>
-                        <p>
+                        <p v-if="$i18n.locale == 'ja'">
                             {{ $t('gift.name.line3') }}
                         </p>
                     </div>
@@ -154,8 +151,18 @@
                                 target="_blank"
                                 outlined
                                 color="primary"
+                                class="mr-2 mb-2"
                             >
                             {{$t('product.line.line')}}
+                            </v-btn>
+                            <v-btn
+                                href="https://www.instagram.com/ayaandco.jp/"
+                                target="_blank"
+                                outlined
+                                color="primary"
+                                class="mb-2"
+                            >
+                            {{$t('product.line.instagram')}}
                             </v-btn>
                         </div>
                     </div>

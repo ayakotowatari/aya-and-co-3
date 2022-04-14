@@ -5,7 +5,7 @@
     "sustainability": "Sustainable Packaging",
     "products": "Products List",
     "delivery": "Shipping & Postage", 
-    "card": "Custom Card Service",
+    "card": "Send a Gift",
     "member": "Members Only",
     "summary": "Order Summary",
     "profile": "Account Details",
@@ -116,7 +116,7 @@
   },
 
   "how_to_shop": {
-      "lead": "We deliver our products to anywhere in Japan. Please enjoy your online shopping!",
+      "lead": "We ship our products to anywhere in Japan. Please enjoy your online shopping!",
       "line1": "Select your marmalades and add them to your cart.",
       "line2a": "Check ",
       "line2b": "Shipping & Postage ",
@@ -168,7 +168,7 @@
   "shipping": {
     "timing": {
       "lead": "How long does delivery take?",
-      "text": "We usually ship your order within one week after your purchase. After we ship the products, the delivery can take up to three days, depending on your location. "
+      "text": "Currently, we ship our products to addresses in Japan only. We usually ship your order within one week after your purchase. After we ship the products, the delivery can take up to three days, depending on your location. "
     },
     "lead": "Shipping Options",
     "line1": "We offer two shipping options to choose from.", 
@@ -189,7 +189,7 @@
       "p4": "This option is also suitable when you want to send a package to your family or friends as a gift. ",
       "p5": "Registered customers are eligible for a free ",
       "p5-2": " where we will enclose a lovely card with a message of your choice printed.",
-      "card": "Custom Card Service"
+      "card": "Send a Gift Service"
     },
     "compact": {
       "p1": "100g jars only.",
@@ -365,6 +365,33 @@
       "btn": "delete",
       "line1": "Once you deleted your account, your address details will be removed and you will no longer have access to your order history.",
       "line2": "Are you sure you want to delete your account?"
+    }
+  },
+
+  "gift": {
+    "title": "A charming gift idea",
+    "description": "Send aya & co.'s little black jars as gifts by post that will fill your loved ones with joy. Whether it's a birthday gift or something to say 'thank you', you can order a card with the appropriate message and your name on it.<br class='lg'>This service is available free of charge to all registered customers.",
+    "message": {
+      "title": "Select a message",
+      "line1": "You can select which message to print on your card from:",
+      "message1": "Thank You", 
+      "message2": "Happy Spring / Summer / Autumn / Winter",
+      "message3": "Happy Birthday",
+      "message4": "Take Care",
+      "message5": "Get Well Soon",
+      "message6": "With Love",
+      "line2": "We will design and print your choice of message on a white-based postcard. Information about aya & co. will be printed on the backside.",
+      "line3": "If you would like us to print any other message, there is a space for you to leave us a note while you place an order."
+    },
+    "name": {
+      "title": "Print your name on the card",
+      "line1": "We are happy to print your name on the card so that it will be personalised. You can select how to print your name: either your full name or first name only."
+    },
+    "order": {
+      "title": "How to order",
+      "line1": "Send a Gift service is available to all registered customers free of charge. Please make sure to select 'TA-Q-BIN' or 'TA-Q-BIN (larger size)' as the delivery method when you order this service, as 'TA-Q-BIN Compact' is too small to enclose a card. ",
+      "line2": " and proceed to checkout while you are logged in. You can select a message card to send once you have selected 'TA-Q-BIN' or 'TA-Q-BIN (larger size)'.",
+      "line3": "Please contact us by LINE or Instagram if you have any questions about our Send a Gift service."
     }
   },
 
