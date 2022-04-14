@@ -217,7 +217,7 @@ export default new Vuex.Store({
         if(state.user !== null){
             if(state.user.lang == 'en'){
                 state.lang = true
-                state.language.englishSnackbar = true
+                // state.language.englishSnackbar = true
             }else{
                 state.lang = false
             }

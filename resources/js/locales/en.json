@@ -5,7 +5,7 @@
     "sustainability": "Sustainable Packaging",
     "products": "Products List",
     "delivery": "Shipping & Postage", 
-    "card": "Send a Gift",
+    "card": "Sending a Gift",
     "member": "Members Only",
     "summary": "Order Summary",
     "profile": "Account Details",
@@ -61,7 +61,7 @@
   "lead": "Join us today and make most of our services for valued members, including: ",
   "benefit1": "Get discount coupons for your purchases.",
   "benefit2": "Receive updates on our new products.",
-  "benefit3": "Enjoy members-only offers such as custom card service",
+  "benefit3": "Enjoy members-only offers such as gift sending service",
   "benefit4": "Smoother checkout process",
   "benefit5": "Check your order summary and shipment date",
   "message": "You already have an account with us and are logged in."
@@ -121,8 +121,8 @@
       "line2a": "Check ",
       "line2b": "Shipping & Postage ",
       "line2c": "in advance. Your shopping experience will become simple and easy. ",
-      "line3a": "Become a member and you will be eligible for our popular ", 
-      "line3b": " Custom Card Service",
+      "line3a": "Become a member and you will be eligible for our ", 
+      "line3b": " Gift Sending Service",
       "line3c": " free of charge.",
       "line4": "Your order will be delivered directly to your doorstep!"
   },
@@ -189,7 +189,7 @@
       "p4": "This option is also suitable when you want to send a package to your family or friends as a gift. ",
       "p5": "Registered customers are eligible for a free ",
       "p5-2": " where we will enclose a lovely card with a message of your choice printed.",
-      "card": "Send a Gift Service"
+      "card": "Gift Sending Service"
     },
     "compact": {
       "p1": "100g jars only.",
@@ -280,9 +280,9 @@
   },
 
   "customcard": {
-    "lead": "Custom Card Service",
+    "lead": "Gift Sending Service",
     "line1": "Options will be shown once you have chosen a shipping method.",
-    "line2": "Custom Card Service is not availavle for Yamato TA-Q-Bin Compact.",
+    "line2": "Gift Sending Service is not availavle for Yamato TA-Q-Bin Compact.",
     "line3": "Would you like us to enclose a custom card in the package？",
     "line4": "If no, we will enclose a Thank you card. ",
     "line5": "Select which message to print on the card.",
@@ -389,9 +389,9 @@
     },
     "order": {
       "title": "How to order",
-      "line1": "Send a Gift service is available to all registered customers free of charge. Please make sure to select 'TA-Q-BIN' or 'TA-Q-BIN (larger size)' as the delivery method when you order this service, as 'TA-Q-BIN Compact' is too small to enclose a card. ",
+      "line1": "Gift sending service is available to all registered customers free of charge. Please make sure to select 'TA-Q-BIN' or 'TA-Q-BIN (larger size)' as the delivery method when you order this service, as 'TA-Q-BIN Compact' is too small to enclose a card. ",
       "line2": " and proceed to checkout while you are logged in. You can select a message card to send once you have selected 'TA-Q-BIN' or 'TA-Q-BIN (larger size)'.",
-      "line3": "Please contact us by LINE or Instagram if you have any questions about our Send a Gift service."
+      "line3": "Please contact us by LINE or Instagram if you have any questions about our gift sending service."
     }
   },
 
