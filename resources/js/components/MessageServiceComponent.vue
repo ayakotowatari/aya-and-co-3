@@ -9,10 +9,10 @@
           <v-col cols="12" sm="12" md="12">
               <div class="heading-group">
                   <div class="page-heading">
-                    Sending a Gift Service
+                    Sending a Gift 
                   </div>
                   <div class="page-subtitle grey--text text--darken-3">
-                    選べるメッセージカードサービス
+                    ギフトサービス
                   </div>
               </div>
           </v-col>
@@ -37,8 +37,7 @@
                   あるいは、もうすぐ誕生日を迎えるご家族やご友人のことを想っていたり、<br class="lg">
                   感謝の気持ちを誰かに伝えたくて、マーマレードを選んでいただくのかもしれません。<br class="lg">
                   自分にとって大切な人に愛情を贈ろうとされている方もいらっしゃると思います。<br> -->
-              <p class="description">
-                  {{ $t('gift.description') }}
+              <p v-html="$t('gift.description')" class="description">
               </p>
               <div class="divider-image pine-image balloon-image">
                     <v-img
@@ -89,11 +88,9 @@
                                 <div class="mb-2">
                                     {{ $t('gift.message.message4') }}
                                 </div>
-                                <div class="mb-2">
-                                    {{ $t('gift.message.message5') }}
+                                <div v-html="$t('gift.message.message5')" class="mb-2">
                                 </div>
-                                <div class="mb-2">
-                                    {{ $t('gift.message.message6') }}
+                                <div v-html="$t('gift.message.message6')" class="mb-2">
                                 </div>
                             </v-col>
                         </v-row>
@@ -103,8 +100,7 @@
                         <p>
                              {{ $t('gift.message.line3') }}
                         </p>
-                        <p>
-                             {{ $t('gift.message.line4') }}
+                        <p v-html="$t('gift.message.line4')">
                         </p>
                     </div>
                 </div>
