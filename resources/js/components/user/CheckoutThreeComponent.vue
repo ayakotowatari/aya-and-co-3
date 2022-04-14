@@ -218,8 +218,8 @@ export default {
     async mounted(){
        
         //this.stripe = await loadStripe(`${process.env.MIX_STRIPE_KEY}`);
-        this.stripe = await loadStripe("pk_live_51J0LDyHqbknAxatFzrgue8qXopbEBy5AYGYJ26oSnK0Wqm4FPP8TrdlpQbPDKljHqmxQrm5xhIi5xkWYOLJsIoHB0040SBgx86");
-        // this.stripe = await loadStripe("pk_test_51J0LDyHqbknAxatFaAwlCUX9kBQ0Pm1y8vxHS7HfavGtjQoUzUcqdlCYHa94F5JZXhZKIiOVfXknzPHey45W9DR600Zv4O4onO");
+        // this.stripe = await loadStripe("pk_live_51J0LDyHqbknAxatFzrgue8qXopbEBy5AYGYJ26oSnK0Wqm4FPP8TrdlpQbPDKljHqmxQrm5xhIi5xkWYOLJsIoHB0040SBgx86");
+        this.stripe = await loadStripe("pk_test_51J0LDyHqbknAxatFaAwlCUX9kBQ0Pm1y8vxHS7HfavGtjQoUzUcqdlCYHa94F5JZXhZKIiOVfXknzPHey45W9DR600Zv4O4onO");
         // // const stripe = Stripe("pk_test_51J0LDyHqbknAxatFaAwlCUX9kBQ0Pm1y8vxHS7HfavGtjQoUzUcqdlCYHa94F5JZXhZKIiOVfXknzPHey45W9DR600Zv4O4onO");
         
         const elements = this.stripe.elements();
@@ -457,15 +457,18 @@ export default {
                 //console.log(error);
 
                 this.errors = error.response.data.errors;
-                console.log('errors', this.errors)
-                this.errorMessage = error.response.data.message;
+                // console.log('errors', this.errors)
 
                 if(this.errors){
                     // this.message = this.errors.message;
                     // this.$store.commit('setSoldOutMessage', this.message);
                     this.$store.commit('setDialogSoldout', true);
                 }else{
-                    this.message = this.errorMessage;
+                    if(this.$i18n.locale == 'ja'){
+                        this.message = error.response.data.message;
+                    }else{
+                        this.message = error.response.data.message_en;
+                    }
                     this.$store.commit('setCheckoutErrorMessage', this.message);
                     this.$store.commit('setCheckoutSnackbar', true);
                 }

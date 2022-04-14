@@ -272,32 +272,40 @@ class GuestsController extends Controller
         }catch(\Stripe\Exception\CardException $e){
 
             $error = "入力いただいたカードではお支払いいただけませんでした。再度お試しいただくか、別のカードをお試しください.";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "The credit card was declined. Please try again or use another card.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
     
         }catch (\Stripe\Exception\RateLimitException $e){
             $error = "APIエラーです。再度お試しください。";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "An error occured. Please try again.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
             
         }catch (\Stripe\Exception\InvalidRequestException $e){
             $error = "パラメーターが無効です";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "An error occured. Please try again.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
             
         }catch (\Stripe\Exception\AuthenticationException $e){
             $error = "認証に失敗しました";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "An error occured. Please try again.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
             
         }catch (\Stripe\Exception\ApiConnectionException $e){
             $error = "通信エラーが発生しました";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "A network communication error occured. Please try again.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
             
         }catch (\Stripe\Exception\ApiErrorExceptio $e){
             $error = "エラーが発生しました";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "An error occured. Please try again.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
             
         }catch (\Exception $e){
             $error = "エラーが発生しました。";
-            return response() ->json(['message' => $error], 500);
+            $error_en = "An error occured. Please try again.";
+            return response() ->json(['message' => $error, 'message_en' => $error_en], 500);
         }
+    
 
         // }catch (\Exception $e){
         //     return response() ->json(['message' => $e->getMessage()], 500);

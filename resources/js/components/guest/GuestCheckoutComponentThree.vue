@@ -415,15 +415,18 @@ export default {
                 this.loading = false;
 
                 this.errors = error.response.data.errors;
-                console.log('errors', this.errors)
-                this.errorMessage = error.response.data.message;
+                // console.log('errors', this.errors)
 
                 if(this.errors){
                     // this.message = this.errors.message;
                     // this.$store.commit('setSoldOutMessage', this.message);
                     this.$store.commit('setDialogGuestSoldout', true);
                 }else{
-                    this.message = this.errorMessage;
+                    if(this.$i18n.locale == 'ja'){
+                        this.message = error.response.data.message;
+                    }else{
+                        this.message = error.response.data.message_en;
+                    }
                     this.$store.commit('setCheckoutErrorMessage', this.message);
                     this.$store.commit('setCheckoutSnackbar', true);
                 }

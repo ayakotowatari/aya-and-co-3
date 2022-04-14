@@ -11,6 +11,7 @@ class Coupon extends Model
 
     protected $appends = [
         'coupon_info',
+        'coupon_info_en',
         'target_name',
     ];
 
@@ -22,6 +23,18 @@ class Coupon extends Model
             return '商品のお買い上げ金額の'.$this->percent_off.'%引き';
         }else{
             return '送料が無料';
+        }
+
+    }
+
+    public function getCouponInfoEnAttribute()
+    {
+        if($this->type == 'fixed'){
+            return '¥'.$this->value.'off from the product(s)';
+        }else if($this->type == 'percent'){
+            return $this->percent_off.'% off from the product(s)';
+        }else{
+            return 'Free shipping';
         }
 
     }

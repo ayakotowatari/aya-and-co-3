@@ -9,7 +9,7 @@
           <v-col cols="12" sm="12" md="12">
               <div class="heading-group">
                   <div class="page-heading">
-                    Custum Card Service
+                    Sending a Gift Service
                   </div>
                   <div class="page-subtitle grey--text text--darken-3">
                     選べるメッセージカードサービス
@@ -27,7 +27,7 @@
       </p>    -->
       <v-row>
           <v-col cols="12" sm="12" md="4">
-              <p class="item-title">マーマレードに気持ちを添えて</p>
+              <p class="item-title">{{ $t('gift.title') }}</p>
           </v-col>
           <v-col cols="12" sm="12" md="8">
               <!-- <p class="description">
@@ -38,9 +38,7 @@
                   感謝の気持ちを誰かに伝えたくて、マーマレードを選んでいただくのかもしれません。<br class="lg">
                   自分にとって大切な人に愛情を贈ろうとされている方もいらっしゃると思います。<br> -->
               <p class="description">
-                  aya & co.では、ご家族やご友人などへのギフトとして商品を購入される場合に、特製カードを同封するサービスを無料で提供しています。<br class="lg">
-                  カードの差出人としてお客様のお名前を印字することも可能です。ぜひご利用ください。<br class="lg">
-                  会員登録をしていただき、配送オプションとして「ヤマト運輸宅急便」もしくは「宅急便（プラスサイズ）」をお選びいただいたお客様のみご利用いただけます。
+                  {{ $t('gift.description') }}
               </p>
               <div class="divider-image pine-image balloon-image">
                     <v-img
@@ -58,10 +56,10 @@
               </div> -->
               <div class="mb-8">
                     <div class="item-content policy-title mb-4">
-                        選べるメッセージ
+                        {{ $t('gift.message.title') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
-                        <p class="mb-4">現在、メッセージは、以下のなかからお選びいただけます。</p>
+                        <p class="mb-4">{{ $t('gift.message.line1') }}</p>
                         <v-row class="mb-4">
                             <v-col cols="12" sm="12" md="1" class="hidden-sm-and-down">
 
@@ -80,33 +78,33 @@
                                     Season's Greetings（年末年始の季節のご挨拶）
                                 </p> -->
                                 <div class="mb-2">
-                                    Thank You（ありがとう）
+                                    {{ $t('gift.message.message1') }}
                                 </div>
                                 <div class="mb-2">
-                                    Happy Spring（季節の挨拶）
+                                    {{ $t('gift.message.message2') }}
                                 </div>
                                 <div class="mb-2">
-                                    Happy Birthday（お誕生日おめでとう)
+                                    {{ $t('gift.message.message3') }}
                                 </div>
                                 <div class="mb-2">
-                                    Take Care（お身体にお気をつけて)
+                                    {{ $t('gift.message.message4') }}
                                 </div>
                                 <div class="mb-2">
-                                    Get Well Soon（早く元気になリますように）<span class="font-14">*病気などからの回復期に使われます。</span>
+                                    {{ $t('gift.message.message5') }}
                                 </div>
                                 <div class="mb-2">
-                                    With Love（愛を込めて）<span class="font-14">*ご家族やご親友に親愛の情を示す時にも使われます。</span>
+                                    {{ $t('gift.message.message6') }}
                                 </div>
                             </v-col>
                         </v-row>
                         <p>
-                            括弧内の日本語訳は印字されず、英字のみとなります。また、白地のポストカードタイプの用紙を使用しており、裏面には、aya & co.のご案内がプリントされています。<br>
+                            {{ $t('gift.message.line2') }}
                         </p>
                         <p>
-                            ご自宅用にご注文いただいた場合も、ご自身へのメッセージとしてお選びいただけます。
+                             {{ $t('gift.message.line3') }}
                         </p>
                         <p>
-                            メッセージの種類は随時増やしていく予定です。もし「こんなメッセージのカードがあれば」というご要望がありましたら、<a href="https://lin.ee/1RJJ9C3" target="_blank" rel="noopener noreferrer">LINE公式アカウント</a>からのご希望をお受付けしております。
+                             {{ $t('gift.message.line4') }}
                         </p>
                     </div>
                 </div>
@@ -119,19 +117,17 @@
 
                 <div class="mb-8">
                     <div class="item-content line-height policy-title mb-4">
-                        カスタムプリントされるお名前
+                        {{ $t('gift.name.title') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
                         <p>
-                            ご自宅以外の宛先にギフトとしてお贈りされる場合は、お客様のお名前をカードの差出人として英字で印字いたしますので、パーソナライズされたカードをお贈りいただけます。
-                            以下の2種類のなかから、表記をお選びいただけます。
+                            {{ $t('gift.name.line1') }}
                         </p>
                         <p>
-                            姓・名両方を表記（例：Haruka Kikuchi)<br>
-                            下のお名前のみを表記（例：Haruka）<br>
+                            {{ $t('gift.name.line2') }}
                         </p>
                         <p>
-                            お名前は、ご登録いただいた「フリガナ」をもとに印字いたしますので、「フリガナ」の記載に間違いのないようご確認ください。
+                            {{ $t('gift.name.line3') }}
                         </p>
                     </div>
                 </div>
@@ -144,18 +140,17 @@
 
                 <div class="mb-8">
                     <div class="item-content policy-title mb-4">
-                        ご利用条件とお申し込み方法
+                        {{ $t('gift.order.title') }}
                     </div>
                     <div class="item-title line-height grey--text text--darken-3">
                         <p>
-                            選べるメッセージカードサービスは、会員登録をしていただいたお客様で、「ヤマト運輸宅急便」、もしくは「宅急便（プラスサイズ）」での配送を選択された方に限り、ご利用いただけます。
+                            {{ $t('gift.order.line1') }}
                         </p>
                         <p>
-                            <router-link to="/guest/register">会員登録</router-link>をしていただいてから、ログインした状態でご注文のお手続きへお進みください。
-                            ご注文の際に、「ヤマト運輸宅急便」、もしくは「宅急便（プラスサイズ）」をお選びいただくと、メッセージカードのご利用をお申し込みいただけます。
+                            <router-link v-if="$i18n.locale == 'ja'" to="/guest/register">会員登録</router-link><router-link v-else to="/guest/register">Register as a member</router-link>{{ $t('gift.order.line2') }}
                         </p>
                         <p class="mb-6">
-                            選べるメッセージカードサービスについて、ご質問・ご相談のある方は、ご遠慮なくお問い合わせください。
+                            {{ $t('gift.order.line3') }}
                         </p>
                         <div>
                             <v-btn
@@ -164,7 +159,7 @@
                                 outlined
                                 color="primary"
                             >
-                            LINEに友だち追加する
+                            {{$t('product.line.line')}}
                             </v-btn>
                         </div>
                     </div>

@@ -134,7 +134,7 @@
                                     {{user.name}}様に、クーポンが発行されています。
                                  </p>
                                  <p v-else>
-                                    Dear {{user.name}}, Don't forget to check your coupon!
+                                    Dear {{user.name}}, don't forget to check your coupon!
                                  </p>
                                  <v-btn
                                     color="primary"

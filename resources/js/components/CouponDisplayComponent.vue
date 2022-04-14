@@ -8,24 +8,30 @@
                 >
                     mdi-ticket
                 </v-icon>  
-                クーポンが発行されました。
+                {{ $t('coupon.title') }}
             </v-card-title>
-            <v-card-text class="jp-font-400">
+            <v-card-text v-if="$i18n.locale == 'ja'" class="jp-font-400">
                  {{user.name}}様への感謝の気持ちを込めまして、本サイトでのお買い物の際にお使いいただけるクーポンを発行いたしました。
             </v-card-text>
-            <v-card-text class="jp-font-400">
-                クーポンコード: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
-                有効期限： <strong>{{formattedDate(ifCoupon.deadline)}}</strong><br>
-                内容： <strong>{{ifCoupon.coupon_info}}</strong> 
+            <v-card-text v-else class="jp-font-400">
+                 Dear {{user.name}},<br>Please don't forget to redeem your coupon on your next purchase.
             </v-card-text>
             <v-card-text class="jp-font-400">
+                {{ $t('coupon.code') }}: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
+                {{ $t('coupon.deadline') }}: <strong>{{formattedDate(ifCoupon.deadline)}}</strong><br>
+                {{ $t('coupon.content') }}: <strong v-if="$i18n.locale == 'ja'">{{ifCoupon.coupon_info}}</strong><strong v-else>{{ifCoupon.coupon_info_en}}</strong>  
+            </v-card-text>
+            <v-card-text v-if="$i18n.locale == 'ja'" class="jp-font-400">
                 商品のお買い上げ金額の合計が<strong>{{formatPrice(1000)}}以上</strong>でお使いいただけます。ぜひ期限までにご利用ください。
+            </v-card-text>
+            <v-card-text v-else class="jp-font-400">
+                You can redeem your coupon when you spend <strong>{{formatPrice(1000)}}</strong> or more on purchasing our items. 
             </v-card-text>
             <!-- <v-card-text class="jp-font-400">
                 クーポンの有効期限: <strong>{{couponDeadline}}</strong>
             </v-card-text> -->
              <v-card-text class="jp-font-400">
-                クーポンのご利用方法については、ご注文内容の確認画面で詳しくご案内します。
+                {{ $t('coupon.message') }}
             </v-card-text>
         </v-card>
     </div>
@@ -67,7 +73,13 @@ export default {
           return price.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
         },
         formattedDate(value){
-            return moment(value).format('YYYY年M月D日')
+
+            if(this.$i18n.locale == 'ja'){
+                return moment(value).format('YYYY年M月D日')
+            }else{
+                return moment(value).format('Do MMMM YYYY')
+            }
+            
         }
 
     }

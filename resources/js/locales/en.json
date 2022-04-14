@@ -300,11 +300,26 @@
   },
 
   "coupon": {
+    "title": "Redeem your coupon",
+    "code": "Coupon code",
+    "deadline": "Deadline",
+    "content": "What is your coupon?",
+    "message": "You can check your coupon code when you checkout.",
     "discount": "Discount",
     "check": "Check coupon",
     "label": "Enter coupon code",
     "apply": "Apply coupon",
-    "remove": "delete & reset"
+    "remove": "delete & reset",
+    "manual": {
+      "title": "How to redeem your coupon",
+      "line1": "Press 'copy code' below and paste it on 'enter coupon code' box, then apply. ",
+      "line2": "Alternatively,",
+      "line3": "You can manually enter code on the box and apply."
+    },
+    "btn": {
+      "copy": "copy code",
+      "ignore": "back"
+    }
   },
 
   "summary": {
