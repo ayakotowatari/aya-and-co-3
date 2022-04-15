@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;	//追記
 use App\Notifications\OrderNotify;
 use App\Notifications\OrderNotifyEng;
 use App\Notifications\PasswordResetNotification;
+use App\Notifications\PasswordResetEnNotification;
 
 class User extends Authenticatable
 {
@@ -82,7 +83,17 @@ class User extends Authenticatable
     //new password reset notification
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new PasswordResetNotification($token));
+        $lang = app()->getLocale();
+
+        // DD($locale);
+
+        if($lang === 'ja'){
+            $this->notify(new PasswordResetNotification($token, $lang));
+        }else{
+            $this->notify(new PasswordResetEnNotification($token, $lang));
+        }
+        
+        
     }
 
     public function coupons(){

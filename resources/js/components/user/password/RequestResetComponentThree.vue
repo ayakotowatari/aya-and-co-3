@@ -115,10 +115,6 @@ export default {
         return {
             valid: true,
             email: '',
-            emailRules: [
-                (v) => !!v || 'メールアドレスを入力してください。',
-                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'メールアドレスが正しく入力されていません。'
-            ],
         }
     },
     mounted(){
@@ -148,7 +144,13 @@ export default {
             if(this.$i18n.locale == 'en'){
                 return 'en-btn-mb'
             }
-        }
+        },
+        emailRules() {
+            return [
+                (v) => !!v || this.$t('register.email_rule'),
+                (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t('register.email_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([

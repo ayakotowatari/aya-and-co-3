@@ -123,6 +123,12 @@ td.align-right{
                 代表　上田文子 宛
             </p>
         </div>
+        <div class="mb20">
+            <p>
+                ウェブサイト:<br>
+                <a href="https://www.ayaandco.com" class="mail-link" target="_blank">https://www.ayaandco.com</a> 
+            </p>
+        </div>
         <!-- <table>
             <tr class="item-table">
                 <td class="pr20">メールアドレス</td>

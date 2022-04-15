@@ -22,6 +22,7 @@
         <resetform-component
             v-bind:token="{{ json_encode($token) }}"
             v-bind:email="{{ json_encode($email) }}"
+            v-bind:lang="{{ json_encode($lang) }}"
         ></resetform-component>
     </div>
 <script src="{{ asset('js/app.js') }}" defer></script>

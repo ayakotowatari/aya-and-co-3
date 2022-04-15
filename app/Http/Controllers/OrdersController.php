@@ -760,6 +760,10 @@ class OrdersController extends Controller
     {
         // $pdf = PDF::loadHTML('<h1>こんにちは</h1>');
 
+        $order = Order::find($id);
+
+        $lang = $order->user->lang;
+
         // return $pdf->download('領収書.pdf');
         $user = Order::join('users', 'users.id', '=', 'orders.user_id')
                     ->where('orders.id', $id)
@@ -791,22 +795,48 @@ class OrdersController extends Controller
                     )
                     ->get();
 
-        $pdf = PDF::loadView('pdf/receipt', [
+        if($lang == 'ja'){
+            $pdf = PDF::loadView('pdf/receipt', [
 
-            'user' => $user,
-            'orders' => $orders,
+                'user' => $user,
+                'orders' => $orders,
+    
+            ]);
+    
+            $date = \Carbon\Carbon::now()->format("Ymj");
+    
+            //DD($pdf);
+    
+            //return $pdf->stream();
+    
+            /*   ダウンロードさせる場合はこっちを記載する。
+            *    画面遷移は起こらずダウンロードが開始する
+            // */      
+            
+            return $pdf->download('納品書兼領収書_'.$user->name.'様_'.$date.'.pdf');
 
-        ]);
+        }else{
+            $pdf = PDF::loadView('pdf/receipt_en', [
 
-        $date = \Carbon\Carbon::now()->format("Ymj");
-
-        //DD($pdf);
-
-        //return $pdf->stream();
-
-        /*   ダウンロードさせる場合はこっちを記載する。
-*    画面遷移は起こらずダウンロードが開始する
-// */      return $pdf->download('納品書兼領収書_'.$user->name.'様_'.$date.'.pdf');
+                'user' => $user,
+                'orders' => $orders,
+    
+            ]);
+    
+            $date = \Carbon\Carbon::now()->format("d/m/Y");
+    
+            //DD($pdf);
+    
+            //return $pdf->stream();
+    
+            /*   ダウンロードさせる場合はこっちを記載する。
+            *    画面遷移は起こらずダウンロードが開始する
+            // */      
+            
+            return $pdf->download('YourReceipt_'.$user->name.'_'.$date.'.pdf');
+        }
+       
+       
 
     }
 

@@ -30,10 +30,22 @@
                 </div>
                 <div>
                 <v-btn
+                    v-if="$i18n.locale == 'ja'"
                     href = "https://lin.ee/1RJJ9C3"
                     target="_blank"
                     outlined
                     color="primary"
+                    class="mr-2 mb-2"
+                >
+                    {{$t('product.line.line')}}
+                </v-btn>
+                <v-btn
+                    v-else
+                    href = "https://lin.ee/4xyKS07"
+                    target="_blank"
+                    outlined
+                    color="primary"
+                    class="mr-2 mb-2"
                 >
                     {{$t('product.line.line')}}
                 </v-btn>

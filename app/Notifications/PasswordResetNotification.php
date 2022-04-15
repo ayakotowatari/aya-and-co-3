@@ -21,14 +21,14 @@ class PasswordResetNotification extends ResetPassword
     public function toMail($notifiable)
     {
         if (static::$toMailCallback) {
-            return call_user_func(static::$toMailCallback, $notifiable, $this->token);
+            return call_user_func(static::$toMailCallback, $notifiable, $this->token, $this->lang);
         }
 
         return (new MailMessage)
             ->from(config('mail.from.address'))
             ->subject('パスワードリセットのお知らせ')
             ->view('auth.passwords.password_reset', [
-                'reset_url' => url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false))
+                'reset_url' => url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset(), 'lang' => $this->lang], false))
             ]);
 
         // return (new MailMessage)

@@ -37,7 +37,7 @@ class ResetPasswordController extends Controller
         // );
 
         return view('auth.passwords.reset_vue')->with(
-            ['token' => $token, 'email' => $request->email]
+            ['token' => $token, 'email' => $request->email, 'lang' => $request->lang]
         );
 
         // return response()->json(['token' => $token, 'email' => $request->email], 200);   

@@ -37,13 +37,13 @@
                                         <v-col cols="12" sm="12" md="12">
                                             <v-text-field
                                                 :value="email"
-                                                label="メールアドレス" 
+                                                :label="title_email" 
                                                 outlined
                                                 readonly
                                             ></v-text-field>
                                             <v-text-field 
                                                 v-model="password"
-                                                label="新しいパスワード" 
+                                                :label="newpassword" 
                                                 outlined
                                                 required
                                                 :rules="passwordRules" 
@@ -52,7 +52,7 @@
                                             ></v-text-field>
                                             <v-text-field 
                                                 v-model="password_confirmation"
-                                                label="新しいパスワードの確認" 
+                                                :label="confirm_newpassword" 
                                                 outlined
                                                 required
                                                 :rules="confirmPasswordRules" 
@@ -69,7 +69,7 @@
                                                 :loading="loading"
                                                 :disabled="disableInputPassword"
                                             >
-                                                パスワードをリセットする
+                                                <span v-if="lang == 'ja'">パスワードをリセットする</span><span v-else>Reset Password</span>
                                             </v-btn>
                                             <!-- <v-btn text color="primary" class="pa-0" @click.stop="toLogin()">ログインする</v-btn> -->
                                         </v-col>
@@ -91,22 +91,14 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    props: ['email', 'token'],
+    props: ['email', 'token', 'lang'],
     data: function(){
         return {
             valid: true,
             // token: '',
             // email: '',
             password: '',
-            passwordRules: [
-                (v) => !!v || 'パスワードを入力してください。',
-                (v) => v.length >= 8 || 'パスワードは8文字以上です。'
-            ],
-            password_confirmation: '',
-            confirmPasswordRules: [
-                (v) => !!v || '確認のためパスワードを入力してください。',
-                (v) => v == this.password || 'パスワードが一致しません。'
-            ],      
+            password_confirmation: '', 
         }
     },
     mounted(){
@@ -132,6 +124,39 @@ export default {
             'passwordResetSnackbar',
             // 'user',
         ]),
+        title_email(){
+            if(this.lang == 'ja'){
+                return 'メールアドレス';
+            }else{
+                return 'Email';
+            }
+        },
+        newpassword(){
+            if(this.lang == 'ja'){
+                return '新しいパスワード';
+            }else{
+                return 'New Password';
+            }
+        },
+        confirm_newpassword(){
+            if(this.lang == 'ja'){
+                return '新しいパスワードを確認する';
+            }else{
+                return 'Confirm New Password';
+            }
+        },
+         passwordRules(){
+            return[
+                (v) => !!v || this.$t('register.password_rule'),
+                (v) => v.length >= 8 || this.$t('register.password_rule2')
+            ];
+        },
+        confirmPasswordRules(){
+            return[
+                (v) => !!v || this.$t('register.confirmPassword_rule'),
+                (v) => v == this.password || this.$t('register.confirmPassword_rule2')
+            ];
+        },
     },
     methods: {
         ...mapActions([

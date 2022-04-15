@@ -214,7 +214,7 @@ td.align-right{
         </div>
         <div class="mb20">
             <p> 
-                <a href="https://lin.ee/1RJJ9C3" class="mail-link" target="_blank">LINE official account</a>
+                <a href="https://lin.ee/4xyKS07" class="mail-link" target="_blank">LINE official account</a>
             </p>
         </div>
     </div>
