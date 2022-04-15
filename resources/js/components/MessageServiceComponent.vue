@@ -162,9 +162,19 @@
                                 target="_blank"
                                 outlined
                                 color="primary"
-                                class="mr-2 mb-2"
+                                class="mb-2"
                             >
                                 {{$t('product.line.line')}}
+                            </v-btn>
+                            <v-btn
+                                v-if="$i18n.locale == 'en'"
+                                href="https://facebook.com/ayaandco.jp/"
+                                target="_blank"
+                                outlined
+                                color="primary"
+                                class="mb-2"
+                            >
+                                {{$t('product.line.facebook')}}
                             </v-btn>
                             <v-btn
                                 href="https://www.instagram.com/ayaandco.jp/"

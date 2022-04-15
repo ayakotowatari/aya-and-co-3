@@ -150,9 +150,10 @@
     "remove": "Are you sure you want to remove this item?",
     "inventory": "In stock",
     "line": {
-      "lead": "Follow us on our LINE account in English and/or Instagram. We will keep you updated on our products!",
-      "line": "Add LINE",
-      "instagram": "Follow Instagram"
+      "lead": "Follow us on our LINE or Facebook account dedicated to English speaking customers and/or Instagram. We will keep you updated on our products!",
+      "line": "LINE",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
     },
     "soldout": "Miss You 150g is sold out and currently out of stock. Stay connected with us on <a href='https://lin.ee/4xyKS07' target='_blank' rel='noopener noreferrer'>LINE</a> or <a href='https://www.instagram.com/ayaandco.jp/' target='_blank' rel='noopener noreferrer'>Instagram</a> so that we can let you know if it is back in stock.",
     "current": {
@@ -391,7 +392,7 @@
       "title": "How to order",
       "line1": "Gift sending service is available to all registered customers free of charge. Please make sure to select 'TA-Q-BIN' or 'TA-Q-BIN (larger size)' as the delivery method when you order this service, as 'TA-Q-BIN Compact' is too small to enclose a card. ",
       "line2": " and proceed to checkout while you are logged in. You can select a message card to send once you have selected 'TA-Q-BIN' or 'TA-Q-BIN (larger size)'.",
-      "line3": "Please contact us by LINE or Instagram if you have any questions about our gift sending service."
+      "line3": "Please contact us by our official LINE or Facebook accounts dedicated to English speaking customers or Instagram if you have any questions about our gift sending service."
     }
   },
 
@@ -533,7 +534,7 @@
 
   "contact": {
     "google": "Please contact us through <a href='https://forms.gle/kSJ8nj9ennqwvvai8' target='_blank' rel='noopener noreferrer'>this form</a> if you have any questions about our products or ourselves.",
-    "line": "You can also reach us by adding our English LINE account as your friend and sending us a direct message, or messaging us through Instagram."
+    "line": "You can also reach us by adding our official LINE or Facebook accounts dedicated to English speaking customers or messaging us through Instagram."
   }
 
  
