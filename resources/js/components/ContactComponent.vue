@@ -49,6 +49,15 @@
                 >
                     {{$t('product.line.line')}}
                 </v-btn>
+                <v-btn
+                        href="https://www.instagram.com/ayaandco.jp/"
+                        target="_blank"
+                        outlined
+                        color="primary"
+                        class="mb-2"
+                    >
+                      {{$t('product.line.instagram')}}
+                    </v-btn>
                 </div>
             </v-col>
         </v-row>

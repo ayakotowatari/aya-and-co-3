@@ -150,7 +150,7 @@
     "remove": "Are you sure you want to remove this item?",
     "inventory": "In stock",
     "line": {
-      "lead": "Follow us on LINE and/or Instagram. We will keep you updated on our products!",
+      "lead": "Follow us on our LINE account in English and/or Instagram. We will keep you updated on our products!",
       "line": "Add LINE",
       "instagram": "Follow Instagram"
     },
@@ -461,7 +461,7 @@
   },
 
   "about": {
-    "contact": "Please contact by this <a href='https://forms.gle/kSJ8nj9ennqwvvai8' target='_blank' rel='noopener noreferrer'>enquiry form</a> or adding my <a href='https://lin.ee/4xyKS07' target='_blank' rel='noopener noreferrer'>official LINE account</a>."
+    "contact": "Please contact by this <a href='https://forms.gle/kSJ8nj9ennqwvvai8' target='_blank' rel='noopener noreferrer'>enquiry form</a> or adding my <a href='https://lin.ee/4xyKS07' target='_blank' rel='noopener noreferrer'>official English LINE account</a>."
   },
 
   "privacy": {
@@ -533,7 +533,7 @@
 
   "contact": {
     "google": "Please contact us through <a href='https://forms.gle/kSJ8nj9ennqwvvai8' target='_blank' rel='noopener noreferrer'>this form</a> if you have any questions about our products or ourselves.",
-    "line": "You can also reach us by adding our LINE account as your friend and sending us a direct message."
+    "line": "You can also reach us by adding our English LINE account as your friend and sending us a direct message, or messaging us through Instagram."
   }
 
  
