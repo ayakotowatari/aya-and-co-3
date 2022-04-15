@@ -2,7 +2,7 @@
     <v-container>
         <div class="key-visual">
             <v-img
-                src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/card_2.jpg"
+                src="https://aya-and-co.s3.ap-northeast-1.amazonaws.com/happy_spring.png"
             ></v-img>
         </div>
         <v-row>

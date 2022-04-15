@@ -12,6 +12,7 @@ use App\Notifications\OrderNotify;
 use App\Notifications\OrderNotifyEng;
 use App\Notifications\PasswordResetNotification;
 use App\Notifications\PasswordResetEnNotification;
+use Config;
 
 class User extends Authenticatable
 {
@@ -83,7 +84,13 @@ class User extends Authenticatable
     //new password reset notification
     public function sendPasswordResetNotification($token)
     {
-        $lang = app()->getLocale();
+        $locale = app()->getLocale();
+
+        if(isset($locale)){
+            $lang = $locale;
+        }else{
+            $lang = Config::get('app.fallback_locale');
+        }
 
         // DD($locale);
 

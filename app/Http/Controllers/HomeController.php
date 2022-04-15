@@ -11,6 +11,7 @@ use Session;
 use App;
 use Redirect;
 use Lang;
+use Config;
 
 class HomeController extends Controller
 {
