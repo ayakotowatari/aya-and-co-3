@@ -138,7 +138,7 @@
                     </div>
                     <div class="jobtitle mb-8">
                         <p>
-                            Website designed and developed by Ayako Towatari Ueda.<br>
+                            Website designed and developed by Ayako Ueda.<br>
                             Special thanks to Yuka Fujisawa for taking lovely photos of the jars. 
                         </p>
                     </div>
