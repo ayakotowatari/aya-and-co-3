@@ -113,6 +113,12 @@ class ProductsController extends Controller
         $products = Product::with('status')->get();
         // DD($products);
 
+        foreach($products as $product){
+            $sales = $product->orders('quantity')->sum('quantity');
+            $product->sales = $sales;
+            $product->update();
+        }
+
         return response() -> json(['products' => $products]);
     }
 

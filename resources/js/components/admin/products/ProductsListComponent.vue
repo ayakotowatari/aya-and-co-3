@@ -107,6 +107,7 @@ export default {
                 { text: '商品名', value: 'name'},
                 { text: 'サイズ', value: 'size'},
                 { text: '在庫数', value : 'inventory'},
+                { text: '販売数', value : 'sales'},
                 { text: '作成日', value: 'created_at'},
                 { text: 'ステータス', value: 'status.status'},
                 { text: '詳細', value: 'actions', sortable: false },
