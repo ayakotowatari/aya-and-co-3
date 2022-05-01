@@ -15,7 +15,7 @@ class AddSalesToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->integer('sales', 11)->nullable()->after('inventory');
+            $table->integer('sales')->nullable()->after('inventory');
         });
     }
 
