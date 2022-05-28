@@ -150,7 +150,7 @@ td.align-right{
 
         <p>
             〒{{$order['delivery_zipcode']}}<br>
-            {{$order["delivery_prefecture"]}}{{$order["delivery_city"]}}{{$order["delivery_address_1"]}}<br>
+            {{$order["delivery_prefecture"]}} {{$order["delivery_city"]}} {{$order["delivery_address_1"]}}<br>
             @if(isset($order["delivery_building"]))
                 {{$order["delivery_building"]}} <br>
             @endif
@@ -168,7 +168,7 @@ td.align-right{
 
         <p>
             〒{{$user -> zipcode}}<br>
-            {{$user -> prefecture}}{{$user -> city}}{{$user -> address_1}}<br>
+            {{$user -> prefecture}} {{$user -> city}} {{$user -> address_1}}<br>
             @if(isset($user -> building))
                 {{$user -> building}}<br>
             @endif
