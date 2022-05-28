@@ -155,6 +155,7 @@ class NewsController extends Controller
         // DD($users);
 
         $users = User::where('unsubscribe', 0)
+                    ->where('lang', 'ja')
                     ->where('life', 1)
                     ->get();
 
