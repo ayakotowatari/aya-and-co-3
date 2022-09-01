@@ -21,7 +21,7 @@
                         </v-btn>
                     </v-toolbar>
                     <v-card-title >
-                        <div class="dialog-title grey--text text--darken-4">{{ $t('coupon.title2') }}</div>
+                        <div class="dialog-title grey--text text--darken-4">{{ $t('coupon.title') }}</div>
                     </v-card-title>
                     <v-card-text class="jp-font-400">
                         {{ $t('coupon.code') }}: <strong class="fontsize18">{{ifCoupon.name}}</strong><br>
