@@ -42,11 +42,11 @@ class CouponsController extends Controller
 
             $first_order = Order::where('orders.user_id', '=', $user_id)->oldest()->first();
 
-            if(empty($first_order)){
+            // if(empty($first_order)){
 
-                return response() ->json(['errors' => ['coupon' => 'このクーポンは、2回目以降のお買い物で使用できます。']], 400);
+                // return response() ->json(['errors' => ['coupon' => 'このクーポンは、2回目以降のお買い物で使用できます。']], 400);
 
-            }else{
+            // }else{
 
                 $redeemed = $coupon-> users() -> where('user_id', $user_id) ->first();
 
@@ -118,7 +118,7 @@ class CouponsController extends Controller
     
                 }
 
-            }
+            // }
 
         }
 
