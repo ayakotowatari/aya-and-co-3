@@ -49,9 +49,9 @@
                     </v-timeline>
                 </v-col>
             </v-row>
-            <!-- <div class="mb80">
+            <div class="mb80">
               <campaignbanner-component></campaignbanner-component>
-            </div> -->
+            </div>
         </v-col>
       </v-row>
 
