@@ -128,6 +128,9 @@
                     ></v-select>
                     <v-divider class="mt-4 mb-8"></v-divider>
                     <h4 class="jp-font grey--text text--darken-3 mb24">Step 4: {{$t('checkout.note')}}</h4>
+                    <div>
+                        <div class="grey--text text--darken-2 mb24">{{$t('checkout.wrapping')}}</div>
+                    </div>
                     <v-textarea
                         v-model="deliveryNote"
                         :label="$t('checkout.note')"

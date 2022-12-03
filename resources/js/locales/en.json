@@ -242,6 +242,7 @@
     "deliveryTime_rule": "Preferred delivery is required.",
     "time_options": ["No preference", "8:00-12:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "19:00-21:00"],
     "note": "Message to aya & co.",
+    "wrapping": "During Christmas season, we can enclose simple gift wrapping kits for free of charge. If you would like us to enlose kits, please let us know how many.",
     "no": "No message",
     "confirm_order": "Preview Order",
     "shipping_details": "Shipping Details",
